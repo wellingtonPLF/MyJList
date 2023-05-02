@@ -6,14 +6,17 @@
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#%EF%B8%8F-gerenciamento">Gerenciamento</a>&nbsp;&nbsp;&nbsp;
+</p>
+<p align="center">
   <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-licença">Licença</a>
 </p>
 
 <p align="center">
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=1976d2&labelColor=000000">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=fadd36&labelColor=000000">
 
- <img src="https://img.shields.io/static/v1?label=Project&message=04&color=1976d2&labelColor=000000" alt="Project 04" />
+ <img src="https://img.shields.io/static/v1?label=Project&message=04&color=fadd36&labelColor=000000" alt="Project 04" />
 </p>
 
 <br>
@@ -26,8 +29,14 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
+- [Git](https://git-scm.com/)
 - [Vue](https://vuejs.org/)
-- [JWT](https://jwt.io/)
+- [Jwt](https://jwt.io/)
+- [Vite](https://vitejs.dev/)
+- [Scss](https://sass-lang.com/)
+- [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [Postgres](https://www.postgresql.org/)
+- [Yarn](https://yarnpkg.com/)
 - [Vuex](https://vuex.vuejs.org/ptbr/)
 - [Axios](https://axios-http.com/ptbr/docs/intro)
 - [Django](https://www.djangoproject.com/)
@@ -42,6 +51,10 @@ já está jogando, tornando todo o processo mais organizado para a melhor experi
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através da pasta prototipagem do próprio repositório.
+
+## 🗃️ Gerenciamento
+
+Você pode visualizar o gerenciamento do projeto através do [Trello](https://trello.com/pt-BR).
 
 ## 🚀 Como executar
 
