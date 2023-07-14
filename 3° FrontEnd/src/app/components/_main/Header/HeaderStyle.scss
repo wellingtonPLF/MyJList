@@ -1,0 +1,26 @@
+
+
+#auth {
+    display: flex;
+    height: 100%;
+    color: white;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#auth > div:first-child {
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 10px;
+    width: 170px;
+}
+
+#auth > div:first-child button {
+    width: 70px;
+    background-color: white;
+    border-radius: 20px;
+    height: 30px;
+    cursor: pointer;
+}

@@ -1,1 +1,19 @@
 
+$heightLines: 50px;
+$backColorLines: rgb(10, 86, 185);
+
+header {
+    width: 100vw;
+    height: $heightLines;
+    background-color: $backColorLines;
+}
+
+footer {
+    width: 100vw;
+    height: $heightLines;
+    background-color: $backColorLines;
+}
+
+main {
+    height: calc(100vh - ($heightLines * 2));
+}
