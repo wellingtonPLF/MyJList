@@ -1,11 +1,11 @@
 
 import FooterComponent from "./components/_main/Footer/FooterComponent.vue"
-import HeaderComponent from "./components/_main/Header/HeaderComponent.vue"
+import MaintenanceComponent from "./components/_main/Maintenance/MaintenanceComponent.vue"
 
 export default {
     name: 'App',
     components: {
         FooterComponent,
-        HeaderComponent
+        MaintenanceComponent        
     }
 }

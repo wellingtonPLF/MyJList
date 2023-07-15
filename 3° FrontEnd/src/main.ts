@@ -3,8 +3,17 @@ import App from './app/App.vue'
 import './style.css'
 import router from './app/AppRouter'
 import store from './app/shared/vuex/store'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+import { faGamepad, faHandHoldingHeart, faBuilding, faHeadset, faVideo, faUser, faFileLines, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faYoutube, faTwitter, faFacebookSquare, faTiktok, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 const app = createApp(App);
+
+library.add(faGamepad, faUser, faHandHoldingHeart, faBuilding, faHeadset, faFileLines, faVideo, faUsers)
+library.add(faYoutube, faTwitter, faFacebookSquare, faTiktok, faInstagram)
+app.component('font-awesome-icon', FontAwesomeIcon)
 
 window.Vue = app
 window.Vue.router = router

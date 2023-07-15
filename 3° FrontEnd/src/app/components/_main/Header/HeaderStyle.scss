@@ -1,10 +1,14 @@
-
+header {
+    width: 100vw;
+    height: 50px;
+    background-color: rgb(17, 17, 17, 0.7);
+}
 
 #auth {
     display: flex;
     height: 100%;
     color: white;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
@@ -14,13 +18,20 @@
     justify-content: space-around;
     align-items: center;
     margin-right: 10px;
-    width: 170px;
+    width: 350px;
 }
 
 #auth > div:first-child button {
-    width: 70px;
-    background-color: white;
-    border-radius: 20px;
+    width: 120px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background-color: unset;
+    border: 0px;
     height: 30px;
     cursor: pointer;
+}
+
+#auth > div:first-child div {
+    font-size: 20px;
 }

@@ -1,4 +1,58 @@
-
-<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-    <div>Hello World</div>
+<div id="homePage">
+    <div id="banner">
+        <HeaderComponent />
+        <div>
+            <h1>Your Game List</h1>
+            <div>
+                <h2>
+                    List, Filter, Search. Keep track of all the games you have played, make recommendations, and much more.
+                </h2>
+            </div>
+            <button>try it out</button>
+        </div>
+    </div>
+    <div id="options">
+        <div>
+        <a href="/" class="icon">
+            <font-awesome-icon :icon="['fas', 'gamepad']" />
+        </a>
+        <div>Games</div>
+        </div>
+        <div>
+        <a class="icon">
+            <font-awesome-icon :icon="['fas', 'video']" />
+        </a>
+        <div>Trailers</div>
+        </div>
+        <div>
+        <a class="icon">
+            <font-awesome-icon :icon="['fas', 'user']" />
+        </a>
+        <div>Users</div>
+        </div>
+        <div>
+        <a class="icon">
+            <font-awesome-icon :icon="['fas', 'hand-holding-heart']" />
+        </a>
+        <div>Premium</div>
+        </div>
+        <div>
+        <a class="icon">
+            <font-awesome-icon :icon="['fas', 'building']" />
+        </a>
+        <div>Industry</div>
+        </div>
+        <div>
+        <a class="icon">
+            <font-awesome-icon :icon="['fas', 'headset']" />
+        </a>
+        <div>Suport</div>
+        </div>
+        <div>
+        <a class="icon">
+            <font-awesome-icon :icon="['fas', 'file-lines']" />
+        </a>
+        <div>About</div>
+        </div>
+    </div>
 </div>

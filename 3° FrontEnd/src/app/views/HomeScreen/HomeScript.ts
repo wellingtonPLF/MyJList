@@ -1,3 +1,8 @@
+import HeaderComponent from "./../../components/_main/Header/HeaderComponent.vue"
+
 export default{
-    name: 'MyComponent'
+    name: 'MyComponent',
+    components: {
+        HeaderComponent
+    }
 }

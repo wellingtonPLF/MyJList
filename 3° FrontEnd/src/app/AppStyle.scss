@@ -1,19 +1,12 @@
 
-$heightLines: 50px;
-$backColorLines: rgb(10, 86, 185);
-
-header {
-    width: 100vw;
-    height: $heightLines;
-    background-color: $backColorLines;
-}
+$footerHeight: 150px;
 
 footer {
     width: 100vw;
-    height: $heightLines;
-    background-color: $backColorLines;
+    height: $footerHeight;
+    background-color: rgb(17, 17, 17);
 }
 
 main {
-    height: calc(100vh - ($heightLines * 2));
+    height: calc(100vh - $footerHeight);
 }

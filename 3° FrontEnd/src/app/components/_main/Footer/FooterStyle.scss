@@ -1,0 +1,44 @@
+$socialSize: 40px;
+
+footer {
+    color: white;
+    font-family: "FF Mark W05", Arial, sans-serif;
+}
+
+footer > div:first-child{
+    padding: 10px 0px 10px 0px;
+
+}
+
+#socialNetwork, #enterprise, #terms, #terms > div, #socialNetwork a, footer > div:first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#socialNetwork a {
+    background-color: #282828;
+    margin: 10px;
+    width: $socialSize;
+    height: $socialSize;
+    color: white;
+    border-radius: 15px;
+}
+
+#enterprise {
+    flex-direction: column;
+}
+
+#enterprise div:nth-child(1){
+    font-size: 12px;
+}
+
+#terms {
+    margin-top: 15px;
+}
+
+#terms > div{
+    font-weight: 600;
+    width: 40vw;
+    justify-content: space-around;
+}

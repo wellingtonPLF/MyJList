@@ -1,0 +1,93 @@
+
+$iconSize: 80px;
+
+#homePage{
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    height: 100%;
+}
+
+#banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: black;
+    width: 100vw;
+    height: 500px;
+    color: white;
+    background-image: url("http://localhost:5173/imgBannerTest.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#banner > div{
+    width: 550px;
+    margin: 70px 0px 50px 50px;
+}
+
+#banner > div > div{
+    width: 530px;
+    background-color: rgb(17, 17, 17, 0.6); 
+    border-radius: 30px;
+    padding: 15px 0px 15px 25px;
+    margin-bottom: 25px;
+}
+
+#banner h1 {
+    font-size: 40px;
+    margin-left: 25px;
+}
+
+#banner h2 {
+    font-size: 28px;
+    font-weight: 200;
+    width: 500px;
+    margin: 0px;
+}
+
+#banner button {
+    padding: 0px 17px; 
+    height: 40px;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 19px;
+    margin-left: 25px;
+    color: white;
+    background-color: rgb(29, 138, 17, 0.5);
+}
+
+#banner button:hover {
+    color: black;
+    background-color: white;
+}
+
+#options{
+    display: flex;
+    width: 70vw;
+    margin-top: 30px;
+    justify-content: space-around;
+}
+
+#options > div > div:nth-child(2){
+    margin-top: 10px;
+    text-align: center;
+}
+
+#options .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 100%;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    width: $iconSize;
+    height: $iconSize;
+    text-decoration: unset;
+}
