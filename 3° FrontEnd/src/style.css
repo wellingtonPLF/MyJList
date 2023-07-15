@@ -1,5 +1,15 @@
 body {
-  width: 100vw;
-  height: 100vh;
   margin: 0px;
+}
+
+*::-webkit-scrollbar, .about::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb, .about::-webkit-scrollbar-thumb {
+background-color: #b8b8b8;
+}
+
+*::-webkit-scrollbar-track, .about::-webkit-scrollbar-track {
+background-color: #f9f9f9;
 }

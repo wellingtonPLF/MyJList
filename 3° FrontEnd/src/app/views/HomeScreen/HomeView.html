@@ -1,58 +1,85 @@
 <div id="homePage">
-    <div id="banner">
-        <HeaderComponent />
-        <div>
-            <h1>Your Game List</h1>
+  <div id="banner">
+    <HeaderComponent />
+    <div>
+      <h1>Your Game List</h1>
+      <div>
+        <h2>
+          List, Filter, Search. Keep track of all the games you have played,
+          make recommendations, and much more.
+        </h2>
+      </div>
+      <button>Try it out</button>
+    </div>
+  </div>
+  <div id="options">
+    <div>
+      <a href="/" class="icon">
+        <font-awesome-icon :icon="['fas', 'gamepad']" />
+      </a>
+      <div>Games</div>
+    </div>
+    <div>
+      <a class="icon">
+        <font-awesome-icon :icon="['fas', 'video']" />
+      </a>
+      <div>Trailers</div>
+    </div>
+    <div>
+      <a class="icon">
+        <font-awesome-icon :icon="['fas', 'user']" />
+      </a>
+      <div>Users</div>
+    </div>
+    <div>
+      <a class="icon">
+        <font-awesome-icon :icon="['fas', 'hand-holding-heart']" />
+      </a>
+      <div>Premium</div>
+    </div>
+    <div>
+      <a class="icon">
+        <font-awesome-icon :icon="['fas', 'building']" />
+      </a>
+      <div>Industry</div>
+    </div>
+    <div>
+      <a class="icon">
+        <font-awesome-icon :icon="['fas', 'headset']" />
+      </a>
+      <div>Suport</div>
+    </div>
+    <div>
+      <a class="icon">
+        <font-awesome-icon :icon="['fas', 'file-lines']" />
+      </a>
+      <div>About</div>
+    </div>
+  </div>
+  <div id="releases">
+    <div>
+        <h2>Releases</h2>
+        <div style="margin-left: 10px;">| airing</div>
+    </div>
+
+    <div id="cardList">
+        <div v-for="game in games" :key="game.id" class="card">
+            <a href="">
+                <img style="width: 100%; height: 100%;" :src="game.img" />
+            </a>
             <div>
-                <h2>
-                    List, Filter, Search. Keep track of all the games you have played, make recommendations, and much more.
-                </h2>
+                <div>{{ game.name.slice(0, 26) }}</div>
+                <div v-if="game.name.length > 26">...</div>
             </div>
-            <button>try it out</button>
+            <div>
+                <div v-for="plataform in game.plataforms">
+                    <b v-if="plataform == 'pc'">PC</b>
+                    <font-awesome-icon :icon="['fab', 'playstation']" v-if="plataform == 'playstation'"/>
+                    <font-awesome-icon :icon="['fab', 'xbox']" v-if="plataform == 'xbox'" style="color: green;"/>
+                    <div v-if="plataform == 'nintendo'" class="nintendo">nintendo</div>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="options">
-        <div>
-        <a href="/" class="icon">
-            <font-awesome-icon :icon="['fas', 'gamepad']" />
-        </a>
-        <div>Games</div>
-        </div>
-        <div>
-        <a class="icon">
-            <font-awesome-icon :icon="['fas', 'video']" />
-        </a>
-        <div>Trailers</div>
-        </div>
-        <div>
-        <a class="icon">
-            <font-awesome-icon :icon="['fas', 'user']" />
-        </a>
-        <div>Users</div>
-        </div>
-        <div>
-        <a class="icon">
-            <font-awesome-icon :icon="['fas', 'hand-holding-heart']" />
-        </a>
-        <div>Premium</div>
-        </div>
-        <div>
-        <a class="icon">
-            <font-awesome-icon :icon="['fas', 'building']" />
-        </a>
-        <div>Industry</div>
-        </div>
-        <div>
-        <a class="icon">
-            <font-awesome-icon :icon="['fas', 'headset']" />
-        </a>
-        <div>Suport</div>
-        </div>
-        <div>
-        <a class="icon">
-            <font-awesome-icon :icon="['fas', 'file-lines']" />
-        </a>
-        <div>About</div>
-        </div>
-    </div>
+  </div>
 </div>

@@ -2,7 +2,6 @@ $socialSize: 40px;
 
 footer {
     color: white;
-    font-family: "FF Mark W05", Arial, sans-serif;
 }
 
 footer > div:first-child{
@@ -26,6 +25,8 @@ footer > div:first-child{
 }
 
 #enterprise {
+    cursor: default;
+    color: #7e7e7e;
     flex-direction: column;
 }
 
@@ -41,4 +42,8 @@ footer > div:first-child{
     font-weight: 600;
     width: 40vw;
     justify-content: space-around;
+}
+
+#terms > div > *{
+    cursor: pointer;
 }

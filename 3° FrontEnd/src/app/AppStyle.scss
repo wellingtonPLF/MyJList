@@ -2,11 +2,12 @@
 $footerHeight: 150px;
 
 footer {
-    width: 100vw;
+    width: 100%;
     height: $footerHeight;
     background-color: rgb(17, 17, 17);
+    font-family: Arial, sans-serif;
 }
 
 main {
-    height: calc(100vh - $footerHeight);
+    font-family: Arial, sans-serif;
 }

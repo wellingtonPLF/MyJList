@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "img": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
+    "name": "The Legend of Zelda: Breath of the Wild",
+    "plataforms": ["nintendo"]
+  },
+  {
+    "id": 2,
+    "img": "https://news.xbox.com/en-us/wp-content/uploads/sites/2/RDR_XBOX_940X528-small.jpg",
+    "name": "Red Dead Redemption 2",
+    "plataforms": ["playstation", "pc"]
+  },
+  {
+    "id": 3,
+    "img": "https://sm.ign.com/t/ign_br/game/g/god-of-war/god-of-war-ragnarok_z48t.300.jpg",
+    "name": "God of War",
+    "plataforms": ["pc", "playstation"]
+  },
+  {
+    "id": 4,
+    "img": "https://savegame.pro/wp-content/uploads/2020/04/the-witcher-3-wild-hunt-cover.jpg",
+    "name": "The Witcher 3: Wild Hunt",
+    "plataforms": ["pc", "playstation", "xbox"]
+  },
+  {
+    "id": 5,
+    "img": "https://assets-prd.ignimgs.com/2021/12/14/minecraft-1639513933156.jpg?width=300&crop=1%3A1%2Csmart",
+    "name": "Minecraft",
+    "plataforms": ["pc", "playstation", "xbox"]
+  },
+  {
+    "id": 6,
+    "img": "https://assets-prd.ignimgs.com/2023/06/09/fortnitewilds-1686353306240.jpg?width=300&crop=1%3A1%2Csmart",
+    "name": "Fortnite",
+    "plataforms": ["xbox", "playstation", "pc", "nintendo"]
+  }
+]
