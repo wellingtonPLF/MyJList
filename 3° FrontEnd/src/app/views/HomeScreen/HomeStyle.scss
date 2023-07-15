@@ -117,12 +117,12 @@ $iconSize: 70px;
     display: flex;
     flex-direction: column;
     width: 255px;
-    height: 330px;
+    height: 320px;
     margin: 20px 0px 0px 20px;
 }
 
 .card > a {
-    height: 85%;
+    height: 84%;
 }
 
 .card > a img {
@@ -132,7 +132,7 @@ $iconSize: 70px;
 .card > div:nth-child(2) {
     display: flex;
     margin-top: 10px;
-    height: 7%;
+    height: 8%;
     padding-left: 3px;
 }
 
@@ -152,9 +152,15 @@ $iconSize: 70px;
 
 .nintendo {
     display: flex;
-    padding: 5px 10px;
+    padding: 3px 3px;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color: red; 
     color: white;
+}
+
+.nintendo > div{
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 3px 8px;
 }
