@@ -9,7 +9,7 @@ $iconSize: 70px;
     align-items: center;
     height: 100%;
 }
-
+// ---------------------------------------------------------------------------------------------------
 #banner{
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@ $iconSize: 70px;
     margin: 0px;
 }
 
-#banner button {
+#banner button, #bandle > div > div button {
     padding: 0px 17px; 
     height: 40px;
     border: 0px;
@@ -62,11 +62,11 @@ $iconSize: 70px;
     background-color: $greenColor;
 }
 
-#banner button:hover {
+#banner button:hover, #bandle > div > div button:hover {
     color: black;
     background-color: white;
 }
-
+// ---------------------------------------------------------------------------------------------------
 #options{
     font-weight: 600;
     display: flex;
@@ -94,19 +94,36 @@ $iconSize: 70px;
     height: $iconSize;
     text-decoration: unset;
 }
-
+// ---------------------------------------------------------------------------------------------------
 #releases {
-    margin: 40px;
+    margin: 40px 40px 30px 40px;
     width: 90%;
     height: 420px;
 }
 
-#releases > div:first-child{
+#releases > div:first-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+#releases > div:first-child > div:first-child div{
+    font-weight: 600;
+    color: rgb(1, 105, 1);
+}
+
+#releases > div:first-child > div:first-child{
     display: flex;
     align-items: center;
     padding-left: 20px;
     justify-content: flex-start;
     height: 30px;
+}
+
+#releases > div:first-child > a{
+    color: $blueColor;
+    font-weight: 600;
+    margin-right: 5px;
+    text-decoration: unset;
 }
 
 #cardList{
@@ -160,7 +177,188 @@ $iconSize: 70px;
 }
 
 .nintendo > div{
+    cursor: default;
     border: 1px solid white;
     border-radius: 15px;
     padding: 3px 8px;
+}
+// ---------------------------------------------------------------------------------------------------
+#bandle{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 500px;
+}
+
+#bandle > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 45%;
+    height: 501px;
+    background-image: url("https://wallpaperaccess.com/full/26174.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: red;
+}
+
+#bandle > div > div {
+    height: 90%;
+    width: 80%;
+}
+
+#bandle > div > div h3 {
+    font-weight: 100;
+}
+
+#bandle > div > div button{
+    margin: 0px;
+    margin-top: 10px;
+}
+// ---------------------------------------------------------------------------------------------------
+#ranking {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 600px;
+    margin-bottom: 50px;
+    background-image: url("https://img.freepik.com/free-vector/gradient-black-background-with-cubes_52683-76469.jpg");
+}
+
+#ranking > h2{
+    width: 100%;
+    text-align: center;
+}
+
+#top5{
+    display: flex;
+    width: 95%;
+    height: 450px;
+}
+
+#top5 > div:first-child{
+    width: 50%;
+}
+
+#top5 > div:first-child > div {
+    background-image: url("https://i0.wp.com/gamesever.com.br/wp-content/uploads/2022/02/ELDEN-RING-LOGO.jpg?resize=740%2C417&ssl=1");
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding-left: 15px;
+}
+
+#top5 > div:nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 100%;
+}
+
+#top5 > div:nth-child(2) > div {
+    display: flex;
+    align-items: flex-end;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    width: 45%;
+    height: 220px;
+    margin-left: 10px;
+    background-color: red;
+}
+
+#top5 > div:nth-child(2) > div > div{
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+}
+
+// ---------------------------------------------------------------------------------------------------
+$recomendationSize: 90%;
+
+#recommendations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+}
+
+#recommendations > h2 {
+    width: $recomendationSize;
+    text-align: end;
+    margin-right: 20px;
+}
+
+#recommendations > div:nth-child(2) {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    width: $recomendationSize;
+}
+
+.recomendation {
+    display: flex;
+    flex-direction: column;
+    height: 355px;
+    width: 335px;
+    border-radius: 3px;
+    color: white;
+    background-color: $grayColor;
+}
+
+.recomendation img {
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.recomendation h3 {
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+.recomendation > div:nth-child(2){    
+    height: 35px;
+}
+
+.expert{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 120px;
+    height: 100%;
+    background-color: rgba(22, 88, 60, 0.637);
+    border-radius: 30px;
+    padding: 0px 20px 0px 10px;
+    color: white;
+    margin: 10px 0px 0px 10px;
+}
+
+.expert div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+}
+
+.recomendation > div:last-of-type {
+    text-align: end;
+    font-size: 12px;
+    padding-right: 12px;
 }

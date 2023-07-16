@@ -1,13 +1,17 @@
 
-$footerHeight: 150px;
+$footerHeight: 250px;
 
-footer {
-    width: 100%;
-    height: $footerHeight;
-    background-color: rgb(17, 17, 17);
+main {
+    height: 100%;
     font-family: Arial, sans-serif;
 }
 
-main {
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: $footerHeight;
+    background-color: rgb(17, 17, 17);
     font-family: Arial, sans-serif;
 }
