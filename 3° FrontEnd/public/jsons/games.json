@@ -3,36 +3,90 @@
     "id": 1,
     "img": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
     "name": "The Legend of Zelda: Breath of the Wild",
-    "plataforms": ["nintendo"]
+    "plataforms": ["nintendo"],
+    "user": "Natan",
+    "date": "11 de jul.",
+    "description": "The Legend of Zelda: Breath of the Wild é um jogo eletrônico de ação-aventura..."
   },
   {
     "id": 2,
     "img": "https://news.xbox.com/en-us/wp-content/uploads/sites/2/RDR_XBOX_940X528-small.jpg",
     "name": "Red Dead Redemption 2",
-    "plataforms": ["playstation", "pc"]
+    "plataforms": ["playstation", "pc"],
+    "user": "Wellington",
+    "date": "24 de set.",
+    "description": "Red Dead Redemption 2 é um jogo eletrônico de ação-aventura desenvolvido..."
   },
   {
     "id": 3,
     "img": "https://sm.ign.com/t/ign_br/game/g/god-of-war/god-of-war-ragnarok_z48t.300.jpg",
     "name": "God of War",
-    "plataforms": ["pc", "playstation"]
+    "plataforms": ["pc", "playstation"],
+    "user": "Karla",
+    "date": "03 de mar.",
+    "description": "Esta impressionante repaginação de God of War reúne todas as característ..."
   },
   {
     "id": 4,
     "img": "https://savegame.pro/wp-content/uploads/2020/04/the-witcher-3-wild-hunt-cover.jpg",
     "name": "The Witcher 3: Wild Hunt",
-    "plataforms": ["pc", "playstation", "xbox"]
+    "plataforms": ["pc", "playstation", "xbox"],
+    "user": "Leticia",
+    "date": "21 de jan.",
+    "description": "The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em mundo..."
   },
   {
     "id": 5,
     "img": "https://assets-prd.ignimgs.com/2021/12/14/minecraft-1639513933156.jpg?width=300&crop=1%3A1%2Csmart",
     "name": "Minecraft",
-    "plataforms": ["pc", "playstation", "xbox"]
+    "plataforms": ["pc", "playstation", "xbox"],
+    "user": "Amelia",
+    "date": "17 de fev.",
+    "description": "O Minecraft está disponível para jogar nas seguintes plataformas...."
   },
   {
     "id": 6,
     "img": "https://assets-prd.ignimgs.com/2023/06/09/fortnitewilds-1686353306240.jpg?width=300&crop=1%3A1%2Csmart",
     "name": "Fortnite",
-    "plataforms": ["xbox", "playstation", "pc", "nintendo"]
+    "plataforms": ["xbox", "playstation", "pc", "nintendo"],
+    "user": "Iago",
+    "date": "09 de dez.",
+    "description": "Fortnite é um jogo eletrônico multijogador online revelado originalmente em 2011..."
+  },
+  {
+    "id": 7,
+    "img": "https://www.siliconera.com/wp-content/uploads/2022/12/street-fighter-6-box-art.jpg",
+    "name": "Street Fighter 6",
+    "plataforms": ["xbox", "playstation"],
+    "user": "Rafael",
+    "date": "05 de out.",
+    "description": "Street Fighter 6 é um jogo eletrônico de luta desenvolvido e publicado pela..."
+  },
+  {
+    "id": 8,
+    "img": "https://i.blogs.es/a47ba2/ffxvi-cabecera/450_1000.webp",
+    "name": "Final Fantasy XVI",
+    "plataforms": ["xbox", "playstation", "pc"],
+    "user": "Lucas",
+    "date": "29 de jun.",
+    "description": "Final Fantasy XVI é um jogo eletrônico de RPG de ação desenvolvido e publicado..."
+  },
+  {
+    "id": 9,
+    "img": "https://files.tecnoblog.net/wp-content/uploads/2022/07/as-dusk-falls.png",
+    "name": "As Dusk Falls",
+    "plataforms": ["xbox", "playstation"],
+    "user": "Iara",
+    "date": "19 de abr.",
+    "description": "As Dusk Falls é um jogo de aventura narrativa de 2022 desenvolvido pela Interior..."
+  },
+  {
+    "id": 10,
+    "img": "https://nintendoboy.com.br/wp-content/uploads/2021/06/mario-rabbids-sparks-of-hope.jpg",
+    "name": "Mario + Rabbids Sparks of Hope",
+    "plataforms": ["pc", "nintendo"],
+    "user": "Vitoria",
+    "date": "02 de ago.",
+    "description": "Mario + Rabbids Sparks of Hope é um videogame de estratégia baseado em turnos..."
   }
 ]

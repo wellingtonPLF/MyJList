@@ -9,60 +9,24 @@
                     make recommendations, and much more.
                 </h2>
             </div>
-            <button>Try it out</button>
+            <button>try it out</button>
         </div>
     </div>
     <div id="options">
-        <div>
+        <div v-for="icon in options">
             <a href="/" class="icon">
-                <font-awesome-icon :icon="['fas', 'gamepad']" />
+                <font-awesome-icon :icon="['fas', `${icon.icon}`]" />
             </a>
-            <div>Games</div>
-        </div>
-        <div>
-            <a class="icon">
-                <font-awesome-icon :icon="['fas', 'video']" />
-            </a>
-            <div>Trailers</div>
-        </div>
-        <div>
-            <a class="icon">
-                <font-awesome-icon :icon="['fas', 'user']" />
-            </a>
-            <div>Users</div>
-        </div>
-        <div>
-            <a class="icon">
-                <font-awesome-icon :icon="['fas', 'hand-holding-heart']" />
-            </a>
-            <div>Premium</div>
-        </div>
-        <div>
-            <a class="icon">
-                <font-awesome-icon :icon="['fas', 'building']" />
-            </a>
-            <div>Industry</div>
-        </div>
-        <div>
-            <a class="icon">
-                <font-awesome-icon :icon="['fas', 'headset']" />
-            </a>
-            <div>Suport</div>
-        </div>
-        <div>
-            <a class="icon">
-                <font-awesome-icon :icon="['fas', 'file-lines']" />
-            </a>
-            <div>About</div>
+            <div>{{icon.name}}</div>
         </div>
     </div>
     <div id="releases">
         <div>
             <div>
-                <h2>Releases</h2>
-                <div style="margin-left: 10px">| airing</div>
+                <h2 style="cursor: pointer;">Releases</h2>
+                <div style="margin-left: 10px; cursor: pointer;">| airing</div>
             </div>
-            <a href="">Visualizar tudo</a>
+            <a class="visualizeAll" href="">Visualizar tudo</a>
         </div>
 
         <div id="cardList">
@@ -100,16 +64,17 @@
                     players, and notable names from popular culture to celebrate and advance gaming's position as the
                     most immersive, challenging and inspiring form of entertainment.
                 </h3>
-                <button>veja aqui</button>
+                <a href="https://thegameawards.com/nominees/game-of-the-year" target="_blank">right here</a>
             </div>
         </div>
     </div>
     <div style="display: flex; justify-content: center; align-items: center;">
-        <div>–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</div>
+        <div class="line"></div>
         <h2>&nbsp;&nbsp;&nbsp;&nbsp;Top rated games&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-        <div>–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––</div>
-    </div>    
+        <div class="line"></div>
+    </div>
     <div id="ranking">
+        <div class="visualizeAll">Visualizar tudo</div>
         <div id="top5">
             <div>
                 <div>
@@ -119,22 +84,7 @@
                 </div>
             </div>
             <div>
-                <div style="background-image: url('https://blogger.googleusercontent.com/img/a/AVvXsEj8U_oBrYVXCCbByrpLObCqqyZ43CJstVfEA5JcrjwElsS3-zIQ_RZoy7oCljBuhGdwp9KJ-dz3w605EUY7vuLL9uebvOxJ_o0-KztvO-NxHq23KvrzYPFv6lB1KLA_ecCYCu6hWTTmi12fzezJr03jyViEqXfJnT6gaNCYtbf3ed14rBc3kNo5QMlyaQ=w640-h400');">
-                    <div>
-                        Most rated game 2023
-                    </div>
-                </div>
-                <div style="background-image: url('https://www.zazoom.eu/comunedieboli/2420,313AvOAxGV76p572k4e2ipO74wLGd74d7otC68mzsWi80rj4CPPNU909fyxJOSG.jpg');">
-                    <div>
-                        Most rated game 2023
-                    </div>
-                </div>
-                <div style="margin-top: 10px; background-image: url('https://image-cdn.essentiallysports.com/wp-content/uploads/20200702170542/Call-of-Duty-Modern-Warfare-720-740x416.jpg');">
-                    <div>
-                        Most rated game 2023
-                    </div>
-                </div>
-                <div style="margin-top: 10px; background-image: url('https://cdn.akamai.steamstatic.com/steam/apps/1313140/header_schinese.jpg?t=1686863929');">
+                <div v-for="item in toprank" :style="{ backgroundImage: `url(${item})`}">
                     <div>
                         Most rated game 2023
                     </div>
@@ -146,57 +96,20 @@
     <div id="recommendations">
         <h2>Recommendations</h2>
         <div>
-            <div class="recomendation">
-                <img src="https://www.siliconera.com/wp-content/uploads/2022/12/street-fighter-6-box-art.jpg" />
-                <div>
-                    <div class="expert">
-                        <div>
-                            <font-awesome-icon :icon="['fas', 'user']" />
+            <div v-for="game in recomendations" :key="game.id" >
+                <div class="recomendation">
+                    <img :src="game.img" />
+                    <div>
+                        <div class="expert">
+                            <div>
+                                <font-awesome-icon :icon="['fas', 'user']" />
+                            </div>
+                            <h4>{{game.user}}</h4> 
                         </div>
-                        <h4>Wellington</h4> 
                     </div>
+                    <h3>{{game.description}}</h3>
+                    <div>{{game.date}}</div>
                 </div>
-                <h3>Street Fighter 6 é um jogo eletrônico de luta desenvolvido e publicado pela...</h3>
-                <div>11 de jul.</div>
-            </div>
-            <div class="recomendation">
-                <img src="https://i.blogs.es/a47ba2/ffxvi-cabecera/450_1000.webp" />
-                <div>
-                    <div class="expert">
-                        <div>
-                            <font-awesome-icon :icon="['fas', 'user']" />
-                        </div>
-                        <h4>Wellington</h4> 
-                    </div>
-                </div>
-                <h3>Final Fantasy XVI é um jogo eletrônico de RPG de ação desenvolvido e publicado...</h3>
-                <div>11 de jul.</div>
-            </div>
-            <div class="recomendation">
-                <img src="https://files.tecnoblog.net/wp-content/uploads/2022/07/as-dusk-falls.png" />
-                <div>
-                    <div class="expert">
-                        <div>
-                            <font-awesome-icon :icon="['fas', 'user']" />
-                        </div>
-                        <h4>Wellington</h4> 
-                    </div>
-                </div>
-                <h3>As Dusk Falls é um jogo de aventura narrativa de 2022 desenvolvido pela Interior...</h3>
-                <div>11 de jul.</div>
-            </div>
-            <div class="recomendation">
-                <img src="https://nintendoboy.com.br/wp-content/uploads/2021/06/mario-rabbids-sparks-of-hope.jpg" />
-                <div>
-                    <div class="expert">
-                        <div>
-                            <font-awesome-icon :icon="['fas', 'user']" />
-                        </div>
-                        <h4>Wellington</h4> 
-                    </div>
-                </div>
-                <h3>Mario + Rabbids Sparks of Hope é um videogame de estratégia baseado em turnos...</h3>
-                <div>11 de jul.</div>
             </div>
         </div>
     </div>

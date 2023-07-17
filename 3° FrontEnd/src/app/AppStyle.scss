@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=VT323&display=swap');
+
 
 $footerHeight: 250px;
 
 main {
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 footer {
@@ -13,5 +15,5 @@ footer {
     width: 100%;
     height: $footerHeight;
     background-color: rgb(17, 17, 17);
-    font-family: Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
 }
