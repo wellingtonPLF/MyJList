@@ -1,0 +1,15 @@
+<div id="userPage">
+    <div>
+        <div id="searchBar">
+            <input placeholder="Search your game" />
+            <div>Search</div>
+        </div>
+        <div id="allUsers">
+            <div v-for="userCard in users" id="userCard">
+                <div :style="{backgroundImage: `url(${userCard.img})`}"></div>
+                <div>⭐ 7.0</div>
+                <div>{{userCard.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>

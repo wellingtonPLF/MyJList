@@ -14,9 +14,9 @@
     </div>
     <div id="options">
         <div v-for="icon in options">
-            <a href="/" class="icon">
+            <router-link :to="(icon.done) ? `${icon.path}`: ''" class="icon" :style="{backgroundColor: `${(icon.done) ? '': 'gray'}`}" :title="(icon.done)? '': 'this is not ready' ">
                 <font-awesome-icon :icon="['fas', `${icon.icon}`]" />
-            </a>
+            </router-link>
             <div>{{icon.name}}</div>
         </div>
     </div>
@@ -53,7 +53,7 @@
         </div>
     </div>
     <div id="bandle">
-        <img style="width: 55%; height: 100%"
+        <img style="width: 55%; height: 100%;"
             src="https://actualidadriojabaja.com/wp-content/uploads/2022/11/StrayA_1.jpg" />
         <div>
             <div>

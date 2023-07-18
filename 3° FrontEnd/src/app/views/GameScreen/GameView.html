@@ -1,0 +1,18 @@
+<div id="gamePage">
+    <div>
+        <div style="color: white;">Recently Viewed</div>
+        <hr style="width: 90%;"/>
+        <div style="color: white;">All Games</div>
+        <div id="searchBar">
+            <input placeholder="Search your game" />
+            <div>Search</div>
+        </div>
+        <div id="allGames">
+            <div v-for="gameCard in games" id="gameCard">
+                <div :style="{backgroundImage: `url(${gameCard.img})`}"></div>
+                <div>⭐ 7.0</div>
+                <div>{{gameCard.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>

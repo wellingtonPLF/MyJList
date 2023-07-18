@@ -1,0 +1,72 @@
+#userPage {
+    height: 100vh;
+    background-color: rgb(25, 36, 34);
+}
+
+#userPage > div{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#searchBar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+    width: 90%;
+    height: 70px;
+}
+
+#searchBar input {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+    padding-left: 10px;
+    height: 50%;
+    width: 91%;
+}
+
+#searchBar > div {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#allUsers{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#userCard {
+    width: 280px;
+    height: 300px;
+    margin-left: 10px;
+    position: relative;
+}
+
+#userCard > div:first-child {
+    width: 100%;
+    height: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    filter: brightness(0.7);
+}
+
+#userCard > div:nth-child(2) {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    color: white;
+}
+
+#userCard > div:nth-child(3) {
+    margin-top: 10px;
+    color: white;
+}

@@ -12,7 +12,7 @@ interface Game {
 }
 
 const homeComponent: any = {
-  name: "SignInPage",
+  name: "HomeComponent",
   components: {
     HeaderComponent,
   },
@@ -21,13 +21,13 @@ const homeComponent: any = {
       games: [] as Game[],
       recomendations: [] as Game[],
       options: [
-        {icon: "gamepad", name: "Games"}, 
-        {icon: "video", name: "Trailers"}, 
-        {icon: "user", name: "Users"}, 
-        {icon: "hand-holding-heart", name: "Premium"}, 
-        {icon: "building", name: "Industry"}, 
-        {icon: "headset", name: "Suport"}, 
-        {icon: "file-lines", name: "About"}
+        {icon: "gamepad", name: "Games", path: "/game", done: true}, 
+        {icon: "video", name: "Trailers", path: "/", done: false}, 
+        {icon: "user", name: "Users", path: "/users", done: true}, 
+        {icon: "hand-holding-heart", name: "Premium", path: "/", done: false}, 
+        {icon: "building", name: "Industry", path: "/", done: false}, 
+        {icon: "headset", name: "Suport", path: "/", done: false}, //Contact Page
+        {icon: "file-lines", name: "About", path: "/about", done: true} //Staff e sobre Page
       ],
       toprank: [
         'https://blogger.googleusercontent.com/img/a/AVvXsEj8U_oBrYVXCCbByrpLObCqqyZ43CJstVfEA5JcrjwElsS3-zIQ_RZoy7oCljBuhGdwp9KJ-dz3w605EUY7vuLL9uebvOxJ_o0-KztvO-NxHq23KvrzYPFv6lB1KLA_ecCYCu6hWTTmi12fzezJr03jyViEqXfJnT6gaNCYtbf3ed14rBc3kNo5QMlyaQ=w640-h400',
