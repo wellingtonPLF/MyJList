@@ -1,23 +1,74 @@
-#about{
+
+#about {
+    display: flex;
     height: 100vh;
     background-image:
     linear-gradient(to left top, rgb(0, 0, 0) 5%, rgba(255, 255, 255, 0)),
-    url("https://getwallpapers.com/wallpaper/full/e/0/5/510861.jpg");
+    url("https://images8.alphacoders.com/131/1311910.jpg"); 
+    position: relative; 
+}
+
+#about > span {
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 30px 0px 0px 30px;
+}
+
+#about > span > :first-child {
+    text-decoration: unset;
+    color: white;
+}
+
+.aboutImage {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#about > div:first-child {
+#portifolio {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+
+#portifolio > div {
+    display: flex;
+    align-items: flex-end;
+    margin: 0px 0px 50px 80px;
+    width: 500px;
+    height: 600px;
+    background-image: url("https://wallpapersmug.com/download/1920x1080/da7528/hyper-light-drifter-minimal-game.jpg");
+}
+
+#portifolio button {
+    height: 50px;
+    width: 150px;
+    font-size: 17px;
+    font-weight: 600;
+    border: unset;
+    cursor: pointer;
+    margin: 0px 0px 30px 30px;
+}
+
+#aboutProject{
+    height: 100%;
+    width: 50%;
+}
+
+// https://wallpapersmug.com/download/1920x1080/da7528/hyper-light-drifter-minimal-game.jpg
+
+#aboutProject > div:first-child {
+    display: flex;
+    justify-content: flex-end;
     align-items: flex-end;
     height: 50%;
-    width: 50%;
+    width: 100%;
     color: white;
 }
 
-#about > div:first-child > div {
+#aboutProject > div:first-child > div {
     padding-left: 35px;
     padding-bottom: 15px;
     display: flex;
@@ -28,25 +79,24 @@
     height: 300px;
 }
 
-#about h1 {
+#aboutProject h1 {
     font-size: 60px;
 }
 
-#about h2 {
+#aboutProject h2 {
     font-size: 25px;
 }
 
-#aboutDescription{
+#aboutProjectDescription{
     width: 90%;
     font-weight: 400;
 }
 
-#about > div:nth-child(2){
+#aboutProject > div:nth-child(2){
     display: flex;
-    margin-top: 50px;
-    justify-content: center;
+    justify-content: flex-end;
     height: 50%;
-    width: 50%;
+    width: 100%;
 }
 // ---------------------------------------------------------------------------------------------------
 $imgsize: 150px;
@@ -58,6 +108,7 @@ $staffCardProfileHeight: 80px;
     width: 585px;
     border-radius: 10px;
     height: 230px;
+    margin-top: 50px;
 }
 
 #staffCard > div {
@@ -116,7 +167,7 @@ $staffCardProfileHeight: 80px;
     width: 100%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     height: calc(100% - $staffCardProfileHeight);
 }
 

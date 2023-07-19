@@ -7,12 +7,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { faGamepad, faHandHoldingHeart, faBuilding, faHeadset, faVideo, faUser, faFileLines, faUsers } from '@fortawesome/free-solid-svg-icons'
-import { faYoutube, faTwitter, faFacebookSquare, faTiktok, faInstagram, faXbox, faPlaystation } from '@fortawesome/free-brands-svg-icons'
+import { faYoutube, faTwitter, faFacebookSquare, faGithub, faInstagram, faXbox, faPlaystation } from '@fortawesome/free-brands-svg-icons'
 
 const app = createApp(App);
 
 library.add(faGamepad, faUser, faHandHoldingHeart, faBuilding, faHeadset, faFileLines, faVideo, faUsers)
-library.add(faYoutube, faTwitter, faFacebookSquare, faTiktok, faInstagram, faXbox, faPlaystation)
+library.add(faYoutube, faTwitter, faFacebookSquare, faGithub, faInstagram, faXbox, faPlaystation)
 app.component('font-awesome-icon', FontAwesomeIcon)
 
 window.Vue = app
