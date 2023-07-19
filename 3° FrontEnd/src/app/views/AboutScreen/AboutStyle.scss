@@ -1,7 +1,131 @@
 #about{
     height: 100vh;
+    background-image:
+    linear-gradient(to left top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
+    url("https://getwallpapers.com/wallpaper/full/e/0/5/510861.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#about > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50%;
+    width: 50%;
+    color: white;
+}
+
+#about > div:first-child > div {
+    padding-left: 35px;
+    padding-bottom: 15px;
+    display: flex;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.692);
+    flex-direction: column;
+    width: 550px;
+    height: 300px;
+}
+
+#about h1 {
+    font-size: 60px;
+}
+
+#about h2 {
+    font-size: 25px;
 }
 
 #aboutDescription{
+    width: 90%;
+    font-weight: 400;
+}
+
+#about > div:nth-child(2){
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    height: 50%;
+    width: 50%;
+}
+// ---------------------------------------------------------------------------------------------------
+$imgsize: 150px;
+$heightBord: 30px;
+$profileSize: 35px;
+$staffCardProfileHeight: 80px;
+
+#staffCard{
+    width: 585px;
+    border-radius: 10px;
+    height: 230px;
+}
+
+#staffCard > div {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+#staffCard span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    background-color: white;
+    border-radius: 100%;
+    border-bottom-right-radius: 0px;
+    width: calc($imgsize + $heightBord);
+    height: calc($imgsize + $heightBord);
+}
+
+#staffCard > div img {
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 100%;
+    width: $imgsize;
+    height: $imgsize;
+    line-height: $imgsize;
+    text-align: center;
+}
+
+#staffCard > div > div {
+    position: relative;
+    height: calc($imgsize + $heightBord) ;
+}
+
+#staffCard > div > div > div:first-child {
+    display: flex;
     width: 300px;
+    align-items: flex-end;
+    height: $staffCardProfileHeight;
+}
+
+#staffCard > div > div > div:first-child div{
+    border-radius: 100%;
+    height: $profileSize;
+    width: $profileSize;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+#staffCard > div > div > div:nth-child(2) {
+    position: absolute;
+    left: -1px;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: white;
+    height: calc(100% - $staffCardProfileHeight);
+}
+
+#staffCard > div > div > div:nth-child(2) > div{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px 0px 10px;
+}
+
+#staffCard > div > div > div:nth-child(2) > div h4 {
+    margin: 0px 0px 5px 0px;
 }
