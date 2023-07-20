@@ -1,14 +1,32 @@
-<div id="userPage">
+<div id="userPage" class="backImageConfig">
+    <span class="backPage">
+        <router-link to="/">Back</router-link>
+    </span>
     <div>
         <div id="searchBar">
-            <input placeholder="Search your game" />
+            <input placeholder="Search username" />
             <div>Search</div>
         </div>
         <div id="allUsers">
             <div v-for="userCard in users" id="userCard">
-                <div :style="{backgroundImage: `url(${userCard.img})`}"></div>
-                <div>⭐ 7.0</div>
+                <div :style="{ backgroundImage: `url(${(userCard.sex === 'Male') ? imgType.male : imgType.female})` }"></div>
                 <div>{{userCard.name}}</div>
+                <div>{{userCard.role}}</div>
+                <span>
+                    <div>
+                        <div>{{userCard.followers}}</div>
+                        <div>followers</div>
+                    </div>
+                    <div>
+                        <div>{{userCard.played}}</div>
+                        <div>games played</div>
+                    </div>
+                    <div>
+                        <div>{{userCard.nationality}}</div>
+                        <div>nationality</div>
+                    </div>
+                </span>
+                <button>View Profile</button>
             </div>
         </div>
     </div>

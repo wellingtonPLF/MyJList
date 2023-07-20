@@ -13,3 +13,25 @@ background-color: #b8b8b8;
 *::-webkit-scrollbar-track, .about::-webkit-scrollbar-track {
 background-color: #f9f9f9;
 }
+
+button {
+  cursor: pointer;
+}
+
+.backImageConfig {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.backPage {
+  position: absolute;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 30px 0px 0px 30px;
+}
+
+.backPage :first-child{
+  color: white;
+  text-decoration: unset;
+}

@@ -1,37 +1,74 @@
 [
     {
         "id": 1,
-        "img": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
-        "name": "The Legend of Zelda: Breath of the Wild"
+        "name": "Wellington",
+        "role": "admin",
+        "followers": 2223,
+        "played": 2323,
+        "sex": "Male",
+        "nationality": "Brazil"
     },
     {
         "id": 2,
-        "img": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
-        "name": "The Legend of Zelda: Breath of the Wild"
+        "name": "Manuela",
+        "role": "user",
+        "followers": 2223,
+        "played": 2323,
+        "sex": "Female",
+        "nationality": "Brazil"
     },
     {
         "id": 3,
-        "img": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
-        "name": "The Legend of Zelda: Breath of the Wild"
+        "name": "Jorge",
+        "role": "user",
+        "followers": 2223,
+        "played": 2323,
+        "sex": "Male",
+        "nationality": "Brazil"
     },
     {
         "id": 4,
-        "img": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
-        "name": "The Legend of Zelda: Breath of the Wild"
+        "name": "Amanda",
+        "role": "user",
+        "followers": 2223,
+        "played": 2323,
+        "sex": "Female",
+        "nationality": "Brazil"
     },
     {
         "id": 5,
-        "img": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
-        "name": "The Legend of Zelda: Breath of the Wild"
+        "name": "Grabriel",
+        "role": "user",
+        "followers": 2223,
+        "played": 2323,
+        "sex": "Male",
+        "nationality": "Brazil"
     },
     {
         "id": 6,
-        "img": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
-        "name": "The Legend of Zelda: Breath of the Wild"
+        "name": "Jeff",
+        "role": "user",
+        "followers": 2223,
+        "played": 2323,
+        "sex": "Male",
+        "nationality": "Brazil"
     },
     {
         "id": 7,
-        "img": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
-        "name": "The Legend of Zelda: Breath of the Wild"
+        "name": "Mel",
+        "role": "user",
+        "followers": 2223,
+        "played": 2323,
+        "sex": "Female",
+        "nationality": "Brazil"
+    },
+    {
+        "id": 8,
+        "name": "Vitoria",
+        "role": "user",
+        "followers": 2223,
+        "played": 2323,
+        "sex": "Female",
+        "nationality": "Brazil"
     }
 ]
