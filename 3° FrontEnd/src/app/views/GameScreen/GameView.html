@@ -29,7 +29,10 @@
                 <div v-for="gameCard in games">
                     <div id="gameCard">
                         <div class="backImageConfig" :style="{backgroundImage: `url(${gameCard.img})`}">
-                            <div>⭐ 7.0</div>
+                            <div>
+                                <font-awesome-icon :icon="['far', 'star']" />
+                                <div>7.0</div>
+                            </div>
                             <div>{{gameCard.name}}</div>
                         </div>
                     </div>

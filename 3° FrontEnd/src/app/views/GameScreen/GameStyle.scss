@@ -162,18 +162,34 @@
     z-index: 1000;
 }
 
+// ---------- Score
 #gameCard > div:first-child > div:first-child {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
     position: absolute;
     top: 0px;
     right: 0px;
+    padding: 1px 0px 3px 0px;
+    width: 55px;
     background-color: rgba(0, 0, 0, 0.664);
-    padding: 2px 10px 5px 5px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 10px;
     color: white;
 }
 
+#gameCard > div:first-child > div:first-child > :first-child{
+    height: 13px;
+    color: rgb(238, 241, 44);
+    margin-left: 5px;
+}
+
+#gameCard > div:first-child > div:first-child > div:last-child {
+    text-align: center;
+    margin-top: 3px;
+}
+
+// -------------Card Name
 #gameCard > div:first-child > div:nth-child(2) {
     display: flex;
     align-items: center;
