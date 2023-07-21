@@ -6,6 +6,7 @@
     "plataforms": ["nintendo"],
     "user": "Natan",
     "date": "11 de jul.",
+    "score": "9.6",
     "description": "The Legend of Zelda: Breath of the Wild é um jogo eletrônico de ação-aventura..."
   },
   {
@@ -15,6 +16,7 @@
     "plataforms": ["playstation", "pc"],
     "user": "Wellington",
     "date": "24 de set.",
+    "score": "8.4",
     "description": "Red Dead Redemption 2 é um jogo eletrônico de ação-aventura desenvolvido..."
   },
   {
@@ -24,6 +26,7 @@
     "plataforms": ["pc", "playstation"],
     "user": "Karla",
     "date": "03 de mar.",
+    "score": "8.8",
     "description": "Esta impressionante repaginação de God of War reúne todas as característ..."
   },
   {
@@ -33,6 +36,7 @@
     "plataforms": ["pc", "playstation", "xbox"],
     "user": "Leticia",
     "date": "21 de jan.",
+    "score": "7.5",
     "description": "The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em mundo..."
   },
   {
@@ -42,6 +46,7 @@
     "plataforms": ["pc", "playstation", "xbox"],
     "user": "Amelia",
     "date": "17 de fev.",
+    "score": "7.2",
     "description": "O Minecraft está disponível para jogar nas seguintes plataformas...."
   },
   {
@@ -51,6 +56,7 @@
     "plataforms": ["xbox", "playstation", "pc", "nintendo"],
     "user": "Iago",
     "date": "09 de dez.",
+    "score": "7.0",
     "description": "Fortnite é um jogo eletrônico multijogador online revelado originalmente em 2011..."
   },
   {
@@ -60,6 +66,7 @@
     "plataforms": ["xbox", "playstation"],
     "user": "Rafael",
     "date": "05 de out.",
+    "score": "8.2",
     "description": "Street Fighter 6 é um jogo eletrônico de luta desenvolvido e publicado pela..."
   },
   {
@@ -69,6 +76,7 @@
     "plataforms": ["xbox", "playstation", "pc"],
     "user": "Lucas",
     "date": "29 de jun.",
+    "score": "7.4",
     "description": "Final Fantasy XVI é um jogo eletrônico de RPG de ação desenvolvido e publicado..."
   },
   {
@@ -78,6 +86,7 @@
     "plataforms": ["xbox", "playstation"],
     "user": "Iara",
     "date": "19 de abr.",
+    "score": "7.9",
     "description": "As Dusk Falls é um jogo de aventura narrativa de 2022 desenvolvido pela Interior..."
   },
   {
@@ -87,6 +96,7 @@
     "plataforms": ["pc", "nintendo"],
     "user": "Vitoria",
     "date": "02 de ago.",
+    "score": "8.7",
     "description": "Mario + Rabbids Sparks of Hope é um videogame de estratégia baseado em turnos..."
   }
 ]

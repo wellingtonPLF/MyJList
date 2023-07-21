@@ -7,6 +7,7 @@ interface Game {
   plataforms: string[];
   user: string;
   date: string;
+  score: string;
   description: string;
 }
 
