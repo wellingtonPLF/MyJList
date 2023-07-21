@@ -5,7 +5,7 @@ import AboutComponent from './views/AboutScreen/AboutComponent.vue';
 import UserComponent from './views/UserScreen/UserComponent.vue';
 import SignInComponent from './views/SignInScreen/SignInComponent.vue';
 import SignUpComponent from './views/SignUpScreen/SignUpComponent.vue';
-
+import ProfileComponent from './views/ProfileScreen/ProfileComponent.vue';
 
 const routes = [
   {
@@ -37,6 +37,11 @@ const routes = [
     path: '/users',
     name: 'users',
     component: UserComponent
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileComponent
   }
 ]
 

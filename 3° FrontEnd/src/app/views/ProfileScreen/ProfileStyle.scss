@@ -1,0 +1,97 @@
+
+#profilePage {
+    min-height: 100vh;
+    position: relative;
+    background-color: black;
+}
+
+#profile > div:first-child {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rumble_0.jpg");
+    height: 650px;
+    color: white;
+    background-position: unset;
+}
+
+#profile > div:first-child > div:first-child {
+    display: flex;
+    justify-content: flex-end;
+    width: 98%;
+}
+
+#searchProfile {
+    display: flex;
+    margin-top: 30px;
+    width: 350px;
+    text-align: center;
+}
+
+#searchProfile div {
+    display: flex;
+    align-items: center;
+    padding: 0px 15px 0px 10px;
+    background-color: rgba(197, 1, 1, 0.582);
+    border-top-right-radius: 30px;
+    cursor: pointer;
+    border-bottom-right-radius: 30px;
+}
+
+#searchProfile input {
+    border: unset;
+    width: 250px;
+    outline: unset;
+    height: 30px;
+    border-radius: 30px;
+    padding-left: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#profile > div:first-child > div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0px;
+    height: 320px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.425);
+    color: white;
+}
+
+#userProfile {
+    display: flex;
+    width: 90%;
+    height: 100%;
+}
+
+#userProfile h2 {
+    margin: 0px;
+    font-weight: 100;
+}
+
+#userProfile > div:first-child {
+    border: 5px solid white;
+    background-image: url("https://www.mobafire.com/images/champion/skins/portrait/rumble-badlands-baron.jpg");
+    background-position: unset;
+    height: 300px;
+    width: 280px;
+}
+
+#userProfile > div:nth-child(2) {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#userData {
+    margin-top: 10px;
+}
+
+#network {
+    margin-top: 10px;
+}
+
+#channels {
+    margin-top: 10px;
+}
