@@ -115,13 +115,13 @@
 #allGames{
     display: flex;
     justify-content: center;
-    padding: 30px 0px 10px 0px;
+    padding: 30px 0px 0px 0px;
 }
 
 #allGames > div {
     display: flex;
     flex-wrap: wrap;
-    width: 95%;
+    width: 89%;
 }
 
 #allGames > div > div{

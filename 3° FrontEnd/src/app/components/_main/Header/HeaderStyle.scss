@@ -23,12 +23,15 @@ header {
     width: 350px;
 }
 
-#auth > div:first-child button {
+#auth > div:first-child > :first-child, #auth > div:first-child > :last-child{
+    text-align: center;
+    line-height: 30px;
     width: 120px;
     font-size: 18px;
     font-weight: 600;
+    text-decoration: unset;
     color: white;
-    background-color: unset;
+    padding-top: 3px;
     border: 0px;
     font-family: 'Josefin Sans', sans-serif;
     height: 30px;

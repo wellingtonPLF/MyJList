@@ -1,0 +1,75 @@
+
+#signIn {
+    position: relative;
+    background-color: black;
+}
+
+#login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#login > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+// ------------------------------------------------------
+$portalSize: 350px;
+
+#login > div > div:first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border: 3px solid white;
+    border-radius: 100%;
+    width: $portalSize;
+    height: $portalSize;
+}
+
+#login > div > div:first-child > :first-child{
+    border: 7px solid white;
+    border-radius: 100%;
+    width: $portalSize - 35px;
+    height: $portalSize - 35px;
+}
+// ------------------------------------------------------
+
+#login > div > div:last-child{
+    display: flex;
+    height: 120px;
+    width: 220px;
+    flex-direction: column;
+    justify-content: space-around;
+    color: white;
+    margin-top: 40px;
+}
+
+#login > div > div:last-child input {
+    border-radius: 30px;
+    padding: 0px;
+    border: unset;
+    padding-left: 15px;
+    height: 30px;
+    width: 200px;
+}
+
+#login button {
+    border-radius: 30px;
+    height: 35px;
+    width: 215px;
+    color: white;
+    font-weight: 600;
+    background-color: black;
+    border: 2px solid white;
+}
+
+#login button:hover {
+    background-color: white;
+    color: black;
+}

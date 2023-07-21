@@ -1,0 +1,77 @@
+
+#signUp {
+    position: relative;
+    background-color: black;
+}
+
+#registry{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#registry > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+// ------------------------------------------------------
+$portalSize: 350px;
+
+#registry > div > div:first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border: 3px solid white;
+    border-radius: 100%;
+    width: $portalSize;
+    height: $portalSize;
+}
+
+#registry > div > div:first-child > :first-child{
+    border: 7px solid white;
+    border-radius: 100%;
+    width: $portalSize - 35px;
+    height: $portalSize - 35px;
+}
+// ------------------------------------------------------
+
+#registry > div > div:last-child{
+    display: flex;
+    height: 85px;
+    width: 250px;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    margin-top: 40px;
+    margin-left: 25px;
+}
+
+#registry > div > div:last-child input {
+    border-radius: 30px;
+    padding: 0px;
+    border: unset;
+    padding-left: 15px;
+    height: 30px;
+    width: 200px;
+}
+
+#registry button {
+    border-radius: 30px;
+    height: 35px;
+    width: 215px;
+    color: white;
+    font-weight: 600;
+    margin-top: 8px;
+    background-color: black;
+    border: 2px solid white;
+}
+
+#registry button:hover {
+    background-color: white;
+    color: black;
+}
