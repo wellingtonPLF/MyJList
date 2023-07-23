@@ -1,21 +1,29 @@
 <div id="profilePage">
     <span class="backPage">
-        <router-link to="/">Back</router-link>
+        <router-link to="/users">Back</router-link>
     </span>
     <div id="profile">
         <div class="backImageConfig">
             <div>
                 <div id="searchProfile">
-                    <input placeholder="search profile right here"/>
+                    <input placeholder="search user profile"/>
                     <div>search</div>
                 </div>
             </div>
-            <div>
-                <div id="userProfile" >
-                    <div class="backImageConfig"></div>
+            <div></div>
+            <div id="userProfile" >
+                <div>
+                    <div class="backImageConfig">
+                        <div>
+                            <div>SEND</div>
+                            <div>GIFT</div>
+                            <div>ADD</div>
+                            <div>BAN</div>
+                        </div>
+                    </div>
                     <div>
                         <h2>PROFILE NAME</h2>
-                        <div id="userData">
+                        <div>
                             <div>Last Online: Yesterday, 04:24 PM</div>
                             <div>Gender: Male</div>
                             <div>Birthday: Mar 29, 1999</div>
@@ -23,12 +31,70 @@
                             <div>Joined: Mar 29, 1999</div>
                         </div>
                         <div id="network">
-                            <div>Twiiter | Facebook | TikTok | Instagram</div>
+                            <div>
+                                <font-awesome-icon :icon="['fab', 'twitter']" />
+                                <font-awesome-icon :icon="['fab', 'square-facebook']" />
+                                <font-awesome-icon :icon="['fab', 'instagram']" />
+                            </div>
                         </div>
-                        <div id="channels">
-                            Channels: 
-                            <div>http://localhost:5173/profile</div>
-                            <div>http://localhost:5173/profile</div>
+                        <div>
+                            Also Available at 
+                            <div><font-awesome-icon :icon="['fas', 'link']" /> http://localhost:5173/profile</div>
+                            <div><font-awesome-icon :icon="['fas', 'link']" /> http://localhost:5173/profile</div>
+                        </div>
+                        <button>My Game List</button>
+                    </div>
+                </div>
+                <div id="statistics">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/64/64720.png" width="230px" height="230px" alt="imagem"/>
+                    </div>
+                    <div>
+                        <div>
+                            <div>
+                                <div style="background-color: green;"></div>
+                                <div>Played</div>
+                                <div>233</div>
+                            </div>
+                            <div>
+                                <div style="background-color: blue;"></div>
+                                <div>Complete</div>
+                                <div>233</div>
+                            </div>
+                            <div>
+                                <div style="background-color: yellow;"></div>
+                                <div>On-Hold</div>
+                                <div>233</div>
+                            </div>
+                            <div>
+                                <div style="background-color: red;"></div>
+                                <div>Dropped</div>
+                                <div>233</div>
+                            </div>
+                            <div>
+                                <div style="background-color: gray;"></div>
+                                <div>Plan to Play</div>
+                                <div>2221</div>
+                            </div>
+                            <div>
+                                <div style="background-color: rgb(7, 180, 180);"></div>
+                                <div>Replayed</div>
+                                <div>233</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div>2233</div>
+                                <div>Total Entries</div>
+                            </div>
+                            <div>
+                                <div>2233</div>
+                                <div>Total Days</div>
+                            </div>
+                            <div>
+                                <div>2233</div>
+                                <div>Total Hours</div>
+                            </div>
                         </div>
                     </div>
                 </div>

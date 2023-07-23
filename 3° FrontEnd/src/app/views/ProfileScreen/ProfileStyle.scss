@@ -50,20 +50,20 @@
 }
 
 #profile > div:first-child > div:nth-child(2) {
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    height: 270px;
     position: absolute;
     bottom: 0px;
-    height: 320px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.425);
-    color: white;
+    background-color: rgb(0, 0, 0, 0.7);
 }
 
 #userProfile {
     display: flex;
-    width: 90%;
+    justify-content: space-around;
+    width: 100%;
     height: 100%;
+    margin-top: 260px;
+    z-index: 1000;
 }
 
 #userProfile h2 {
@@ -72,26 +72,123 @@
 }
 
 #userProfile > div:first-child {
+    display: flex;
+}
+
+#network > div{
+    display: flex;
+    justify-content: space-around;
+    width: 70px;
+}
+
+#userProfile > div:first-child >  div:first-child {
     border: 5px solid white;
     background-image: url("https://www.mobafire.com/images/champion/skins/portrait/rumble-badlands-baron.jpg");
     background-position: unset;
     height: 300px;
     width: 280px;
+    position: relative;
 }
 
-#userProfile > div:nth-child(2) {
+#userProfile > div:first-child >  div:first-child > div{
+    display: flex;
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
+
+#userProfile > div:first-child >  div:first-child > div > div {
+    color: black;
+    width: 25%;
+    height: 40px;
+    line-height: 48px;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+}
+
+#userProfile > div:first-child > div:nth-child(2) {
     margin-left: 30px;
     margin-top: 30px;
 }
 
-#userData {
+#userProfile > div:first-child > div:nth-child(2) > div {
     margin-top: 10px;
 }
 
-#network {
-    margin-top: 10px;
+#userProfile > div:first-child > div:nth-child(2) button {
+    border: unset;
+    font-weight: 600;
+    padding: 13px 85px;
+    border-radius: 3px;
+    color: white;
+    margin-top: 34px;
+    background-color: rgb(17, 17, 114);
+}
+// -----------------------------------------------------------------------------------------------
+#statistics {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
 }
 
-#channels {
-    margin-top: 10px;
+#statistics > div {
+    width: 50%;
 }
+
+#statistics > div:first-child {
+    padding: 20px 0px 0px 30px;
+}
+
+#statistics > div:first-child img{
+    filter: invert(100%);
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+#statistics > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+}
+
+#statistics > div:nth-child(2)  > div:first-child{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+#statistics > div:nth-child(2)  > div:first-child > div{
+    display: flex;
+    width: 90%;
+    text-align: center;
+    justify-content: space-between;
+}
+
+#statistics > div:nth-child(2)  > div:first-child > div > div:first-child{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+#statistics > div:nth-child(2)  > div:first-child > div > div:nth-child(2){
+    text-align: start;
+    width: 100px;
+}
+
+#statistics > div:nth-child(2)  > div:first-child > div > div:nth-child(3){
+    width: 100px;
+    text-align: end;
+}
+
+#statistics > div:nth-child(2)  > div:nth-child(2) {
+    display: flex; 
+    text-align: center;
+    margin-top: 30px;
+    justify-content: space-around;
+    width: 90%;
+}
+
+// -----------------------------------------------------------------------------------------------
