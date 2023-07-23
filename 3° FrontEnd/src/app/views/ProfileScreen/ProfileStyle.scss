@@ -2,7 +2,7 @@
 #profilePage {
     min-height: 100vh;
     position: relative;
-    background-color: black;
+    background-color: blue;
 }
 
 #profile > div:first-child {
@@ -10,9 +10,7 @@
     position: relative;
     flex-direction: column;
     background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rumble_0.jpg");
-    height: 650px;
-    color: white;
-    background-position: unset;
+    color: white    
 }
 
 #profile > div:first-child > div:first-child {
@@ -49,21 +47,25 @@
     border-bottom-right-radius: 0px;
 }
 
+#profile > div:first-child > div {
+    z-index: 100;
+}
+
 #profile > div:first-child > div:nth-child(2) {
     width: 100%;
     height: 270px;
     position: absolute;
-    bottom: 0px;
+    top: 380px;
+    z-index: 10;
     background-color: rgb(0, 0, 0, 0.7);
 }
 
 #userProfile {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
-    height: 100%;
+    height: 320px;
     margin-top: 260px;
-    z-index: 1000;
 }
 
 #userProfile h2 {
@@ -73,6 +75,7 @@
 
 #userProfile > div:first-child {
     display: flex;
+    width: 40%;
 }
 
 #network > div{
@@ -119,13 +122,13 @@
 // -----------------------------------------------------------------------------------------------
 #statistics {
     display: flex;
-    justify-content: space-between;
     width: 700px;
     margin-top: 30px;
+    width: 45%;
 }
 
 #statistics > div {
-    width: 50%;
+    width: 40%;
 }
 
 #statistics > div:first-child {
@@ -143,6 +146,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 92px;
+    margin-left: 30px;
 }
 
 #statistics > div:nth-child(2)  > div:first-child{
@@ -184,3 +188,73 @@
 }
 
 // -----------------------------------------------------------------------------------------------
+
+#profileData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: black;
+    height: 500px;
+}
+
+#profileData > div {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 90%;
+}
+
+#profileData > div > div {
+    width: 40%;
+    height: 100%;
+    background-color: rgb(126, 107, 107);
+} 
+
+#profileData > div > div:first-child > div:first-child {
+    display: flex;
+}
+
+#profileData > div > div:first-child > div:first-child > div:first-child > div{ 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#profileData > div > div:first-child > div:first-child > div:first-child > div > div {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+}
+
+#historyList {
+    color: pink;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 80px;
+    background-color: red;
+}
+
+#historyList > div:nth-child(2) {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: space-around;
+    background-color: blue;
+}
+
+#profileData > div > div:first-child > div:nth-child(3){
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: rgb(128, 54, 54);
+    height: 100px;
+    width: 300px;
+}
+
+#profileData > div > div:first-child > div:nth-child(3) > div{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+}

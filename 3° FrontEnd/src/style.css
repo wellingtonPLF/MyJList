@@ -28,7 +28,7 @@ button {
   position: absolute;
   font-size: 20px;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1000;
   margin: 30px 0px 0px 30px;
 }
 
