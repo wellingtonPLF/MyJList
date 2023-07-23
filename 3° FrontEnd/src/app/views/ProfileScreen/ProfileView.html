@@ -15,10 +15,18 @@
                 <div>
                     <div class="backImageConfig">
                         <div>
-                            <div>SEND</div>
-                            <div>GIFT</div>
-                            <div>ADD</div>
-                            <div>BAN</div>
+                            <div>
+                                <font-awesome-icon :icon="['fas', 'paper-plane']" />
+                            </div>
+                            <div>
+                                <font-awesome-icon :icon="['fas', 'gift']" />
+                            </div>
+                            <div>
+                                <font-awesome-icon :icon="['fas', 'user-plus']" />
+                            </div>
+                            <div>
+                                <font-awesome-icon :icon="['fas', 'user-slash']" />
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -35,6 +43,8 @@
                                 <font-awesome-icon :icon="['fab', 'twitter']" />
                                 <font-awesome-icon :icon="['fab', 'square-facebook']" />
                                 <font-awesome-icon :icon="['fab', 'instagram']" />
+                                <font-awesome-icon :icon="['fab', 'youtube']" />
+                                <font-awesome-icon :icon="['fab', 'twitch']" />    
                             </div>
                         </div>
                         <div>
@@ -45,9 +55,7 @@
                     </div>
                 </div>
                 <div id="statistics">
-                    <div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/64/64720.png" width="230px" height="230px" alt="imagem"/>
-                    </div>
+                    
                     <div>
                         <div>
                             <div>
@@ -96,6 +104,9 @@
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/64/64720.png" width="230px" height="230px" alt="imagem"/>
+                    </div>
                 </div>
             </div>
             <div id="profileData">
@@ -123,30 +134,44 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>Notes</div>
+                            <div id="profileNotes">
+                                <div>Notes</div>
+                                <input placeholder="Type anything here" />
+                            </div>
                         </div>
                         <div id="historyList">
-                            <div>List Games Updates</div>
+                            <div>Last Games Updates</div>
                             <div>
-                                <div>Lista</div>
-                                <div>Lista</div>
-                                <div>Lista</div>
-                                <div>Lista</div>
+                                <div v-for="game in games">
+                                    <div class="backImageConfig" :style="{backgroundImage: `url(${game.img})`}"></div>
+                                </div>
                             </div>
                         </div>
                         <div>
-                            <div># Favorite Staff</div>
-                            <div># Favorite Cast</div>
+                            <div>
+                                <font-awesome-icon :icon="['fas', 'chevron-right']" />
+                                <div>Favorite Staff</div>
+                            </div>
+                            <div>
+                                <font-awesome-icon :icon="['fas', 'chevron-right']" />
+                                <div>Favorite Cast</div>
+                            </div>
                         </div>
                     </div>
                     <div>
                         <div>
                             <div>Friends</div>
-                            <div></div>
+                            <div id="friends">
+                                <div v-for="user in users">
+                                    <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${(user.sex === 'Male') ? imgType.male : imgType.female})`}"></div>
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <div>Favorite Games</div>
-                            <div></div>
+                            <div id="favGame">
+                                <div v-for="game in fav" class="backImageConfig" :style="{backgroundImage: `url(${game.img})`}"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
