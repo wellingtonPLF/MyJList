@@ -208,9 +208,9 @@
             <div id="gameRecomendation">
                 <div>You May Like</div>
                 <div>
-                    <div v-for="item in games" class="backImageConfig"
+                    <router-link to="/singleGame"  v-for="item in games" class="backImageConfig"
                     :style="{backgroundImage: `url(${item.img})`}">
-                    </div>
+                    </router-link>
                 </div>
             </div>
             <div id="gameComments">
@@ -230,7 +230,8 @@
                     </div>
                     <div class="userComment" v-for="item in userComment">
                         <div>
-                            <img :src="(item.sex === 'Male') ? imgType.male : imgType.female" alt="user" />
+                            <router-link to="/profile" class="userCommentIMG backImageConfig"
+                            :style="{backgroundImage: `url(${(item.sex === 'Male') ? imgType.male : imgType.female})`}"></router-link>
                             <div>
                                 <div>{{item.name}}</div>
                                 <div>Offline</div>
