@@ -17,8 +17,6 @@ const singleGameComponent: any = {
   data() {
     return {
       games: [] as Game[],
-      users: [] as any[],
-      fav: [] as any[],
       userComment: [] as any[],
       imgType: {
         male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
@@ -30,8 +28,7 @@ const singleGameComponent: any = {
     axios
       .get("jsons/games.json")
       .then((it: AxiosResponse<Game[]>) => {
-        this.games = it.data.slice(0,4);
-        this.fav = it.data.slice(0,8);
+        this.games = it.data.slice(0,5);
       })
       .catch((error) => {
         console.error(error);
@@ -40,7 +37,6 @@ const singleGameComponent: any = {
       axios
       .get("jsons/users.json")
       .then((it: AxiosResponse<any[]>) => {
-        this.users = it.data.slice(0,6);
         this.userComment = it.data.slice(0,3);
       })
       .catch((error) => {

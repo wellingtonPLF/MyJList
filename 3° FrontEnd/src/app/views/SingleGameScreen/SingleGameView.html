@@ -208,8 +208,8 @@
             <div id="gameRecomendation">
                 <div>You May Like</div>
                 <div>
-                    <div v-for="item in [1,2,3,4,5]" class="backImageConfig"
-                        style="background-image: url('https://cdn2.unrealengine.com/unreal-engine-high-on-life-cartel-art-1900x1080-891b8d90d47a.jpg');">
+                    <div v-for="item in games" class="backImageConfig"
+                    :style="{backgroundImage: `url(${item.img})`}">
                     </div>
                 </div>
             </div>
@@ -224,8 +224,8 @@
                     <div>
                         <div>Últimas Análises</div>
                         <div>
-                            <div>Favorites (0)</div>
-                            <div>Recomendation (0)</div>
+                            <div>Favorites (32)</div>
+                            <div>Recomendation (7)</div>
                         </div>
                     </div>
                     <div class="userComment" v-for="item in userComment">
