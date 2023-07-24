@@ -77,18 +77,18 @@
         <div class="visualizeAll">Visualizar tudo</div>
         <div id="top5">
             <div>
-                <div>
+                <router-link to="/singleGame">
                     <div style="height: 30px;">
                         Most rated game 2023
                     </div>
-                </div>
+                </router-link>
             </div>
             <div>
-                <div v-for="item in toprank" :style="{ backgroundImage: `url(${item})`}">
+                <router-link to="/singleGame" v-for="item in toprank" :style="{ backgroundImage: `url(${item})`}">
                     <div>
                         Most rated game 2023
                     </div>
-                </div>
+                </router-link>
             </div>
         </div>
     </div>
@@ -97,7 +97,7 @@
         <h2>Recommendations</h2>
         <div>
             <div v-for="game in recomendations" :key="game.id" >
-                <div class="recomendation">
+                <router-link to="/singleGame" class="recomendation">
                     <img :src="game.img" />
                     <div>
                         <div class="expert">
@@ -109,7 +109,7 @@
                     </div>
                     <h3>{{game.description}}</h3>
                     <div>{{game.date}}</div>
-                </div>
+                </router-link>
             </div>
         </div>
     </div>

@@ -286,12 +286,12 @@
     justify-content: space-around;
 }
 
-#historyList > div:nth-child(2) > div {
+#historyList > div:nth-child(2) > * {
     height: 100%;
     width: 24%;
 }
 
-#historyList > div:nth-child(2) > div > div {
+#historyList > div:nth-child(2) > * > div {
     height: 100%;
     width: 100%;
     border-radius: 10px;
@@ -371,7 +371,7 @@ $favSize: 120px;
     margin-top: 10px;
 }
 
-#favGame > div {
+#favGame > * {
     margin: 10px;
     width: $favSize + 15px;
     height: $favSize - 10px;

@@ -26,7 +26,7 @@
         </div>
         <div id="allGames">
             <div>
-                <div v-for="gameCard in games">
+                <router-link to="/singleGame" v-for="gameCard in games">
                     <div id="gameCard">
                         <div class="backImageConfig" :style="{backgroundImage: `url(${gameCard.img})`}">
                             <div>
@@ -36,7 +36,7 @@
                             <div>{{gameCard.name}}</div>
                         </div>
                     </div>
-                </div>
+                </router-link>
             </div>
         </div>
     </div>

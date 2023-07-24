@@ -20,7 +20,9 @@ import {
   faGift,
   faUserPlus,
   faUserSlash,
-  faChevronRight
+  faChevronRight,
+  faReply
+  
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faYoutube,
@@ -53,7 +55,8 @@ library.add(
   faGift,
   faUserPlus,
   faUserSlash,
-  faChevronRight
+  faChevronRight,
+  faReply
   
 );
 library.add(

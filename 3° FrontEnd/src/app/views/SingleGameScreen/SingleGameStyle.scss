@@ -2,6 +2,7 @@
 #profilePage {
     min-height: 100vh;
     position: relative;
+    background: #1a1a1a;
 }
 
 #profile > div:first-child {
@@ -90,6 +91,7 @@
 
 #network > div{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 
@@ -112,8 +114,9 @@
     color: white;
     font-size: 17px;
     height: 35px;
-    width: 130px;
-    margin-right: 10px;
+    width: 250px;
+    margin-right: 150px;
+    margin-bottom: 10px;
 }
 
 #userProfile > div:first-child >  div:first-child {
@@ -205,12 +208,15 @@
     width: 80%;
 }
 
+#statistics > div:first-child  > div:nth-child(2) > div:nth-child(2) > div:nth-child(2){
+    color: rgb(203, 206, 26);
+}
+
 // -----------------------------------------------------------------------------------------------
 
 #gameData {
     display: flex;
     justify-content: space-evenly;
-    background: #1a1a1a;
     height: 600px;
 }
 
@@ -342,6 +348,118 @@
     border-bottom: 0px !important;
 }   
 
-// -------- 
+// ------------------------------------------------------------------------
 
+#gameRecomendation, #gameComments {
+    margin-left: 80px;
+    width: 65%;
+}
 
+#gameComments > div:first-child > input{
+    padding-left: 10px;
+    width: 94%;
+    height: 30px;
+    margin-bottom: 10px;
+    border: unset;
+}
+
+#gameComments > div:first-child > button{
+    height: 32px;
+    width: 50px;
+    font-weight: 600;
+    border: unset;
+    color: white;
+    background-color: #3c3c44;
+    transform: scaleY(-1);
+}
+
+#gameRecomendation > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
+    margin-top: 10px;
+}
+
+#gameRecomendation > div:nth-child(2) > div {
+    width: 200px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+#gameComments {
+    margin-top: 20px;
+}
+
+#gameComments > div:nth-child(2) > div {
+    display: flex;
+}
+
+#gameComments > div:nth-child(2) > div:first-child {
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+    background-color: #3c3c44;
+}
+
+#gameComments > div:nth-child(2) > div:first-child > div {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+}
+// -----------
+
+.userComment {
+    background-color:#555563be;
+    margin-bottom: 10px;
+}
+
+.userComment > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+}
+
+.userComment > div:first-child > img {
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.userComment > div:first-child > div{
+    width: 100%;
+}
+
+.userComment > div:nth-child(2) {
+    border-left: 2px solid #3c3c44;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 10px 0px 10px;
+    margin: 10px 0px;
+}
+// -----------
+.userComment > div:nth-child(2) > div:first-child {
+    height: 90%;
+}
+
+.userComment > div:nth-child(2) > div:nth-child(2) {
+    display: flex;    
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.userComment > div:nth-child(2) > div:nth-child(2) > div:nth-child(2){
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.userComment > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:last-child{
+    color: #dfd219;
+}
+
+// ------------------------------------------------------------------

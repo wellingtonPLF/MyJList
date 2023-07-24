@@ -263,11 +263,15 @@ $iconSize: 70px;
     height: 450px;
 }
 
-#top5 > div:first-child{
+#top5 a {
+    text-decoration: unset;
+}
+
+#top5 > :first-child{
     width: 50%;
 }
 
-#top5 > div:first-child > div {
+#top5 > :first-child > * {
     background-image: url("https://i0.wp.com/gamesever.com.br/wp-content/uploads/2022/02/ELDEN-RING-LOGO.jpg?resize=740%2C417&ssl=1");
     display: flex;
     align-items: flex-end;
@@ -286,7 +290,7 @@ $iconSize: 70px;
     height: 100%;
 }
 
-#top5 > div:nth-child(2) > div {
+#top5 > div:nth-child(2) > * {
     display: flex;
     align-items: flex-end;
     background-position: center;
@@ -299,7 +303,7 @@ $iconSize: 70px;
     background-color: red;
 }
 
-#top5 > div:nth-child(2) > div > div{
+#top5 > div:nth-child(2) > * > div{
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.7);

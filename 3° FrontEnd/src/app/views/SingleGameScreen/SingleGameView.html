@@ -85,8 +85,8 @@
                         </div>
                         <div>
                             <div>
-                                <div>Running Time</div>
-                                <div>84m approx.</div>
+                                <div>Approx. Time</div>
+                                <div>84m</div>
                             </div>
                             <div>
                                 <div>Status</div>
@@ -94,7 +94,7 @@
                             </div>
                             <div>
                                 <div>Aired</div>
-                                <div>10/03/2023 - 10/04/2023</div>
+                                <div>10/03/2023 - Unknow</div>
                             </div>
                         </div>
                     </div>
@@ -106,10 +106,13 @@
             </div>
             <div id="gameData">
                 <div>
-                    <div class="backImageConfig" style="background-image: url('https://cdn2.unrealengine.com/unreal-engine-high-on-life-cartel-art-1900x1080-891b8d90d47a.jpg');"></div>
+                    <div class="backImageConfig"
+                        style="background-image: url('https://cdn2.unrealengine.com/unreal-engine-high-on-life-cartel-art-1900x1080-891b8d90d47a.jpg');">
+                    </div>
                     <div>
-                        <div v-for="item in [1,2,3,4,5]" class="backImageConfig" 
-                        style="background-image: url('https://cdn2.unrealengine.com/unreal-engine-high-on-life-cartel-art-1900x1080-891b8d90d47a.jpg');"></div>
+                        <div v-for="item in [1,2,3,4,5]" class="backImageConfig"
+                            style="background-image: url('https://cdn2.unrealengine.com/unreal-engine-high-on-life-cartel-art-1900x1080-891b8d90d47a.jpg');">
+                        </div>
                     </div>
                     <div>
                         <div>
@@ -154,7 +157,7 @@
                             <font-awesome-icon :icon="['fab', 'square-facebook']" />
                             <font-awesome-icon :icon="['fab', 'instagram']" />
                             <font-awesome-icon :icon="['fab', 'youtube']" />
-                            <font-awesome-icon :icon="['fab', 'twitch']" />  
+                            <font-awesome-icon :icon="['fab', 'twitch']" />
                         </div>
                     </div>
                 </div>
@@ -195,8 +198,57 @@
                         <div id="resources">
                             <div>Resources</div>
                             <div>
-                                <div>API GAME</div>
+                                <div>Api Game</div>
                                 <div>WikiPedia</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="gameRecomendation">
+                <div>You May Like</div>
+                <div>
+                    <div v-for="item in [1,2,3,4,5]" class="backImageConfig"
+                        style="background-image: url('https://cdn2.unrealengine.com/unreal-engine-high-on-life-cartel-art-1900x1080-891b8d90d47a.jpg');">
+                    </div>
+                </div>
+            </div>
+            <div id="gameComments">
+                <div>
+                    <input placeholder="Make a comment" />
+                    <button>
+                        <font-awesome-icon :icon="['fas', 'reply']" />
+                    </button>
+                </div>
+                <div>
+                    <div>
+                        <div>Últimas Análises</div>
+                        <div>
+                            <div>Favorites (0)</div>
+                            <div>Recomendation (0)</div>
+                        </div>
+                    </div>
+                    <div class="userComment" v-for="item in userComment">
+                        <div>
+                            <img :src="(item.sex === 'Male') ? imgType.male : imgType.female" alt="user" />
+                            <div>
+                                <div>{{item.name}}</div>
+                                <div>Offline</div>
+                                <div>Publicado: July 8, 2023</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, aliquid. Est minima,
+                                similique totam corporis minus esse dolore cum harum quaerat. Doloremque tempora ratione saepe
+                                fuga, quas dolores blanditiis ad.</div>
+                            <div>
+                                <div>Útil?</div>
+                                <div>
+                                    <div>Yes</div>
+                                    <div>No</div>
+                                    <div>Funny</div>
+                                    <div>Premiation</div>
+                                </div>
                             </div>
                         </div>
                     </div>

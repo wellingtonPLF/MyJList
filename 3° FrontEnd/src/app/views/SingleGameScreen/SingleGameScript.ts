@@ -19,6 +19,7 @@ const singleGameComponent: any = {
       games: [] as Game[],
       users: [] as any[],
       fav: [] as any[],
+      userComment: [] as any[],
       imgType: {
         male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
         female: "https://img.freepik.com/premium-photo/cute-girl-3d-character-design-cartoon-girl-avatar_432516-5510.jpg?w=2000"
@@ -40,6 +41,7 @@ const singleGameComponent: any = {
       .get("jsons/users.json")
       .then((it: AxiosResponse<any[]>) => {
         this.users = it.data.slice(0,6);
+        this.userComment = it.data.slice(0,3);
       })
       .catch((error) => {
         console.error(error);
