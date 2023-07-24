@@ -1,0 +1,269 @@
+
+#profilePage {
+    min-height: 100vh;
+    position: relative;
+}
+
+#profile > div:first-child {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    color: white;
+}
+
+#profile > div:first-child > div:first-child {
+    display: flex;
+    justify-content: flex-end;
+    width: 98%;
+    z-index: 110;  
+}
+
+#searchProfile {
+    display: flex;
+    margin-top: 30px;
+    width: 350px;
+    text-align: center; 
+}
+
+#searchProfile div {
+    display: flex;
+    align-items: center;
+    padding: 0px 15px 0px 10px;
+    background-color: #226d9bcb;
+    border-top-right-radius: 30px;
+    cursor: pointer;
+    height: 32px;
+    border-bottom-right-radius: 30px;
+}
+
+#searchProfile input {
+    border: unset;
+    width: 250px;
+    outline: unset;
+    height: 30px;
+    border-radius: 30px;
+    padding-left: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#profile > div:first-child > div {
+    z-index: 100;
+}
+
+#profile > div:first-child > div:nth-child(2) > div:first-child {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    height: 582px;
+    z-index: 8;
+    background-image: url("https://images4.alphacoders.com/627/627083.png");
+    background-position: unset;
+}
+
+#profile > div:first-child > div:nth-child(2) > div:nth-child(2) {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 282px;
+    z-index: 10;
+    background-color: rgb(0, 0, 0, 0.7);
+}
+
+#userProfile {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 370px;
+    margin-top: 150px;
+}
+
+#userProfile h2 {
+    margin: 0px;
+    font-weight: 100;
+}
+
+#userProfile > div:first-child {
+    display: flex;
+    width: 40%;
+}
+
+#network > div{
+    display: flex;
+    justify-content: space-around;
+    width: 120px;
+}
+
+#userProfile > div:first-child >  div:first-child {
+    border: 5px solid white;
+    background-image: url("https://static.gamevicio.com/imagens_up/big/82/high-on-life-jogo-do-criador-de-rick-and-morty-ganha-25-minutos-de-gameplay-081951.jpg");
+    background-position: unset;
+    height: 350px;
+    width: 280px;
+}
+
+#userProfile > div:first-child > div:nth-child(2) {
+    margin-left: 30px;
+    margin-top: 120px;
+}
+
+#userProfile > div:first-child > div:nth-child(2) > div {
+    margin-top: 10px;
+}
+
+// -----------------------------------------------------------------------------------------------
+#statistics {
+    display: flex;
+    width: 700px;
+    margin-top: 30px;
+    width: 45%;
+}
+
+#statistics > div {
+    width: 40%;
+}
+
+#statistics > div:nth-child(2) {
+    padding: 20px 0px 0px 30px;
+}
+
+#statistics > div:nth-child(2) img{
+    filter: invert(100%);
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+#statistics > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 92px;
+    margin-left: 30px;
+}
+
+#statistics > div:first-child  > div:first-child{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+#statistics > div:first-child  > div:first-child > div{
+    display: flex;
+    width: 90%;
+    text-align: center;
+    justify-content: space-between;
+}
+
+#statistics > div:first-child  > div:first-child > div > div:first-child{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+#statistics > div:first-child  > div:first-child > div > div:nth-child(2){
+    text-align: start;
+    width: 100px;
+}
+
+#statistics > div:first-child  > div:first-child > div > div:nth-child(3){
+    width: 100px;
+    text-align: end;
+}
+
+#statistics > div:first-child  > div:nth-child(2) {
+    display: flex; 
+    text-align: center;
+    margin-top: 30px;
+    justify-content: space-around;
+    width: 90%;
+}
+
+// -----------------------------------------------------------------------------------------------
+
+#gameData {
+    display: flex;
+    justify-content: space-evenly;
+    background: #1a1a1a;
+    height: 600px;
+}
+
+#gameData > div:first-child{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+#gameData > div:first-child > div {
+    width: 90%;
+}
+
+#gameData > div:first-child > div:first-child{
+    margin-top: 20px;
+    height: 50%;
+    background-color: white;
+}
+
+#gameData > div:first-child > div:nth-child(2){
+    margin-top: 20px;
+    height: 18%;
+    background-color: white;
+}
+
+#gameData > div:first-child > div:nth-child(3){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 20px;
+    height: 18%;
+}
+
+#gameData > div:first-child > div:nth-child(3) > div{
+    display: flex;
+    border-bottom: 3px solid white;
+    padding: 7px 0px;
+}
+
+#gameData > div:first-child > div:nth-child(3) > div > div:first-child{
+    font-size: 12px;
+    margin: 0px 10px;
+}
+// --------
+
+#gameData > div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 24%;
+    padding-top: 25px;
+}
+
+#gameData > div:nth-child(2) > div{
+    width: 95%;
+}
+
+#gameData > div:nth-child(2) > div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 30px;
+}
+
+#gameData > div:nth-child(2) > div:nth-child(2) > div:first-child{
+    margin-right: 10px;
+}
+
+#gameData > div:nth-child(2) > div:nth-child(2) > div:nth-child(2){
+    margin-right: 5px;
+}
+
+#gameData > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > svg{
+    margin: 10px 5px;
+}
+
+// --------
+#gameData > div:nth-child(3){
+    width: 24%;
+    background-color: rgb(85, 85, 99);
+}

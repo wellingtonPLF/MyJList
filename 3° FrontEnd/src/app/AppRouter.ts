@@ -6,6 +6,7 @@ import UserComponent from './views/UserScreen/UserComponent.vue';
 import SignInComponent from './views/SignInScreen/SignInComponent.vue';
 import SignUpComponent from './views/SignUpScreen/SignUpComponent.vue';
 import ProfileComponent from './views/ProfileScreen/ProfileComponent.vue';
+import SingleGameComponent from './views/SingleGameScreen/SingleGameComponent.vue';
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/profile',
     name: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: '/singleGame',
+    name: 'singleGame',
+    component: SingleGameComponent
   }
 ]
 
