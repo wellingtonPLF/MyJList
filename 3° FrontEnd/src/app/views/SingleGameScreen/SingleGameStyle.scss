@@ -85,13 +85,35 @@
 
 #userProfile > div:first-child {
     display: flex;
-    width: 40%;
+    width: 45%;
 }
 
 #network > div{
     display: flex;
-    justify-content: space-around;
+    width: 100%;
+}
+
+#network > div > * {
+    margin-right: 10px;
+}
+
+#network > div > select {
+    height: 35px;
     width: 120px;
+    border: unset;
+    font-weight: 600;
+    padding-left: 8px;
+}
+
+#network > div > button {
+    background-color: rgb(8, 8, 114);
+    font-weight: 600;
+    border: unset;
+    color: white;
+    font-size: 17px;
+    height: 35px;
+    width: 130px;
+    margin-right: 10px;
 }
 
 #userProfile > div:first-child >  div:first-child {
@@ -103,8 +125,9 @@
 }
 
 #userProfile > div:first-child > div:nth-child(2) {
-    margin-left: 30px;
+    margin-left: 20px;
     margin-top: 120px;
+    width: 470px;
 }
 
 #userProfile > div:first-child > div:nth-child(2) > div {
@@ -116,7 +139,8 @@
     display: flex;
     width: 700px;
     margin-top: 30px;
-    width: 45%;
+    width: 44%;
+    margin-left: -70px;
 }
 
 #statistics > div {
@@ -173,10 +197,12 @@
 
 #statistics > div:first-child  > div:nth-child(2) {
     display: flex; 
+    flex-wrap: wrap;
     text-align: center;
     margin-top: 30px;
     justify-content: space-around;
-    width: 90%;
+    height: 100px;
+    width: 80%;
 }
 
 // -----------------------------------------------------------------------------------------------
