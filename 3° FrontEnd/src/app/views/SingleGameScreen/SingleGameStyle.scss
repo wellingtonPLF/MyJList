@@ -260,8 +260,10 @@
 
 #gameData > div:first-child > div:nth-child(3) > div{
     display: flex;
-    border-bottom: 3px solid white;
+    color: black;
+    background-color: white;
     padding: 7px 0px;
+    border-radius: 5px;
 }
 
 #gameData > div:first-child > div:nth-child(3) > div > div:first-child{
@@ -361,6 +363,8 @@
     height: 30px;
     margin-bottom: 10px;
     border: unset;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 #gameComments > div:first-child > button{
@@ -371,6 +375,8 @@
     color: white;
     background-color: #3c3c44;
     transform: scaleY(-1);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 #gameRecomendation > div:nth-child(2) {
