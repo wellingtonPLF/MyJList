@@ -81,30 +81,76 @@
 
 #gameList table {
     width: 100%;
-    background-color: gray;
+    background-color: #3c3c44;
     margin-bottom: 15px;
 }
 
+#gameList table input {
+    width: 30px;
+}
+
+#gameHours {
+    margin-bottom: 3px;
+}
+
+#gameHours, #gameMin {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#gameHours > div, #gameMin > div {
+  width: 10px;
+  margin-left: -10px;
+  margin-top: 3px;
+}
+// ---------------------------------------------------------
+
+$thWidth: 100px;
+
+$firstTH: 30px;
+$fourthTH: 120px;
+$sixth_seventh_TH: 90px;
+$lastTH: 120px;
+
 #gameList table th {
-    width: 80px;
+    width: $thWidth;
 }
 
 #gameList table th:first-child {
-    width: 30px;
+    width: $firstTH;
 }
 
 #gameList table th:nth-child(3){
     text-align: start;
     padding-left: 10px;
-    width: calc(100% - (80px * 6) - 30px);
+    width: calc(100% - ($thWidth * 4) - $firstTH - $fourthTH - $sixth_seventh_TH - $lastTH);
+}
+
+#gameList table th:nth-child(4){
+    width: $fourthTH;
+}
+
+#gameList table th:nth-child(6){
+    width: $sixth_seventh_TH;
+}
+
+#gameList table th:nth-child(7){
+    width: $sixth_seventh_TH;
+}
+
+#gameList table th:nth-child(8){
+    width: $lastTH;
 }
 
 #gameList table th {
+    height: 35px;
+    font-size: 14px;
     background-color: white;
 }
 
 #gameList table td {
     height: 80px;
+    font-size: 14px;
     text-align: center;
     background-color: white;
 }

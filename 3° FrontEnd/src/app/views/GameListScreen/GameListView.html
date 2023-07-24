@@ -43,11 +43,50 @@
                         <td>
                             <div>Pack-Man</div>
                         </td>
-                        <td>Playing</td>
-                        <td>7.0</td>
-                        <td>offline</td>
-                        <td>85m</td>
-                        <td>Nice</td>
+                        <td>
+                            <select name="status">
+                                <option value="">Completed</option>
+                                <option value="Playing">Playing</option>
+                                <option value="Plan to Play">Plan to Play</option>
+                                <option value="Dropped">Dropped</option>
+                                <option value="On Hold">On Hold</option>
+                                <option value="Replaying">Replaying</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="score">
+                                <option value="Best">Best</option>
+                                <option value="Great">Great</option>
+                                <option value="Very Good">Very Good</option>
+                                <option value="Ok">Ok</option>
+                                <option value="Meh">Meh</option>
+                                <option value="Horrible">Horrible</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="type">
+                                <option value="Offline">Offline</option>
+                                <option value="Online">Online</option>
+                            </select>
+                        </td>
+                        <td>
+                            <div>
+                                <div id="gameHours">
+                                    <input />
+                                    <div>h</div>
+                                </div>
+                                <div id="gameMin">
+                                    <input />
+                                    <div>m</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <select name="type">
+                                <option value="Sounds Good">Sounds Good</option>
+                                <option value="Sounds Bad">Sounds Bad</option>
+                            </select>
+                        </td>
                     </tr>
                 </table>
             </div>
