@@ -25,7 +25,7 @@ const homeComponent: any = {
         {icon: "video", name: "Trailers", path: "/", done: false}, 
         {icon: "user", name: "Users", path: "/users", done: true}, 
         {icon: "hand-holding-heart", name: "Premium", path: "/", done: false}, 
-        {icon: "building", name: "Industry", path: "/", done: false}, 
+        {icon: "building", name: "Industry", path: "/", done: false},
         {icon: "headset", name: "Suport", path: "/", done: false}, //Contact Page
         {icon: "file-lines", name: "About", path: "/about", done: true} //Staff e sobre Page
       ],
