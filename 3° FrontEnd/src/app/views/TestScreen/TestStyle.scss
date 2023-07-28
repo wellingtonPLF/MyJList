@@ -1,0 +1,20 @@
+.container {
+  height: 100vh;
+  width: 50%; /* Set the desired width of the container */
+  position: relative;
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.element {
+  width: 100%; /* Set the element width to 100% of the container */
+  padding-bottom: 100%; /* Set the initial padding-top to maintain the aspect ratio (30% in this case) */
+  position: relative; /* Ensure the image stays inside the aspect ratio container */
+}
+
+.element img {
+  top: 0px;
+  position: absolute; /* Position the image absolutely to fit inside the aspect ratio container */
+  width: 100%; /* Set the image width to 100% of the aspect ratio container */
+  height: 100%; /* Set the image height to 100% of the aspect ratio container */
+  object-fit: cover; /* Maintain the aspect ratio and cover the container */
+}

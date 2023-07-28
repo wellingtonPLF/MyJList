@@ -42,7 +42,7 @@ const homeComponent: any = {
       .get("jsons/games.json")
       .then((it: AxiosResponse<Game[]>) => {
         this.games = it.data.slice(0, 6);
-        this.recomendations = it.data.slice(6, 10);
+        this.recomendations = it.data.slice(6, 7);
       })
       .catch((error) => {
         console.error(error);

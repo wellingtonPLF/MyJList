@@ -8,6 +8,7 @@ import SignUpComponent from './views/SignUpScreen/SignUpComponent.vue';
 import ProfileComponent from './views/ProfileScreen/ProfileComponent.vue';
 import SingleGameComponent from './views/SingleGameScreen/SingleGameComponent.vue';
 import GameListComponent from './views/GameListScreen/GameListComponent.vue';
+import TestComponent from './views/TestScreen/TestComponent.vue';
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: '/gameList',
     name: 'gameList',
     component: GameListComponent
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: TestComponent
   }
 ]
 
