@@ -8,19 +8,26 @@
     position: relative; 
 }
 
+#about > div {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 #portifolio {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     height: 100%;
-    width: 50%;
+    width: 520px;
 }
 
 #portifolio > div {
     display: flex;
     align-items: flex-end;
-    margin: 0px 0px 50px 80px;
     width: 500px;
-    height: 600px;
+    height: 580px;
+    margin-top: 95px;
     background-image: url("https://wallpapersmug.com/download/1920x1080/da7528/hyper-light-drifter-minimal-game.jpg");
 }
 
@@ -36,10 +43,8 @@
 
 #aboutProject{
     height: 100%;
-    width: 50%;
+    width: 600px;
 }
-
-// https://wallpapersmug.com/download/1920x1080/da7528/hyper-light-drifter-minimal-game.jpg
 
 #aboutProject > div:first-child {
     display: flex;
@@ -51,18 +56,18 @@
 }
 
 #aboutProject > div:first-child > div {
-    padding-left: 35px;
-    padding-bottom: 15px;
+    padding: 0px 10px 15px 25px;
     display: flex;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.7);
     flex-direction: column;
     width: 550px;
-    height: 300px;
+    margin-right: 50px;
 }
 
 #aboutProject h1 {
     font-size: 60px;
+    width: 515px;
 }
 
 #aboutProject h2 {
@@ -76,10 +81,15 @@
 
 #aboutProject > div:nth-child(2){
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     height: 50%;
     width: 100%;
 }
+
+#aboutProject > div:nth-child(2) > button{
+    display: none;
+}
+
 // ---------------------------------------------------------------------------------------------------
 $imgsize: 150px;
 $heightBord: 30px;
@@ -98,6 +108,7 @@ $staffCardProfileHeight: 80px;
     height: 100%;
     width: 100%;
     align-items: center;
+    justify-content: flex-start;
 }
 
 #staffCard span {
@@ -124,12 +135,12 @@ $staffCardProfileHeight: 80px;
 
 #staffCard > div > div {
     position: relative;
+    width: 50%;
     height: calc($imgsize + $heightBord) ;
 }
 
 #staffCard > div > div > div:first-child {
     display: flex;
-    width: 300px;
     align-items: flex-end;
     height: $staffCardProfileHeight;
 }
@@ -161,4 +172,106 @@ $staffCardProfileHeight: 80px;
 
 #staffCard > div > div > div:nth-child(2) > div h4 {
     margin: 0px 0px 5px 0px;
+}
+
+// ---------------------------------------------------------------
+
+@media screen and (max-width: 1200px){
+    #aboutProject > div:first-child > div {
+        width: 350px;
+    }
+
+    #aboutProject h1 {
+        font-size: 40px;
+        width: 345px;
+    }
+
+    #aboutProject > div:first-child {
+        height: 425px;
+    }
+
+    #staffCard {
+        margin-top: 25px;
+    }
+
+    #about > div > div:first-child {
+        width: 450px;
+    }
+
+    #about > div > div:nth-child(2) {
+        width: 400px;
+    }
+
+    #portifolio > div {
+        width: 355px;
+        height: 355px;
+    }
+
+    #staffCard > div img {
+        width: 100px;
+        height: 100px;
+    }
+
+    #staffCard > div > div {
+        width: 230px;
+    }
+
+    #staffCard span {
+        width: 130px;
+        height: 130px;
+    }
+
+    #staffCard > div > div > div:nth-child(2){
+        height: calc(100% - 105px);
+    }
+}
+
+@media screen and (max-width: 830px){
+
+    #aboutProject {
+        width: 100%;
+    }
+
+    #aboutProject > div:first-child > div {
+        margin: 0px;
+    }
+
+    #aboutProject > div:nth-child(2){
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    #aboutProject > div:nth-child(2) > button{
+        display: block;
+        color: white;
+        border: unset;
+        padding: 20px 30%;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 10px;
+        background-color: rgb(131, 5, 87);
+    }
+
+    #aboutProject > div:nth-child(2) > button:hover{
+        color: black;
+        background-color: white;
+    }
+
+    #staffCard {
+        width: auto;
+    }
+
+    #staffCard > div > div {
+        width: 200px;
+        margin-right: 10px;
+    }
+
+    #aboutProject > div:first-child {
+        justify-content: center !important;
+    }
+
+    #portifolio {
+        display: none;
+    }
 }
