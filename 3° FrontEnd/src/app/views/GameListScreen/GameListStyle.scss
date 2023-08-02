@@ -39,16 +39,36 @@
 }
 // ----------------------------------------------------------
 #gameListBanner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: column;
     height: 380px;
     width: 100%;
+    color: white;
     background-color: rgb(126, 12, 78);
 }
 
-#gameListBanner > * {
+#gameListBanner > a:first-child {
     display: flex;
     color: white;
-    padding-top: 20px;
-    padding-left: 20px;
+    width: 100%;
+}
+
+#gameListBanner > a:first-child > div {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#gameListBanner > div {
+    display: flex;
+    margin: 0px 0px 15px 15px;
+    justify-content: flex-end;
+}
+
+#gameListBanner > div > div {
+    margin: 0px 20px;
+    cursor: pointer;
 }
 
 #gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
@@ -58,107 +78,138 @@
     height: 50px;
 }
 
+
 #gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: white;
+    display: none;
     height: 50px;
-    background-color: rgb(126, 12, 78);
-}
-
-#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div:first-child {
-    display: flex;
+    align-items: center;
     justify-content: center;
-    width: 85%;
 }
 
-#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) {
-    display: flex;
-    justify-content: space-around;
-    width: 15%;
+#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div {
+    width: 90%;
 }
 
-#gameList table {
+#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div > * {
     width: 100%;
-    background-color: #3c3c44;
-    margin-bottom: 15px;
-}
-
-#gameList table input {
-    width: 30px;
-}
-
-#gameHours {
-    margin-bottom: 3px;
-}
-
-#gameHours, #gameMin {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#gameHours > div, #gameMin > div {
-  width: 10px;
-  margin-left: -10px;
-  margin-top: 3px;
+    height: 30px;
 }
 // ---------------------------------------------------------
 
-$thWidth: 100px;
+$progresBar: 7px;
+$heightValue: 35px;
+$tagsBackColor: rgb(38, 40, 38);
+$tagsBorderColor: rgb(56, 56, 56);
 
-$firstTH: 30px;
-$fourthTH: 120px;
-$sixth_seventh_TH: 90px;
-$lastTH: 120px;
-
-#gameList table th {
-    width: $thWidth;
-}
-
-#gameList table th:first-child {
-    width: $firstTH;
-}
-
-#gameList table th:nth-child(3){
-    text-align: start;
-    padding-left: 10px;
-    width: calc(100% - ($thWidth * 4) - $firstTH - $fourthTH - $sixth_seventh_TH - $lastTH);
-}
-
-#gameList table th:nth-child(4){
-    width: $fourthTH;
-}
-
-#gameList table th:nth-child(6){
-    width: $sixth_seventh_TH;
-}
-
-#gameList table th:nth-child(7){
-    width: $sixth_seventh_TH;
-}
-
-#gameList table th:nth-child(8){
-    width: $lastTH;
-}
-
-#gameList table th {
-    height: 35px;
-    font-size: 14px;
-    background-color: white;
-}
-
-#gameList table td {
-    height: 80px;
-    font-size: 14px;
-    text-align: center;
-    background-color: white;
-}
-
-#gameList table td:nth-child(3) {
+#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 
-#gameList table td:nth-child(3) > div {
-    margin: 10px;
+#gameCardList {
+    width: 322px;
+    margin: 0px 10px 10px 0px;
+    font-size: 15px;
+}
+
+#gameCardList > div:first-child {
+    display: flex;
+    align-items: flex-end;
+    color: white;
+    height: 200px;
+}
+
+#gameCardList > div:first-child > div {
+    background-color: rgba(0, 0, 0, 0.781);
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+#gameCardList > div:nth-child(2) {
+    background-color: $tagsBackColor;
+    color: white;
+    border: 3px solid $tagsBorderColor;
+}
+
+#gameCardList > div:nth-child(2) > div {
+    padding: 5px 0px 0px 10px;
+}
+
+#gameCardList > div:nth-child(2) > div:first-child {
+    padding-top: 8px;
+}
+
+#gameCardList > div:nth-child(2) > div:nth-child(3) {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+#gameCardList > div:nth-child(2) > div:nth-child(3) > div:first-child {
+    width: 250px;
+    height: $progresBar;
+    margin-right: 10px;    
+    background-color: rgb(44, 79, 139);
+}
+
+#gameCardList > div:nth-child(2) > div:nth-child(3) > div:first-child > div {
+    height: $progresBar;
+    background-color: rgb(0, 153, 255);
+}
+
+#gameCardList > div:nth-child(3) {
+    display: flex;
+    border: 3px solid $tagsBorderColor;
+    border-top: unset;
+}
+
+#gameCardList > div:nth-child(3) > div:first-child{
+    width: 72%;
+}
+
+#gameCardList > div:nth-child(3) > div:nth-child(2){
+    width: 28%;
+    text-align: center;
+}
+
+#gameCardList > div:nth-child(3) > div:nth-child(2) > div{
+    line-height: $heightValue - 2px;
+    height: $heightValue - 2px;
+    border: 3px solid $tagsBorderColor;
+    border-top: unset;
+    border-right: unset;
+    color: white;
+    background-color: $tagsBackColor;
+}
+
+#gameCardList > div:nth-child(3) > div:nth-child(2) > div:last-child{
+    border-bottom: unset;
+}
+
+#gameCardList > div:nth-child(3) > div:first-child > div {
+    display: flex;
+    align-items: center;
+    padding: 0px 5px;
+    height: $heightValue;
+}
+
+#gameCardList > div:nth-child(3) > div:first-child > div > *{
+    width: 100%;
+    height: 30px;
+}
+
+// ----------------------------------------------------------------------
+
+@media screen and (max-width: 815px) {
+    #gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+        display: none;
+    }
+
+    #gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) {
+        display: flex;
+    }
 }

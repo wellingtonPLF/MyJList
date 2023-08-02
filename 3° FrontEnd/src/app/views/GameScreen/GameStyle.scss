@@ -222,12 +222,15 @@ $searchBarHeight: 110px;
 @media screen and (max-width: 650px) {
     #gamePage > div > div:nth-child(2){
         height: auto;
+        border: unset;
+        border-top: 3px solid rgb(27, 42, 46);
     }
 
     #gamePage > div > div:nth-child(2) > div{
         flex-direction: column;
         width: 100%;
         text-align: center;
+        
     }
 
     #gamePage > div > div:nth-child(2) > div > div {
@@ -237,6 +240,6 @@ $searchBarHeight: 110px;
 
     #gamePage > div > div:nth-child(2) > div > div:hover {
         color: white;
-        background-color: rgb(27, 42, 46);
+        background-color: rgb(27, 42, 46);   
     }
 }

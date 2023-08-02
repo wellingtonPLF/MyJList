@@ -6,7 +6,14 @@
         </div>
         <div>
             <div id="gameListBanner">
-                <router-link to="/profile">Back</router-link>
+                <router-link to="/profile">
+                    <div>Back</div>
+                </router-link>
+                <div>
+                    <div>status</div>
+                    <div>filter</div>
+                    <div>search</div>
+                </div>
             </div>
             <div>
                 <div>All Games</div>
@@ -18,77 +25,76 @@
                 <div>Completed</div>
             </div>
             <div>
-                <div>All Games</div>
                 <div>
-                    <div>status</div>
-                    <div>filter</div>
-                    <div>search</div>
-                </div>
+                    <select name="status">
+                        <option value="">All Games</option>
+                        <option value="Playing">Playing</option>
+                        <option value="Replaying">Replaying</option>
+                        <option value="Plan to Play">Plan to play</option>
+                        <option value="On Hold">On Hold</option>
+                        <option value="Dropped">Dropped</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div> 
             </div>
             <div>
-                <table>
-                    <tr>
-                        <th>#</th>
-                        <th>Image</th>
-                        <th>Game Title</th>
-                        <th>Status</th>
-                        <th>Score</th>
-                        <th>Type</th>
-                        <th>Progress</th>
-                        <th>Tags</th>
-                    </tr>
-                    <tr v-for="(item, index) in [1,2,3,4,5,6,7,8,9,10]">
-                        <td>{{index + 1}}</td>
-                        <td class="backImageConfig" style="background-image: url('https://segredosdomundo.r7.com/wp-content/uploads/2020/06/pac-man-conheca-desde-a-criacao-ate-os-42-do-jogo.webp');"></td>
-                        <td>
-                            <div>Pack-Man</div>
-                        </td>
-                        <td>
-                            <select name="status">
-                                <option value="">Completed</option>
-                                <option value="Playing">Playing</option>
-                                <option value="Plan to Play">Plan to Play</option>
-                                <option value="Dropped">Dropped</option>
-                                <option value="On Hold">On Hold</option>
-                                <option value="Replaying">Replaying</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name="score">
-                                <option value="Best">Best</option>
-                                <option value="Great">Great</option>
-                                <option value="Very Good">Very Good</option>
-                                <option value="Ok">Ok</option>
-                                <option value="Meh">Meh</option>
-                                <option value="Horrible">Horrible</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name="type">
-                                <option value="Offline">Offline</option>
-                                <option value="Online">Online</option>
-                            </select>
-                        </td>
-                        <td>
+                <div id="gameCardList" v-for="item in games">
+                    <div class="backImageConfig" :style="{backgroundImage: `url(${item.img})`}">
+                        <div>{{item.name}}</div>
+                    </div>
+                    <div>
+                        <div>857 hours</div>
+                        <div>42 minutes</div>
+                        <div>
                             <div>
-                                <div id="gameHours">
-                                    <input />
-                                    <div>h</div>
-                                </div>
-                                <div id="gameMin">
-                                    <input />
-                                    <div>m</div>
-                                </div>
+                                <div style="width: 62%;"></div>
                             </div>
-                        </td>
-                        <td>
-                            <select name="type">
-                                <option value="Bad script">Bad script</option>
-                                <option value="Good script">Good script</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
+                            (62%)
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div>
+                                <select name="status" style="font-weight: 600; color: green;">
+                                    <option value="">Completed</option>
+                                    <option value="Playing">Playing</option>
+                                    <option value="Plan to Play">Plan to Play</option>
+                                    <option value="Dropped">Dropped</option>
+                                    <option value="On Hold">On Hold</option>
+                                    <option value="Replaying">Replaying</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select name="score">
+                                    <option value="Best">Best</option>
+                                    <option value="Great">Great</option>
+                                    <option value="Very Good">Very Good</option>
+                                    <option value="Ok">Fine</option>
+                                    <option value="Meh">Meh</option>
+                                    <option value="Horrible">Horrible</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select name="type">
+                                    <option value="Offline">Offline</option>
+                                    <option value="Online">Online</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select name="type">
+                                    <option value="Bad script">Bad script</option>
+                                    <option value="Good script">Good script</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div>Status</div>
+                            <div>Score</div>
+                            <div>Type</div>
+                            <div>Tags</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
