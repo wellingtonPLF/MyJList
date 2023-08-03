@@ -63,7 +63,7 @@
 
 #profile > div:first-child > div:nth-child(2) > div:nth-child(2) {
     width: 100%;
-    height: 288px;
+    height: 588px;
     position: absolute;
     top: 255px;
     z-index: 10;
@@ -76,9 +76,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 350px;
+    height: 390px;
     margin-top: 120px;
-    margin-bottom: 10px;
 }
 
 #profile > div:first-child > div:nth-child(3) > div {
@@ -98,15 +97,14 @@
 
 #userProfile > div:first-child {
     width: 100%;
-    height: 200px;
-    margin-bottom: 10px;
+    height: 240px;
     background-position: unset;
     background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rumble_4.jpg");
 }
 
 #userProfile > div:nth-child(2) {
     display: flex;
-    
+    margin: 15px 0px 0px 0px;
 }
 
 #userProfile > div:nth-child(2) > div:first-child > div:nth-child(3), #network {
@@ -125,20 +123,20 @@
 // -----------------------------------------------------------------------------------------------
 #statistics {
     display: flex;
-    width: 640px;
+    width: 635px;
     align-items: flex-end;
 }
 
 #statistics > div:nth-child(2) img{
     filter: invert(100%);
-    margin-bottom: 15px;
+    margin-bottom: 40px;
 }
 
 #statistics > div:first-child {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0px 115px 40px 0px;
+    margin: 0px 115px 65px 0px;
 }
 
 #statistics > div:first-child  > div:first-child{
@@ -204,7 +202,6 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-top: 10px;
 }
 
 #profileData > div > div {
@@ -374,5 +371,40 @@ $favSize: 120px;
         flex-direction: column;
         align-items: center;
         margin-bottom: 20px;
+    }
+
+    #userProfile > div:nth-child(2) {
+        display: flex;
+        margin: 10px 0px;
+    }
+
+    #profile > div:first-child > div:nth-child(3) {
+        height: auto;
+    }
+
+    #profile > div:first-child > div:nth-child(3) > div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #profileData > div > div:first-child > div:first-child{
+        margin-top: 20px;
+    }
+
+    #profile > div:first-child > div:nth-child(2) > div:first-child{
+        height: 830px;
+    }
+
+    #statistics {
+        background-color: rgba(0, 0, 0, 0.452);
+    }
+
+    #statistics > div:nth-child(2) img{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #statistics > div:first-child {
+        margin: 10px 75px 35px 40px;
     }
 }
