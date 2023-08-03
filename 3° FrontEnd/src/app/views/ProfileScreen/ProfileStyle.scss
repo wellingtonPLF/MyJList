@@ -29,7 +29,7 @@
     display: flex;
     align-items: center;
     padding: 0px 15px 0px 10px;
-    background-color: rgba(197, 1, 1, 0.582);
+    background-color:rgb(197 1 177 / 58%);
     border-top-right-radius: 30px;
     cursor: pointer;
     height: 32px;
@@ -57,7 +57,7 @@
     top: 0px;
     height: 582px;
     z-index: 8;
-    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rumble_0.jpg");
+    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_5.jpg");
     background-position: unset;
 }
 
@@ -92,14 +92,16 @@
     align-items: center;
     width: 635px;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.452);
+    // background-color: rgba(0, 0, 0, 0.452);
 }
 
 #userProfile > div:first-child {
-    width: 100%;
+    border-radius: 100%;
+    width: 38%;
+    // width: 100%;
+    // background-position: unset;
     height: 240px;
-    background-position: unset;
-    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rumble_4.jpg");
+    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayn_0.jpg");
 }
 
 #userProfile > div:nth-child(2) {
@@ -190,7 +192,7 @@
 #myGameList {
     display: flex;
     color: white;
-    background-color: rgb(14, 14, 119);
+    background-color: rgb(153 0 138);
     padding: 10px 0px;
     border: unset;
     width: 100%;
@@ -395,10 +397,6 @@ $favSize: 120px;
         height: 830px;
     }
 
-    #statistics {
-        background-color: rgba(0, 0, 0, 0.452);
-    }
-
     #statistics > div:nth-child(2) img{
         margin-top: 10px;
         margin-bottom: 20px;
@@ -406,5 +404,11 @@ $favSize: 120px;
     
     #statistics > div:first-child {
         margin: 10px 75px 35px 40px;
+    }    
+}
+
+@media screen and (max-width: 675px) {
+    #searchProfile {
+        margin-top: 60px;
     }
 }
