@@ -63,100 +63,82 @@
 
 #profile > div:first-child > div:nth-child(2) > div:nth-child(2) {
     width: 100%;
-    height: 268px;
+    height: 288px;
     position: absolute;
-    top: 315px;
+    top: 255px;
     z-index: 10;
     background-color: rgb(0, 0, 0, 0.7);
 }
 
-#userProfile {
+// -------------------------------------------------------------
+
+#profile > div:first-child > div:nth-child(3) {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
-    height: 320px;
-    margin-top: 200px;
+    height: 350px;
+    margin-top: 120px;
+    margin-bottom: 10px;
 }
 
-#userProfile h2 {
-    margin: 0px;
-    font-weight: 100;
+#profile > div:first-child > div:nth-child(3) > div {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 100%;
+}
+
+#userProfile {
+    display: flex;
+    align-items: center;
+    width: 635px;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.452);
 }
 
 #userProfile > div:first-child {
-    display: flex;
-    width: 40%;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+    background-position: unset;
+    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rumble_4.jpg");
 }
 
-#network > div{
+#userProfile > div:nth-child(2) {
+    display: flex;
+    
+}
+
+#userProfile > div:nth-child(2) > div:first-child > div:nth-child(3), #network {
     display: flex;
     justify-content: space-around;
-    width: 120px;
-}
-
-#userProfile > div:first-child >  div:first-child {
-    border: 5px solid white;
-    background-image: url("https://www.mobafire.com/images/champion/skins/portrait/rumble-badlands-baron.jpg");
-    background-position: unset;
-    height: 300px;
-    width: 280px;
-    position: relative;
-}
-
-#userProfile > div:first-child >  div:first-child > div{
-    display: flex;
-    bottom: 0px;
-    position: absolute;
-    width: 100%;
-}
-
-#userProfile > div:first-child >  div:first-child > div > div {
-    color: black;
-    width: 25%;
+    align-items: center;
+    width: 180px;
     height: 40px;
-    line-height: 48px;
+}
+
+#userProfile > div:nth-child(2) > div:nth-child(2) {
     text-align: center;
-    background-color: white;
-    cursor: pointer;
-}
-
-#userProfile > div:first-child > div:nth-child(2) {
-    margin-left: 30px;
-    margin-top: 80px;
-}
-
-#userProfile > div:first-child > div:nth-child(2) > div {
-    margin-top: 10px;
+    margin: 0px 10px;
 }
 
 // -----------------------------------------------------------------------------------------------
 #statistics {
     display: flex;
-    width: 700px;
-    margin-top: 30px;
-    width: 45%;
-}
-
-#statistics > div {
-    width: 40%;
-}
-
-#statistics > div:nth-child(2) {
-    padding: 20px 0px 0px 30px;
+    width: 640px;
+    align-items: flex-end;
 }
 
 #statistics > div:nth-child(2) img{
     filter: invert(100%);
-    margin-top: 25px;
-    margin-left: 50px;
+    margin-bottom: 15px;
 }
 
 #statistics > div:first-child {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 92px;
-    margin-left: 30px;
+    margin: 0px 115px 40px 0px;
 }
 
 #statistics > div:first-child  > div:first-child{
@@ -208,10 +190,13 @@
 }
 
 #myGameList {
+    display: flex;
     color: white;
     background-color: rgb(14, 14, 119);
-    padding: 10px 95px;
+    padding: 10px 0px;
     border: unset;
+    width: 100%;
+    justify-content: center;
     border-radius: 3px;
 }
 
@@ -219,14 +204,14 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    height: 500px;
+    margin-top: 10px;
 }
 
 #profileData > div > div {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    width: 40%;
+    justify-content: space-evenly;
+    width: 640px;
     height: 100%;
 } 
 
@@ -234,6 +219,10 @@
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+}
+
+#profileData > div > div:first-child > div:first-child > div:first-child {
+    width: 290px;
 }
 
 #profileData > div > div:first-child > div:first-child > div:first-child > div{ 
@@ -328,10 +317,6 @@ $partTwoHeight: 140px;
 $friendSize: 80px;
 $favSize: 120px;
 
-#profileData > div > div:nth-child(2){
-    margin-top: 10px;
-}
-
 #profileData > div > div:nth-child(2) > div:first-child {
     display: flex;
     flex-direction: column;
@@ -376,4 +361,18 @@ $favSize: 120px;
     width: $favSize + 15px;
     height: $favSize - 10px;
     border-radius: 10px;
+}
+
+// ------------------------------------------------------------
+
+@media screen and (max-width: 1350px) {
+    #profileData {
+        height: auto;
+    }
+
+    #profileData > div {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 }
