@@ -411,4 +411,95 @@ $favSize: 120px;
     #searchProfile {
         margin-top: 60px;
     }
+
+    #profile > div:first-child > div:nth-child(2) > div:first-child{
+        height: 880px;
+    }
+
+    #profile > div:first-child > div:nth-child(2) > div:nth-child(2) {
+        height: 620px;
+    }
+
+    #userProfile {
+        width: 100%;
+    }
+
+    #userProfile > div:first-child {
+        width: 240px;
+    }
+
+    #userProfile > div:nth-child(2) > div:first-child, #userProfile > div:nth-child(2) > div:nth-child(3)  {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    #userProfile > div:nth-child(2) > div:nth-child(3) {
+        margin-bottom: 2px;
+    }
+
+    #userProfile > div:nth-child(2) > div:first-child > div:nth-child(2){
+        width: 105px;
+    }
+
+    #userProfile > div:nth-child(2) > div:nth-child(2) > div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #userProfile > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div{
+        display: none;
+    }
+
+    #userProfile > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:first-child{
+        display: block;
+        width: 130px;
+        border-bottom: 2px solid blueviolet;
+    }
+
+    #network {
+        width: 105px;
+        height: 30px;
+    }
+
+    #userProfile > div:nth-child(2) > div:first-child > div:nth-child(3){
+        width: auto;
+        height: 30px;
+        justify-content: space-around;
+    }
+
+    #profileData > div > div{
+        width: auto;
+    }
+
+    #profileData > div > div:first-child > div:first-child{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #statistics {
+        width: auto;
+        align-items: center;
+    }
+
+    #statistics > div:first-child {
+        margin: 35px 0px;
+    }
+
+    #statistics > div:nth-child(2) img {
+        width: 100px;
+        height: 100px;
+    }
+
+    #profileData > div > div:nth-child(2) > div:first-child > div:first-child,
+    #profileData > div > div:nth-child(2) > div:nth-child(2) > div:first-child {
+        width: 92%;
+        margin-left: 12px;
+    }
+
+    #profileData > div > div:nth-child(2) > div:first-child > div:nth-child(2) > a:first-child,
+    #profileData > div > div:nth-child(2) > div:first-child > div:nth-child(2) > a:last-child {
+        display: none;
+    }
 }
