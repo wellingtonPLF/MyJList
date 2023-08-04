@@ -2,7 +2,6 @@
 #profilePage {
     min-height: 100vh;
     position: relative;
-    background: #1a1a1a;
 }
 
 #profile > div:first-child {
@@ -52,11 +51,13 @@
     z-index: 100;
 }
 
+$backImageHeight: 600px;
+
 #profile > div:first-child > div:nth-child(2) > div:first-child {
     width: 100%;
     position: absolute;
     top: 0px;
-    height: 582px;
+    height: $backImageHeight;
     z-index: 8;
     background-image: url("https://images4.alphacoders.com/627/627083.png");
     background-position: unset;
@@ -64,7 +65,7 @@
 
 #profile > div:first-child > div:nth-child(2) > div:nth-child(2) {
     width: 100%;
-    height: 300px;
+    height: calc($backImageHeight - 282px);
     position: absolute;
     top: 282px;
     z-index: 10;
@@ -77,8 +78,8 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    height: 370px;
     margin-top: 150px;
+    padding-bottom: 20px;
 }
 
 #userProfile h2 {
@@ -208,12 +209,11 @@
 
 // -----------------------------------------------------------------------------------------------
 
-$gameImage: 650px;
-
 #gameData {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #1a1a1a;
 }
 
 #gameData > div:first-child {
@@ -239,8 +239,11 @@ $gameImage: 650px;
 }
 
 
-#gameData > div:first-child  > div:first-child > div:first-child > div:first-child > div:first-child {
+#gameData > div:first-child  > div:first-child > div:first-child > div:first-child {
     width: 650px;
+}
+
+#gameData > div:first-child  > div:first-child > div:first-child > div:first-child > div:first-child {
     height: 320px;
 }
 
@@ -301,7 +304,7 @@ $gameImage: 650px;
 
 #gameData > div:first-child  > div:first-child > div:nth-child(2) > div > div:nth-child(2) {
     text-align: start;
-    width: $gameImage - 25px;
+    width: 625px;
     border-radius: 5px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -312,13 +315,12 @@ $gameImage: 650px;
 #gameData > div:first-child > div:nth-child(2){
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 400px;
+    padding: 10px 0px 10px 0px;
     background-color: rgb(85, 85, 99);
 }
 
 #gameData > div:first-child > div:nth-child(2) > div > div {
-    margin-top: 10px;
     width: 100%;
     text-align: start;
 }
@@ -357,21 +359,25 @@ $gameImage: 650px;
 // ------------------------------------------------------------------------
 
 #gameRecomendation {
+    display: flex;
     width: 90%;
+}
+
+#gameRecomendation > div:first-child {
+    width: 1000px;
 }
 
 #gameRecomendation > div:first-child > div:nth-child(2) {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     height: 120px;
     margin-top: 10px;
 }
 
 #gameRecomendation > div:first-child > div:nth-child(2) > * {
-    width: 192px;
+    width: 19%;
     height: 100%;
-    margin-right: 10px;
     border-radius: 10px;
 }
 
@@ -428,10 +434,10 @@ $buttonWidth: 60px;
     background-color: #3c3c44;
 }
 
-#gameComments > div:first-child > div:nth-child(2) > div:first-child > div {
+#gameComments > div:first-child > div:nth-child(2) > div:first-child > div:nth-child(2) {
     display: flex;
-    justify-content: space-between;
     width: 250px;
+    justify-content: space-between;
 }
 // -----------
 
@@ -495,12 +501,59 @@ $buttonWidth: 60px;
 @media screen and (max-width: 1345px) {
     #gameData > div:first-child {
         flex-direction: column;
-        align-items: center;
     }
 
     #gameData {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    #gameData > div:first-child > div:nth-child(2) {
+        margin-bottom: 15px;
+    }
+
+    #gameData > div:first-child > div:nth-child(2){
+        width: 100%;
+    }
+
+    #gameData > div:first-child > div:first-child > div:first-child > div:nth-child(2) {
+        width: calc(100% - 700px);
+    }    
+}
+
+@media screen and (max-width: 1150px) {
+
+    #gameData > div:first-child > div:first-child > div:first-child > div:nth-child(2) {
+        width: 340px;
+    }  
+
+    #gameData > div:first-child > div:first-child > div:nth-child(2) > div > div:nth-child(2){
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #gameData > div:first-child > div:first-child > div:first-child {
+        height: auto;
+        flex-direction: column;
+    }
+
+    #gameData > div:first-child > div:first-child > div:first-child > div:first-child {
+        width: 100%;
+    }
+
+    #gameData > div:first-child > div:first-child > div:first-child > div:nth-child(2) {
+        width: 100%;
+        padding: 15px 0px 0px 0px;
+    }
+
+    #gameData > div:first-child > div:first-child > div:first-child > div:nth-child(2) > div:first-child {
+        overflow-y: unset;
+        width: 100%;
+    }
+
+    #gameData > div:first-child  > div:first-child > div:nth-child(2) > div > div:nth-child(2) {
+        width: 100%;
     }
 }
