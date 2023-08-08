@@ -31,14 +31,23 @@
     background-image: url("https://wallpapersmug.com/download/1920x1080/da7528/hyper-light-drifter-minimal-game.jpg");
 }
 
-#portifolio button {
+#portifolio a {
+    text-align: center;
+    line-height: 50px;
     height: 50px;
+    background-color: white;
     width: 150px;
+    color: black;
     font-size: 17px;
     font-weight: 600;
     border: unset;
     cursor: pointer;
     margin: 0px 0px 30px 30px;
+}
+
+#portifolio a:hover {
+    color: white;
+    background-color: rgb(145, 8, 115);
 }
 
 #aboutProject{
@@ -81,37 +90,37 @@
 
 #aboutProject > div:nth-child(2){
     display: flex;
-    justify-content: center;
     height: 50%;
     width: 100%;
 }
 
-#aboutProject > div:nth-child(2) > button{
+#aboutProject > div:nth-child(2) > a{
     display: none;
 }
 
 // ---------------------------------------------------------------------------------------------------
 $imgsize: 150px;
-$heightBord: 30px;
-$profileSize: 35px;
-$staffCardProfileHeight: 80px;
+$heightBord: 15px;
+$staffCardProfileHeight: 60px;
 
 #staffCard{
-    width: 585px;
+    width: 500px;
     border-radius: 10px;
     height: 230px;
     margin-top: 50px;
+    position: relative;
 }
 
 #staffCard > div {
     display: flex;
     height: 100%;
-    width: 100%;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 #staffCard span {
+    left: 0px;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,9 +132,8 @@ $staffCardProfileHeight: 80px;
     height: calc($imgsize + $heightBord);
 }
 
-#staffCard > div img {
+#staffCard span img {
     background-color: white;
-    border: 5px solid black;
     border-radius: 100%;
     width: $imgsize;
     height: $imgsize;
@@ -134,30 +142,28 @@ $staffCardProfileHeight: 80px;
 }
 
 #staffCard > div > div {
-    position: relative;
-    width: 50%;
+    width: 67%;
     height: calc($imgsize + $heightBord) ;
 }
 
 #staffCard > div > div > div:first-child {
     display: flex;
     align-items: flex-end;
+    margin-left: 10px;
     height: $staffCardProfileHeight;
 }
-
-#staffCard > div > div > div:first-child div{
+#staffCard > div > div img {
     border-radius: 100%;
-    height: $profileSize;
-    width: $profileSize;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    background-color: white;
+    width: 30px;
+    cursor: pointer;
+    border-radius: 100%;
+    border: 3px solid white;
+    margin: 0px 7px 5px 7px;
+    height: 30px;
+    line-height: 30px;
 }
 
 #staffCard > div > div > div:nth-child(2) {
-    position: absolute;
-    left: -1px;
-    width: 100%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: rgb(255, 255, 255);
@@ -167,7 +173,20 @@ $staffCardProfileHeight: 80px;
 #staffCard > div > div > div:nth-child(2) > div{
     display: flex;
     flex-direction: column;
-    padding: 10px 0px 0px 10px;
+    padding: 10px 0px 0px 14px;
+}
+
+#staffCard > div > div > div:nth-child(2) > div > div:nth-child(2) {
+    color: rgb(99, 99, 99);
+}
+
+
+#staffCard > div > div > div:nth-child(2) > div > div:nth-child(3) {
+    height: 48px;
+    margin-right: 5px;
+    padding-right: 5px;
+    overflow-y: scroll;
+    margin-top: 5px;
 }
 
 #staffCard > div > div > div:nth-child(2) > div h4 {
@@ -190,10 +209,6 @@ $staffCardProfileHeight: 80px;
         height: 425px;
     }
 
-    #staffCard {
-        margin-top: 25px;
-    }
-
     #about > div > div:first-child {
         width: 450px;
     }
@@ -207,13 +222,18 @@ $staffCardProfileHeight: 80px;
         height: 355px;
     }
 
+    #staffCard {
+        margin-top: 25px;
+        width: 400px;
+    }
+
     #staffCard > div img {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
 
     #staffCard > div > div {
-        width: 230px;
+        width: 67%;
     }
 
     #staffCard span {
@@ -222,7 +242,12 @@ $staffCardProfileHeight: 80px;
     }
 
     #staffCard > div > div > div:nth-child(2){
-        height: calc(100% - 105px);
+        height: calc(100% - 78px);
+    }
+
+    #staffCard > div > div > div:nth-child(2) > div > div:nth-child(3) {
+        height: 31px;
+        margin-top: 5px;
     }
 }
 
@@ -242,29 +267,28 @@ $staffCardProfileHeight: 80px;
         justify-content: flex-start;
     }
 
-    #aboutProject > div:nth-child(2) > button{
+    #aboutProject > div:nth-child(2) > a{
         display: block;
         color: white;
+        background-color: rgb(131, 5, 87);
         border: unset;
         padding: 20px 30%;
         font-size: 20px;
         font-weight: 600;
         border-radius: 10px;
-        background-color: rgb(131, 5, 87);
     }
 
-    #aboutProject > div:nth-child(2) > button:hover{
+    #aboutProject > div:nth-child(2) > a:hover{
         color: black;
         background-color: white;
     }
 
     #staffCard {
-        width: auto;
+        width: 350px;
     }
 
     #staffCard > div > div {
-        width: 200px;
-        margin-right: 10px;
+        width: 63%;
     }
 
     #aboutProject > div:first-child {

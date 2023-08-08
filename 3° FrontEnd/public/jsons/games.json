@@ -98,5 +98,105 @@
     "date": "02 de ago.",
     "score": "8.7",
     "description": "Mario + Rabbids Sparks of Hope é um videogame de estratégia baseado em turnos..."
+  },
+  {
+    "id": 11,
+    "img": "https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S1_2560x1440-91dc9490f14942ad5eeef278eb3ef4a6?h=270&quality=medium&resize=1&w=480",
+    "name": "Valorant",
+    "plataforms": ["xbox", "playstation", "pc"],
+    "user": "Lucas",
+    "date": "29 de jun.",
+    "score": "9.4",
+    "description": "Valorant é um jogo eletrônico multijogador gratuito para jogar de tiro em..."
+  },
+  {
+    "id": 12,
+    "img": "https://image.api.playstation.com/vulcan/ap/rnd/202302/2321/ba706e54d68d10a0eb6ab7c36cdad9178c58b7fb7bb03d28.png",
+    "name": "Baldur's Gate 3",
+    "plataforms": ["xbox", "playstation"],
+    "user": "Iara",
+    "date": "19 de abr.",
+    "score": "7.2",
+    "description": "Baldur's Gate III é a sequência do jogo de RPG Baldur's Gate II: Shadows of Amn..."
+  },
+  {
+    "id": 13,
+    "img": "https://esports.eldesmarque.com/wp-content/uploads/2019/09/LoL2.jpg",
+    "name": "League of Legends",
+    "plataforms": ["pc", "nintendo"],
+    "user": "Vitoria",
+    "date": "02 de ago.",
+    "score": "8.1",
+    "description": "League of Legends é um jogo eletrônico do gênero multiplayer online battle arena..."
+  },
+  {
+    "id": 14,
+    "img": "https://meups.com.br/wp-content/uploads/2022/07/FIFA-23-capa.jpg",
+    "name": "FIFA 23",
+    "plataforms": ["xbox", "playstation", "pc"],
+    "user": "Lucas",
+    "date": "29 de jun.",
+    "score": "7.7",
+    "description": "FIFA 23 é um jogo eletrônico de simulação de futebol desenvolvido pela Electronic Arts..."
+  },
+  {
+    "id": 15,
+    "img": "https://www.adrenaline.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=500&height=500&format=webp&quality=91&imagick=uploads.adrenaline.com.br/2023/06/palia-capa.jpg",
+    "name": "Palia",
+    "plataforms": ["xbox", "playstation"],
+    "user": "Iara",
+    "date": "19 de abr.",
+    "score": "5.9",
+    "description": "From sprawling flower fields to hilly forests and rocky beaches - explore the stunning..."
+  },
+  {
+    "id": 16,
+    "img": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota2_social.jpg",
+    "name": "Dota 2",
+    "plataforms": ["pc", "nintendo"],
+    "user": "Vitoria",
+    "date": "02 de ago.",
+    "score": "8.4",
+    "description": "Dota 2 é um jogo eletrônico do gênero multiplayer online battle arena desenvolvido e publicado..."
+  },
+  {
+    "id": 17,
+    "img": "https://cdn.akamai.steamstatic.com/steam/apps/672890/capsule_616x353.jpg?t=1690259803",
+    "name": "Sparkball",
+    "plataforms": ["xbox", "playstation", "pc"],
+    "user": "Lucas",
+    "date": "29 de jun.",
+    "score": "6.3",
+    "description": "Sparkball, um jogo multiplayer empolgante com batalhas cheias de emoção, poderá ser..."
+  },
+  {
+    "id": 18,
+    "img": "https://mmorpgplay.com.br/wp-content/uploads/2022/07/BlackDesert-Drakania-Featured.webp",
+    "name": "Black Desert",
+    "plataforms": ["xbox", "playstation"],
+    "user": "Iara",
+    "date": "19 de abr.",
+    "score": "7.5",
+    "description": "Black Desert Online é um vídeo game de MMORPG desenvolvido pela Pearl Abyss e publicado..."
+  },
+  {
+    "id": 19,
+    "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/962130/capsule_616x353.jpg?t=1684963474",
+    "name": "Grounded",
+    "plataforms": ["pc", "nintendo"],
+    "user": "Vitoria",
+    "date": "02 de ago.",
+    "score": "8.8",
+    "description": "Grounded é um jogo de sobrevivência, desenvolvido pela Obsidian Entertainment ..."
+  },
+  {
+    "id": 20,
+    "img": "https://image.api.playstation.com/vulcan/ap/rnd/202006/1814/aglGICQMUl73037QEhSl7Avk.png",
+    "name": "SpongeBob SquarePants: Battle for Bikini Bottom - Rehydrated",
+    "plataforms": ["pc", "nintendo"],
+    "user": "Vitoria",
+    "date": "02 de ago.",
+    "score": "4.5",
+    "description": "SpongeBob SquarePants: Battle for Bikini Bottom Rehydrated é um jogo eletrônico de plataforma..."
   }
 ]

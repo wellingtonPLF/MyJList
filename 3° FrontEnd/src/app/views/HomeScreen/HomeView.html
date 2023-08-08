@@ -26,7 +26,7 @@
                 <h2 style="cursor: pointer;">Releases</h2>
                 <div style="margin-left: 10px; cursor: pointer;">| airing</div>
             </div>
-            <a class="visualizeAll" href="">Visualizar tudo</a>
+            <router-link class="visualizeAll" to="/game">Visualizar tudo</router-link>
         </div>
 
         <div id="cardList">
@@ -73,11 +73,13 @@
         <div class="line"></div>
     </div>
     <div id="ranking">
-        <div class="visualizeAll">Visualizar tudo</div>
+        <div class="visualizeAll">
+            <router-link to="/game">Visualizar tudo</router-link>
+        </div>
         <div id="top5">
             <div>
                 <router-link to="/singleGame">
-                    <div style="height: 30px;">
+                    <div>
                         Most rated game 2023
                     </div>
                 </router-link>

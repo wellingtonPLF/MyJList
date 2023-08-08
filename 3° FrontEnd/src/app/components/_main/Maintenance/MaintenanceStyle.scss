@@ -1,8 +1,22 @@
 
 #maintenance{
     display: flex;
-    height: 100%;
+    flex-direction: column;
+    height: 100vh;
+    font-size: 50px;
+    position: relative;
+}
+
+#maintenance > div {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    height: 100%;
+}
+
+#maintenance img {
+    width: 350px;
+    height: 200px;
+    margin-bottom: 30px;
 }

@@ -249,11 +249,14 @@ $iconSize: 70px;
     height: 30px;
     justify-content: flex-end;
     width: 89%;
-    color: white;
     margin-bottom: 10px;
 }
 
-#ranking .visualizeAll:hover{
+#ranking .visualizeAll > * {
+    color: white;
+}
+
+#ranking .visualizeAll > *:hover{
     color: #ffc70f;
 }
 
@@ -290,7 +293,6 @@ $iconSize: 70px;
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
-    padding-left: 15px;
 }
 
 #top5 > div:nth-child(2) {
@@ -311,10 +313,9 @@ $iconSize: 70px;
     height: 220px;
     margin-bottom: 10px;
     margin-left: 10px;
-    background-color: red;
 }
 
-#top5 > div:nth-child(2) > * > div{
+#top5 > div:nth-child(2) > * > div, #top5 > div:first-child > * > div{
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.7);

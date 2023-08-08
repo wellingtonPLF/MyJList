@@ -15,31 +15,30 @@
                 <div id="staffCard">
                     <div>
                         <span>
-                            <img src="https://cdn-icons-png.flaticon.com/512/21/21104.png" alt="profile_Photo" />
+                            <img :src="(user.sex === 'Male') ? imgType.male : imgType.female" alt="profile_Photo" />
                         </span>                
                         <div>
                             <div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
+                                <div v-for="(item, index) in users.slice(0,4)" @click="() => {chooseUser(index)}">
+                                    <img :src="(item.sex === 'Male') ? imgType.male : imgType.female" alt="profile_Photo" />
+                                </div>
                             </div>
                             <div>
                                 <div>
-                                    <h4>Complete Name</h4>
-                                    <div>Email@email.com</div>
-                                    <div>Description</div>
+                                    <h4>{{user.name}}</h4>
+                                    <div>{{user.email}}</div>
+                                    <div>{{user.description}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button>Portifolio</button>
+                <a href="https://super-protofolio.netlify.app/" target="_blank">Portifolio</a>
             </div>
         </div>
         <div id="portifolio">
             <div class="backImageConfig">
-                <button>portifolio</button>
+                <a href="https://super-protofolio.netlify.app/" target="_blank">portifolio</a>
             </div>
         </div>
     </div>

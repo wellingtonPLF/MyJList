@@ -6,7 +6,9 @@
         "followers": 2223,
         "played": 2323,
         "sex": "Male",
-        "nationality": "Brazil"
+        "nationality": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
+        "email": "wellington@email.com"
     },
     {
         "id": 2,
@@ -15,7 +17,9 @@
         "followers": 2223,
         "played": 2323,
         "sex": "Female",
-        "nationality": "Brazil"
+        "nationality": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
+        "email": "manuela@email.com"
     },
     {
         "id": 3,
@@ -24,7 +28,9 @@
         "followers": 2223,
         "played": 2323,
         "sex": "Male",
-        "nationality": "Brazil"
+        "nationality": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
+        "email": "jorge@email.com"
     },
     {
         "id": 4,
@@ -33,7 +39,9 @@
         "followers": 2223,
         "played": 2323,
         "sex": "Female",
-        "nationality": "Brazil"
+        "nationality": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
+        "email": "amanda@email.com"
     },
     {
         "id": 5,
@@ -42,7 +50,9 @@
         "followers": 2223,
         "played": 2323,
         "sex": "Male",
-        "nationality": "Brazil"
+        "nationality": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
+        "email": "gabriel@email.com"
     },
     {
         "id": 6,
@@ -51,7 +61,9 @@
         "followers": 2223,
         "played": 2323,
         "sex": "Male",
-        "nationality": "Brazil"
+        "nationality": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
+        "email": "jeff@email.com"
     },
     {
         "id": 7,
@@ -60,7 +72,9 @@
         "followers": 2223,
         "played": 2323,
         "sex": "Female",
-        "nationality": "Brazil"
+        "nationality": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
+        "email": "mel@email.com"
     },
     {
         "id": 8,
@@ -69,6 +83,8 @@
         "followers": 2223,
         "played": 2323,
         "sex": "Female",
-        "nationality": "Brazil"
+        "nationality": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
+        "email": "vitoria@email.com"
     }
 ]

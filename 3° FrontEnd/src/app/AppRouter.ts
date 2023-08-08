@@ -9,6 +9,7 @@ import ProfileComponent from './views/ProfileScreen/ProfileComponent.vue';
 import SingleGameComponent from './views/SingleGameScreen/SingleGameComponent.vue';
 import GameListComponent from './views/GameListScreen/GameListComponent.vue';
 import TestComponent from './views/TestScreen/TestComponent.vue';
+import MaintenanceComponent from './components/_main/Maintenance/MaintenanceComponent.vue';
 
 const routes = [
   {
@@ -60,12 +61,23 @@ const routes = [
     path: '/test',
     name: 'test',
     component: TestComponent
+  },
+  {
+    path: '/maintenance',
+    name: 'maintenance',
+    component: MaintenanceComponent
   }
 ]
+
 
 const router = createRouter({
   history: createWebHistory(),
   routes
+});
+
+router.beforeEach((_, __, next) => {
+  window.scrollTo(0, 0);
+  next();
 });
 
 export default router
