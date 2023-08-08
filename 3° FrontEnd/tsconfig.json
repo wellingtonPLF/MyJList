@@ -11,6 +11,9 @@
     // Disable type warnings
     "noImplicitAny": false,
 
+    //If you having this with error that is not a error actually
+    "noImplicitThis": false,
+
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,

@@ -18,6 +18,7 @@ import {
   faLink,
   faPaperPlane,
   faGift,
+  faXmark,
   faUserPlus,
   faUserSlash,
   faChevronRight,
@@ -56,7 +57,8 @@ library.add(
   faUserPlus,
   faUserSlash,
   faChevronRight,
-  faReply
+  faReply,
+  faXmark
   
 );
 library.add(

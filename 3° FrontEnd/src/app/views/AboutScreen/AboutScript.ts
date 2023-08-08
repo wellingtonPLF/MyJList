@@ -15,8 +15,15 @@ const aboutComponent: any = {
   },
   methods: {
     chooseUser(index: number): void {
-      // @ts-ignore
       this.user = this.users[index], index
+    },
+    goBack() {
+      if (this.$router.options.history.state.back == null) {
+        this.$router.push("/")
+      }
+      else {
+        this.$router.back()
+      }
     }
   },
   mounted() {

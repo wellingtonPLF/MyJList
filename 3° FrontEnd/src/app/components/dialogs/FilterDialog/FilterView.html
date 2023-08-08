@@ -1,0 +1,98 @@
+<div id="filter" :style="{display: (showFilter)? '' : 'none'}">
+    <div>
+        <div>
+            <font-awesome-icon @click="show()" :icon="['fas', 'xmark']" />
+        </div>
+        <div>
+            <div>
+                
+                <fieldset>
+                    <legend>Type of Game:</legend>
+
+                    <div v-for="item in typeOfGames">
+                        <input type="checkbox" :name="item" />
+                        <label :for="item">{{item}}</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Type of Plataform:</legend>
+
+                    <div>
+                        <input type="checkbox" name="PC" />
+                        <label for="PC">PC</label>
+                        <input type="checkbox" name="Mobile" />
+                        <label for="Mobile">Mobile</label>
+                        <input type="checkbox" name="Console" />
+                        <label for="Console">Console</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Status of Game:</legend>
+
+                    <div>
+                        <input type="checkbox" name="Offline" />
+                        <label for="Offline">Offline</label>
+                        <input type="checkbox" name="Online" />
+                        <label for="Online">Online</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Perspective:</legend>
+                    <div>
+                        <div>
+                            <input type="checkbox" name="First Person" />
+                            <label for="First Person">First Person</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="Third Person" />
+                            <label for="Third Person">Third Person</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="Top-down" />
+                            <label for="Top-down">Top-down</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="Isometric" />
+                            <label for="Isometric">Isometric</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="Other" />
+                            <label for="Other">Other</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Release date: 
+                        <input style="width: 30px;" maxlength="2" />/
+                        <input style="width: 30px;" maxlength="2" />/
+                        <input style="width: 30px;" maxlength="4"/>
+                    </legend>
+                    <div>
+                        <div>
+                            <input type="checkbox" name="Finished" checked />
+                            <label for="Finished">Finished</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="Didn't Release Yet" />
+                            <label for="Didn't Release Yet">Didn't Release Yet</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Tencent" name="Currently Releasing" />
+                            <label for="Currently Releasing">Currently Releasing</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Studio:</legend>
+
+                    <div v-for="item in studios">
+                        <input type="checkbox" :name="item" />
+                        <label :for="item">{{item}}</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <button id="filterButton">Apply</button>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+
+#filter {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 3000;
+}
+
+#filter > div {
+    padding: 10px 12px 15px 15px;
+    top: 30%;
+    border-radius: 10px;
+    position: fixed;
+    background-color: white;
+    height: 360px;
+    width: 500px;
+}
+
+#filter > div > div:first-child {
+    width: 100%;
+    text-align: end;
+}
+
+#filter > div > div:first-child > *{
+    cursor: pointer;
+}
+
+#filter > div > div:nth-child(2) {
+    height: 290px;
+    margin-top: 10px;
+    overflow-y: scroll;
+}
+
+#filter > div > div:nth-child(2) > div {
+    margin-right: 3px;
+}
+
+#filter > div > div:nth-child(2) > div > fieldset {
+    margin-top: 15px;
+}
+
+#filter > div > div:nth-child(2) > div > fieldset:first-child {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 195px;
+    margin-top: 0px;
+}
+
+#dateFilter {
+    display: flex;
+}
+
+#filterButton {
+    font-weight: 600;
+    width: 100%;
+    border: unset;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(11, 87, 80);
+    margin: 10px 0px;
+    padding: 12px 0px;
+}
