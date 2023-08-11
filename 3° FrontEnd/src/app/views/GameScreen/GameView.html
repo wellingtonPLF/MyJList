@@ -2,7 +2,7 @@
     <span class="backPage">
         <div @click="goBack()">Back</div>
     </span>
-    <FilterComponent />
+    <FilterComponent v-if="filter == false" :openClose="filter" :openClosefilter="showfilterMethod" :filter="filterMethodResult"/>
     <div>
         <div class="backImageConfig">
             <div>
@@ -19,14 +19,18 @@
         </div>
         <div>
             <div>
-                <div>FILTER</div>
+                <div @click="showfilterMethod()">FILTER</div>
                 <div @click="score()">SCORE</div>
                 <div @click="popularity()">POPULARITY</div>
-                <div>CUSTOMIZATION</div>
+                <select name="customFilter" class="selectCustom" v-model="selectedOption" @change="handleSelectedOption">
+                    <option value="Default" disabled style="background-color: white; color: black;">CUSTOMIZATION</option>
+                    <option value="Commented" style="background-color: white; color: black;">Most Commented</option>
+                    <option value="Recommended" style="background-color: white; color: black;">Most Recommended</option>
+                </select>
             </div>
         </div>
         <div id="allGames">
-            <div>
+            <div v-if="games.length != 0">
                 <router-link to="/singleGame" v-for="gameCard in games">
                     <div id="gameCard">
                         <div class="backImageConfig" :style="{backgroundImage: `url(${gameCard.img})`}">
@@ -38,6 +42,9 @@
                         </div>
                     </div>
                 </router-link>
+            </div>
+            <div v-else>
+                <h1 style="color: white; width: 320px;">Nothing to Render</h1>
             </div>
         </div>
     </div>

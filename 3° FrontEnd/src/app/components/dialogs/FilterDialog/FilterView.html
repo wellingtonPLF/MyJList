@@ -1,4 +1,4 @@
-<div id="filter" :style="{display: (showFilter)? '' : 'none'}">
+<div id="filter">
     <div>
         <div>
             <font-awesome-icon @click="show()" :icon="['fas', 'xmark']" />
@@ -7,92 +7,94 @@
             <div>
                 
                 <fieldset>
-                    <legend>Type of Game:</legend>
+                    <legend>Type of Game: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.type)"/></legend>
 
                     <div v-for="item in typeOfGames">
-                        <input type="checkbox" :name="item" />
+                        <input type="checkbox" :value="item" :name="item" v-model="choose.type"/>
                         <label :for="item">{{item}}</label>
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend>Type of Plataform:</legend>
+                    <legend>Type of Plataform: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.plataforms)"/></legend>
 
                     <div>
-                        <input type="checkbox" name="PC" />
-                        <label for="PC">PC</label>
-                        <input type="checkbox" name="Mobile" />
-                        <label for="Mobile">Mobile</label>
-                        <input type="checkbox" name="Console" />
-                        <label for="Console">Console</label>
+                        <div v-for="item in plataforms">
+                            <input type="checkbox" :value="item" :name="item" v-model="choose.plataforms"/>
+                            <label :for="item">{{item}}</label>
+                        </div>
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend>Status of Game:</legend>
+                    <legend>Status of Game: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.status)"/></legend>
 
                     <div>
-                        <input type="checkbox" name="Offline" />
+                        <input type="checkbox" value="Offline" name="Offline" v-model="choose.status"/>
                         <label for="Offline">Offline</label>
-                        <input type="checkbox" name="Online" />
+                        <input style="margin-left: 15px;" type="checkbox" value="Online" name="Online" v-model="choose.status"/>
                         <label for="Online">Online</label>
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend>Perspective:</legend>
+                    <legend>Perspective: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.perspective)"/></legend>
                     <div>
                         <div>
-                            <input type="checkbox" name="First Person" />
+                            <input type="checkbox" value="First Person" name="First Person" v-model="choose.perspective"/>
                             <label for="First Person">First Person</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="Third Person" />
+                            <input type="checkbox" value="Third Person" name="Third Person" v-model="choose.perspective"/>
                             <label for="Third Person">Third Person</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="Top-down" />
+                            <input type="checkbox" value="Top-down" name="Top-down" v-model="choose.perspective"/>
                             <label for="Top-down">Top-down</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="Isometric" />
+                            <input type="checkbox" value="Isometric" name="Isometric" v-model="choose.perspective"/>
                             <label for="Isometric">Isometric</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="Other" />
+                            <input type="checkbox" value="Other" name="Other" v-model="choose.perspective"/>
                             <label for="Other">Other</label>
                         </div>
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Release date: 
-                        <input style="width: 30px;" maxlength="2" />/
-                        <input style="width: 30px;" maxlength="2" />/
-                        <input style="width: 30px;" maxlength="4"/>
+                        <input style="width: 38px; text-align: center;" maxlength="2" placeholder="day"/>/
+                        <input style="width: 38px;" maxlength="2" placeholder="month" />/
+                        <input style="width: 38px; text-align: center;" maxlength="4" placeholder="year"/>
+                        <font-awesome-icon style="margin-left: 5px;" :icon="['fas', 'broom']" @click="clearIt(choose.release)"/>
                     </legend>
                     <div>
                         <div>
-                            <input type="checkbox" name="Finished" checked />
+                            <input type="checkbox" value="Finished" name="Finished" checked v-model="choose.release"/>
                             <label for="Finished">Finished</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="Didn't Release Yet" />
+                            <input type="checkbox" value="Didn't Release Yet" name="Didn't Release Yet" v-model="choose.release"/>
                             <label for="Didn't Release Yet">Didn't Release Yet</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="Tencent" name="Currently Releasing" />
+                            <input type="checkbox" id="Tencent" value="Currently Releasing" name="Currently Releasing" v-model="choose.release"/>
                             <label for="Currently Releasing">Currently Releasing</label>
                         </div>
                     </div>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Studio:</legend>
+                    <legend>Studio: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.studios)"/></legend>
 
                     <div v-for="item in studios">
-                        <input type="checkbox" :name="item" />
+                        <input type="checkbox" :value="item" :name="item" v-model="choose.studios"/>
                         <label :for="item">{{item}}</label>
                     </div>
                 </fieldset>
             </div>
         </div>
-        <button id="filterButton">Apply</button>
+        <div id="filterButton">
+            <button @click="clear()">Clear</button>
+            <button @click="apply()">Apply</button>
+        </div>
     </div>
 </div>

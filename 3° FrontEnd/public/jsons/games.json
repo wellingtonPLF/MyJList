@@ -6,13 +6,15 @@
     "plataforms": ["nintendo"],
     "user": "Natan",
     "status": ["Offline"],
-    "type": ["Open World", "ADVENTURE"],
+    "type": ["OPEN WORLD", "ADVENTURE"],
     "perspective": ["Third Person"],
     "release": "01/02/2022",
     "studio": "Nintendo",
     "popularity": 1334,
     "date": "11 de jul.",
     "score": "9.6",
+    "recommendations": 2772,
+    "comments": 182,
     "description": "The Legend of Zelda: Breath of the Wild é um jogo eletrônico de ação-aventura..."
   },
   {
@@ -22,13 +24,15 @@
     "plataforms": ["playstation", "pc"],
     "user": "Wellington",
     "status": ["Offline"],
-    "type": ["Open World", "Shooter"],
+    "type": ["OPEN WORLD", "Shooter"],
     "perspective": ["Third Person"],
     "release": "01/02/2024",
     "studio": "Microsoft",
     "popularity": 34,
     "date": "24 de set.",
     "score": "8.4",
+    "recommendations": 372,
+    "comments": 42,
     "description": "Red Dead Redemption 2 é um jogo eletrônico de ação-aventura desenvolvido..."
   },
   {
@@ -38,13 +42,15 @@
     "plataforms": ["pc", "playstation"],
     "user": "Karla",
     "status": ["Offline"],
-    "type": ["Open World", "Fighthing"],
+    "type": ["OPEN WORLD", "Fighthing"],
     "perspective": ["Third Person"],
     "release": "01/02/2020",
     "studio": "Microsoft",
     "popularity": 134,
     "date": "03 de mar.",
     "score": "8.8",
+    "recommendations": 3272,
+    "comments": 1182,
     "description": "Esta impressionante repaginação de God of War reúne todas as característ..."
   },
   {
@@ -54,13 +60,15 @@
     "plataforms": ["pc", "playstation", "xbox"],
     "user": "Leticia",
     "status": ["Offline"],
-    "type": ["Open World", "Fighthing"],
+    "type": ["OPEN WORLD", "Fighthing"],
     "perspective": ["Third Person"],
     "release": "01/02/2021",
     "studio": "Sony",
     "popularity": 133,
     "date": "21 de jan.",
     "score": "7.5",
+    "recommendations": 782,
+    "comments": 552,
     "description": "The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em mundo..."
   },
   {
@@ -70,13 +78,15 @@
     "plataforms": ["pc", "playstation", "xbox"],
     "user": "Amelia",
     "status": ["Offline", "Online"],
-    "type": ["Open World", "MMORPG", "RPG", "SURVIVAL", "EDUCATIONAL", "CASUAL"],
+    "type": ["OPEN WORLD", "MMORPG", "RPG", "SURVIVAL", "EDUCATIONAL", "CASUAL"],
     "perspective": ["Third Person", "First Person"],
     "release": "01/02/2012",
     "studio": "Microsoft",
     "popularity": 3334,
     "date": "17 de fev.",
     "score": "7.2",
+    "recommendations": 5372,
+    "comments": 2582,
     "description": "O Minecraft está disponível para jogar nas seguintes plataformas...."
   },
   {
@@ -86,13 +96,15 @@
     "plataforms": ["xbox", "playstation", "pc", "nintendo"],
     "user": "Iago",
     "status": ["Online"],
-    "type": ["Open World", "BATTLE ROYALE", "SHOOT", "CASUAL"],
+    "type": ["OPEN WORLD", "BATTLE ROYALE", "SHOOT", "CASUAL"],
     "perspective": ["Third Person", "First Person"],
     "release": "01/02/2022",
     "studio": "Epic Games",
     "popularity": 31334,
     "date": "09 de dez.",
     "score": "7.0",
+    "recommendations": 1772,
+    "comments": 12,
     "description": "Fortnite é um jogo eletrônico multijogador online revelado originalmente em 2011..."
   },
   {
@@ -109,6 +121,8 @@
     "popularity": 13,
     "date": "05 de out.",
     "score": "8.2",
+    "recommendations": 322,
+    "comments": 22,
     "description": "Street Fighter 6 é um jogo eletrônico de luta desenvolvido e publicado pela..."
   },
   {
@@ -118,13 +132,15 @@
     "plataforms": ["xbox", "playstation", "pc"],
     "user": "Lucas",
     "status": ["Offline"],
-    "type": ["Open World", "ADVENTURE"],
+    "type": ["OPEN WORLD", "ADVENTURE"],
     "perspective": ["Third Person"],
     "release": "01/02/2015",
     "studio": "Sony",
     "popularity": 14,
     "date": "29 de jun.",
     "score": "7.4",
+    "recommendations": 232,
+    "comments": 32,
     "description": "Final Fantasy XVI é um jogo eletrônico de RPG de ação desenvolvido e publicado..."
   },
   {
@@ -141,6 +157,8 @@
     "popularity": 214,
     "date": "19 de abr.",
     "score": "7.9",
+    "recommendations": 352,
+    "comments": 312,
     "description": "As Dusk Falls é um jogo de aventura narrativa de 2022 desenvolvido pela Interior..."
   },
   {
@@ -157,6 +175,8 @@
     "popularity": 4,
     "date": "02 de ago.",
     "score": "8.7",
+    "recommendations": 7742,
+    "comments": 842,
     "description": "Mario + Rabbids Sparks of Hope é um videogame de estratégia baseado em turnos..."
   },
   {
@@ -173,6 +193,8 @@
     "popularity": 11334,
     "date": "29 de jun.",
     "score": "9.4",
+    "recommendations": 722,
+    "comments": 352,
     "description": "Valorant é um jogo eletrônico multijogador gratuito para jogar de tiro em..."
   },
   {
@@ -182,13 +204,15 @@
     "plataforms": ["xbox", "playstation", "pc"],
     "user": "Iara",
     "status": ["Offline", "Online"],
-    "type": ["Open World", "ADVENTURE", "MMORPG", "RPG", "TEXT"],
+    "type": ["OPEN WORLD", "ADVENTURE", "MMORPG", "RPG", "TEXT"],
     "perspective": ["Isometric", "Other"],
     "release": "01/02/1999",
     "studio": "Blizzard",
     "popularity": 6634,
     "date": "19 de abr.",
     "score": "7.2",
+    "recommendations": 7782,
+    "comments": 882,
     "description": "Baldur's Gate III é a sequência do jogo de RPG Baldur's Gate II: Shadows of Amn..."
   },
   {
@@ -198,13 +222,15 @@
     "plataforms": ["pc", "mobile"],
     "user": "Vitoria",
     "status": ["Online"],
-    "type": ["Moba", "Casual"],
+    "type": ["MOBA", "Casual"],
     "perspective": ["Insometric"],
     "release": "01/02/2005",
     "studio": "Tencent",
     "popularity": 4564,
     "date": "02 de ago.",
     "score": "8.1",
+    "recommendations": 773,
+    "comments": 83,
     "description": "League of Legends é um jogo eletrônico do gênero multiplayer online battle arena..."
   },
   {
@@ -221,6 +247,8 @@
     "popularity": 94,
     "date": "29 de jun.",
     "score": "7.7",
+    "recommendations": 774,
+    "comments": 87,
     "description": "FIFA 23 é um jogo eletrônico de simulação de futebol desenvolvido pela Electronic Arts..."
   },
   {
@@ -230,13 +258,15 @@
     "plataforms": ["pc"],
     "user": "Iara",
     "status": ["Online"],
-    "type": ["Open World"],
+    "type": ["OPEN WORLD"],
     "perspective": ["Third Person"],
     "release": "01/02/2012",
     "studio": "Epic Games",
     "popularity": 1334,
     "date": "19 de abr.",
     "score": "5.9",
+    "recommendations": 733,
+    "comments": 33,
     "description": "From sprawling flower fields to hilly forests and rocky beaches - explore the stunning..."
   },
   {
@@ -253,6 +283,8 @@
     "popularity": 52,
     "date": "02 de ago.",
     "score": "8.4",
+    "recommendations": 153,
+    "comments": 55,
     "description": "Dota 2 é um jogo eletrônico do gênero multiplayer online battle arena desenvolvido e publicado..."
   },
   {
@@ -269,6 +301,8 @@
     "popularity": 723,
     "date": "29 de jun.",
     "score": "6.3",
+    "recommendations": 1245,
+    "comments": 823,
     "description": "Sparkball, um jogo multiplayer empolgante com batalhas cheias de emoção, poderá ser..."
   },
   {
@@ -278,13 +312,15 @@
     "plataforms": ["xbox", "playstation", "PC"],
     "user": "Iara",
     "status": ["Online"],
-    "type": ["Open World", "ADVENTURE", "Fighthing", "MMORPG", "RPG"],
+    "type": ["OPEN WORLD", "ADVENTURE", "Fighthing", "MMORPG", "RPG"],
     "perspective": ["Third Person"],
     "release": "21/11/2017",
     "studio": "Sony",
     "popularity": 998,
     "date": "19 de abr.",
     "score": "7.5",
+    "recommendations": 6672,
+    "comments": 662,
     "description": "Black Desert Online é um vídeo game de MMORPG desenvolvido pela Pearl Abyss e publicado..."
   },
   {
@@ -294,13 +330,15 @@
     "plataforms": ["pc", "playstation"],
     "user": "Vitoria",
     "status": ["Offline"],
-    "type": ["Open World", "ADVENTURE", "Strategy", "EDUCATIONAL"],
+    "type": ["OPEN WORLD", "ADVENTURE", "Strategy", "EDUCATIONAL"],
     "perspective": ["Third Person"],
     "release": "01/02/2013",
     "studio": "Microsoft",
     "popularity": 1334,
     "date": "02 de ago.",
     "score": "8.8",
+    "recommendations": 554,
+    "comments": 482,
     "description": "Grounded é um jogo de sobrevivência, desenvolvido pela Obsidian Entertainment ..."
   },
   {
@@ -310,13 +348,15 @@
     "plataforms": ["pc", "nintendo", "switch", "3ds"],
     "user": "Vitoria",
     "status": ["Offline"],
-    "type": ["Open World", "ADVENTURE", "EDUCATIONAL", "puzzel", "rpg", "turn based"],
+    "type": ["OPEN WORLD", "ADVENTURE", "EDUCATIONAL", "puzzel", "rpg", "turn based"],
     "perspective": ["Third Person"],
     "release": "01/02/2014",
     "studio": "Nintendo",
     "popularity": 1,
     "date": "02 de ago.",
     "score": "4.5",
+    "recommendations": 999,
+    "comments": 96,
     "description": "SpongeBob SquarePants: Battle for Bikini Bottom Rehydrated é um jogo eletrônico de plataforma..."
   }
 ]

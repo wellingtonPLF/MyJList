@@ -78,6 +78,12 @@ $searchBarHeight: 110px;
     border-bottom: 3px solid white;
 }
 
+#gamePage > div > div:nth-child(2) > div > select{
+    padding: 10px 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
 #gamePage > div > div:nth-child(2) > div > div:hover {
     border-bottom: 3px solid rgb(27, 42, 46);
 }
@@ -238,7 +244,7 @@ $searchBarHeight: 110px;
         margin: 0px;
     }
 
-    #gamePage > div > div:nth-child(2) > div > div:hover {
+    #gamePage > div > div:nth-child(2) > div > *:hover, #selectCustom:hover {
         color: white;
         background-color: rgb(27, 42, 46);   
     }

@@ -22,8 +22,8 @@ import {
   faUserPlus,
   faUserSlash,
   faChevronRight,
-  faReply
-  
+  faReply,
+  faBroom
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faYoutube,
@@ -58,8 +58,8 @@ library.add(
   faUserSlash,
   faChevronRight,
   faReply,
-  faXmark
-  
+  faXmark,
+  faBroom
 );
 library.add(
   faYoutube,
