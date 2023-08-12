@@ -9,9 +9,12 @@
                 <div></div>
             </div>
             <div>
-                <input placeholder="username" />
-                <input placeholder="password" type="password" />
-                <button>ENTER</button>
+                <div v-if="error.enabled" id="error">{{error.msg}}</div>
+                <div>
+                    <input placeholder="username" v-model="auth.username" />
+                    <input placeholder="password" type="password" v-model="auth.password" />
+                    <button @click="login()">ENTER</button>
+                </div>
             </div>
         </div>
     </div>

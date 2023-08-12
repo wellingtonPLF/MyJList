@@ -1,39 +1,63 @@
-import axios from "axios";
 import { User } from "../models/User";
+import api from "./_axiosConfig";
 
-class UsuarioService {
-  localApi: any;
-  serverApi: any;
+class UserService {
+  path: string;
 
-  constructor () {
-    this.localApi = axios.create({ baseURL: '/users'})
-    //this.serverApi = axios.create({ baseURL: 'https://myserverApi.com/users'})
+  constructor() {
+    this.path = "user"
   }
 
-  async listar () {
-    const { data } = await this.localApi.get('/')
-    return data
+  async listAll() {
+    try{
+      const { data } = await api.get(`${this.path}/`);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
   }
 
-  async inserir (usuario: User) {
-    const { data } = await this.localApi.post('/', usuario)
-    return data
+  async getAuthenticatedUser() {
+    try{
+      const { data } = await api.get(`${this.path}/getUser/`);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
   }
 
-  async remover (id: number) {
-    const { data } = await this.localApi.delete(`/${id}`)
-    return data
+  async insert(user: User) {
+    try{
+      const { data } = await api.post(`${this.path}/`, User.simpleRefract(user));
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  } 
+
+  async update(user: User) {
+    try{
+      const { data } = await api.put(`${this.path}/`, user);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
   }
 
-  async pesquisarPorId (id: number) {
-    const { data } = await this.localApi.get(`/${id}`)
-    return data
+  async delete(id: number) {
+    try{
+      const { data } = await api.delete(`${this.path}/${id}/`);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
   }
 
-  async atualizar (usuario: User) {
-    const { data } = await this.localApi.put('/', usuario)
-    return data
-  }
 }
 
-export default new UsuarioService()
+export default new UserService();

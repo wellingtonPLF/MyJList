@@ -3,9 +3,10 @@
     <div id="auth">
         <div>
             <router-link to="/signIn">SIGN IN</router-link>
-            <div>
+            <div v-if="userLogin.id == 0">
                 <font-awesome-icon :icon="['fas', 'users']" />
             </div>
+            <router-link v-else id="userLogin" to="/profile">{{userLogin.nickName}}</router-link>
             <router-link to="/signUp">SIGN UP</router-link>
         </div>
     </div>

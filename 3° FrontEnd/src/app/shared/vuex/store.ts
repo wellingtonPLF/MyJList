@@ -1,9 +1,9 @@
-import { createStore } from "vuex";
-import SumReducer from './reducer/somaReducer'
+import { createStore } from 'vuex';
+import AuthReducer from './reducer/authReducer';
 
 const store = createStore({
   modules: {
-    sumReducer: SumReducer,
+    authReducer: AuthReducer
   }
 });
 

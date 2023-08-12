@@ -40,17 +40,32 @@ $portalSize: 350px;
 }
 // ------------------------------------------------------
 
-#login > div > div:last-child{
+#login > div > div:last-child {
+    display: flex;
+    position: relative;
+    width: 222px;
+}
+
+#login > div > div:last-child > div:first-child {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: flex-end;
+    height: 40px;
+}
+
+#login > div > div:last-child > div:last-child{
     display: flex;
     height: 120px;
     width: 220px;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     color: white;
     margin-top: 40px;
 }
 
-#login > div > div:last-child input {
+#login > div > div:last-child > div:last-child input {
     border-radius: 30px;
     padding: 0px;
     border: unset;
@@ -72,4 +87,10 @@ $portalSize: 350px;
 #login button:hover {
     background-color: white;
     color: black;
+}
+
+#error {
+    position: absolute;
+    top: -5px;
+    color: rgb(241, 15, 15);
 }

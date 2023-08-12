@@ -20,10 +20,10 @@
                         <div class="backImageConfig"></div>
                         <div>
                             <div>
-                                <div>Status: Offline</div>
-                                <div>
+                                <div>Status: {{user.status}}</div>
+                                <div id="userJoined">
                                     <div>Joined:</div>
-                                    <div>29/03/1999</div>
+                                    <div>{{user.joined}}</div>
                                 </div>
                                 <div>
                                     <div>
@@ -41,9 +41,9 @@
                                 </div>
                             </div>
                             <div>
-                                <div>Location: Brazil</div>
+                                <div>Location: {{user.country}}</div>
                                 <div>
-                                    <h3>PROFILE NAME</h3>
+                                    <h3>{{user.nickName}}</h3>
                                     <div>
                                         <div>Also Available at</div>
                                         <div><font-awesome-icon :icon="['fas', 'link']" /> http://localhost:5173/profile</div>
@@ -52,10 +52,10 @@
                                 </div>
                             </div>
                             <div>
-                                <div>Sex: Masculine</div>
-                                <div>
+                                <div>Sex: {{user.sex}}</div>
+                                <div id="userBornDate">
                                     <div>Birthday:</div>
-                                    <div>29/03/1999</div>
+                                    <div>{{user.bornDate}}</div>
                                 </div>
                                 <div id="network">
                                     <font-awesome-icon :icon="['fab', 'twitter']" />
@@ -177,7 +177,7 @@
                         <div>
                             <div>Friends</div>
                             <div id="friends">
-                                <router-link to="/profile" v-for="user in users">
+                                <router-link to="/profile" v-for="user in friends">
                                     <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${(user.sex === 'Male') ? imgType.male : imgType.female})`}"></div>
                                 </router-link>
                             </div>

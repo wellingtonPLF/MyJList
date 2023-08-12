@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { mapState } from "vuex";
 
 interface Game {
   id: number;
@@ -17,13 +18,18 @@ const profileComponent: any = {
   data() {
     return {
       games: [] as Game[],
-      users: [] as any[],
+      friends: [] as any[],
       fav: [] as any[],
       imgType: {
         male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
         female: "https://img.freepik.com/premium-photo/cute-girl-3d-character-design-cartoon-girl-avatar_432516-5510.jpg?w=2000"
       }
     };
+  },
+  computed: {
+    ...mapState('authReducer', {
+      user: (state: any) => state.user
+    })
   },
   methods: {
     goBack() {
@@ -39,17 +45,17 @@ const profileComponent: any = {
     axios
       .get("jsons/games.json")
       .then((it: AxiosResponse<Game[]>) => {
-        this.games = it.data.slice(0,4);
-        this.fav = it.data.slice(0,8);
+        this.games = it.data.slice(0, 4);
+        this.fav = it.data.slice(0, 8);
       })
       .catch((error) => {
         console.error(error);
       });
 
-      axios
+    axios
       .get("jsons/users.json")
       .then((it: AxiosResponse<any[]>) => {
-        this.users = it.data.slice(0,6);
+        this.friends = it.data.slice(0, 6);
       })
       .catch((error) => {
         console.error(error);

@@ -1,8 +1,10 @@
-export class User {
+import { I_User } from "../interfaces/I_User";
 
+export class User implements I_User {
     private _id?: number;
     private _nickName?: string;
     private _bornDate?: string;
+    private _auth?: number;
 
     constructor(id:number, nickName: string, bornDate: string);
     constructor(nickName: string, bornDate: string);
@@ -21,11 +23,12 @@ export class User {
         }
     }
 
-    static refract(user: User) {
+    static simpleRefract(user: User) {
         const result = { 
           id: user.id,  
-          nickName: user.nickName, 
+          nickname: user.nickName, 
           bornDate: user.bornDate,
+          auth_id: user.auth
         }
         return result;
     }
@@ -52,5 +55,13 @@ export class User {
 
     set bornDate(bornDate: string | undefined){
         this._bornDate = bornDate;
+    }
+
+    get auth(): number | undefined{
+        return this._auth;
+    }
+
+    set auth(auth: number | undefined){
+        this._auth = auth;
     }
 }

@@ -362,6 +362,14 @@ $favSize: 120px;
     border-radius: 10px;
 }
 
+#userBornDate, #userJoined {
+    display: flex;
+}
+
+#userBornDate > div:last-child, #userJoined > div:last-child {
+    margin-left: 5px;
+}
+
 // ------------------------------------------------------------
 
 @media screen and (max-width: 1350px) {
@@ -501,5 +509,13 @@ $favSize: 120px;
     #profileData > div > div:nth-child(2) > div:first-child > div:nth-child(2) > a:first-child,
     #profileData > div > div:nth-child(2) > div:first-child > div:nth-child(2) > a:last-child {
         display: none;
+    }
+
+    #userBornDate, #userJoined {
+        flex-direction: column;
+    }
+
+    #userBornDate > div:last-child, #userJoined > div:last-child {
+        margin-left: 0px;
     }
 }
