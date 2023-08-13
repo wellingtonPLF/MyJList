@@ -31,9 +31,9 @@
 
         <div id="cardList">
             <div v-for="game in games.slice(0, 6)" :key="game.id" class="card">
-                <div @click="gameChoice(game)">
+                <router-link to="/singleGame" @click="gameChoice(game)">
                     <img style="width: 100%; height: 100%" alt="Image" :src="game.img" />
-                </div>
+                </router-link>
                 <div>
                     <div>{{ game.name.slice(0, 26) }}</div>
                     <div v-if="game.name.length > 26">...</div>
@@ -78,18 +78,18 @@
         </div>
         <div id="top5" v-if="games.length != 0">
             <div>
-                <div :style="{ backgroundImage: `url(${games[15].img})`}" @click="gameChoice(games[15])">
+                <router-link to="/singleGame" :style="{ backgroundImage: `url(${games[15].img})`}" @click="gameChoice(games[15])">
                     <div>
                         Most rated game 2023
                     </div>
-                </div>
+                </router-link>
             </div>
             <div>
-                <div v-for="item in games.slice(10, 14)" :style="{ backgroundImage: `url(${item.img})`}" @click="gameChoice(item)">
+                <router-link to="/singleGame" v-for="item in games.slice(10, 14)" :style="{ backgroundImage: `url(${item.img})`}" @click="gameChoice(item)">
                     <div>
                         Most rated game 2023
                     </div>
-                </div>
+                </router-link>
             </div>
         </div>
     </div>
@@ -97,7 +97,7 @@
     <div id="recommendations">
         <h2>Recommendations</h2>
         <div>
-            <div v-for="game in recomendations" :key="game.id" @click="gameChoice(game)">
+            <router-link to="/singleGame" v-for="game in recomendations" :key="game.id" @click="gameChoice(game)">
                 <div class="recomendation">
                     <img :src="game.img" />
                     <div>
@@ -111,7 +111,7 @@
                     <h3>{{game.description}}</h3>
                     <div>{{game.date}}</div>
                 </div>
-            </div>
+            </router-link>
         </div>
     </div>
 </div>

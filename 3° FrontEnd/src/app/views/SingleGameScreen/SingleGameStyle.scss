@@ -59,8 +59,8 @@ $backImageHeight: 600px;
     top: 0px;
     height: $backImageHeight;
     z-index: 8;
-    background-image: url("https://images4.alphacoders.com/627/627083.png");
-    background-position: unset;
+    background-image: url("https://images2.alphacoders.com/713/713713.jpg");
+    background-position: center;
 }
 
 #profile > div:first-child > div:nth-child(2) > div:nth-child(2) {
@@ -103,14 +103,14 @@ $backImageHeight: 600px;
 
 #userInfo >  div:first-child {
     text-align: end;
-    border: 5px solid white;
+    border: 5px solid rgba(255, 255, 255, 0.6);
     height: 350px;
     width: 280px;
 }
 
 .favStar {
     background-color: rgba(0, 0, 0, 0.486);
-    padding: 15px 10px 15px 13px;
+    padding: 12px 10px 15px 13px;
     border-bottom-left-radius: 15px;
     font-size: 20px; 
     color: rgb(235, 207, 52);
@@ -157,7 +157,7 @@ $backImageHeight: 600px;
 }
 
 #network > div > button {
-    background-color: rgb(8, 8, 114);
+    background-color: #153c91;
     font-weight: 600;
     border: unset;
     color: white;
@@ -307,21 +307,33 @@ $backImageHeight: 600px;
 
 // ----------------------
 
-#gameData > div:first-child > div:first-child > div:nth-child(2) {
+#gameData > div:first-child > div:first-child > div:nth-child(2) {    
     margin-top: 20px;
 }
 
 #gameData > div:first-child  > div:first-child > div:nth-child(2) > div {
     display: flex;
-    height: 35px;
+    min-height: 30px;
+    margin-top: 10px;
 }
 
 #gameData > div:first-child  > div:first-child > div:nth-child(2) > div > div {
     color: black;
     line-height: 30px;
     background-color: white;
-    height: 30px;
     padding-left: 10px;
+}
+
+#gameData > div:first-child  > div:first-child > div:nth-child(2) > div > div:first-child > * { 
+    cursor: pointer;
+}
+
+#gameData > div:first-child  > div:first-child > div:nth-child(2) > div > div:nth-child(2) > div:first-child {
+    cursor: default;
+}
+
+#gameData > div:first-child  > div:first-child > div:nth-child(2) > div > div:nth-child(2) > div:first-child::selection {
+    background-color: unset;
 }
 
 #gameData > div:first-child  > div:first-child > div:nth-child(2) > div > div:first-child {
@@ -344,6 +356,7 @@ $backImageHeight: 600px;
 #gameData > div:first-child > div:nth-child(2){
     display: flex;
     justify-content: center;
+    max-height: 550px;
     width: 400px;
     padding: 10px 0px 10px 0px;
     background-color: rgb(85, 85, 99);

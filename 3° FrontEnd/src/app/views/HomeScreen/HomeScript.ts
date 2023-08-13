@@ -36,7 +36,6 @@ const homeComponent: any = {
     ...mapActions('gameReducer', ['setGame']),
     gameChoice(game: any) {
       this.setGame(game)
-      this.$router.push('/singleGame')
     }
   },
   mounted() {

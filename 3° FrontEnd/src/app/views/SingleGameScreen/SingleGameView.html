@@ -170,21 +170,36 @@
                         <div>
                             <div>
                                 <div>
-                                    <font-awesome-icon :icon="['fas', 'chevron-right']" />
+                                    <font-awesome-icon @click="showStaff()" :icon="['fas', 'chevron-right']" />
                                 </div>
-                                <div>Main Staff</div>
+                                <div>
+                                    <div>Main Staff</div>
+                                    <div v-if="staffObj.enabled">
+                                        <div v-for="(value, property) in staffObj.staff">{{property}}: {{value}}</div>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <div>
-                                    <font-awesome-icon :icon="['fas', 'chevron-right']" />
+                                    <font-awesome-icon @click="showCast()" :icon="['fas', 'chevron-right']" />
                                 </div>
-                                <div>Main Cast</div>
+                                <div>
+                                    <div>Main Cast</div>
+                                    <div v-if="castObj.enabled">
+                                        <div v-for="(value, property) in castObj.cast">{{property}}: {{value}}</div>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <div>
-                                    <font-awesome-icon :icon="['fas', 'chevron-right']" />
+                                    <font-awesome-icon @click="showRequirements()" :icon="['fas', 'chevron-right']" />
                                 </div>
-                                <div>Requisitos de Sistema</div>
+                                <div>
+                                    <div>System Requirements</div>
+                                    <div v-if="requirementsObj.enabled">
+                                        <div v-for="(value, property) in requirementsObj.requirement">{{property}}: {{value}}</div>
+                                    </div>
+                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -210,7 +225,9 @@
                                 <div>Information</div>
                                 <div>
                                     <div>Premiede: {{game.premiede}}</div>
-                                    <div>Producers: {{game.producers}}</div>
+                                    <div style="display: flex;">Producers:
+                                        <div v-for="item in game.producers" style="margin-left: 5px;">{{item}}</div>
+                                    </div>
                                     <div>Studio: {{game.studio}}</div>
                                     <div>Source: {{game.source}}</div>
                                     <div style="display: flex;">Themes:

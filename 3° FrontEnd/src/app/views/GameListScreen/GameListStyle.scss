@@ -37,6 +37,10 @@
     height: 87%;
     border-bottom: unset;
 }
+
+#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div{
+    cursor: pointer;
+}
 // ----------------------------------------------------------
 #gameListBanner {
     display: flex;
