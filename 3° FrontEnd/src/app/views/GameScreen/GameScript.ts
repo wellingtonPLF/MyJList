@@ -1,16 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import FilterComponent from "../../components/dialogs/FilterDialog/FilterComponent.vue";
-
-interface Game {
-  id: number;
-  img: string;
-  name: string;
-  plataforms: string[];
-  user: string;
-  date: string;
-  score: string;
-  description: string;
-}
+import { mapActions } from "vuex";
+import { I_Game } from "../../shared/interfaces/I_Game";
 
 const gameComponent: any = {
   name: "GameComponent",
@@ -19,8 +10,8 @@ const gameComponent: any = {
   },
   data() {
     return {
-      list: [] as Game[],
-      games: [] as Game[],
+      list: [] as I_Game[],
+      games: [] as I_Game[],
       prevRoute: undefined,
       filter: true,
       selectedOption: "Default",
@@ -33,6 +24,10 @@ const gameComponent: any = {
     })
   },
   methods: {
+    ...mapActions('gameReducer', ['setGame']),
+    gameChoice(game: any) {
+      this.setGame(game)
+    },
     popularity() {
       this.games.sort((a: any, b: any) => b.popularity - a.popularity)
     },
@@ -105,7 +100,7 @@ const gameComponent: any = {
   mounted() {
     axios
       .get("jsons/games.json")
-      .then((it: AxiosResponse<Game[]>) => {
+      .then((it: AxiosResponse<I_Game[]>) => {
         this.games = it.data;
         this.list = it.data;
       })

@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div>Location: {{user.country}}</div>
+                                <div>Location: {{user.nationality}}</div>
                                 <div>
                                     <h3>{{user.nickName}}</h3>
                                     <div>
@@ -157,7 +157,7 @@
                         <div id="historyList">
                             <div>Last Games Updates</div>
                             <div>
-                                <router-link to="/singleGame" v-for="game in games">
+                                <router-link to="/singleGame" v-for="game in games" @click="gameChoice(game)">
                                     <div class="backImageConfig" :style="{backgroundImage: `url(${game.img})`}"></div>
                                 </router-link>
                             </div>
@@ -177,7 +177,7 @@
                         <div>
                             <div>Friends</div>
                             <div id="friends">
-                                <router-link to="/profile" v-for="user in friends">
+                                <router-link to="/profile" v-for="user in friends" @click="userChoice(user)" >
                                     <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${(user.sex === 'Male') ? imgType.male : imgType.female})`}"></div>
                                 </router-link>
                             </div>
@@ -185,7 +185,8 @@
                         <div>
                             <div>Favorite Games</div>
                             <div id="favGame">
-                                <router-link to="/singleGame" v-for="game in fav" class="backImageConfig" :style="{backgroundImage: `url(${game.img})`}"></router-link>
+                                <router-link to="/singleGame" v-for="game in fav" @click="gameChoice(game)" 
+                                class="backImageConfig" :style="{backgroundImage: `url(${game.img})`}"></router-link>
                             </div>
                         </div>
                     </div>

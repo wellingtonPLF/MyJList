@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { mapActions } from "vuex";
 
 interface User {
   id: number;
@@ -20,6 +21,11 @@ const userComponent: any = {
   },
   
   methods: {
+    ...mapActions('authReducer', ['setUser']),
+    userChoice(user: any){
+      this.setUser(user)
+      window.scrollTo(0, 0);
+    },
     goBack() {
       if (this.$router.options.history.state.back == null) {
         this.$router.push("/")

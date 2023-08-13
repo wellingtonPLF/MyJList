@@ -10,7 +10,7 @@
         <div id="allUsers">
             <div v-for="userCard in users" id="userCard">
                 <div :style="{ backgroundImage: `url(${(userCard.sex === 'Male') ? imgType.male : imgType.female})` }"></div>
-                <div>{{userCard.name}}</div>
+                <div>{{userCard.nickName}}</div>
                 <div>{{userCard.role}}</div>
                 <span>
                     <div>
@@ -26,7 +26,7 @@
                         <div>nationality</div>
                     </div>
                 </span>
-                <router-link to="/profile">View Profile</router-link>
+                <router-link to="/profile" @click="userChoice(userCard)">View Profile</router-link>
             </div>
         </div>
     </div>

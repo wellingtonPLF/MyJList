@@ -232,7 +232,7 @@
                     <div>
                         <div>You May Like</div>
                         <div>
-                            <router-link to="/singleGame" v-for="item in games" class="backImageConfig"
+                            <router-link to="/singleGame" v-for="item in games" class="backImageConfig" @click="gameChoice(item)"
                                 :style="{backgroundImage: `url(${item.img})`}">
                             </router-link>
                         </div>
@@ -256,12 +256,12 @@
                             </div>
                             <div class="userComment" v-for="item in userComment">
                                 <div>
-                                    <router-link to="/profile" class="userCommentIMG backImageConfig"
+                                    <router-link to="/profile" class="userCommentIMG backImageConfig" @click="userChoice(item)"
                                         :style="{backgroundImage: `url(${(item.sex === 'Male') ? imgType.male : imgType.female})`}"></router-link>
                                     <div>
-                                        <div>{{item.name}}</div>
-                                        <div>Offline</div>
-                                        <div>Publicado: July 8, 2023</div>
+                                        <div style="color: rgb(138, 189, 255);">{{item.nickName}}</div>
+                                        <div style="font-size: 13px; margin-top: 5px;">Offline</div>
+                                        <div style="font-size: 13px;">Publicado: July 8, 2023</div>
                                     </div>
                                 </div>
                                 <div>

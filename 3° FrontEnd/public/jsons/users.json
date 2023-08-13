@@ -1,90 +1,114 @@
 [
     {
         "id": 1,
-        "name": "Wellington",
+        "nickName": "Wellington",
         "role": "admin",
         "followers": 2223,
         "played": 2323,
         "sex": "Male",
         "nationality": "Brazil",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
-        "email": "wellington@email.com"
+        "email": "wellington@email.com",
+        "bornDate": "29/03/2013",
+        "joined": "19/11/2002",
+        "status": "Offline"
     },
     {
         "id": 2,
-        "name": "Manuela",
+        "nickName": "Manuela",
         "role": "user",
         "followers": 2223,
         "played": 2323,
         "sex": "Female",
         "nationality": "Brazil",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
-        "email": "manuela@email.com"
+        "email": "manuela@email.com",
+        "bornDate": "19/01/2003",
+        "joined": "23/02/1993",
+        "status": "Online"
     },
     {
         "id": 3,
-        "name": "Jorge",
+        "nickName": "Jorge",
         "role": "user",
         "followers": 2223,
         "played": 2323,
         "sex": "Male",
         "nationality": "Brazil",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
-        "email": "jorge@email.com"
+        "email": "jorge@email.com",
+        "bornDate": "22/12/2022",
+        "joined": "12/03/1999",
+        "status": "Online"
     },
     {
         "id": 4,
-        "name": "Amanda",
+        "nickName": "Amanda",
         "role": "user",
         "followers": 2223,
         "played": 2323,
         "sex": "Female",
         "nationality": "Brazil",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
-        "email": "amanda@email.com"
+        "email": "amanda@email.com",
+        "bornDate": "24/06/2009",
+        "joined": "07/04/1999",
+        "status": "Offline"
     },
     {
         "id": 5,
-        "name": "Grabriel",
+        "nickName": "Grabriel",
         "role": "user",
         "followers": 2223,
         "played": 2323,
         "sex": "Male",
         "nationality": "Brazil",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
-        "email": "gabriel@email.com"
+        "email": "gabriel@email.com",
+        "bornDate": "09/02/2025",
+        "joined": "09/07/2011",
+        "status": "Online"
     },
     {
         "id": 6,
-        "name": "Jeff",
+        "nickName": "Jeff",
         "role": "user",
         "followers": 2223,
         "played": 2323,
         "sex": "Male",
         "nationality": "Brazil",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
-        "email": "jeff@email.com"
+        "email": "jeff@email.com",
+        "bornDate": "21/09/2019",
+        "joined": "22/02/1999",
+        "status": "Online"
     },
     {
         "id": 7,
-        "name": "Mel",
+        "nickName": "Mel",
         "role": "user",
         "followers": 2223,
         "played": 2323,
         "sex": "Female",
         "nationality": "Brazil",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
-        "email": "mel@email.com"
+        "email": "mel@email.com",
+        "bornDate": "08/08/2008",
+        "joined": "19/03/2001",
+        "status": "Offline"
     },
     {
         "id": 8,
-        "name": "Vitoria",
+        "nickName": "Vitoria",
         "role": "user",
         "followers": 2223,
         "played": 2323,
         "sex": "Female",
         "nationality": "Brazil",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reprehenderit, cum dolor a tempore quasi laborumcupiditate.",
-        "email": "vitoria@email.com"
+        "email": "vitoria@email.com",
+        "bornDate": "09/01/2010",
+        "joined": "08/01/2005",
+        "status": "Online"
     }
 ]

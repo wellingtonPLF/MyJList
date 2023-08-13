@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -36,6 +36,16 @@ const singleGameComponent: any = {
     })
   },
   methods: {
+    ...mapActions('gameReducer', ['setGame']),
+    ...mapActions('authReducer', ['setUser']),
+    gameChoice(game: any) {
+      this.setGame(game)
+      window.scrollTo(0, 0);
+    },
+    userChoice(user: any){
+      this.setUser(user)
+      window.scrollTo(0, 0);
+    },
     goBack() {
       if (this.$router.options.history.state.back == null) {
         this.$router.push("/")

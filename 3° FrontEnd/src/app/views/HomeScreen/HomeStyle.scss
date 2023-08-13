@@ -281,7 +281,7 @@ $iconSize: 70px;
     justify-content: center;
 }
 
-#top5 > :first-child a {
+#top5 > :first-child > div {
     width: 100%;
 }
 
@@ -314,6 +314,10 @@ $iconSize: 70px;
     height: 220px;
     margin-bottom: 10px;
     margin-left: 10px;
+}
+
+#top5 > div:nth-child(2) > * > div, #top5 > div {
+    cursor: pointer;
 }
 
 #top5 > div:nth-child(2) > * > div, #top5 > div:first-child > * > div{
@@ -358,6 +362,7 @@ $recomendationSize: 90%;
     border-radius: 3px;
     color: white;
     margin-bottom: 10px;
+    cursor: pointer;
     background-color: $grayColor;
 }
 

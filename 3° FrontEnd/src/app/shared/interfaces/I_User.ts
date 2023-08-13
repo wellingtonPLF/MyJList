@@ -5,6 +5,6 @@ export interface I_User {
     auth?: number;
     status?: string,
     joined?: string,
-    country?: string,
+    nationality?: string,
     sex?: string
 }
