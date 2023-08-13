@@ -144,7 +144,8 @@ $iconSize: 70px;
     margin: 20px 0px 0px 20px;
 }
 
-.card > a img {
+.card img {
+    cursor: pointer;
     border-radius: 10px;
 }
 

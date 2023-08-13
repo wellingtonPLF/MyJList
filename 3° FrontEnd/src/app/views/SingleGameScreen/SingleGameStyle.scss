@@ -102,15 +102,38 @@ $backImageHeight: 600px;
 }
 
 #userInfo >  div:first-child {
+    text-align: end;
     border: 5px solid white;
-    background-image: url("https://static.gamevicio.com/imagens_up/big/82/high-on-life-jogo-do-criador-de-rick-and-morty-ganha-25-minutos-de-gameplay-081951.jpg");
-    background-position: unset;
     height: 350px;
     width: 280px;
 }
 
+.favStar {
+    background-color: rgba(0, 0, 0, 0.486);
+    padding: 15px 10px 15px 13px;
+    border-bottom-left-radius: 15px;
+    font-size: 20px; 
+    color: rgb(235, 207, 52);
+    cursor: pointer;
+}
+
 #userInfo >  div:nth-child(2) {
-    padding: 120px 0px 0px 20px;
+    padding: 90px 0px 0px 20px;
+}
+
+#userInfo >  div:nth-child(2) h2 {
+    cursor: default;
+}
+
+#userInfo >  div:nth-child(2) h2::selection {
+    background-color: unset;
+}
+
+#userInfo > div:nth-child(2) > div:nth-child(2) > div:last-child {
+    display: flex;
+    width: 250px;
+    margin-top: 5px;
+    flex-wrap: wrap;
 }
 
 #network > div{
@@ -158,6 +181,8 @@ $backImageHeight: 600px;
 }
 
 #statistics > div:nth-child(2) img{
+    width: 230px;
+    height: 230px;
     filter: invert(100%);
 }
 
@@ -327,11 +352,12 @@ $backImageHeight: 600px;
 #gameData > div:first-child > div:nth-child(2) > div > div {
     width: 100%;
     text-align: start;
+    margin-bottom: 10px;
 }
 
 #gameData > div:first-child > div:nth-child(2) > div > div > div:first-child {
     border-bottom: 3px solid white;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 } 
 
 #gameData > div:first-child > div:nth-child(2) > div{
@@ -361,7 +387,7 @@ $backImageHeight: 600px;
 } 
 
 #plataforms {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 // ------------------------------------------------------------------------

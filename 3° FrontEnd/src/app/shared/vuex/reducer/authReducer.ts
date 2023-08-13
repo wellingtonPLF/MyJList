@@ -1,7 +1,7 @@
 import { I_User } from "../../interfaces/I_User"
 import AuthAction from "../action/authAction"
 
-const USER_INITIAL_STATE: I_User = {
+export const USER_INITIAL_STATE: I_User = {
   id: 0,
   nickName: "unknow",
   status: "unknow",

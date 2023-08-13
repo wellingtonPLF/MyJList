@@ -23,7 +23,8 @@ import {
   faUserSlash,
   faChevronRight,
   faReply,
-  faBroom
+  faBroom,
+  faPowerOff
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faYoutube,
@@ -36,7 +37,7 @@ import {
   faTwitch,
   faYoutubeSquare
 } from "@fortawesome/free-brands-svg-icons";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { faStar, faBell } from "@fortawesome/free-regular-svg-icons";
 
 
 const app = createApp(App);
@@ -59,7 +60,9 @@ library.add(
   faChevronRight,
   faReply,
   faXmark,
-  faBroom
+  faBroom,
+  faBell,
+  faPowerOff
 );
 library.add(
   faYoutube,

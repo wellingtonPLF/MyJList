@@ -1,3 +1,4 @@
+import { mapActions } from "vuex";
 import HeaderComponent from "./../../components/_main/Header/HeaderComponent.vue";
 import axios, { AxiosResponse } from "axios";
 
@@ -36,6 +37,13 @@ const homeComponent: any = {
         'https://cdn.akamai.steamstatic.com/steam/apps/1313140/header_schinese.jpg?t=1686863929'
       ]
     };
+  },
+  methods: {
+    ...mapActions('gameReducer', ['setGame']),
+    gameChoice(game: any) {
+      this.setGame(game)
+      this.$router.push('/singleGame')
+    }
   },
   mounted() {
     axios

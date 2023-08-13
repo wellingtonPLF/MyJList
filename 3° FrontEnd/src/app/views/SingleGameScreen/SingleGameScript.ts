@@ -1,4 +1,9 @@
 import axios, { AxiosResponse } from "axios";
+import { mapState } from "vuex";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faStar)
 
 interface Game {
   id: number;
@@ -21,8 +26,14 @@ const singleGameComponent: any = {
       imgType: {
         male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
         female: "https://img.freepik.com/premium-photo/cute-girl-3d-character-design-cartoon-girl-avatar_432516-5510.jpg?w=2000"
-      }
+      },
+      star: true
     };
+  },
+  computed: {
+    ...mapState('gameReducer', {
+      game: (state: any) => state.game
+    })
   },
   methods: {
     goBack() {
@@ -32,6 +43,9 @@ const singleGameComponent: any = {
       else {
         this.$router.back()
       }
+    },
+    fav(){
+      this.star = !this.star
     }
   },
   mounted() {

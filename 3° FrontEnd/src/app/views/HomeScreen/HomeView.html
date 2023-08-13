@@ -31,9 +31,9 @@
 
         <div id="cardList">
             <div v-for="game in games" :key="game.id" class="card">
-                <router-link to="/singleGame">
+                <div @click="gameChoice(game)">
                     <img style="width: 100%; height: 100%" alt="Image" :src="game.img" />
-                </router-link>
+                </div>
                 <div>
                     <div>{{ game.name.slice(0, 26) }}</div>
                     <div v-if="game.name.length > 26">...</div>
