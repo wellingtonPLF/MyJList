@@ -6,7 +6,7 @@ export const USER_INITIAL_STATE: I_User = {
   nickName: "unknow",
   status: "unknow",
   joined: "--/--/--",
-  country: "unknow",
+  nationality: "unknow",
   sex: "unknow",
   bornDate: "--/--/--",
   auth: 0

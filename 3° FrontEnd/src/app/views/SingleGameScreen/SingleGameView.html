@@ -175,7 +175,10 @@
                                 <div>
                                     <div>Main Staff</div>
                                     <div v-if="staffObj.enabled">
-                                        <div v-for="(value, property) in staffObj.staff">{{property}}: {{value}}</div>
+                                        <div style="display: flex;" v-for="(value, property) in staffObj.staff">
+                                            <div>{{property}}: </div>
+                                            <div style="margin-left: 5px;">{{value}}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -259,7 +262,7 @@
                     <div>
                         <div>
                             <input placeholder="Make a comment" />
-                            <button>
+                            <button @click="sendComment()">
                                 <font-awesome-icon :icon="['fas', 'reply']" />
                             </button>
                         </div>

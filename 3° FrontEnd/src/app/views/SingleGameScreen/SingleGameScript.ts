@@ -46,6 +46,9 @@ const singleGameComponent: any = {
     ...mapState("gameReducer", {
       game: (state: any) => state.game,
     }),
+    ...mapState("authReducer", {
+      user: (state: any) => state.user,
+    }),
   },
   methods: {
     ...mapActions("gameReducer", ["setGame"]),
@@ -77,6 +80,9 @@ const singleGameComponent: any = {
     fav() {
       this.star = !this.star;
     },
+    sendComment() {
+      console.log(this.user)
+    }
   },
   mounted() {
     axios
