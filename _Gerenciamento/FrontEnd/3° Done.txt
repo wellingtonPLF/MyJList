@@ -1,0 +1,4 @@
+
+- Interface
+- Responsividade
+- Filters [Funcional da pagina Games]
