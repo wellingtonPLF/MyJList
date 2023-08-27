@@ -40,6 +40,7 @@ const singleGameComponent: any = {
         },
       },
       star: true,
+      comment: undefined
     };
   },
   computed: {
@@ -81,7 +82,19 @@ const singleGameComponent: any = {
       this.star = !this.star;
     },
     sendComment() {
-      console.log(this.user)
+      this.comment = ""
+    },
+    no(index: number){
+
+    },
+    yes(index: number){
+      
+    },
+    funny(index: number){
+      
+    },
+    premiation(index: number){
+      
     }
   },
   mounted() {

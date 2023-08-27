@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import { mapState, mapActions } from "vuex";
 import { I_User } from "../../shared/interfaces/I_User";
 import { I_Game } from "../../shared/interfaces/I_Game";
+import nationalityService from "../../shared/services/nationalityService";
 
 const profileComponent: any = {
   name: "ProfileComponent",
@@ -14,7 +15,8 @@ const profileComponent: any = {
       imgType: {
         male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
         female: "https://img.freepik.com/premium-photo/cute-girl-3d-character-design-cartoon-girl-avatar_432516-5510.jpg?w=2000"
-      }
+      },
+      nationality: undefined
     };
   },
   computed: {
@@ -29,7 +31,7 @@ const profileComponent: any = {
       this.setGame(game)
       window.scrollTo(0, 0);
     },
-    userChoice(user: any){
+    userChoice(user: any) {
       this.setUser(user)
       window.scrollTo(0, 0);
     },
@@ -40,6 +42,24 @@ const profileComponent: any = {
       else {
         this.$router.back()
       }
+    }
+  },
+  watch: {
+    user(){
+      nationalityService.getNatiolality(this.user.nationality_id).then(
+        (it: any) => {
+          this.nationality = it.name
+        }
+      )
+    }
+  },
+  beforeMount(){
+    if (this.user.nationality_id != undefined){
+      nationalityService.getNatiolality(this.user.nationality_id).then(
+        (it: any) => {
+          this.nationality = it.name
+        }
+      )
     }
   },
   mounted() {

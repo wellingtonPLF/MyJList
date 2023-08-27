@@ -40,24 +40,53 @@ $portalSize: 350px;
 }
 // ------------------------------------------------------
 
-#registry > div > div:last-child{
+#userForm {
     display: flex;
-    height: 85px;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-end;
+    width: 285px;
+}
+
+#userForm > div:first-child {
+    position: absolute;
+    height: 40px;
+    line-height: 60px;
+    width: 250px;
+}
+
+#userForm > div:first-child > div {
+    margin-left: 10px;
+    color: red;
+}
+
+#userForm > div:nth-child(2){
+    display: flex;
+    height: 150px;
     width: 250px;
     align-items: center;
     justify-content: space-around;
     color: white;
-    margin-top: 40px;
-    margin-left: 25px;
+    margin-top: 10px;
 }
 
-#registry > div > div:last-child input {
+select {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select > :first-child {
+    display: none;
+}
+
+#userForm > div:nth-child(2) > div:first-child :first-child {
     border-radius: 30px;
     padding: 0px;
-    border: unset;
     padding-left: 15px;
     height: 30px;
-    width: 200px;
+    appearance: none;
+    border: 2px solid black;
+    height: 35px;
 }
 
 #registry button {

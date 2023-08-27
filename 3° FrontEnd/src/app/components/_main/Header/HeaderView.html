@@ -9,7 +9,7 @@
             <div v-if="userLogin.id == 0">
                 <font-awesome-icon :icon="['fas', 'users']" />
             </div>
-            <router-link v-else id="userLogin" to="/profile">{{userLogin.nickName}}</router-link>
+            <router-link v-else id="userLogin" to="/profile">{{userLogin.nickname}}</router-link>
             <router-link v-if="userLogin.id == 0" to="/signUp">SIGN UP</router-link>
             <router-link v-else to="/" style="color: rgb(174, 169, 218); width: 100px;">
                 <font-awesome-icon :icon="['far', 'bell']" />

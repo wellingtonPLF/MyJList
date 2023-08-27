@@ -6,10 +6,10 @@ export const USER_INITIAL_STATE: I_User = {
   nickName: "unknow",
   status: "unknow",
   joined: "--/--/--",
-  nationality: "unknow",
-  sex: "unknow",
+  sexuality: "unknow",
   bornDate: "--/--/--",
-  auth: 0
+  auth: 0,
+  nationality: 0
 }
 
 const AuthReducer = {

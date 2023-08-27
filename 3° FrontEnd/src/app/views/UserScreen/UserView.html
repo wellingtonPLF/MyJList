@@ -10,7 +10,7 @@
         <div id="allUsers">
             <div v-for="userCard in users" id="userCard">
                 <div :style="{ backgroundImage: `url(${(userCard.sex === 'Male') ? imgType.male : imgType.female})` }"></div>
-                <div>{{userCard.nickName}}</div>
+                <div>{{userCard.nickname}}</div>
                 <div>{{userCard.role}}</div>
                 <span>
                     <div>

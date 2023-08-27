@@ -8,12 +8,23 @@
             <div>
                 <div></div>
             </div>
-            <div>
+            <div id="userForm">
                 <div>
-                    <input placeholder="username" />
-                    <button>NEXT</button>
+                    <div v-if="error.enabled">{{error.msg}}</div>
                 </div>
-                <div>1/5</div>
+                <div>
+                    <div>
+                        <input v-if="!['sexuality', 'nationality'].includes(keys[count - 1])" 
+                        :style="{width: (keys[count - 1] == 'bordDate') ? '186px' : '196px', paddingRight: (keys[count - 1] == 'bordDate') ? '10px' : '0px'}" 
+                        :type="(keys[count - 1] == 'bordDate') ? 'date' : 'text' " :placeholder="keys[count - 1]" v-model="value"/>
+                        <select v-else  name="nationalitys" v-model="value" style="width: 215px; height: 39px;">
+                            <option value="default" disabled>selection</option>
+                            <option v-for="item in ((keys[count - 1] == 'nationality') ? nationalitys : sexualitys )" :value="item.name">{{item.name}}</option>
+                        </select>
+                        <button @click="nextParam()">NEXT</button>
+                    </div>
+                    <div>{{count}}/{{quantity}}</div>
+                </div>
             </div>
         </div>
     </div>

@@ -41,9 +41,9 @@
                                 </div>
                             </div>
                             <div>
-                                <div>Location: {{user.nationality}}</div>
+                                <div>Location: {{nationality}}</div>
                                 <div>
-                                    <h3>{{user.nickName}}</h3>
+                                    <h3>{{user.nickname}}</h3>
                                     <div>
                                         <div>Also Available at</div>
                                         <div><font-awesome-icon :icon="['fas', 'link']" /> http://localhost:5173/profile</div>
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div>Sex: {{user.sex}}</div>
+                                <div>Sex: {{(user.sexuality == "M") ? "Masculine": "Feminine"}}</div>
                                 <div id="userBornDate">
                                     <div>Birthday:</div>
                                     <div>{{user.bornDate}}</div>
@@ -151,7 +151,7 @@
                             </div>
                             <div id="profileNotes">
                                 <div>Notes</div>
-                                <input placeholder="Type anything here" />
+                                <input placeholder="Type anything here" :v-model="user.note" />
                             </div>
                         </div>
                         <div id="historyList">

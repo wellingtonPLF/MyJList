@@ -1,5 +1,5 @@
-// import authService from "../../shared/services/authService";
-// import userService from "../../shared/services/userService";
+import authService from "../../shared/services/authService";
+import userService from "../../shared/services/userService";
 import { mapActions } from "vuex";
 
 const signInComponent: any = {
@@ -25,42 +25,24 @@ const signInComponent: any = {
       }
     },
     login() {
-      if (this.auth.username == "Well" && this.auth.password == "123") {
-        const user = {
-          id: 1,
-          nickName: "wellington",
-          status: "Online",
-          joined: "29/03/1999",
-          country: "Brazil",
-          sex: "Masculine",
-          bornDate: "29/03/1999",
-          auth: 1
+      authService.authentication(this.auth).then(
+        _ => {
+          userService.getAuthenticatedUser().then(
+            (it: any) => {
+              this.setUser(it)
+              this.$router.push('/');
+            }
+          ).catch( __ => {
+            this.$router.push('/maintenance');
+          })
         }
-        this.setUser(user)
-        this.$router.push('/');
-      }
-      else {
+      ).catch((msg: any) => {
+        if (msg.code == "ERR_NETWORK") {
+          this.$router.push('/maintenance');
+        }
         this.error.enabled = true
-        this.error.msg = "Wrong Username or Password"
-      }
-      // authService.authentication(this.auth).then(
-      //     () => {
-      //         userService.getAuthenticatedUser().then(
-      //             (it: any) => {
-      //                 this.setResult({ value: it.nickname })
-      //                 this.$router.push('/');
-      //             }
-      //         ).catch(() => {
-      //             this.$router.push('/maintenance');
-      //         })
-      //     }
-      // ).catch((msg: any) => {
-      //     if(msg.code == "ERR_NETWORK") {
-      //       this.$router.push('/maintenance');
-      //     }
-      //     this.error.enabled = true
-      //     this.error.msg = msg.code
-      // })
+        this.error.msg = msg.code
+      })
     }
   },
   mounted() { },

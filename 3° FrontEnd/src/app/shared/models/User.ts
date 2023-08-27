@@ -4,21 +4,25 @@ export class User implements I_User {
     private _id?: number;
     private _nickName?: string;
     private _bornDate?: string;
+    private _sexuality?: string;
+    private _nationality?: number;
     private _auth?: number;
 
-    constructor(id:number, nickName: string, bornDate: string);
-    constructor(nickName: string, bornDate: string);
+    constructor(id:number, nickName: string, bornDate: string, sexuality: string);
+    constructor(nickName: string, bornDate: string, sexuality: string);
     constructor();
     constructor(...myarray: any[]){
-        if (myarray.length === 2) {
+        if (myarray.length === 3) {
             this._nickName = myarray[0]
             this._bornDate = myarray[1]
+            this._sexuality = myarray[2]
             return;
         }
-        if (myarray.length === 3) {
+        if (myarray.length === 4) {
             this._id = myarray[0]
             this._nickName = myarray[1]
             this._bornDate = myarray[2]
+            this._sexuality = myarray[3]
             return;
         }
     }
@@ -28,6 +32,8 @@ export class User implements I_User {
           id: user.id,  
           nickname: user.nickName, 
           bornDate: user.bornDate,
+          sexuality: user.sexuality,
+          nationality_id: user.nationality,
           auth_id: user.auth
         }
         return result;
@@ -55,6 +61,22 @@ export class User implements I_User {
 
     set bornDate(bornDate: string | undefined){
         this._bornDate = bornDate;
+    }
+
+    get sexuality(): string | undefined{
+        return this._sexuality;
+    }
+
+    set sexuality(sexuality: string | undefined){
+        this._sexuality = sexuality;
+    }
+
+    get nationality(): number | undefined{
+        return this._nationality;
+    }
+
+    set nationality(nationality: number | undefined){
+        this._nationality = nationality;
     }
 
     get auth(): number | undefined{

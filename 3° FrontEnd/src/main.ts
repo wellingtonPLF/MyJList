@@ -5,6 +5,7 @@ import router from "./app/AppRouter";
 import store from "./app/shared/vuex/store";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { registerRequestInterceptor, registerResponseInterceptor } from './app/AppInterceptor'
 
 import {
   faGamepad,
@@ -85,6 +86,10 @@ if (import.meta.env.VITE_PROD) {
   app.config.globalProperties.__VUE_PROD_DEVTOOLS__ = false;
 }
 
+registerRequestInterceptor();
+registerResponseInterceptor();
+
 app.use(router);
 app.use(store);
 app.mount("#app");
+

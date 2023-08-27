@@ -40,7 +40,7 @@
                                         <button>Add to List</button>
                                         <div>
                                             <select name="pets" id="pet-select">
-                                                <option value="Best">Best</option>
+                                                <option value="Incredible">Incredible</option>
                                                 <option value="Great">Great</option>
                                                 <option value="Good">Good</option>
                                                 <option value="Fine">Fine</option>
@@ -65,7 +65,7 @@
                                 <button>Add to List</button>
                                 <div>
                                     <select name="pets" id="pet-select">
-                                        <option value="Best">Best</option>
+                                        <option value="Incredible">Incredible</option>
                                         <option value="Great">Great</option>
                                         <option value="Good">Good</option>
                                         <option value="Fine">Fine</option>
@@ -261,7 +261,7 @@
                 <div id="gameComments">
                     <div>
                         <div>
-                            <input placeholder="Make a comment" />
+                            <input placeholder="Make a comment" v-model="comment" />
                             <button @click="sendComment()">
                                 <font-awesome-icon :icon="['fas', 'reply']" />
                             </button>
@@ -274,7 +274,7 @@
                                     <div>Recomendation (7)</div>
                                 </div>
                             </div>
-                            <div class="userComment" v-for="item in userComment">
+                            <div class="userComment" v-for="(item, index) in userComment">
                                 <div>
                                     <router-link to="/profile" class="userCommentIMG backImageConfig" @click="userChoice(item)"
                                         :style="{backgroundImage: `url(${(item.sex === 'Male') ? imgType.male : imgType.female})`}"></router-link>
@@ -291,12 +291,12 @@
                                         ratione saepe
                                         fuga, quas dolores blanditiis ad.</div>
                                     <div>
-                                        <div>Útil?</div>
+                                        <div style="cursor: default;">Útil?</div>
                                         <div>
-                                            <div>Yes</div>
-                                            <div>No</div>
-                                            <div>Funny</div>
-                                            <div>Premiation</div>
+                                            <div @click="yes(index)">Yes</div>
+                                            <div @click="no(index)">No</div>
+                                            <div @click="funny(index)">Funny</div>
+                                            <div @click="premiation(index)">Premiation</div>
                                         </div>
                                     </div>
                                 </div>

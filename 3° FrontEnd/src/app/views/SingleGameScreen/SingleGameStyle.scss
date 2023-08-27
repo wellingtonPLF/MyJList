@@ -548,6 +548,10 @@ $buttonWidth: 60px;
     margin-right: 10px;
 }
 
+.userComment > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div {
+    cursor: pointer;
+}
+
 .userComment > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:last-child{
     color: #dfd219;
 }
