@@ -53,25 +53,20 @@ class GameViewSet(viewsets.ModelViewSet):
             return Response(result)
         except:
             raise ParseError("Something went Wrong in getReleases")
-    
+
     #/game/getAiring
     @action(detail=False, methods=['GET'], url_path='getAiring')
-    def getAiring(self, request): #6,7,10,13,16 #10(3),13(3),6(3),4(2),5(2)
+    def getAiring(self, request):
         try:
             current_date = datetime.date.today()
-            # queryResult = Registry.objects.filter(game__release__gte=current_date).order_by('game__release').values('game').annotate(count=Count('game')).order_by('-count')[:5]
-            # expected = list(map(lambda item: item['game'], queryResult))
-            # gameResult = Game.objects.filter(id__in=expected)
-            # result = ReleaseSerializer(gameResult, many=True, read_only=True).data
-            # return Response(result)
 
-            games = Game.objects.filter(release__gte=current_date).order_by('-release')
-            resultList = []
-            for game in games:
-                expectation = len(Registry.objects.filter(game=game.id))
-                resultList.append({'id': game.id, 'expectation': expectation, 'name': game.name, 'gameImage': game.gameImage})
-            result = sorted(resultList, key=lambda item: item['expectation'], reverse=True)
-            return Response(result[:5])
+            queryResult = Registry.objects.filter(game__release__gte=current_date).order_by('game__release').values('game').annotate(count=Count('game')).order_by('-count')[:5]
+            expected = list(map(lambda item: item['game'], queryResult))
+
+            gameResult = Game.objects.filter(id__in=expected)
+            result = ReleaseSerializer(gameResult, many=True, read_only=True).data
+            
+            return Response(result)
         except:
             raise ParseError("Something went Wrong in getReleases")
 
