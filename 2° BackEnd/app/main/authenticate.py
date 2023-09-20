@@ -90,3 +90,28 @@ class NationalityAuthentication(BaseAuthentication):
             return None
         else:
             raise AuthenticationFailed('Access denied.')
+
+class GameAuthentication(BaseAuthentication):
+
+    def authenticate(self, request): #/game/
+        method = request.method
+
+        if (method != "DELETE" and "/" in request.path) and (method != "UPDATE" and "/" in request.path):
+            return None
+        else:
+            raise AuthenticationFailed('Access denied.')
+
+class CommentAuthentication(BaseAuthentication):
+
+    def authenticate(self, request): #/comment/
+        method = request.method
+
+        if method != "DELETE" and "/" in request.path:
+            return None
+        else:
+            raise AuthenticationFailed('Access denied.')
+
+class RegistryAuthentication(BaseAuthentication):
+
+    def authenticate(self, request): #/registry/
+        return None

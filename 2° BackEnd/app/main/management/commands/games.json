@@ -1,0 +1,483 @@
+[
+    {
+      "id": 1,
+      "gameImg": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg?width=300&crop=1%3A1%2Csmart",
+      "img": [
+        "https://e0.pxfuel.com/wallpapers/780/80/desktop-wallpaper-the-legend-of-zelda-breath-of-the-wild-video-game-hq-the-legend-of-zelda-breath-of-the-wild-2019.jpg",
+        "https://www.gamereactor.pt/media/grtv/74/287403_w926.jpg",
+        "https://s2-techtudo.glbimg.com/FH5k80VJNvclCziaYvKiPrHFquw=/0x0:695x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/z/u/6zde56S36J4H9UmtvZxw/2016-06-14-the-legend-of-zelda-breath-of-the-wild-e3-2016-combate.jpg",
+        "https://i.guim.co.uk/img/media/22d6b308c89e62e229feb220208a639836e31fd9/60_0_1800_1080/master/1800.png?width=700&quality=85&auto=format&fit=max&s=25c588a5203feea6061c32112a66ebdc",
+        "https://i.guim.co.uk/img/media/622341a1fc2856ad7299d136a177eae5ae290934/60_0_1800_1080/master/1800.png?width=300&quality=45&auto=format&fit=max&dpr=2&s=a97502ea605481c66251bebbca3f5c98"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "The Legend of Zelda",
+      "plataform": ["Nintendo"],
+      "status": ["Off"],
+      "gameType": ["OPEN WORLD", "ADVENTURE"],
+      "perspective": ["Third Person"],
+      "studio": ["Nintendo"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "The Legend of Zelda: Breath of the Wild é um jogo eletrônico de ação-aventura..."
+    },
+    {
+      "id": 2,
+      "gameImg": "https://news.xbox.com/en-us/wp-content/uploads/sites/2/RDR_XBOX_940X528-small.jpg",
+      "img": [
+        "https://cdn.wccftech.com/wp-content/uploads/2018/08/WCCFreddeadredemption24.jpg",
+        "https://cdn.ome.lt/Jmu97dKDQU1xXHY2XbgSckwm3K8=/770x0/smart/uploads/conteudo/fotos/11_-_Primeira_Pessoa.jpg",
+        "https://www.einerd.com.br/wp-content/uploads/2018/05/red-dead-redemption-2-890x466.jpg",
+        "https://image-pastemagazine-com-public-bucket.storage.googleapis.com/wp-content/uploads/2022/06/20053625/rdr2-trailer-post-main.jpg",
+        "https://www.rdr2.org/wp-content/uploads/2017/07/wildwestonline.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Red Dead Redemption 2",
+      "plataform": ["Playstation", "PC"],
+      "status": ["Off"],
+      "gameType": ["OPEN WORLD", "SHOOTER"],
+      "perspective": ["Third Person"],
+      "studio": ["Microsoft"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Red Dead Redemption 2 é um jogo eletrônico de ação-aventura desenvolvido..."
+    },
+    {
+      "id": 3,
+      "gameImg": "https://sm.ign.com/t/ign_br/game/g/god-of-war/god-of-war-ragnarok_z48t.300.jpg",
+      "img": [
+        "https://t.ctcdn.com.br/OnlT1ksgunJ7B2ajy7_TVQgt79E=/2x0:1919x1078/640x360/smart/i610384.png",
+        "https://www.comboinfinito.com.br/principal/wp-content/uploads/2022/08/God-of-War-1.jpg",
+        "https://images.hothardware.com/contentimages/article/3175/content/small_God-of-War-Its-On.jpg",
+        "https://blog.playstation.com/tachyon/2022/01/ca81fa0930eade4a425fec03bfa2aed8827bff7b.jpg?resize=1088%2C612&crop_strategy=smart",
+        "https://meups.com.br/wp-content/uploads/2022/10/Gameplay-de-God-of-War-Ragnarok-900x503.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "God of War",
+      "plataform": ["PC", "Playstation"],
+      "status": ["Off"],
+      "gameType": ["OPEN WORLD", "FIGHTHING"],
+      "perspective": ["Third Person"],
+      "studio": ["Microsoft"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Esta impressionante repaginação de God of War reúne todas as característ..."
+    },
+    {
+      "id": 4,
+      "gameImg": "https://savegame.pro/wp-content/uploads/2020/04/the-witcher-3-wild-hunt-cover.jpg",
+      "img": [
+        "https://i.ytimg.com/vi/xx8kQ4s5hCY/maxresdefault.jpg",
+        "https://s.yimg.com/ny/api/res/1.2/PYmPI6yg5KJfOiK7lADqSg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MA--/https://s.yimg.com/cd/resizer/2.0/original/OWpbx-4UDJkHw0QQqdpT-kS3XT0",
+        "https://fextralife.com/wp-content/uploads/2014/08/The_Witcher_3_Wild_Hunt-Geralt_torching_his_enemies-640x360.jpg",
+        "https://d26bwjyd9l0e3m.cloudfront.net/wp-content/uploads/2015/05/Review-The-Witcher-3-Wild-Hunt-Screenshot5.jpg",
+        "https://monstervine.com/wp-content/uploads/2013/06/the-witcher-3-xbox-one.png"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "The Witcher 3: Wild Hunt",
+      "plataform": ["PC", "Playstation", "Xbox"],
+      "status": ["Off"],
+      "gameType": ["OPEN WORLD", "FIGHTHING"],
+      "perspective": ["Third Person"],
+      "studio": ["Sony"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em mundo..."
+    },
+    {
+      "id": 5,
+      "gameImg": "https://assets-prd.ignimgs.com/2021/12/14/minecraft-1639513933156.jpg?width=300&crop=1%3A1%2Csmart",
+      "img": [
+        "https://vulcanpost.com/wp-content/uploads/2023/04/Minecraft-legends-first-look-review-gameplay-plot-002.jpg",
+        "https://files.tecnoblog.net/wp-content/uploads/2020/05/como-instalar-shader-minecraft-sildurs.jpg",
+        "https://my.mcpedl.com/storage/texturepacks/3923/images/shaderless-shader--render-dragon_12.png",
+        "https://gamenosida.com/wp-content/uploads/2023/05/maling-terozz-siap-siap-gua-kenain-copyright-cara-mendapatkan-warrior-di-minecraft-legends.webp",
+        "https://images.immediate.co.uk/production/volatile/sites/3/2022/07/minecraft-teleport-55a72e8.jpg?resize=620%2C325"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Minecraft",
+      "plataform": ["PC", "Playstation", "Xbox"],
+      "status": ["Off", "On"],
+      "gameType": ["OPEN WORLD", "MMORPG", "RPG", "SURVIVAL", "EDUCATIONAL", "CASUAL"],
+      "perspective": ["Third Person", "First Person"],
+      "studio": ["Microsoft"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "O Minecraft está disponível para jogar nas seguintes plataformas...."
+    },
+    {
+      "id": 6,
+      "gameImg": "https://assets-prd.ignimgs.com/2023/06/09/fortnitewilds-1686353306240.jpg?width=300&crop=1%3A1%2Csmart",
+      "img": [
+        "https://www.vigamusmagazine.com/wp-content/uploads/2018/02/Fortnite2Fhome2Ffn_battle_royale-1268x717-cf9fa8a783c249aa8d6929126e29f5f190620357.jpg",
+        "https://s2-techtudo.glbimg.com/QdtQWZrkNdelN9vwO66761jHeS8=/0x0:1920x1080/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2018/P/W/UaSopXTP6MlzJT4e7dCQ/fortnite-cross-play-ps4-truegamerrevolution.jpg",
+        "https://i.pcmag.com/imagery/reviews/00XpAmYpxd6wvLkvIO672zY-3.png",
+        "https://cdn.arstechnica.net/wp-content/uploads/2017/08/BoB_combatShot_var2-800x450.jpg",
+        "https://e1.pxfuel.com/desktop-wallpaper/702/274/desktop-wallpaper-fortnite-squad-golf-cart-gameplay-computer-backgrounds-1496-1920x1080-px-picky-fortnite-game-play.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Fortnite",
+      "plataform": ["Xbox", "Playstation", "PC", "Nintendo"],
+      "status": ["On"],
+      "gameType": ["OPEN WORLD", "BATTLE ROYALE", "SHOOTER", "CASUAL"],
+      "perspective": ["Third Person", "First Person"],
+      "studio": ["Epic Games"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Fortnite é um jogo eletrônico multijogador on revelado originalmente em 2011..."
+    },
+    {
+      "id": 7,
+      "gameImg": "https://www.siliconera.com/wp-content/uploads/2022/12/street-fighter-6-box-art.jpg",
+      "img": [
+        "https://s2-techtudo.glbimg.com/0BM3QTtL3LdaZkAxffStjBZ03L8=/0x0:1918x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/u/d/CoehQPRp23ca4q0slwpg/street-fighter-6-gameplay.png",
+        "https://i.pcmag.com/imagery/reviews/04QtV9tYUdB4Hix1hC8ek43-7.fit_lim.size_1050x.jpg",
+        "https://i.pcmag.com/imagery/reviews/04QtV9tYUdB4Hix1hC8ek43-15.fit_lim.size_1050x.jpg",
+        "https://s2-techtudo.glbimg.com/60ageNvCQbDtxu2PTgE12pdU1h0=/0x0:3840x2160/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/G/T/p8dWJCTMKHsvhihVJlYA/188640cc4af85-screenshoturl.jpg",
+        "https://s2-techtudo.glbimg.com/SGQj0QsYH_VQDCto3-XdSD9B7qw=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/G/a/cqUvgUSimMVtV5AKPQAQ/deejay-street-fighter-6.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Street Fighter 6",
+      "plataform": ["Xbox", "Playstation"],
+      "status": ["Off"],
+      "gameType": ["FIGHTHING", "CASUAL"],
+      "perspective": ["Other"],
+      "studio": ["Blizzard"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Street Fighter 6 é um jogo eletrônico de luta desenvolvido e publicado pela..."
+    },
+    {
+      "id": 8,
+      "gameImg": "https://i.blogs.es/a47ba2/ffxvi-cabecera/450_1000.webp",
+      "img": [
+        "https://technewsspace.com/wp-content/uploads/2023/04/Final-Fantasy-XVI-at-State-of-Play-20-minutes-of.jpg",
+        "https://http2.mlstatic.com/D_NQ_NP_977026-MLU69660270227_052023-O.webp",
+        "https://s2-techtudo.glbimg.com/s4QAZz2iMkPDWOhJiBw3EbF5lYU=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/Z/S/4kBUK0SYiVWTMshAHevA/sukurinshiyotsuto-2023-04-14-011903.png",
+        "https://dondon.media/wp-content/uploads/2023/06/ff16-staggering.webp",
+        "https://psverso.com.br/wp-content/uploads/2023/02/Final-Fantasy-16-ganha-diversos-videos-de-gameplay-de-combate-768x432.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Final Fantasy XVI",
+      "plataform": ["Xbox", "Playstation", "PC"],
+      "status": ["Off"],
+      "gameType": ["OPEN WORLD", "ADVENTURE"],
+      "perspective": ["Third Person"],
+      "studio": ["Sony"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Final Fantasy XVI é um jogo eletrônico de RPG de ação desenvolvido e publicado..."
+    },
+    {
+      "id": 9,
+      "gameImg": "https://files.tecnoblog.net/wp-content/uploads/2022/07/as-dusk-falls.png",
+      "img": [
+        "https://assets-prd.ignimgs.com/2022/07/18/ss-2d322664587f4adde243f0dbe5fc2d6ad6b7621f-1920x1080-1658124995734.jpg?width=1280",
+        "https://criticalhits.com.br/wp-content/uploads/2022/07/as-dusk-falls-soluce-guide-walkthrough-best-ending-xbox-1024x576-1-910x512.jpg",
+        "https://cramgaming.com/wp-content/uploads/2022/07/As-dusk-falls-web.jpg",
+        "https://www.comboinfinito.com.br/principal/wp-content/uploads/2022/07/As-Dusk-Falls-Review-2.jpg",
+        "https://images.squarespace-cdn.com/content/v1/59f9e5919f07f541db1701c8/1595523480003-DBJXO3YLD99T0E28SADK/Concept+Art+2.jpg?format=1000w"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "As Dusk Falls",
+      "plataform": ["Xbox", "Playstation"],
+      "status": ["Off"],
+      "gameType": ["TEXT"],
+      "perspective": ["Other"],
+      "studio": ["Epic Games"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "As Dusk Falls é um jogo de aventura narrativa de 2022 desenvolvido pela Interior..."
+    },
+    {
+      "id": 10,
+      "gameImg": "https://nintendoboy.com.br/wp-content/uploads/2021/06/mario-rabbids-sparks-of-hope.jpg",
+      "img": [
+        "https://uploads.jovemnerd.com.br/wp-content/uploads/2023/03/mario_rabbids_tower_of_doom__ex32w5p-1210x544.jpg",
+        "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4QNKc5GkgNikcIEyTnLWza/fe84e92b160a8c630577f37da5431d00/MRSH_SPACESHIP_960x540.png",
+        "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/40ozvupjigBkXRrBrbC8QE/ae2c100af696ade0a9b1e99e7a188273/MRSH_ARTICLE_CMBK_04-SCRN-Combat-b.jpg",
+        "https://s2-techtudo.glbimg.com/-nM-uvRV_D8ISMBaxIj8ZPLSzgs=/0x0:1615x1072/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/R/I/t6RsBzRvOvojE1oAFEqA/scahc8.png",
+        "https://s2-techtudo.glbimg.com/kUzlXFB742lNOl3fjmkHE1qoRtQ=/0x0:1200x675/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/S/A/5wN7BHSQiiDFuFdM5vdg/mario-rabbids-sparks-of-hope-estrategia-gameplay-explorar.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Mario + Rabbids Sparks of Hope",
+      "plataform": ["PC", "Nintendo"],
+      "status": ["Off"],
+      "gameType": ["ADVENTURE"],
+      "perspective": ["Third Person"],
+      "studio": ["Nintendo"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Mario + Rabbids Sparks of Hope é um videogame de estratégia baseado em turnos..."
+    },
+    {
+      "id": 11,
+      "gameImg": "https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S1_2560x1440-91dc9490f14942ad5eeef278eb3ef4a6?h=270&quality=medium&resize=1&w=480",
+      "img": [
+        "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt2372d4c57445d2b2/61d65d73abe5293e65782c0d/CYPHER_4.jpg?auto=webp&disable=upscale&height=549",
+        "https://s2-g1.glbimg.com/KJmfhc3dzVmjSFHjeSTSpm_W9sQ=/0x0:1920x1080/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/d/A/jze8TURRKhTKz9LfLvRA/valorant1.jpg",
+        "https://s2-techtudo.glbimg.com/PQAoZgFPX9AdsSUB6q3hsx5NOBg=/0x0:695x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/M/h/OLeppwTt6PCzuZ9W2EQQ/valorant-perguntas-respostas-riot-gameplay-parecido-csgo-overwatch.jpg",
+        "https://i0.wp.com/playerassist.com/wp-content/uploads/2022/12/featured-image-valorant-patch-5.12-adds-new-swiftplay-game-mode.png?fit=706%2C397&ssl=1",
+        "https://external-preview.redd.it/CRAI93tjgAtI-SFw4JMde9DLDl-fv8tSx0PMADpagFs.png?width=640&crop=smart&format=pjpg&auto=webp&s=aecc80689e5c74110e27581f2c96658b489af6c5"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Valorant",
+      "plataform": ["Xbox", "Playstation", "PC"],
+      "status": ["On"],
+      "gameType": ["SHOOTER"],
+      "perspective": ["First Person"],
+      "studio": ["Tencent"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Valorant é um jogo eletrônico multijogador gratuito para jogar de tiro em..."
+    },
+    {
+      "id": 12,
+      "gameImg": "https://image.api.playstation.com/vulcan/ap/rnd/202302/2321/ba706e54d68d10a0eb6ab7c36cdad9178c58b7fb7bb03d28.png",
+      "img": [
+        "https://i2-prod.mirror.co.uk/gaming/article30672769.ece/ALTERNATES/n615/1_BurgersGate3.jpg",
+        "https://i.pcmag.com/imagery/reviews/01u6E0fLoWO77JD3c3p4vaf-18.fit_lim.size_1050x.jpg",
+        "https://www.ggrecon.com/media/3jbklgyg/bg3-camping-2.jpg?mode=crop&width=682&quality=80&format=webp",
+        "https://i.ytimg.com/vi/NZvwDvZu7mA/maxresdefault.jpg",
+        "https://www.ggrecon.com/media/2w2lhi43/baldur-s-gate-combat-system.jpg?mode=crop&width=682&quality=80&format=webp"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Baldur's Gate 3",
+      "plataform": ["Xbox", "Playstation", "PC"],
+      "status": ["Off", "On"],
+      "gameType": ["OPEN WORLD", "ADVENTURE", "MMORPG", "RPG", "TEXT"],
+      "perspective": ["Isometric", "Other"],
+      "studio": ["Blizzard"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Baldur's Gate III é a sequência do jogo de RPG Baldur's Gate II: Shadows of Amn..."
+    },
+    {
+      "id": 13,
+      "gameImg": "https://esports.eldesmarque.com/wp-content/uploads/2019/09/LoL2.jpg",
+      "img": [
+        "https://phantom-marca.unidadeditorial.es/7fa6670224e278b58a556f85985e3fcd/resize/828/f/jpg/assets/multimedia/imagenes/2020/12/24/16088107388379.jpg",
+        "https://variety.com/wp-content/uploads/2018/07/league-of-legends-2015-05-15-18-05-46-91.png?w=1000&h=563&crop=1",
+        "https://i.ytimg.com/vi/WJdpCJZsV9s/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEsgZShjMA8=&rs=AOn4CLB8YdGr-WUU2vfSZ-0_p6_iKdgYGg",
+        "https://s2-techtudo.glbimg.com/v_iNetgOt9LCh7K6itybJOX6fxs=/0x0:1440x902/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2018/n/q/y9YBAYRNqNBCw4EdTxZA/005.jpg",
+        "https://s2-techtudo.glbimg.com/1WsVTFR0RcuxnmvsPIeT2jP-W9A=/0x0:1600x1000/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2018/h/L/UFUAqFRYmJlrsIFRnwNw/mfhn7af.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "League of Legends",
+      "plataform": ["PC", "Mobile"],
+      "status": ["On"],
+      "gameType": ["MOBA", "CASUAL"],
+      "perspective": ["Isometric"],
+      "studio": ["Tencent"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "League of Legends é um jogo eletrônico do gênero multiplayer on battle arena..."
+    },
+    {
+      "id": 14,
+      "gameImg": "https://meups.com.br/wp-content/uploads/2022/07/FIFA-23-capa.jpg",
+      "img": [
+        "https://s2-techtudo.glbimg.com/q7xoalzYhxy4DSJOlnDNh9j5Hdw=/0x0:1200x675/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/T/a/igizWPT1agFK6RMwtpKw/fifa-23-tudo-sobre-gmeplay-requisitos-minimos-jogo-ps4-ps5-xbox-pc.jpg",
+        "https://wp.inews.co.uk/wp-content/uploads/2022/09/262f2363565c-fifa-23-screenshot.jpeg?w=940&h=530&crop=1",
+        "https://gamerview.uai.com.br/wp-content/uploads/2022/10/FIFA-23-Review-Img11-1024x576.jpg",
+        "https://s2-techtudo.glbimg.com/g7ghzV9siZTY_XiK7yxsngNUYzY=/0x0:3840x2160/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/Y/R/9B5wgyRjiboYb3FGvUQQ/img-3386.jpg",
+        "https://www.adrenaline.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=910&height=568&format=webp&quality=91&imagick=/wp-content/uploads/2022/07/FIFA_23_primeiro_gameplay_oficial_novidades_PS5_Xbox_PC.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "FIFA 23",
+      "plataform": ["Xbox", "Playstation", "PC", "Mobile"],
+      "status": ["Off", "On"],
+      "gameType": ["SPORTS", "CASUAL"],
+      "perspective": ["Third Person", "First Person", "Isometric", "Other"],
+      "studio": ["Sony"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "FIFA 23 é um jogo eletrônico de simulação de futebol desenvolvido pela Electronic Arts..."
+    },
+    {
+      "id": 15,
+      "gameImg": "https://www.adrenaline.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=500&height=500&format=webp&quality=91&imagick=uploads.adrenaline.com.br/2023/06/palia-capa.jpg",
+      "img": [
+        "https://d1lss44hh2trtw.cloudfront.net/resize?type=webp&url=https%3A%2F%2Fshacknews-www.s3.amazonaws.com%2Fassets%2Farticle%2F2021%2F06%2F02%2Fpalia-preview_feature.jpeg&width=1032&sign=UhlRcb6-OeEPOafyXEdoR48h9e1-qFkT41AjnZskUMo",
+        "https://images.ctfassets.net/qyr5bjm559gz/5oMZjfYPPNRWR27JC36C9c/591a8d292a2e56e12b40ea4ae3222fb3/hunting.jpg",
+        "https://www.nme.com/wp-content/uploads/2023/07/palia-closed-beta-open-beta-pc-696x442.jpg",
+        "https://www.alphabetagamer.com/wp-content/uploads/2021/06/Palia-beta-sign-up.jpg",
+        "https://www.gameskinny.com/wp-content/uploads/2023/08/palia-century-in-the-making-reth.jpg?w=640"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Palia",
+      "plataform": ["PC"],
+      "status": ["On"],
+      "gameType": ["OPEN WORLD"],
+      "perspective": ["Third Person"],
+      "studio": ["Epic Games"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "From sprawling flower fields to hilly forests and rocky beaches - explore the stunning..."
+    },
+    {
+      "id": 16,
+      "gameImg": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota2_social.jpg",
+      "img": [
+        "https://i.pinimg.com/originals/53/48/1a/53481afac74dc65032df5f5d4cdbba30.png",
+        "https://images.prismic.io/rivalryglhf/82526669-06b3-40db-906c-dbc31d00085c_dota+2+minimum+requirements.jpg?auto=compress,format&rect=0,59,1920,960&w=720&h=360",
+        "https://s2-techtudo.glbimg.com/P9D3gF1oI894A8VcBGSxu-oFpRY=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2019/l/r/5AOyIfS3Kajl2NAB2jLg/ss-f9ebafedaf2d5cfb80ef1f74baa18eb08cad6494.1920x1080.jpg",
+        "https://cdn.ligadosgames.com/imagens/dota-2-cke.jpg",
+        "https://cdn.vox-cdn.com/thumbor/bEL7nyTQpADVIbXOHsUs5vd5a6c=/0x0:820x411/1400x933/filters:focal(231x142:361x272):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/60974851/terrain_spring.0.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Dota 2",
+      "plataform": ["PC", "Mobile", "Xbox"],
+      "status": ["On"],
+      "gameType": ["MOBA", "CASUAL"],
+      "perspective": ["Isometric"],
+      "studio": ["Valve"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Dota 2 é um jogo eletrônico do gênero multiplayer on battle arena desenvolvido e publicado..."
+    },
+    {
+      "id": 17,
+      "gameImg": "https://cdn.akamai.steamstatic.com/steam/apps/672890/capsule_616x353.jpg?t=1690259803",
+      "img": [
+        "https://polkastarter.gg/_next/image/?url=https%3A%2F%2Fassets.polkastarter.gg%2FSparkball_4dbee2f22b%2FSparkball_4dbee2f22b.jpg&w=3840&q=80",
+        "https://assets.polkastarter.gg/small_Sparkball_gameplay_2_12cc800e61/small_Sparkball_gameplay_2_12cc800e61.png",
+        "https://assets.polkastarter.gg/small_Sparkball_gameplay_bcdfc5037a/small_Sparkball_gameplay_bcdfc5037a.png",
+        "https://assets.polkastarter.gg/small_Sparkball_gameplay_1_9ef5d9133b/small_Sparkball_gameplay_1_9ef5d9133b.png",
+        "https://assets.polkastarter.gg/medium_Sparkball_gameplay_3_2c49ca51a0/medium_Sparkball_gameplay_3_2c49ca51a0.png"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Sparkball",
+      "plataform": ["Mobile", "PC"],
+      "status": ["On"],
+      "gameType": ["SPORTS", "CASUAL"],
+      "perspective": ["Isometric"],
+      "studio": ["Blizzard"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Sparkball, um jogo multiplayer empolgante com batalhas cheias de emoção, poderá ser..."
+    },
+    {
+      "id": 18,
+      "gameImg": "https://mmorpgplay.com.br/wp-content/uploads/2022/07/BlackDesert-Drakania-Featured.webp",
+      "img": [
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/582660/capsule_616x353.jpg?t=1688593123",
+        "https://www.psu.com/wp/wp-content/uploads/2021/11/BlackDesertOnline-1.jpeg",
+        "https://media.altchar.com/prod/images/940_530/gm-a646ac30-1e18-485e-a77e-83d9cde7902a-black-desert-mobile.jpg",
+        "https://images.tweaktown.com/pr/1/2/12116_01_celebrate-holidays-black-desert-online-sea.jpg",
+        "https://i.kinja-img.com/gawker-media/image/upload/c_fit,f_auto,g_center,q_60,w_645/b1fe17984c77f52fb6a6c4f700a13479.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Black Desert",
+      "plataform": ["Xbox", "Playstation", "PC"],
+      "status": ["On"],
+      "gameType": ["OPEN WORLD", "ADVENTURE", "FIGHTHING", "MMORPG", "RPG"],
+      "perspective": ["Third Person"],
+      "studio": ["Sony"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Black Desert On é um vídeo game de MMORPG desenvolvido pela Pearl Abyss e publicado..."
+    },
+    {
+      "id": 19,
+      "gameImg": "https://cdn.cloudflare.steamstatic.com/steam/apps/962130/capsule_616x353.jpg?t=1684963474",
+      "img": [
+        "https://assetsio.reedpopcdn.com/ss_07f23a3862ccd9582c1aba4ad53596bc9b263f35.1920x1080.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp",
+        "https://i0.wp.com/d220lhlugu3kfc.cloudfront.net/wp-content/uploads/2022/09/Grounded-full-release-Orb-Weaver-screenshot.jpg?resize=640%2C360&ssl=1",
+        "https://img.gamewith.net/article/thumbnail/rectangle/21063.png",
+        "https://i.ytimg.com/vi/rdghedF3zfg/maxresdefault.jpg",
+        "https://xblafans.com/wp-content/uploads/2020/07/Grounded-Game-Preview.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "Grounded",
+      "plataform": ["PC", "Playstation"],
+      "status": ["Off"],
+      "gameType": ["OPEN WORLD", "ADVENTURE", "STRATEGY", "EDUCATIONAL"],
+      "perspective": ["Third Person"],
+      "studio": ["Microsoft"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "Grounded é um jogo de sobrevivência, desenvolvido pela Obsidian Entertainment ..."
+    },
+    {
+      "id": 20,
+      "gameImg": "https://image.api.playstation.com/vulcan/ap/rnd/202006/1814/aglGICQMUl73037QEhSl7Avk.png",
+      "img": [
+        "https://www.arkade.com.br/wp-content/uploads/2021/03/SpongeBob.jpg",
+        "https://assets.nuuvem.com/image/upload/t_screenshot_full/v1/products/5e99faadc883e652d2186e86/screenshots/ckfeau0z9fwfn9rp6cvt.jpg",
+        "https://assets-prd.ignimgs.com/2019/10/25/bfbb-jellyfishfield-3-1572028054102.png?crop=16%3A9&width=888",
+        "https://thenerdmag.com/wp-content/uploads/2020/06/Screenshot2-770x433.jpg",
+        "https://sm.ign.com/t/ign_in/screenshot/s/screenshot/screenshot-of-the-remastered-jellyfish-fields-level-in-spong_ratn.600.jpg"
+      ],
+      "achievements": [
+        "Game Finished", "Super Luck", "You rock!"
+      ],
+      "name": "SpongeBob SquarePants: Battle for Bikini Bottom - Rehydrated",
+      "plataform": ["PC", "Nintendo", "Switch", "3DS"],
+      "status": ["Off"],
+      "gameType": ["OPEN WORLD", "ADVENTURE", "EDUCATIONAL", "PUZZLE", "RPG", "TURN BASED"],
+      "perspective": ["Third Person"],
+      "studio": ["Nintendo"],
+      "theme": ["Other"],
+      "producer": ["Producer A"],
+      "language": ["English"],
+      "description": "SpongeBob SquarePants: Battle for Bikini Bottom Rehydrated é um jogo eletrônico de plataforma..."
+    }
+  ]
+  

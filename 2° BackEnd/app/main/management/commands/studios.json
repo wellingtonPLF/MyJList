@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "value": "Nintendo"
+    },
+    {
+        "id": 2,
+        "value": "Microsoft"
+    },
+    {
+        "id": 3,
+        "value": "Sony"
+    },
+    {
+        "id": 4,
+        "value": "Epic Games"
+    },
+    {
+        "id": 5,
+        "value": "Blizzard"
+    },
+    {
+        "id": 6,
+        "value": "Tencent"
+    },
+    {
+        "id": 7,
+        "value": "Valve"
+    }
+]

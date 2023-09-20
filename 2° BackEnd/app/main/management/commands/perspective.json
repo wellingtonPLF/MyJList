@@ -1,0 +1,7 @@
+[
+    {"id": 1, "value": "First Person"},
+    {"id": 2, "value": "Third Person"},
+    {"id": 3, "value": "Top-down"},
+    {"id": 4, "value": "Isometric"},
+    {"id": 5, "value": "Other"}
+]

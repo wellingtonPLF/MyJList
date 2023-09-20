@@ -109,24 +109,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': config('POSTGRES_DB', 'myDatabase'),
-#         'USER': config('USERNAME', 'postgres'),
-#         'PASSWORD': config('PASSWORD'),
-#         'HOST': 'localhost',
-#         'PORT': '',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('POSTGRES_DB', 'my-j-list'),
+        'USER': config('USERNAME_DB', 'postgres'),
+        'PASSWORD': config('PASSWORD_DB'),
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

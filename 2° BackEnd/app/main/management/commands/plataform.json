@@ -1,0 +1,10 @@
+[
+    {"id": 1, "value": "PC"},
+    {"id": 2, "value": "Nintendo"},
+    {"id": 3, "value": "Xbox"},
+    {"id": 4, "value": "Playstation"},
+    {"id": 5, "value": "Mobile"},
+    {"id": 6, "value": "3DS"},
+    {"id": 7, "value": "Switch"},
+    {"id": 8, "value": "Other"}
+]

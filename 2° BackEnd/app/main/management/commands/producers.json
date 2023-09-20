@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "value": "Producer X"
+    },
+    {
+        "id": 2,
+        "value": "Producer Y"
+    },
+    {
+        "id": 3,
+        "value": "Producer W"
+    },
+    {
+        "id": 4,
+        "value": "Producer Z"
+    },
+    {
+        "id": 5,
+        "value": "Producer A"
+    },
+    {
+        "id": 6,
+        "value": "Producer B"
+    },
+    {
+        "id": 7,
+        "value": "Producer C"
+    }
+]

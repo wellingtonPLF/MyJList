@@ -57,18 +57,19 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response(serializer.errors)
 
     def update(self, request, pk):
-        user = {
-            'id': request.data["id"], 
-            'nickname': request.data["nickname"], 
-            'bornDate': request.data["bornDate"], 
-            'auth_id': request.data["auth_id"]
-        }
-        user = User(**user)
+        user = self.get_user(request.data["id"])
 
-        if self.get_user(user.id) == None:
+        if user == None:
             raise rest_exceptions.ParseError(JwtEnum.INVALID_USER.value)
         if self.tokenService.getTokenValidation(request, user.auth.id) == False:
             raise rest_exceptions.ParseError(JwtEnum.INVALID_USER.value)
+
+        if (request.data["nickname"] != user.nickname and request.data["nickname"] != None):
+            user.nickname = request.data["nickname"]
+        elif (request.data["bornDate"] != user.bornDate and request.data["bornDate"] != None):
+            user.bornDate = request.data["bornDate"]
+        elif (request.data["nickname"] != user.nickname and request.data["nickname"] != None):
+            user.nickname = request.data["nickname"]
 
         user.save()
         serializer = UserSerializer(instance=user)

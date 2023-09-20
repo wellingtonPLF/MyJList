@@ -1,6 +1,8 @@
 from enum import Enum
 
 class JwtEnum(Enum):
+    INVALID_GAME = "Invalid Game!"
+    INVALID_COMMENT = "Invalid Comment!"
     INVALID_USER = "Invalid User!"
     INVALID_AT = "Access Token is not valid, you must SignIn!"
     INVALID_RT = "Refresh Token is not valid, you must SignIn!"

@@ -1,10 +1,31 @@
 from django.db import models
-from main.subModels.tag import Tag
-from main.subModels.user import User
+from main.subModels.theme import Theme
+from main.subModels.studio import Studio
+from main.subModels.status import Status
+from main.subModels.language import Language
+from main.subModels.gametype import GameType
+from main.subModels.producer import Producer
+from main.subModels.plataform import Plataform
+from main.subModels.perspective import Perspective
 
 class Game(models.Model):
-    status = models.CharField(max_length = 50)
-    score = models.IntegerField()
-    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
-    fav = models.ManyToManyField(User, related_name='favorite_games')
-    play = models.ManyToManyField(User, related_name='played_games')
+    release = models.DateField()
+    playtime = models.FloatField(default = 0.0)
+    source = models.CharField(default="gameAPI", max_length = 50, blank=False, null=False)
+    premiede = models.CharField(default="unknow", max_length = 30, blank=False, null=False)
+    gameImage = models.CharField(max_length = 300, blank=False, null=False)
+    description = models.CharField(max_length = 500, blank=False, null=False)
+    name = models.CharField(max_length = 100)
+    tag = models.CharField(max_length = 50)
+
+    theme =  models.ManyToManyField(Theme)
+    studio = models.ManyToManyField(Studio)
+    producer = models.ManyToManyField(Producer)
+    status = models.ManyToManyField(Status)
+    language = models.ManyToManyField(Language)
+    gameType = models.ManyToManyField(GameType) #Fps, Moba and Etc
+    plataform = models.ManyToManyField(Plataform)
+    perspective = models.ManyToManyField(Perspective)
+
+    def __str__(self):
+        return f"\n| Id: {self.id}\n| gameImage: {self.gameImage}"

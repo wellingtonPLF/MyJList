@@ -15,7 +15,6 @@ class AuthSerializer(serializers.ModelSerializer):
         roles = data.pop('roles')
         auth = Auth.objects.create(**data)
         for role in roles:
-            print(role)
             roleObj = Role.objects.get(roleName=role["roleName"])
             auth.roles.add(roleObj)
         return auth

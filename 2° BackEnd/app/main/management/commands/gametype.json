@@ -1,0 +1,107 @@
+[
+    {
+      "id": 1,
+      "value": "RPG"
+    },
+    {
+      "id": 2,
+      "value": "SHOOTER"
+    },
+    {
+      "id": 3,
+      "value": "MMORPG"
+    },
+    {
+      "id": 4,
+      "value": "RACE"
+    },
+    {
+      "id": 5,
+      "value": "DANCE"
+    },
+    {
+      "id": 6,
+      "value": "PUZZLE"
+    },
+    {
+      "id": 7,
+      "value": "OPEN WORLD"
+    },
+    {
+      "id": 8,
+      "value": "SURVIVAL"
+    },
+    {
+      "id": 9,
+      "value": "SPORTS"
+    },
+    {
+      "id": 10,
+      "value": "ADVENTURE"
+    },
+    {
+      "id": 11,
+      "value": "STRATEGY"
+    },
+    {
+      "id": 12,
+      "value": "PLATAFORM"
+    },
+    {
+      "id": 13,
+      "value": "FIGHTHING"
+    },
+    {
+      "id": 14,
+      "value": "MOBA"
+    },
+    {
+      "id": 15,
+      "value": "SIMULATION"
+    },
+    {
+      "id": 16,
+      "value": "ARCADE"
+    },
+    {
+      "id": 17,
+      "value": "EDUCATIONAL"
+    },
+    {
+      "id": 18,
+      "value": "CARD"
+    },
+    {
+      "id": 19,
+      "value": "BATTLE ROYALE"
+    },
+    {
+      "id": 20,
+      "value": "TURN BASED"
+    },
+    {
+      "id": 21,
+      "value": "POINT AND CLICK"
+    },
+    {
+      "id": 22,
+      "value": "MUSIC"
+    },
+    {
+      "id": 23,
+      "value": "STEALTH"
+    },
+    {
+      "id": 24,
+      "value": "SHOOT 'EM UP"
+    },
+    {
+      "id": 25,
+      "value": "TEXT"
+    },
+    {
+      "id": 26,
+      "value": "CASUAL"
+    }
+  ]
+  
