@@ -9,20 +9,20 @@
         </div>
         <div id="allUsers">
             <div v-for="userCard in users" id="userCard">
-                <div :style="{ backgroundImage: `url(${(userCard.sex === 'Male') ? imgType.male : imgType.female})` }"></div>
+                <div :style="{ backgroundImage: `url(${(userCard.sexuality === 'M') ? imgType.male : imgType.female})` }"></div>
                 <div>{{userCard.nickname}}</div>
-                <div>{{userCard.role}}</div>
+                <div>{{(userCard.role[0].roleName == 'ROLE_ADMIN')? 'Admin': 'User'}}</div>
                 <span>
                     <div>
-                        <div>{{userCard.followers}}</div>
-                        <div>followers</div>
-                    </div>
-                    <div>
-                        <div>{{userCard.played}}</div>
+                        <div>{{userCard.completed}}</div>
                         <div>games played</div>
                     </div>
                     <div>
-                        <div>{{userCard.nationality}}</div>
+                        <div>{{userCard.friend.length}}</div>
+                        <div>friends</div>
+                    </div>                    
+                    <div>
+                        <div>{{userCard.nationality.name}}</div>
                         <div>nationality</div>
                     </div>
                 </span>

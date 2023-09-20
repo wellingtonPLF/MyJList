@@ -1,7 +1,7 @@
-import axios, { AxiosResponse } from "axios";
 import FilterComponent from "../../components/dialogs/FilterDialog/FilterComponent.vue";
 import { mapActions } from "vuex";
 import { I_Game } from "../../shared/interfaces/I_Game";
+import gameService from "../../shared/services/gameService";
 
 const gameComponent: any = {
   name: "GameComponent",
@@ -29,7 +29,7 @@ const gameComponent: any = {
       this.setGame(game)
     },
     popularity() {
-      this.games.sort((a: any, b: any) => b.popularity - a.popularity)
+      this.games.sort((a: any, b: any) => b.favRank - a.favRank)
     },
     score() {
       this.games.sort((a: any, b: any) => b.score - a.score)
@@ -98,15 +98,15 @@ const gameComponent: any = {
     }
   },
   mounted() {
-    axios
-      .get("jsons/games.json")
-      .then((it: AxiosResponse<I_Game[]>) => {
-        this.games = it.data;
-        this.list = it.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    gameService.listAll().then(
+      it => {
+        this.games = it
+        this.lsit = it
+        console.log(it)
+      }
+    ).catch((error) => {
+      console.error(error);
+    });      
   },
 };
 

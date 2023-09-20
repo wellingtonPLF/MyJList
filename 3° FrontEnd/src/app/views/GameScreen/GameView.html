@@ -33,7 +33,7 @@
             <div v-if="games.length != 0">
                 <router-link to="/singleGame" v-for="gameCard in games" @click="gameChoice(gameCard)">
                     <div id="gameCard">
-                        <div class="backImageConfig" :style="{backgroundImage: `url(${gameCard.img})`}">
+                        <div class="backImageConfig" :style="{backgroundImage: `url(${gameCard.gameImage})`}">
                             <div>
                                 <font-awesome-icon :icon="['far', 'star']" />
                                 <div>{{gameCard.score}}</div>

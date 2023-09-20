@@ -47,38 +47,47 @@
                         <div>42 minutes</div>
                         <div>
                             <div>
-                                <div style="width: 62%;"></div>
+                                <div :style="{width: `${progress}%`}"></div>
                             </div>
-                            (62%)
+                            ({{progress}}%)
                         </div>
                     </div>
                     <div>
                         <div>
                             <div>
-                                <select name="status" style="font-weight: 600; color: green;">
-                                    <option value="">Completed</option>
+                                <select name="status" v-model="valor" style="font-weight: 600; color: rgb(104, 21, 107);">
+                                    <option value="Completed">Completed</option>
                                     <option value="Playing">Playing</option>
                                     <option value="Plan to Play">Plan to Play</option>
                                     <option value="Dropped">Dropped</option>
                                     <option value="On Hold">On Hold</option>
                                     <option value="Replaying">Replaying</option>
                                 </select>
+                                <button @click="okL()" style="width: 30px; margin-left: 2px;">
+                                    <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
+                                </button>
                             </div>
                             <div>
                                 <select name="score">
-                                    <option value="Best">Best</option>
+                                    <option value="Awesome">Awesome</option>
                                     <option value="Great">Great</option>
-                                    <option value="Very Good">Very Good</option>
+                                    <option value="Good">Good</option>
                                     <option value="Ok">Fine</option>
                                     <option value="Meh">Meh</option>
                                     <option value="Horrible">Horrible</option>
                                 </select>
+                                <button @click="okL()" style="width: 30px; margin-left: 2px;">
+                                    <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
+                                </button>
                             </div>
                             <div>
                                 <select name="type">
                                     <option value="Bad script">Bad script</option>
                                     <option value="Good script">Good script</option>
                                 </select>
+                                <button @click="okL()" style="width: 30px; margin-left: 2px;">
+                                    <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
+                                </button>
                             </div>
                         </div>
                         <div>

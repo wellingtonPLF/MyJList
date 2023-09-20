@@ -25,6 +25,7 @@ import {
   faChevronRight,
   faReply,
   faBroom,
+  faArrowsRotate,
   faPowerOff
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -63,6 +64,7 @@ library.add(
   faXmark,
   faBroom,
   faBell,
+  faArrowsRotate,
   faPowerOff
 );
 library.add(

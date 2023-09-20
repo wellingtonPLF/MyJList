@@ -16,7 +16,9 @@ const gameListComponent: any = {
   name: "GameListComponent",
   data() {
     return {
-      games: [] as Game[]
+      games: [] as Game[],
+      progress: 75,
+      valor: "Plan to Play"
     };
   },
   methods: {
@@ -27,6 +29,9 @@ const gameListComponent: any = {
       else {
         this.$router.back()
       }
+    },
+    okL(){
+      console.log(this.valor)
     }
   },
   mounted() {

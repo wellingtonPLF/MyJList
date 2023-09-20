@@ -18,39 +18,41 @@
                 <div>
                     <div>
                         <div id="userInfo">
-                            <div class="backImageConfig" :style="{backgroundImage: `url('${game.img}')`}">
+                            <div class="backImageConfig" :style="{backgroundImage: `url('${game.gameImage}')`}">
                                 <font-awesome-icon @click="fav()" v-if="star" :icon="['far', 'star']" class="favStar" style="color: white;"/>
                                 <font-awesome-icon @click="fav()" v-else :icon="['far', 'star']" class="favStar" />
                             </div>
-                            <div>
-                                <h2 style="margin-bottom: 10px;">{{game.name}}</h2>
+                            <div v-if="game.name != undefined">
+                                <h2 style="margin-bottom: 10px;" >{{game.name.slice(0,21)}}</h2>
                                 <div>
                                     <div>Score: {{game.score}}</div>
                                     <div>Ranked: #{{game.ranked}}</div>
                                     <div>Popularity: #{{game.popularity}}</div>
-                                    <div>Languages: {{game.languages}}</div>
+                                    <div style="display: flex;">Languages: # 
+                                        <div v-for="item in game.language">{{item.value}},</div>
+                                    </div>
                                     <div>Type:</div>
-                                    <div>
-                                        <div style="margin-right: 5px;" v-for="item in game.type.slice(0, game.type.length - 1)">{{item}},</div>
-                                        <div>{{game.type[game.type.length-1]}}</div>
+                                    <div v-if="game.gameType != undefined">
+                                        <div style="margin-right: 5px;" v-for="item in game.gameType.slice(0, game.gameType.length - 1)">{{item.value}},</div>
+                                        <div>{{game.gameType[game.gameType.length-1].value}}</div>
                                     </div>
                                 </div>
                                 <div id="network">
                                     <div>
-                                        <button>Add to List</button>
+                                        <button :style="{backgroundColor: (game.id == 0) ? 'rgb(66, 70, 97)': ''}">Add to List</button>
                                         <div>
-                                            <select name="pets" id="pet-select">
+                                            <select name="vote" v-model="gameStatus.vote">
                                                 <option value="Incredible">Incredible</option>
                                                 <option value="Great">Great</option>
-                                                <option value="Good">Good</option>
+                                                <option value="Default">Good</option>
                                                 <option value="Fine">Fine</option>
                                                 <option value="Meh">Meh</option>
                                                 <option value="Horrible">Horrible</option>
                                             </select>
-                                            <select name="pets" id="pet-select">
-                                                <option value="">Completed</option>
+                                            <select name="registry" v-model="gameStatus.registry">
+                                                <option value="Default">Plan to Play</option>
+                                                <option value="Completed">Completed</option>
                                                 <option value="Playing">Playing</option>
-                                                <option value="Plan to Play">Plan to Play</option>
                                                 <option value="Dropped">Dropped</option>
                                                 <option value="On Hold">On Hold</option>
                                                 <option value="Replaying">Replaying</option>
@@ -64,18 +66,18 @@
                             <div>
                                 <button>Add to List</button>
                                 <div>
-                                    <select name="pets" id="pet-select">
+                                    <select name="vote" v-model="gameStatus.vote">
                                         <option value="Incredible">Incredible</option>
                                         <option value="Great">Great</option>
-                                        <option value="Good">Good</option>
+                                        <option value="Default">Good</option>
                                         <option value="Fine">Fine</option>
                                         <option value="Meh">Meh</option>
                                         <option value="Horrible">Horrible</option>
                                     </select>
-                                    <select name="pets" id="pet-select">
-                                        <option value="">Completed</option>
+                                    <select name="registry" v-model="gameStatus.registry">
+                                        <option value="Default">Plan to Play</option>
+                                        <option value="Completed">Completed</option>
                                         <option value="Playing">Playing</option>
-                                        <option value="Plan to Play">Plan to Play</option>
                                         <option value="Dropped">Dropped</option>
                                         <option value="On Hold">On Hold</option>
                                         <option value="Replaying">Replaying</option>
@@ -89,47 +91,49 @@
                             <div>
                                 <div>
                                     <div style="background-color: green;"></div>
-                                    <div>Played</div>
-                                    <div>83%</div>
+                                    <div>Playing</div>
+                                    <div>{{game.playing}}%</div>
                                 </div>
                                 <div>
                                     <div style="background-color: blue;"></div>
                                     <div>Complete</div>
-                                    <div>28%</div>
+                                    <div>{{game.completed}}%</div>
                                 </div>
                                 <div>
                                     <div style="background-color: yellow;"></div>
                                     <div>On-Hold</div>
-                                    <div>10%</div>
+                                    <div>{{game.onHold}}%</div>
                                 </div>
                                 <div>
                                     <div style="background-color: red;"></div>
                                     <div>Dropped</div>
-                                    <div>2%</div>
+                                    <div>{{game.dropped}}%</div>
                                 </div>
                                 <div>
                                     <div style="background-color: gray;"></div>
                                     <div>Plan to Play</div>
-                                    <div>54%</div>
+                                    <div>{{game.planning}}%</div>
                                 </div>
                                 <div>
                                     <div style="background-color: rgb(7, 180, 180);"></div>
                                     <div>Replayed</div>
-                                    <div>4%</div>
+                                    <div>{{game.replayed}}%</div>
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <div>Approx. Time</div>
-                                    <div>{{game.time}}</div>
-                                </div>
-                                <div>
-                                    <div>Status</div>
-                                    <div>Airing</div>
+                                    <div>{{game.playtime}}m</div>
                                 </div>
                                 <div>
                                     <div>Aired</div>
-                                    <div>10/03/2023 - Unknow</div>
+                                    <div>{{game.release}}</div>
+                                </div>
+                                <div>
+                                    <div>Status</div>
+                                    <div style="display: flex;">
+                                        <div v-for="item in game.status">= {{item.value}} =</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -145,11 +149,11 @@
                         <div>
                             <div>
                                 <div class="backImageConfig"
-                                    style="background-image: url('https://cdn2.unrealengine.com/unreal-engine-high-on-life-cartel-art-1900x1080-891b8d90d47a.jpg');">
+                                    :style="{backgroundImage: `url(${selectedImg})`}">
                                 </div>
-                                <div>
-                                    <div v-for="item in [1,2,3,4,5]" class="backImageConfig"
-                                        style="background-image: url('https://cdn2.unrealengine.com/unreal-engine-high-on-life-cartel-art-1900x1080-891b8d90d47a.jpg');">
+                                <div v-if="game.imgs">
+                                    <div v-for="(item, index) in game.imgs" class="backImageConfig" @click="changeImage(index)"
+                                        :style="{backgroundImage: `url(${item.value})`, cursor: 'pointer'}">
                                     </div>
                                 </div>
                             </div>
@@ -215,13 +219,13 @@
                             <div id="plataforms">
                                 <div>Plataforms</div>
                                 <div>
-                                    <div v-for="item in game.plataforms">{{item}}</div>
+                                    <div v-for="item in game.plataform">{{item.value}}</div>
                                 </div>
                             </div>
                             <div id="achievements">
                                 <div>Achievements</div>
                                 <div>
-                                    <div v-for="item in game.achievements">{{item}}</div>
+                                    <div v-for="item in game.achievements">{{item.value}}</div>
                                 </div>
                             </div>
                             <div id="information">
@@ -229,12 +233,14 @@
                                 <div>
                                     <div>Premiede: {{game.premiede}}</div>
                                     <div style="display: flex;">Producers:
-                                        <div v-for="item in game.producers" style="margin-left: 5px;">{{item}}</div>
+                                        <div v-for="item in game.producer" style="margin-left: 5px;">{{item.value}}</div>
                                     </div>
-                                    <div>Studio: {{game.studio}}</div>
+                                    <div style="display: flex;">Studio: 
+                                        <div v-for="item in game.studio" style="margin-left: 5px;">{{item.value}}</div>
+                                    </div>
                                     <div>Source: {{game.source}}</div>
                                     <div style="display: flex;">Themes:
-                                        <div v-for="item in game.themes" style="margin-left: 5px;">{{item}}</div>
+                                        <div v-for="item in game.theme" style="margin-left: 5px;">{{item.value}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -252,8 +258,8 @@
                     <div>
                         <div>You May Like</div>
                         <div>
-                            <router-link to="/singleGame" v-for="item in games" class="backImageConfig" @click="gameChoice(item)"
-                                :style="{backgroundImage: `url(${item.img})`}">
+                            <router-link to="/singleGame" v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item)"
+                                :style="{backgroundImage: `url(${item.game.gameImage})`}">
                             </router-link>
                         </div>
                     </div>
@@ -261,7 +267,7 @@
                 <div id="gameComments">
                     <div>
                         <div>
-                            <input placeholder="Make a comment" v-model="comment" />
+                            <input placeholder="Make a comment" v-model="commentToSend" />
                             <button @click="sendComment()">
                                 <font-awesome-icon :icon="['fas', 'reply']" />
                             </button>
@@ -270,8 +276,8 @@
                             <div>
                                 <div>Últimas Análises</div>
                                 <div>
-                                    <div>Favorites (32)</div>
-                                    <div>Recomendation (7)</div>
+                                    <div>Favorites ({{game.favRank}})</div>
+                                    <div>Recomendation ({{game.recommendation}})</div>
                                 </div>
                             </div>
                             <div class="userComment" v-for="(item, index) in userComment">
@@ -279,24 +285,20 @@
                                     <router-link to="/profile" class="userCommentIMG backImageConfig" @click="userChoice(item)"
                                         :style="{backgroundImage: `url(${(item.sex === 'Male') ? imgType.male : imgType.female})`}"></router-link>
                                     <div>
-                                        <div style="color: rgb(138, 189, 255);">{{item.nickName}}</div>
-                                        <div style="font-size: 13px; margin-top: 5px;">Offline</div>
-                                        <div style="font-size: 13px;">Publicado: July 8, 2023</div>
+                                        <div style="color: rgb(138, 189, 255);">{{item.user.nickname}}</div>
+                                        <div style="font-size: 13px; margin-top: 5px;">{{(item.user.status == 'off') ? 'Offline': 'Online'}}</div>
+                                        <div style="font-size: 13px;">Publicado: {{item.publication}}</div>
                                     </div>
                                 </div>
                                 <div>
-                                    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, aliquid. Est
-                                        minima,
-                                        similique totam corporis minus esse dolore cum harum quaerat. Doloremque tempora
-                                        ratione saepe
-                                        fuga, quas dolores blanditiis ad.</div>
+                                    <div>{{item.content}}</div>
                                     <div>
                                         <div style="cursor: default;">Útil?</div>
                                         <div>
-                                            <div @click="yes(index)">Yes</div>
-                                            <div @click="no(index)">No</div>
-                                            <div @click="funny(index)">Funny</div>
-                                            <div @click="premiation(index)">Premiation</div>
+                                            <div>Yes</div>
+                                            <div>No</div>
+                                            <div>Funny</div>
+                                            <div>Premiation</div>
                                         </div>
                                     </div>
                                 </div>

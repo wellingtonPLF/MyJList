@@ -30,21 +30,21 @@
         </div>
 
         <div id="cardList">
-            <div v-for="game in games.slice(0, 6)" :key="game.id" class="card">
+            <div v-for="game in releases.slice(0, 6)" :key="game.id" class="card">
                 <router-link to="/singleGame" @click="gameChoice(game)">
-                    <img style="width: 100%; height: 100%" alt="Image" :src="game.img" />
+                    <img style="width: 100%; height: 100%" alt="Image" :src="game.gameImage" />
                 </router-link>
                 <div>
-                    <div>{{ game.name.slice(0, 26) }}</div>
-                    <div v-if="game.name.length > 26">...</div>
+                    <div>{{ game.name.slice(0, 20) }}</div>
+                    <div v-if="game.name.length > 20">...</div>
                 </div>
                 <div>
-                    <div v-for="plataform in game.plataforms">
-                        <b v-if="plataform == 'pc'" style="cursor: default;">Pc</b>
-                        <font-awesome-icon :icon="['fab', 'playstation']" v-if="plataform == 'playstation'" />
-                        <font-awesome-icon :icon="['fab', 'xbox']" v-if="plataform == 'xbox'"
+                    <div v-for="plataform in game.plataform">
+                        <b v-if="plataform.value == 'Pc'" style="cursor: default;">Pc</b>
+                        <font-awesome-icon :icon="['fab', 'playstation']" v-if="plataform.value == 'Playstation'" />
+                        <font-awesome-icon :icon="['fab', 'xbox']" v-if="plataform.value == 'Xbox'"
                             style="color: rgb(6, 94, 6)" />
-                        <div v-if="plataform == 'nintendo'" class="nintendo">
+                        <div v-if="plataform.value == 'Nintendo'" class="nintendo">
                             <div>nintendo</div>
                         </div>
                     </div>
@@ -76,18 +76,18 @@
         <div class="visualizeAll">
             <router-link to="/game">Visualizar tudo</router-link>
         </div>
-        <div id="top5" v-if="games.length != 0">
+        <div id="top5" v-if="topRated.length != 0">
             <div>
-                <router-link to="/singleGame" :style="{ backgroundImage: `url(${games[15].img})`}" @click="gameChoice(games[15])">
+                <router-link to="/singleGame" :style="{ backgroundImage: `url(${topRated[0].gameImage})`}" @click="gameChoice(topRated[0])">
                     <div>
-                        Most rated game 2023
+                        Top 1° - Most rated game 2023
                     </div>
                 </router-link>
             </div>
             <div>
-                <router-link to="/singleGame" v-for="item in games.slice(10, 14)" :style="{ backgroundImage: `url(${item.img})`}" @click="gameChoice(item)">
+                <router-link to="/singleGame" v-for="item in topRated.slice(1, topRated.length)" :style="{ backgroundImage: `url(${item.gameImage})`}" @click="gameChoice(item)">
                     <div>
-                        Most rated game 2023
+                        Top {{topRated.indexOf(item) + 1}}° - Most rated game 2023
                     </div>
                 </router-link>
             </div>
@@ -97,19 +97,19 @@
     <div id="recommendations">
         <h2>Recommendations</h2>
         <div>
-            <router-link to="/singleGame" v-for="game in recomendations" :key="game.id" @click="gameChoice(game)">
+            <router-link to="/singleGame" v-for="recomendation in recomendations.slice(0,4)" :key="recomendation.id" @click="gameChoice(recomendation.game)">
                 <div class="recomendation">
-                    <img :src="game.img" />
+                    <img :src="recomendation.game.gameImage" />
                     <div>
                         <div class="expert">
                             <div>
                                 <font-awesome-icon :icon="['fas', 'user']" />
                             </div>
-                            <h4>{{game.user}}</h4> 
+                            <h4>{{recomendation.user.nickname}}</h4> 
                         </div>
                     </div>
-                    <h3>{{game.description}}</h3>
-                    <div>{{game.date}}</div>
+                    <h3>{{recomendation.content.slice(0, 93)}}</h3>
+                    <div>{{recomendation.publication}}</div>
                 </div>
             </router-link>
         </div>

@@ -1,8 +1,8 @@
-import axios, { AxiosResponse } from "axios";
 import { mapState, mapActions } from "vuex";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { I_Game } from "../../shared/interfaces/I_Game";
+import gameService from "../../shared/services/gameService";
+import commentService from "../../shared/services/commentService";
 
 library.add(faStar);
 
@@ -11,8 +11,14 @@ const singleGameComponent: any = {
   components: {},
   data() {
     return {
-      games: [] as I_Game[],
+      recomendations: [] as any[],
       userComment: [] as any[],
+      selectedImg: undefined,
+      star: true,
+      commentToSend: undefined,
+
+      gameStatus: { vote: "Default", registry: "Default" },
+
       imgType: {
         male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
         female:
@@ -38,9 +44,7 @@ const singleGameComponent: any = {
           DirectX: "unknow",
           SO: "unknow",
         },
-      },
-      star: true,
-      comment: undefined
+      }
     };
   },
   computed: {
@@ -57,6 +61,9 @@ const singleGameComponent: any = {
     gameChoice(game: any) {
       this.setGame(game);
       window.scrollTo(0, 0);
+    },
+    changeImage(index: number){
+      this.selectedImg = this.game.imgs[index].value
     },
     userChoice(user: any) {
       this.setUser(user);
@@ -82,39 +89,35 @@ const singleGameComponent: any = {
       this.star = !this.star;
     },
     sendComment() {
-      this.comment = ""
-    },
-    no(index: number){
-
-    },
-    yes(index: number){
-      
-    },
-    funny(index: number){
-      
-    },
-    premiation(index: number){
-      
+      this.commentToSend = ""
     }
   },
-  mounted() {
-    axios
-      .get("jsons/games.json")
-      .then((it: AxiosResponse<I_Game[]>) => {
-        this.games = it.data.slice(0, 5);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  beforeMount(){
+    gameService.getGame(this.game.id).then(
+      it => {
+        this.setGame(it);
+        this.selectedImg = it.imgs[0].value
+      }
+    )
+  },
+  mounted() {  
+    gameService.getMostRecommended().then(
+      it => {
+        this.recomendations = it
+      }
+    )
+    .catch((error) => {
+      console.log(error)
+    })
 
-    axios
-      .get("jsons/users.json")
-      .then((it: AxiosResponse<any[]>) => {
-        this.userComment = it.data.slice(0, 3);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    commentService.getCommentByGameID(this.game.id).then(
+      it => {
+        this.userComment = it
+      }
+    )
+    .catch((error) => {
+      console.log(error)
+    })
   },
 };
 

@@ -109,7 +109,7 @@ $backImageHeight: 600px;
 }
 
 .favStar {
-    background-color: rgba(0, 0, 0, 0.486);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 12px 10px 15px 13px;
     border-bottom-left-radius: 15px;
     font-size: 20px; 
@@ -303,6 +303,7 @@ $backImageHeight: 600px;
 
 #gameData > div:first-child  > div:first-child > div:first-child > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > * {
     padding: 5px;
+    cursor: pointer;
 }
 
 // ----------------------

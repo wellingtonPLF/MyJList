@@ -1,6 +1,6 @@
 import { mapActions } from "vuex";
 import HeaderComponent from "./../../components/_main/Header/HeaderComponent.vue";
-import axios, { AxiosResponse } from "axios";
+import gameService from "../../shared/services/gameService";
 
 interface Game {
   id: number;
@@ -20,6 +20,9 @@ const homeComponent: any = {
   data() {
     return {
       games: [] as Game[],
+      airing: [],
+      releases: [],
+      topRated: [],
       recomendations: [] as Game[],
       options: [
         { icon: "gamepad", name: "Games", path: "/game", done: true },
@@ -28,26 +31,44 @@ const homeComponent: any = {
         { icon: "hand-holding-heart", name: "Premium", path: "/", done: false },
         { icon: "building", name: "Industry", path: "/", done: false },
         { icon: "headset", name: "Suport", path: "/", done: false }, //Contact Page
-        { icon: "file-lines", name: "About", path: "/about", done: true } //Staff e sobre Page
+        { icon: "file-lines", name: "About", path: "/about", done: true }, //Staff e sobre Page
       ],
     };
   },
   methods: {
-    ...mapActions('gameReducer', ['setGame']),
+    ...mapActions("gameReducer", ["setGame"]),
     gameChoice(game: any) {
-      this.setGame(game)
-    }
+      this.setGame(game);
+    },
   },
   mounted() {
-    axios
-      .get("jsons/games.json")
-      .then((it: AxiosResponse<Game[]>) => {
-        this.games = it.data;
-        this.recomendations = it.data.slice(6, 10);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    gameService.getAiring().then((it) => {
+      this.airing = it;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+    gameService.getReleases().then((it) => {
+      this.releases = it;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+    gameService.getTopRated().then((it) => {
+      this.topRated = it;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+    gameService.getMostRecommended().then((it) => {
+      this.recomendations = it;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   },
 };
 

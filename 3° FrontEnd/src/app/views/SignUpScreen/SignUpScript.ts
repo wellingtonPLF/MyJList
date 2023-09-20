@@ -38,6 +38,15 @@ const signUpComponent: any = {
       )
     },
     methods: {
+      typeInput() {
+        if (this.keys[this.count - 1] == 'bordDate'){
+          return 'date'
+        }
+        else if (this.keys[this.count - 1] == 'password'){
+          return 'password'
+        }
+        return 'text' 
+      },
       goBack() {
         if (this.$router.options.history.state.back == null) {
           this.$router.push("/")
@@ -52,10 +61,7 @@ const signUpComponent: any = {
             const special_regex = /(?=(.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\|/-]){3,})/
             const number_regex = /.*\d.*\d.*\d.*/
             const l_regex = /^(.*[a-zA-Z]){5,}.*$/
-            if (this.value.length < 8) {
-              this.setErrorMessage("At least 12 characters")
-            }
-            else if (!number_regex.test(this.value)){
+            if (!number_regex.test(this.value)){
               this.setErrorMessage("At least 3 numbers")
             }
             else if (!special_regex.test(this.value)){

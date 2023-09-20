@@ -16,7 +16,7 @@
                     <div>
                         <input v-if="!['sexuality', 'nationality'].includes(keys[count - 1])" 
                         :style="{width: (keys[count - 1] == 'bordDate') ? '186px' : '196px', paddingRight: (keys[count - 1] == 'bordDate') ? '10px' : '0px'}" 
-                        :type="(keys[count - 1] == 'bordDate') ? 'date' : 'text' " :placeholder="keys[count - 1]" v-model="value"/>
+                        :type="typeInput()" :placeholder="keys[count - 1]" v-model="value"/>
                         <select v-else  name="nationalitys" v-model="value" style="width: 215px; height: 39px;">
                             <option value="default" disabled>selection</option>
                             <option v-for="item in ((keys[count - 1] == 'nationality') ? nationalitys : sexualitys )" :value="item.name">{{item.name}}</option>

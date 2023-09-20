@@ -1,5 +1,5 @@
-import axios, { AxiosResponse } from "axios";
 import { mapActions } from "vuex";
+import userService from "../../shared/services/userService";
 
 interface User {
   id: number;
@@ -36,14 +36,14 @@ const userComponent: any = {
     }
   },
   mounted() {
-    axios
-      .get("jsons/users.json")
-      .then((it: AxiosResponse<User[]>) => {
-        this.users = it.data.slice(0, 20);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    userService.listAll().then(
+      (it: any) => {
+        this.users = it
+        console.log(it)
+      }
+    ).catch((error) => {
+      console.error(error);
+    });      
   },
 };
 
