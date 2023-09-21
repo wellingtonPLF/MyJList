@@ -20,6 +20,7 @@ const homeComponent: any = {
   data() {
     return {
       games: [] as Game[],
+      expected: [],
       airing: [],
       releases: [],
       topRated: [],
@@ -40,6 +41,14 @@ const homeComponent: any = {
     gameChoice(game: any) {
       this.setGame(game);
     },
+    changeExpected(value: string){
+      if (value == 'release'){
+        this.expected = this.releases
+      }
+      else {
+        this.expected = this.airing
+      }
+    }
   },
   mounted() {
     gameService.getAiring().then((it) => {
@@ -51,6 +60,7 @@ const homeComponent: any = {
 
     gameService.getReleases().then((it) => {
       this.releases = it;
+      this.expected = this.releases
     })
     .catch((error) => {
       console.error(error);

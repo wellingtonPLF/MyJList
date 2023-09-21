@@ -23,24 +23,23 @@
     <div id="releases">
         <div>
             <div>
-                <h2 style="cursor: pointer;">Releases</h2>
-                <div style="margin-left: 10px; cursor: pointer;">| airing</div>
+                <h2 style="cursor: pointer;" @click="changeExpected('release')">Releases</h2>
+                <div style="margin-left: 10px; cursor: pointer;" @click="changeExpected('airing')">| airing</div>
             </div>
             <router-link class="visualizeAll" to="/game">Visualizar tudo</router-link>
         </div>
 
         <div id="cardList">
-            <div v-for="game in releases.slice(0, 6)" :key="game.id" class="card">
-                <router-link to="/singleGame" @click="gameChoice(game)">
-                    <img style="width: 100%; height: 100%" alt="Image" :src="game.gameImage" />
-                </router-link>
+            <div v-for="game in expected.slice(0, 6)" :key="game.id" class="card">
+                
+                <router-link to="/singleGame" @click="gameChoice(game)" class="cardImage backImageConfig" :style="{backgroundImage: `url(${game.gameImage})`}"></router-link>
                 <div>
                     <div>{{ game.name.slice(0, 20) }}</div>
                     <div v-if="game.name.length > 20">...</div>
                 </div>
                 <div>
                     <div v-for="plataform in game.plataform">
-                        <b v-if="plataform.value == 'Pc'" style="cursor: default;">Pc</b>
+                        <b :style="{cursor: 'default', display: `${(plataform.value == 'PC')? '': 'none'}`}">Pc</b>
                         <font-awesome-icon :icon="['fab', 'playstation']" v-if="plataform.value == 'Playstation'" />
                         <font-awesome-icon :icon="['fab', 'xbox']" v-if="plataform.value == 'Xbox'"
                             style="color: rgb(6, 94, 6)" />
@@ -99,7 +98,7 @@
         <div>
             <router-link to="/singleGame" v-for="recomendation in recomendations.slice(0,4)" :key="recomendation.id" @click="gameChoice(recomendation.game)">
                 <div class="recomendation">
-                    <img :src="recomendation.game.gameImage" />
+                    <img :src="recomendation.game.gameImage" alt="RecommendationImage" />
                     <div>
                         <div class="expert">
                             <div>

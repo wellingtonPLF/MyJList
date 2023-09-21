@@ -18,6 +18,12 @@ button {
   cursor: pointer;
 }
 
+.centralize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .backImageConfig {
   background-position: center;
   background-repeat: no-repeat;

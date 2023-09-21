@@ -26,7 +26,9 @@ import {
   faReply,
   faBroom,
   faArrowsRotate,
-  faPowerOff
+  faPowerOff,
+  faDoorOpen,
+  faBan
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faYoutube,
@@ -65,7 +67,9 @@ library.add(
   faBroom,
   faBell,
   faArrowsRotate,
-  faPowerOff
+  faPowerOff,
+  faDoorOpen,
+  faBan
 );
 library.add(
   faYoutube,

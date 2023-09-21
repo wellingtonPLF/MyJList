@@ -1,8 +1,8 @@
 #userPage {
     min-height: 100vh;
-    // background-color: rgb(25, 36, 34);
     position: relative;
-    background-image: url("https://wallpaperaccess.com/full/25557.jpg");
+    background-image: url("https://wallpaper.dog/large/20528239.jpg");
+    //https://img.itch.zone/aW1hZ2UvMTk0MjMwNC8xMTQxOTIzNy5qcGc=/original/woRZ38.jpg
 }
 
 #userPage > div{
@@ -52,7 +52,7 @@
 }
 
 #searchBar > div:hover {
-    background-color: rgb(8, 151, 104);
+    background-color: rgb(14, 102, 73);
     color: white;
 }
 
@@ -62,70 +62,76 @@
     margin: 30px 0px;
     width: 92%;
 }
-
+// -----------------------------------------------------------------------
 #userCard {
     transform: scale(0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 350px;
-    height: 400px;
+    width: 380px;
+    height: 235px;
     margin-bottom: 10px;
     margin-left: 10px;
     position: relative;
-    border-radius: 10px;
-    background-color: white;
+    text-align: center;
+}
+#userCard > div:first-child{
+    position: absolute;
 }
 
-#userCard > div:first-child {
-    margin-top: 40px;
+#userCard > div:first-child > div:nth-child(2){
+    padding: 5px 0px 10px 0px;
+}
+
+#userCard > div:first-child > div:first-child{
+    // object-fit: cover;
+    padding: 0px;
     width: 150px;
     height: 150px;
+    border: 5px solid white;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 100%;
 }
 
-#userCard > div:nth-child(2) {
-    margin-top: 20px;  
-    text-align: center;
-    font-size: 17px; 
-    font-weight: 600;
-}
-
-#userCard > div:nth-child(3) {
-    text-align: center;
-    font-size: 13px; 
-    margin-bottom: 20px;
-}
-
-#userCard span {
+#userCard > div:last-child{
     display: flex;
-    width: 90%;
-    justify-content: space-around;
+    justify-content: space-between;
+    background-color: white;
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+    margin-top: 20%;
 }
 
-#userCard span > div {
-    text-align: center;
+#userCard > div:last-child > div{
+    width: 120px;
+    padding-top: 30px;
 }
 
-#userCard span > div > div:first-child {
-    color: rgb(8, 151, 104);
-    font-weight: 600;
+$btnWidthHeight: 50px;
+
+#report{
+    border-radius: 100%;
+    width: $btnWidthHeight;
+    height: $btnWidthHeight;
+    border: none;
+    margin-top: 15px;
+    font-size: 30px;
+    color: rgb(194, 4, 4);
+    background-color: white;
 }
 
-#userCard > :last-child {
-    margin-top: 30px;
-    border: unset;
-    background-color: rgb(8, 151, 104);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: unset;
+#viewPort{
+    border-radius: 100%;
+    line-height: $btnWidthHeight;
+    width: $btnWidthHeight;
+    height: $btnWidthHeight;
+    margin-top: 15px;
+    color:  rgb(14, 102, 73);;
+    font-size: 30px;
+    background-color: white;
 }
 
 // ------------------------------------------------------------

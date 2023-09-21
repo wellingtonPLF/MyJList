@@ -9,24 +9,36 @@
         </div>
         <div id="allUsers">
             <div v-for="userCard in users" id="userCard">
-                <div :style="{ backgroundImage: `url(${(userCard.sexuality === 'M') ? imgType.male : imgType.female})` }"></div>
-                <div>{{userCard.nickname}}</div>
-                <div>{{(userCard.role[0].roleName == 'ROLE_ADMIN')? 'Admin': 'User'}}</div>
-                <span>
+                <div>
+                    <div :style="{ backgroundImage: `url(${(userCard.sexuality === 'M') ? imgType.male : imgType.female})` }"></div>
+                    <div>{{(userCard.role[0].roleName == 'ROLE_ADMIN')? 'Admin': 'User'}}</div>
+                    <b style="font-size: 17px;">{{userCard.nickname}}</b>
+                </div>
+                <div>
                     <div>
-                        <div>{{userCard.completed}}</div>
-                        <div>games played</div>
+                        <div>
+                            <b style="font-size:20px; color: rgb(32, 78, 90);">{{userCard.completed + userCard.planning + userCard.playing + userCard.dropped + userCard.onHold + userCard.replayed}}</b>
+                            <div>All Registry</div>
+                        </div>
+                        <button id="report">
+                            <font-awesome-icon :icon="['fas', 'ban']" />
+                        </button>
                     </div>
                     <div>
-                        <div>{{userCard.friend.length}}</div>
-                        <div>friends</div>
-                    </div>                    
-                    <div>
-                        <div>{{userCard.nationality.name}}</div>
-                        <div>nationality</div>
+                        <div>
+                            <img :title="userCard.nationality.name" :src="`https://flagcdn.com/24x18/${userCard.nationality.cod.toLowerCase()}.png`" 
+                            :srcset="`https://flagcdn.com/48x36/${userCard.nationality.cod.toLowerCase()}.png 2x, 
+                            https://flagcdn.com/72x54/${userCard.nationality.cod.toLowerCase()}.png 3x`" 
+                            width="24" height="18" :alt="userCard.nationality.name">
+                            <div>Nationality</div>
+                        </div>
+                        <router-link class="centralize" to="/profile" @click="userChoice(userCard)">
+                            <div id="viewPort">
+                                <font-awesome-icon :icon="['fas', 'door-open']" />
+                            </div>
+                        </router-link>
                     </div>
-                </span>
-                <router-link to="/profile" @click="userChoice(userCard)">View Profile</router-link>
+                </div>
             </div>
         </div>
     </div>

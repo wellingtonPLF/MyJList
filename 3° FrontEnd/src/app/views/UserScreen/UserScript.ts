@@ -14,8 +14,8 @@ const userComponent: any = {
     return {
       users: [] as User[],
       imgType: {
-        male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
-        female: "https://img.freepik.com/premium-photo/cute-girl-3d-character-design-cartoon-girl-avatar_432516-5510.jpg?w=2000"
+        male: "https://img.freepik.com/fotos-premium/retrato-de-um-steampunk-punk-steampunk-man-the_158863-8544.jpg?w=2000",
+        female: "https://i.etsystatic.com/39751258/r/il/aec535/4636273226/il_fullxfull.4636273226_6d7o.jpg"
       }
     };
   },
