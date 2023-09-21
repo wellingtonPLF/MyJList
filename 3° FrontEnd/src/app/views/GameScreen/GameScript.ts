@@ -14,6 +14,7 @@ const gameComponent: any = {
       games: [] as I_Game[],
       prevRoute: undefined,
       filter: true,
+      loading: "Loading . . .",
       selectedOption: "Default",
       options: ["CUSTOMIZATION", "Most Commented", "Most Recommended"]
     };
@@ -32,7 +33,7 @@ const gameComponent: any = {
       this.games.sort((a: any, b: any) => b.favRank - a.favRank)
     },
     score() {
-      this.games.sort((a: any, b: any) => b.score - a.score)
+      this.games.sort((a: any, b: any) => a.ranked - b.ranked)
     },
     showfilterMethod() {
       this.filter = !this.filter
@@ -102,7 +103,9 @@ const gameComponent: any = {
       it => {
         this.games = it
         this.lsit = it
-        console.log(it)
+        if (it.length == 0){
+          this.loading = 'Nothing to Render'
+        }
       }
     ).catch((error) => {
       console.error(error);

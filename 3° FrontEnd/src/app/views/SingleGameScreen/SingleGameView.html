@@ -23,7 +23,7 @@
                                 <font-awesome-icon @click="fav()" v-else :icon="['far', 'star']" class="favStar" />
                             </div>
                             <div v-if="game.name != undefined">
-                                <h2 style="margin-bottom: 10px;" >{{game.name.slice(0,21)}}</h2>
+                                <h2 style="margin-bottom: 10px;" >{{game.name.slice(0,21)}}{{game.id}}</h2>
                                 <div>
                                     <div>Score: {{game.score}}</div>
                                     <div>Ranked: #{{game.ranked}}</div>
@@ -258,7 +258,7 @@
                     <div>
                         <div>You May Like</div>
                         <div>
-                            <router-link to="/singleGame" v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item)"
+                            <router-link to="/singleGame" v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item.game)"
                                 :style="{backgroundImage: `url(${item.game.gameImage})`}">
                             </router-link>
                         </div>
