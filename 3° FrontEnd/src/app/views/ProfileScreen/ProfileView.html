@@ -15,12 +15,12 @@
                 <div></div>
             </div>
             <div>
-                <div>
+                <div v-if="user.nationality != undefined">
                     <div id="userProfile">
                         <div class="backImageConfig"></div>
                         <div>
                             <div>
-                                <div>Status: {{user.status}}</div>
+                                <div>Status: {{(user.status == "off")? 'Offline': 'Online'}}</div>
                                 <div id="userJoined">
                                     <div>Joined:</div>
                                     <div>{{user.joined}}</div>
@@ -41,7 +41,13 @@
                                 </div>
                             </div>
                             <div>
-                                <div>Location: {{nationality}}</div>
+                                <div class="centralize">
+                                    <div>Location: </div>
+                                    <img style="padding-left: 7px;" :title="user.nationality.value" :src="`https://flagcdn.com/24x18/${user.nationality.cod.toLowerCase()}.png`" 
+                                    :srcset="`https://flagcdn.com/48x36/${user.nationality.cod.toLowerCase()}.png 2x, 
+                                    https://flagcdn.com/72x54/${user.nationality.cod.toLowerCase()}.png 3x`" 
+                                    width="24" height="18" :alt="user.nationality.value">
+                                </div>
                                 <div>
                                     <h3>{{user.nickname}}</h3>
                                     <div>
@@ -72,58 +78,58 @@
                             <div>
                                 <div>
                                     <div style="background-color: green;"></div>
-                                    <div>Played</div>
-                                    <div>233</div>
+                                    <div>Playing</div>
+                                    <div>{{user.playing}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: blue;"></div>
                                     <div>Complete</div>
-                                    <div>233</div>
+                                    <div>{{user.completed}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: yellow;"></div>
                                     <div>On-Hold</div>
-                                    <div>233</div>
+                                    <div>{{user.onHold}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: red;"></div>
                                     <div>Dropped</div>
-                                    <div>233</div>
+                                    <div>{{user.dropped}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: gray;"></div>
                                     <div>Plan to Play</div>
-                                    <div>2221</div>
+                                    <div>{{user.planning}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: rgb(7, 180, 180);"></div>
                                     <div>Replayed</div>
-                                    <div>233</div>
+                                    <div>{{user.replayed}}</div>
                                 </div>
                             </div>
                             <div>
                                 <div>
-                                    <div>2233</div>
+                                    <div>{{user.planning + user.playing + user.completed + user.dropped + user.onHold}}</div>
                                     <div>Total Entries</div>
                                 </div>
                                 <div>
-                                    <div>2233</div>
+                                    <div>{{user.hours}}</div>
                                     <div>Total Days</div>
                                 </div>
                                 <div>
-                                    <div>2233</div>
+                                    <div>{{user.hours}}</div>
                                     <div>Total Hours</div>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <img src="https://cdn-icons-png.flaticon.com/512/64/64720.png" width="230px" height="230px" alt="imagem"/>
+                            <img src="https://cdn-icons-png.flaticon.com/512/64/64720.png" width="230" height="230" alt="imagem"/>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="profileData">
-                <div>
+                <div v-if="user.nationality != undefined">
                     <div>
                         <div>
                             <div>
@@ -140,25 +146,25 @@
                                         <div>0</div>
                                     </div>
                                     <div>
-                                        <div>Recomendations</div>
+                                        <div>Clubs</div>
                                         <div>0</div>
                                     </div>
                                     <div>
-                                        <div>Clubs</div>
-                                        <div>0</div>
+                                        <div>Recomendations</div>
+                                        <div>{{user.recommendations}}</div>
                                     </div>
                                 </div>
                             </div>
                             <div id="profileNotes">
                                 <div>Notes</div>
-                                <input placeholder="Type anything here" :v-model="user.note" />
+                                <input style="padding-left: 5px;" placeholder="Type your note right here!" :v-model="user.note" />
                             </div>
                         </div>
                         <div id="historyList">
                             <div>Last Games Updates</div>
                             <div>
-                                <router-link to="/singleGame" v-for="game in games" @click="gameChoice(game)">
-                                    <div class="backImageConfig" :style="{backgroundImage: `url(${game.img})`}"></div>
+                                <router-link to="/singleGame" v-for="item in user.lastUpdated" @click="gameChoice(game)">
+                                    <div class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></div>
                                 </router-link>
                             </div>
                         </div>
@@ -177,16 +183,19 @@
                         <div>
                             <div>Friends</div>
                             <div id="friends">
-                                <router-link to="/profile" v-for="user in friends" @click="userChoice(user)" >
-                                    <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${(user.sex === 'Male') ? imgType.male : imgType.female})`}"></div>
+                                <router-link v-if="user.friend.length != 0" to="/profile" v-for="item in user.friend" @click="userChoice(user)" >
+                                    <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${(user.sexuality === 'Male') ? imgType.male : imgType.female})`}"></div>
                                 </router-link>
+                                <div v-else style="text-align: center; width: 100%;">
+                                    <div>No Friend Found</div>
+                                </div>
                             </div>
                         </div>
                         <div>
                             <div>Favorite Games</div>
                             <div id="favGame">
-                                <router-link to="/singleGame" v-for="game in fav" @click="gameChoice(game)" 
-                                class="backImageConfig" :style="{backgroundImage: `url(${game.img})`}"></router-link>
+                                <router-link to="/singleGame" v-for="item in user.favoriteGames" @click="gameChoice(game)" 
+                                class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></router-link>
                             </div>
                         </div>
                     </div>

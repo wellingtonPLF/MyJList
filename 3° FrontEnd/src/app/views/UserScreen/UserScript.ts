@@ -39,7 +39,6 @@ const userComponent: any = {
     userService.listAll().then(
       (it: any) => {
         this.users = it
-        console.log(it)
       }
     ).catch((error) => {
       console.error(error);

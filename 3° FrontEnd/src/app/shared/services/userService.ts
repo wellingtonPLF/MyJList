@@ -18,6 +18,16 @@ class UserService {
     }
   }
 
+  async getUser(id: number) {
+    try{
+      const { data } = await api.get(`${this.path}/${id}`);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  }
+
   async getAuthenticatedUser() {
     try{
       const { data } = await api.get(`${this.path}/getUser/`);

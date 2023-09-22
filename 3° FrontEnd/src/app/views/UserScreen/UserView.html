@@ -20,7 +20,7 @@
                             <b style="font-size:20px; color: rgb(32, 78, 90);">{{userCard.completed + userCard.planning + userCard.playing + userCard.dropped + userCard.onHold + userCard.replayed}}</b>
                             <div>All Registry</div>
                         </div>
-                        <button id="report">
+                        <button id="report" :style="`color: ${(userCard.role[0].roleName == 'ROLE_ADMIN')? 'gray':''}; cursor: not-allowed`">
                             <font-awesome-icon :icon="['fas', 'ban']" />
                         </button>
                     </div>

@@ -340,13 +340,13 @@ $favSize: 120px;
 
 #friends {
     display: flex;
-    justify-content: space-evenly;
     margin-top: 10px;
 }
 
 #friend {
     width: $friendSize;
     height: $friendSize;
+    margin-right: 10px;
     border-radius: 100%;
 }
 

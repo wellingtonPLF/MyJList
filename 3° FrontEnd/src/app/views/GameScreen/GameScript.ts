@@ -13,6 +13,7 @@ const gameComponent: any = {
       list: [] as I_Game[],
       games: [] as I_Game[],
       prevRoute: undefined,
+      optionSelected: undefined,
       filter: true,
       loading: "Loading . . .",
       selectedOption: "Default",
@@ -30,12 +31,17 @@ const gameComponent: any = {
       this.setGame(game)
     },
     popularity() {
-      this.games.sort((a: any, b: any) => b.favRank - a.favRank)
+      this.optionSelected = 'popularity'
+      const popular = this.games.filter(x => x.popularity == true).sort((a: any, b: any) => b.score - a.score)
+      const normal = this.games.filter(x => x.popularity == false).sort((a: any, b: any) => b.score - a.score)
+      this.games = popular.concat(normal)
     },
     score() {
+      this.optionSelected = 'score'
       this.games.sort((a: any, b: any) => a.ranked - b.ranked)
     },
     showfilterMethod() {
+      this.optionSelected = 'filter'
       this.filter = !this.filter
     },
     goBack() {
@@ -47,62 +53,97 @@ const gameComponent: any = {
       }
     },
     handleSelectedOption() {
+      this.optionSelected = undefined
       if (this.selectedOption == "Commented") {
-        this.games.sort((a: any, b: any) => b.comments - a.comments)
+        this.games.sort((a: any, b: any) => b.commentTotal - a.commentTotal)
       }
       else if (this.selectedOption == "Recommended") {
-        this.games.sort((a: any, b: any) => b.recommendations - a.recommendations)
+        this.games.sort((a: any, b: any) => b.recommendation - a.recommendation)
       }
     },
     filterMethodResult(obj: any) {
+      console.log(obj)
       const result = this.list.filter((game: any) => {
         const lista: Array<Boolean> = []
         lista.push((obj.status.length == 0) ? true : obj.status.some((status: any) => {
-          if (game.status.includes(status) == true) {
+          const findResult = game.status.filter((item) => {
+            if (((item.value == 'On')? 'Online': 'Offline') == status) {
+              return true
+            }
+          })
+          if (findResult.length != 0) {
             return true
           }
         })
         )
+
         lista.push((obj.plataforms.length == 0 || obj.plataforms.includes("Other")) ? true : obj.plataforms.some((plataforms: any) => {
-          if (game.plataforms.includes(plataforms) == true) {
+          const findResult = game.plataform.filter((item) => {
+            if (item.value == plataforms) {
+              return true
+            }
+          })
+          if (findResult.length != 0) {
             return true
           }
         })
         )
-        lista.push((obj.release.length == 0) ? true : obj.release.some((release: any) => {
-          if (game.release.includes(release) == true) {
-            return true
-          }
-        })
-        )
-        lista.push((obj.perspective.length == 0 || obj.perspective.includes("Other")) ? true : obj.perspective.some((perspective: any) => {
-          if (game.perspective.includes(perspective) == true) {
-            return true
-          }
-        })
-        )
+
+        // lista.push((obj.release.length == 0) ? true : obj.release.some((release: any) => {
+        //   const findResult = game.gameType.filter((item) => {
+        //     if (item.value == release) {
+        //       return true
+        //     }
+        //   })
+        //   if (findResult.length != 0) {
+        //     return true
+        //   }
+        // })
+        // )
+
         lista.push((obj.studios.length == 0 || obj.studios.includes("Other")) ? true : obj.studios.some((studios: any) => {
-          if (game.studio.includes(studios) == true) {
+          const findResult = game.studio.filter((item) => {
+            if (item.value == studios) {
+              return true
+            }
+          })
+          if (findResult.length != 0) {
             return true
           }
         })
         )
+
         lista.push((obj.type.length == 0) ? true : obj.type.some((type: any) => {
-          if (game.type.includes(type) == true) {
+          const findResult = game.gameType.filter((item) => {
+            if (item.value == type) {
+              return true
+            }
+          })
+          if (findResult.length != 0) {
             return true
           }
         })
         )
+
+        // lista.push((obj.perspective.length == 0 || obj.perspective.includes("Other")) ? true : obj.perspective.some((perspective: any) => {
+        //   if (game.perspective.includes(perspective) == true) {
+        //     return true
+        //   }
+        // })
+        // )
+
         return (lista.includes(false)) ? false : true
       })
+      console.log(result)
       this.games = result
+      this.loading = 'Nothing to Render'
     }
   },
   mounted() {
     gameService.listAll().then(
       it => {
         this.games = it
-        this.lsit = it
+        this.list = it
         if (it.length == 0){
           this.loading = 'Nothing to Render'
         }

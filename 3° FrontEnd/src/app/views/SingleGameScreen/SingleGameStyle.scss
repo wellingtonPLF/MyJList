@@ -103,7 +103,6 @@ $backImageHeight: 600px;
 
 #userInfo >  div:first-child {
     text-align: end;
-    border: 5px solid rgba(255, 255, 255, 0.6);
     height: 350px;
     width: 280px;
 }
@@ -122,11 +121,7 @@ $backImageHeight: 600px;
 }
 
 #userInfo >  div:nth-child(2) h2 {
-    cursor: default;
-}
-
-#userInfo >  div:nth-child(2) h2::selection {
-    background-color: unset;
+    margin-bottom: 5px;
 }
 
 #userInfo > div:nth-child(2) > div:nth-child(2) > div:last-child {
@@ -134,6 +129,19 @@ $backImageHeight: 600px;
     max-width: 250px;
     margin-top: 5px;
     flex-wrap: wrap;
+}
+
+#popular {
+    font-weight: 600;
+    height: 15px;
+    text-align: center;
+    line-height: 19px;
+    margin: 0px 0px 5px 0px;
+    width: fit-content;
+    color: rgb(235, 207, 52);
+    border: 3px solid  rgb(235, 207, 52);
+    padding: 5px 10px;
+    border-radius: 20px;
 }
 
 #network > div{
@@ -190,6 +198,7 @@ $backImageHeight: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 280px;
 }
 
 #statistics > div:first-child  > div:first-child{
@@ -209,6 +218,7 @@ $backImageHeight: 600px;
 #statistics > div:first-child  > div:first-child > div > div:first-child{
     width: 10px;
     height: 10px;
+    margin-right: 5px;
     border-radius: 100%;
 }
 
@@ -286,12 +296,18 @@ $backImageHeight: 600px;
 #gameData > div:first-child  > div:first-child > div:first-child > div:first-child > div:nth-child(2) > div {
     width: 19.5%;
     height: 100%;
+    box-sizing: border-box; 
+    border: 3px solid rgba(84, 79, 90, 0.5);
 }
 
 #gameData > div:first-child  > div:first-child > div:first-child > div:nth-child(2) {
     width: 340px;
     height: 100%;
     padding: 0px 20px;
+}
+
+#description {
+    max-height: 479px;
 }
 
 #gameData > div:first-child  > div:first-child > div:first-child > div:nth-child(2) > div:nth-child(2) {
@@ -509,6 +525,7 @@ $buttonWidth: 60px;
     flex-direction: column;
     align-items: center;
     padding: 20px 20px;
+    min-width: 70px;
 }
 
 .userCommentIMG {

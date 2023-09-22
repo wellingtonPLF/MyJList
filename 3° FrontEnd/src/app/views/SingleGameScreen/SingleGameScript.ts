@@ -59,8 +59,13 @@ const singleGameComponent: any = {
     ...mapActions("gameReducer", ["setGame"]),
     ...mapActions("authReducer", ["setUser"]),
     gameChoice(game: any) {
-      this.setGame(game);
-      window.scrollTo(0, 0);
+      gameService.getGame(game.id).then(
+        it => {
+          this.setGame(it);
+          this.selectedImg = it.imgs[0].value
+          window.scrollTo(0, 0);
+        }
+      )
     },
     changeImage(index: number){
       this.selectedImg = this.game.imgs[index].value

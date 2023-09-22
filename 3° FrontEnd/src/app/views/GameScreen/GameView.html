@@ -19,9 +19,9 @@
         </div>
         <div>
             <div>
-                <div @click="showfilterMethod()">FILTER</div>
-                <div @click="score()">SCORE</div>
-                <div @click="popularity()">POPULARITY</div>
+                <div @click="showfilterMethod()" :style="`color: ${(optionSelected == 'filter')? '#34578b': 'unset'}`">FILTER</div>
+                <div @click="score()" :style="`color: ${(optionSelected == 'score')? '#34578b': 'unset'}`">SCORE</div>
+                <div @click="popularity()" :style="`color: ${(optionSelected == 'popularity')? '#34578b': 'unset'}`">POPULARITY</div>
                 <select name="customFilter" class="selectCustom" v-model="selectedOption" @change="handleSelectedOption">
                     <option value="Default" disabled style="background-color: white; color: black;">CUSTOMIZATION</option>
                     <option value="Commented" style="background-color: white; color: black;">Most Commented</option>

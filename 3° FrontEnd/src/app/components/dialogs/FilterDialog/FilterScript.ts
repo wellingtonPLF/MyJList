@@ -22,15 +22,16 @@ const filterComponent: any = {
         "Tencent", "Epic Games", "Blizzard", "Nintendo", "Microsoft", "Sony", "Other"
       ],
       plataforms: [
-        "xbox", "pc", "playstation", "nintendo", "mobile", "Other"
+        "Xbox", "PC", "Playstation", "Nintendo", "Mobile", "Other"
       ],
       choose: {
         type: [],
-        plataforms: [],
         status: [],
-        perspective: [],
         release: [],
-        studios: []
+        studios: [],
+        plataforms: [],
+        perspective: [],
+        dateObj: { year: '', month: '', day: ''}
       }
     };
   },
@@ -44,16 +45,16 @@ const filterComponent: any = {
     clear(){
       this.choose = {
         type: [],
-        plataforms: [],
         status: [],
-        perspective: [],
         release: [],
-        studios: []
+        studios: [],
+        plataforms: [],
+        perspective: [],
+        dateObj: { year: '', month: '', day: ''}
       }
     },
     clearIt(param: any) {
       param.splice(0,param.length)
-      
     }
   },
   mounted() { },
