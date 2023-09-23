@@ -1,6 +1,6 @@
 <div id="gamePage" class="backImageConfig">
     <span class="backPage">
-        <div @click="goBack()">Back</div>
+        <GoBackComponent />
     </span>
     <FilterComponent v-if="filter == false" :openClose="filter" :openClosefilter="showfilterMethod" :filter="filterMethodResult"/>
     <div>

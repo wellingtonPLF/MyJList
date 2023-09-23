@@ -3,12 +3,15 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import gameService from "../../shared/services/gameService";
 import commentService from "../../shared/services/commentService";
+import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
 
 library.add(faStar);
 
 const singleGameComponent: any = {
   name: "SingleGameComponent",
-  components: {},
+  components: {
+    GoBackComponent
+  },
   data() {
     return {
       recomendations: [] as any[],

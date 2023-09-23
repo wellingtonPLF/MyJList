@@ -26,7 +26,9 @@ import {
   faReply,
   faBroom,
   faArrowsRotate,
+  faHouse,
   faPowerOff,
+  faArrowTurnDown,
   faDoorOpen,
   faBan
 } from "@fortawesome/free-solid-svg-icons";
@@ -49,6 +51,8 @@ const app = createApp(App);
 library.add(
   faGamepad,
   faUser,
+  faHouse,
+  faArrowTurnDown,
   faHandHoldingHeart,
   faBuilding,
   faHeadset,

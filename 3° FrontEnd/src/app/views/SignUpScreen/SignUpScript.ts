@@ -3,9 +3,13 @@ import { User } from "../../shared/models/User";
 import authService from "../../shared/services/authService";
 import nationalityService from "../../shared/services/nationalityService";
 import userService from "../../shared/services/userService";
+import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
 
 const signUpComponent: any = {
     name: "SignUpComponent",
+    components: {
+      GoBackComponent
+    },
     data() {
       return {
         user : { 

@@ -1,24 +1,17 @@
-
-import axios, { AxiosResponse } from "axios";
-
-interface Game {
-  id: number;
-  img: string;
-  name: string;
-  plataforms: string[];
-  user: string;
-  date: string;
-  score: string;
-  description: string;
-}
+import registryService from "../../shared/services/registryService";
+import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue";
 
 const gameListComponent: any = {
   name: "GameListComponent",
+  components: {
+    GoBackComponent
+  },
   data() {
     return {
-      games: [] as Game[],
-      progress: 75,
-      valor: "Plan to Play"
+      registry: [] as any[],
+      registryList: [] as any[],
+      emptyList: 'Loading. . .',
+      progress: 75
     };
   },
   methods: {
@@ -32,17 +25,24 @@ const gameListComponent: any = {
     },
     okL(){
       console.log(this.valor)
+    },
+    filterBy(value: string) {
+      if (value == 'all') {
+        this.registry = this.registryList
+      }
+      else {
+        this.registry = this.registryList.filter( (item) => {return item.progress == value})
+      }
+      this.emptyList = 'Nothing to Render'
     }
   },
   mounted() {
-    axios
-      .get("jsons/games.json")
-      .then((it: AxiosResponse<Game[]>) => {
-        this.games = it.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    registryService.listAll().then(
+      it => {
+        this.registry = it
+        this.registryList = it
+      }
+    )
   },
 };
 

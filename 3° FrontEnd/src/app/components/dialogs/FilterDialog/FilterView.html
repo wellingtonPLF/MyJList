@@ -10,17 +10,17 @@
                     <legend>Type of Game: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.type)"/></legend>
 
                     <div v-for="item in typeOfGames">
-                        <input type="checkbox" :value="item" :name="item" v-model="choose.type"/>
-                        <label :for="item">{{item}}</label>
+                        <input type="checkbox" :value="item.value" :name="item.value" v-model="choose.type"/>
+                        <label :for="item.value">{{item.value}}</label>
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Type of Plataform: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.plataforms)"/></legend>
 
-                    <div>
+                    <div style="display: flex; flex-direction: column;">
                         <div v-for="item in plataforms">
-                            <input type="checkbox" :value="item" :name="item" v-model="choose.plataforms"/>
-                            <label :for="item">{{item.toLowerCase()}}</label>
+                            <input type="checkbox" :value="item.value" :name="item.value" v-model="choose.plataforms"/>
+                            <label :for="item.value">{{item.value}}</label>
                         </div>
                     </div>
                 </fieldset>
@@ -60,28 +60,26 @@
                     </div>
                 </fieldset> -->
                 <fieldset>
-                    <legend>Release date: 
-                        <input style="width: 38px; text-align: center;" maxlength="2" placeholder="day" v-model="choose.dateObj.day"/>/
-                        <input style="width: 38px;" maxlength="2" placeholder="month" v-model="choose.dateObj.month"/>/
-                        <input style="width: 38px; text-align: center;" maxlength="4" placeholder="year" v-model="choose.dateObj.year"/>
+                    <legend style="display: flex; height: 21px; line-height: 21px;">Release date: 
+                        <div v-if="choose.release == 'Other'" style="margin-left: 5px;">
+                            <input style="width: 38px; text-align: center;" maxlength="2" placeholder="day" v-model="choose.dateObj.day"/>/
+                            <input style="width: 38px; text-align: center;" maxlength="2" placeholder="month" v-model="choose.dateObj.month"/>/
+                            <input style="width: 38px; text-align: center;" maxlength="4" placeholder="year" v-model="choose.dateObj.year"/>
+                        </div>
                         <font-awesome-icon style="margin-left: 5px;" :icon="['fas', 'broom']" @click="clearIt(choose.release)"/>
                     </legend>
                     <div>
                         <div>
-                            <input type="checkbox" value="Other" name="Other" v-model="choose.release"/>
+                            <input type="radio" value="Other" name="release" v-model="choose.release"/>
                             <label for="Other">Other</label>
                         </div>
                         <div>
-                            <input type="checkbox" value="Finished" name="Finished" checked v-model="choose.release"/>
-                            <label for="Finished">Finished</label>
+                            <input type="radio" value="Released" name="release" v-model="choose.release"/>
+                            <label for="Released">Released</label>
                         </div>
                         <div>
-                            <input type="checkbox" value="Didn't Release Yet" name="Didn't Release Yet" v-model="choose.release"/>
+                            <input type="radio" value="Didn't Release Yet" name="release" v-model="choose.release"/>
                             <label for="Didn't Release Yet">Didn't Release Yet</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" value="Currently Releasing" name="Currently Releasing" v-model="choose.release"/>
-                            <label for="Currently Releasing">Currently Releasing</label>
                         </div>
                     </div>
                 </fieldset>
@@ -90,8 +88,8 @@
                     <legend>Studio: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.studios)"/></legend>
 
                     <div v-for="item in studios">
-                        <input type="checkbox" :value="item" :name="item" v-model="choose.studios"/>
-                        <label :for="item">{{item}}</label>
+                        <input type="checkbox" :value="item.value" :name="item.value" v-model="choose.studios"/>
+                        <label :for="item.value">{{item.value}}</label>
                     </div>
                 </fieldset>
             </div>

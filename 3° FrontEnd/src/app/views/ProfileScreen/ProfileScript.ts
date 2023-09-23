@@ -1,9 +1,12 @@
 import { mapState, mapActions } from "vuex";
 import userService from "../../shared/services/userService";
+import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
 
 const profileComponent: any = {
   name: "ProfileComponent",
-  components: {},
+  components: {
+    GoBackComponent
+  },
   data() {
     return {
       imgType: {
@@ -41,6 +44,7 @@ const profileComponent: any = {
     userService.getUser(this.user.id).then(
       it => {
         this.setUser(it)
+        console.log(it)
       }
     ).catch( (error)=> {
       console.log(error)

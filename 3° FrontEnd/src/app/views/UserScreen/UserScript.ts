@@ -1,5 +1,6 @@
 import { mapActions } from "vuex";
 import userService from "../../shared/services/userService";
+import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue";
 
 interface User {
   id: number;
@@ -9,13 +10,13 @@ interface User {
 
 const userComponent: any = {
   name: "UserComponent",
-  components: {},
+  components: { GoBackComponent },
   data() {
     return {
       users: [] as User[],
       imgType: {
-        male: "https://img.freepik.com/fotos-premium/retrato-de-um-steampunk-punk-steampunk-man-the_158863-8544.jpg?w=2000",
-        female: "https://i.etsystatic.com/39751258/r/il/aec535/4636273226/il_fullxfull.4636273226_6d7o.jpg"
+        male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
+        female: "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg"
       }
     };
   },
@@ -25,14 +26,6 @@ const userComponent: any = {
     userChoice(user: any){
       this.setUser(user)
       window.scrollTo(0, 0);
-    },
-    goBack() {
-      if (this.$router.options.history.state.back == null) {
-        this.$router.push("/")
-      }
-      else {
-        this.$router.back()
-      }
     }
   },
   mounted() {

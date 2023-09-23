@@ -338,6 +338,15 @@ $favSize: 120px;
     height: 20px;
 }
 
+#profileData > div:first-child > div:first-child > div:first-child > div:first-child > div:nth-child(2) > div > div:nth-child(2){
+    width: 20px; 
+    text-align: center;
+}
+
+#profileData > div:first-child > div:first-child > div:first-child > div:first-child > div:nth-child(2) > div > div:nth-child(2) > :first-child{
+    font-size: 12px;
+}
+
 #friends {
     display: flex;
     margin-top: 10px;

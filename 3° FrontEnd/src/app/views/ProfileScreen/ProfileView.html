@@ -1,6 +1,6 @@
 <div id="profilePage">
     <span class="backPage">
-        <div @click="goBack()">Back</div>
+        <GoBackComponent />
     </span>
     <div id="profile">
         <div>
@@ -139,15 +139,21 @@
                                 <div>
                                     <div>
                                         <div>Forum Posts</div>
-                                        <div>0</div>
+                                        <div>
+                                            <font-awesome-icon :icon="['fas', 'ban']" />
+                                        </div>
                                     </div>
                                     <div>
                                         <div>Reviews</div>
-                                        <div>0</div>
+                                        <div>
+                                            <font-awesome-icon :icon="['fas', 'ban']" />
+                                        </div>
                                     </div>
                                     <div>
                                         <div>Clubs</div>
-                                        <div>0</div>
+                                        <div>
+                                            <font-awesome-icon :icon="['fas', 'ban']" />
+                                        </div>
                                     </div>
                                     <div>
                                         <div>Recomendations</div>
@@ -163,7 +169,7 @@
                         <div id="historyList">
                             <div>Last Games Updates</div>
                             <div>
-                                <router-link to="/singleGame" v-for="item in user.lastUpdated" @click="gameChoice(game)">
+                                <router-link to="/singleGame" v-for="item in user.lastUpdated" @click="gameChoice(item.game)">
                                     <div class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></div>
                                 </router-link>
                             </div>
@@ -194,7 +200,7 @@
                         <div>
                             <div>Favorite Games</div>
                             <div id="favGame">
-                                <router-link to="/singleGame" v-for="item in user.favoriteGames" @click="gameChoice(game)" 
+                                <router-link to="/singleGame" v-for="item in user.favoriteGames" @click="gameChoice(item.game)" 
                                 class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></router-link>
                             </div>
                         </div>

@@ -1,8 +1,11 @@
 import axios, { AxiosResponse } from "axios";
+import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
 
 const aboutComponent: any = {
   name: "AboutComponent",
-  components: {},
+  components: {
+    GoBackComponent
+  },
   data() {
     return {
       users: [] as any[],

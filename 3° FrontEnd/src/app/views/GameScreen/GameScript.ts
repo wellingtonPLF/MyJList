@@ -2,11 +2,13 @@ import FilterComponent from "../../components/dialogs/FilterDialog/FilterCompone
 import { mapActions } from "vuex";
 import { I_Game } from "../../shared/interfaces/I_Game";
 import gameService from "../../shared/services/gameService";
+import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue"
 
 const gameComponent: any = {
   name: "GameComponent",
   components: {
-    FilterComponent
+    FilterComponent,
+    GoBackComponent
   },
   data() {
     return {
@@ -62,9 +64,8 @@ const gameComponent: any = {
       }
     },
     filterMethodResult(obj: any) {
-      console.log(obj)
       const result = this.list.filter((game: any) => {
-        const lista: Array<Boolean> = []
+        const lista: Array<boolean> = []
         lista.push((obj.status.length == 0) ? true : obj.status.some((status: any) => {
           const findResult = game.status.filter((item) => {
             if (((item.value == 'On')? 'Online': 'Offline') == status) {
@@ -89,17 +90,33 @@ const gameComponent: any = {
         })
         )
 
-        // lista.push((obj.release.length == 0) ? true : obj.release.some((release: any) => {
-        //   const findResult = game.gameType.filter((item) => {
-        //     if (item.value == release) {
-        //       return true
-        //     }
-        //   })
-        //   if (findResult.length != 0) {
-        //     return true
-        //   }
-        // })
-        // )
+        const gameTypeFilter = (obj.release === undefined) ? () => { return true; } : (release) => { 
+          const currently_date = new Date()
+          const year = currently_date.getFullYear();
+          const month = String(currently_date.getMonth() + 1).padStart(2, '0'); // Adding 1 because months are 0-based
+          const day = String(currently_date.getDate()).padStart(2, '0');
+
+          const formattedDate = `${year}-${month}-${day}`;
+          if (release == "Other"){
+            const result = `${obj.dateObj.year}-${obj.dateObj.month}-${obj.dateObj.day}`
+            if (game.release == result) {
+              return true
+            }
+          }
+          else if(release == "Released") {
+            if (game.release < formattedDate) {
+              return true
+            }
+          }
+          else if(release == "Didn't Release Yet") {
+            if (game.release > formattedDate) {
+              return true
+            }
+          }          
+          return false
+        };
+        lista.push(gameTypeFilter(obj.release))
+
 
         lista.push((obj.studios.length == 0 || obj.studios.includes("Other")) ? true : obj.studios.some((studios: any) => {
           const findResult = game.studio.filter((item) => {
@@ -131,10 +148,8 @@ const gameComponent: any = {
         //   }
         // })
         // )
-
         return (lista.includes(false)) ? false : true
       })
-      console.log(result)
       this.games = result
       this.loading = 'Nothing to Render'
     }

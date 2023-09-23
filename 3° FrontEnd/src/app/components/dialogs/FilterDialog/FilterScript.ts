@@ -1,4 +1,5 @@
 import { PropType, toRaw } from "vue";
+import gameService from "../../../shared/services/gameService";
 
 const filterComponent: any = {
   name: 'FilterComponent',
@@ -10,24 +11,13 @@ const filterComponent: any = {
   data() {
     return {
       showFilter: true,
-      typeOfGames: [
-        "RPG", "SHOOTER", "MMORPG", "RACE", "DANCE",
-        "PUZZLE", "OPEN WORLD", "SURVIVAL", "SPORTS", "ADVENTURE",
-        "STRATEGY", "PLATAFORM", "FIGHTHING", "MOBA",
-        "SIMULATION", "ARCADE", "EDUCATIONAL", "CARD",
-        "BATTLE ROYALE", "TURN BASED", "POINT AND CLICK",
-        "MUSIC", "STEALTH", "SHOOT 'EM UP", "TEXT", "CASUAL"
-      ],
-      studios: [
-        "Tencent", "Epic Games", "Blizzard", "Nintendo", "Microsoft", "Sony", "Other"
-      ],
-      plataforms: [
-        "Xbox", "PC", "Playstation", "Nintendo", "Mobile", "Other"
-      ],
+      typeOfGames: [],
+      studios: [],
+      plataforms: [],
       choose: {
         type: [],
         status: [],
-        release: [],
+        release: undefined,
         studios: [],
         plataforms: [],
         perspective: [],
@@ -46,7 +36,7 @@ const filterComponent: any = {
       this.choose = {
         type: [],
         status: [],
-        release: [],
+        release: undefined,
         studios: [],
         plataforms: [],
         perspective: [],
@@ -54,10 +44,24 @@ const filterComponent: any = {
       }
     },
     clearIt(param: any) {
-      param.splice(0,param.length)
+      if (typeof(param) == typeof([])){
+        param.splice(0,param.length)
+      }
+      else {
+        this.choose.dateObj = { year: '', month: '', day: ''}
+        this.choose.release = undefined
+      }
     }
   },
-  mounted() { },
+  beforeMount() {
+    gameService.getFilterData().then(
+      it => {
+        this.studios = it.studios
+        this.typeOfGames = it.gameTypes
+        this.plataforms = it.plataform
+      }
+    )
+  },
 };
 
 export default filterComponent;

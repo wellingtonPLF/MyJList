@@ -1,9 +1,13 @@
 import authService from "../../shared/services/authService";
 import userService from "../../shared/services/userService";
 import { mapActions } from "vuex";
+import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
 
 const signInComponent: any = {
   name: "SignInComponent",
+  components: {
+    GoBackComponent
+  },
   data() {
     return {
       auth: {

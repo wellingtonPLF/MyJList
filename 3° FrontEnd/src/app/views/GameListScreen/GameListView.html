@@ -1,103 +1,98 @@
 <div id="gameList">
-    <div></div>
+    <div class="backImageConfig" id="gameListBanner">
+        <div>
+            <GoBackComponent />
+        </div>
+        <div>
+            <div>status</div>
+            <div>filter</div>
+            <div>search</div>
+        </div>
+    </div>
+    <div>
+        <div @click="filterBy('all')">All Games</div>
+        <div @click="filterBy('Playing')">Playing</div>
+        <div @click="filterBy('Replaying')">Replaying</div>
+        <div @click="filterBy('Plan')">Plan to play</div>
+        <div @click="filterBy('On-Hold')">On-Hold</div>
+        <div @click="filterBy('Dropped')">Dropped</div>
+        <div @click="filterBy('Completed')">Completed</div>
+    </div>
     <div>
         <div>
-            <router-link to="/">MyJList</router-link>
-        </div>
-        <div>
-            <div id="gameListBanner">
-                <div @click="goBack()">
-                    <div>Back</div>
-                </div>
+            <select name="status">
+                <option value="">All Games</option>
+                <option value="Playing">Playing</option>
+                <option value="Replaying">Replaying</option>
+                <option value="Plan to Play">Plan to play</option>
+                <option value="On Hold">On Hold</option>
+                <option value="Dropped">Dropped</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div> 
+    </div>
+    <div v-if="registry.length != 0">
+        <div id="gameCardList" v-for="item in registry">
+            <div class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}">
+                <div>{{item.name}}</div>
+            </div>
+            <div>
+                <div>{{item.game.playtime}} hours</div>
+                <div>{{item.game.playtime}} minutes</div>
                 <div>
-                    <div>status</div>
-                    <div>filter</div>
-                    <div>search</div>
+                    <div>
+                        <div :style="{width: `${progress}%`}"></div>
+                    </div>
+                    ({{progress}}%)
                 </div>
             </div>
             <div>
-                <div>All Games</div>
-                <div>Playing</div>
-                <div>Replaying</div>
-                <div>Plan to play</div>
-                <div>On Hold</div>
-                <div>Dropped</div>
-                <div>Completed</div>
-            </div>
-            <div>
                 <div>
-                    <select name="status">
-                        <option value="">All Games</option>
-                        <option value="Playing">Playing</option>
-                        <option value="Replaying">Replaying</option>
-                        <option value="Plan to Play">Plan to play</option>
-                        <option value="On Hold">On Hold</option>
-                        <option value="Dropped">Dropped</option>
-                        <option value="Completed">Completed</option>
-                    </select>
-                </div> 
-            </div>
-            <div>
-                <div id="gameCardList" v-for="item in games">
-                    <div class="backImageConfig" :style="{backgroundImage: `url(${item.img})`}">
-                        <div>{{item.name}}</div>
+                    <div>
+                        <select name="status" v-model="item.progress" style="font-weight: 600; color: rgb(104, 21, 107);">
+                            <option value="Completed">Completed</option>
+                            <option value="Playing">Playing</option>
+                            <option value="Plan to Play">Plan to Play</option>
+                            <option value="Dropped">Dropped</option>
+                            <option value="On-Hold">On-Hold</option>
+                            <option value="Replaying">Replaying</option>
+                        </select>
+                        <button @click="okL()" style="width: 30px; margin-left: 2px;">
+                            <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
+                        </button>
                     </div>
                     <div>
-                        <div>857 hours</div>
-                        <div>42 minutes</div>
-                        <div>
-                            <div>
-                                <div :style="{width: `${progress}%`}"></div>
-                            </div>
-                            ({{progress}}%)
-                        </div>
+                        <select name="score" v-model="item.note">
+                            <option value="Incredible">Awesome</option>
+                            <option value="Great">Great</option>
+                            <option value="Good">Good</option>
+                            <option value="Fine">Fine</option>
+                            <option value="Meh">Meh</option>
+                            <option value="Horrible">Horrible</option>
+                        </select>
+                        <button @click="okL()" style="width: 30px; margin-left: 2px;">
+                            <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
+                        </button>
                     </div>
                     <div>
-                        <div>
-                            <div>
-                                <select name="status" v-model="valor" style="font-weight: 600; color: rgb(104, 21, 107);">
-                                    <option value="Completed">Completed</option>
-                                    <option value="Playing">Playing</option>
-                                    <option value="Plan to Play">Plan to Play</option>
-                                    <option value="Dropped">Dropped</option>
-                                    <option value="On Hold">On Hold</option>
-                                    <option value="Replaying">Replaying</option>
-                                </select>
-                                <button @click="okL()" style="width: 30px; margin-left: 2px;">
-                                    <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
-                                </button>
-                            </div>
-                            <div>
-                                <select name="score">
-                                    <option value="Awesome">Awesome</option>
-                                    <option value="Great">Great</option>
-                                    <option value="Good">Good</option>
-                                    <option value="Ok">Fine</option>
-                                    <option value="Meh">Meh</option>
-                                    <option value="Horrible">Horrible</option>
-                                </select>
-                                <button @click="okL()" style="width: 30px; margin-left: 2px;">
-                                    <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
-                                </button>
-                            </div>
-                            <div>
-                                <select name="type">
-                                    <option value="Bad script">Bad script</option>
-                                    <option value="Good script">Good script</option>
-                                </select>
-                                <button @click="okL()" style="width: 30px; margin-left: 2px;">
-                                    <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <div>Status</div>
-                            <div>Score</div>
-                            <div>Tags</div>
-                        </div>
+                        <select name="type">
+                            <option value="Bad script">Bad script</option>
+                            <option value="Good script">Good script</option>
+                        </select>
+                        <button @click="okL()" style="width: 30px; margin-left: 2px;">
+                            <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
+                        </button>
                     </div>
+                </div>
+                <div>
+                    <div>Status</div>
+                    <div>Score</div>
+                    <div>Tags</div>
                 </div>
             </div>
         </div>
+    </div>
+    <div v-else id="emptyList">
+        {{emptyList}}
     </div>
 </div>

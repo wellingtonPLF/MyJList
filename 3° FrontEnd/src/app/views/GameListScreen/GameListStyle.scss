@@ -4,41 +4,14 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    position: relative;
-}
-
-#gameList > div:first-child {
-    height: 250px;
-    width: 100%;
-    position: absolute;
-    background-color: rgb(126, 12, 78);
 }
 
 #gameList > div:nth-child(2) {
-    width: 85%;
-    min-height: 100vh;
-    z-index: 10;
+    width: 100%;
+    max-width: 90vw;
 }
 
-#gameList > div:nth-child(2) > :first-child {
-    height: 10%;
-    display: flex;
-    align-items: center;
-}
-
-#gameList > div:nth-child(2) > :first-child > * {
-    color: white;
-    font-size: 20px;
-    margin: 15px 0px;
-}
-
-#gameList > div:nth-child(2) > div:nth-child(2) {
-    border: 10px solid white;
-    height: 87%;
-    border-bottom: unset;
-}
-
-#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div{
+#gameList > div:nth-child(2) > div{
     cursor: pointer;
 }
 // ----------------------------------------------------------
@@ -50,7 +23,7 @@
     height: 380px;
     width: 100%;
     color: white;
-    background-color: rgb(126, 12, 78);
+    background-image: url('https://wallpaper.dog/large/9837.png');
 }
 
 #gameListBanner > div:first-child {
@@ -76,26 +49,39 @@
     cursor: pointer;
 }
 
-#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+#gameList > div:nth-child(2) {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     height: 50px;
 }
 
+#gameList > div:nth-child(2) > div {
+    height: 100%;
+    width: 100px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(75, 75, 138);
+    line-height: 50px;
+}
 
-#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) {
+#gameList > div:nth-child(2) > div:hover {
+    font-size: 18px;
+}
+
+
+#gameList > div:nth-child(3) {
     display: none;
     height: 50px;
     align-items: center;
     justify-content: center;
 }
 
-#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div {
+#gameList > div:nth-child(3) > div {
     width: 90%;
 }
 
-#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div > * {
+#gameList > div:nth-child(3) > div > * {
     width: 100%;
     height: 30px;
 }
@@ -106,7 +92,7 @@ $heightValue: 35px;
 $tagsBackColor: rgb(38, 40, 38);
 $tagsBorderColor: rgb(56, 56, 56);
 
-#gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) {
+#gameList > div:nth-child(4) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -207,14 +193,29 @@ $tagsBorderColor: rgb(56, 56, 56);
     height: 30px;
 }
 
+#emptyList {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(91, 68, 126);
+    height: 200px;
+    line-height: 200px;
+    cursor: default;
+}
+
+#emptyList::selection {
+    background-color: transparent;
+}
+
 // ----------------------------------------------------------------------
 
 @media screen and (max-width: 815px) {
-    #gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+    #gameList > div:nth-child(2) {
         display: none;
     }
 
-    #gameList > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) {
+    #gameList > div:nth-child(3) {
         display: flex;
+        width: 95%;
     }
 }
