@@ -1,4 +1,3 @@
-import { mapActions } from "vuex";
 import userService from "../../shared/services/userService";
 import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue";
 
@@ -22,9 +21,8 @@ const userComponent: any = {
   },
   
   methods: {
-    ...mapActions('authReducer', ['setUser']),
     userChoice(user: any){
-      this.setUser(user)
+      this.$router.push(`/user/${user.id}`)
       window.scrollTo(0, 0);
     }
   },

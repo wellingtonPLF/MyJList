@@ -30,6 +30,10 @@ button {
   background-size: cover;
 }
 
+.unselect > div::selection {
+  background-color: transparent;
+}
+
 .backPage {
   position: absolute;
   font-size: 20px;

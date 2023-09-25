@@ -19,7 +19,7 @@ const signInComponent: any = {
     };
   },
   methods: {
-    ...mapActions('authReducer', ['setUser']),
+    ...mapActions('authReducer', ['setAuth']),
     goBack() {
       if (this.$router.options.history.state.back == null) {
         this.$router.push("/")
@@ -33,7 +33,7 @@ const signInComponent: any = {
         _ => {
           userService.getAuthenticatedUser().then(
             (it: any) => {
-              this.setUser(it)
+              this.setAuth(it)
               this.$router.push('/');
             }
           ).catch( __ => {

@@ -1,9 +1,9 @@
-import { mapState, mapActions } from "vuex";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import gameService from "../../shared/services/gameService";
 import commentService from "../../shared/services/commentService";
 import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
+import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer";
 
 library.add(faStar);
 
@@ -15,10 +15,12 @@ const singleGameComponent: any = {
   data() {
     return {
       recomendations: [] as any[],
+      game: GAME_INITIAL_STATE,
       userComment: [] as any[],
       selectedImg: undefined,
       star: true,
       commentToSend: undefined,
+      noGame: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg",
 
       gameStatus: { vote: "Default", registry: "Default" },
 
@@ -50,32 +52,17 @@ const singleGameComponent: any = {
       }
     };
   },
-  computed: {
-    ...mapState("gameReducer", {
-      game: (state: any) => state.game,
-    }),
-    ...mapState("authReducer", {
-      user: (state: any) => state.user,
-    }),
-  },
   methods: {
-    ...mapActions("gameReducer", ["setGame"]),
-    ...mapActions("authReducer", ["setUser"]),
-    gameChoice(game: any) {
+    gameChoice(game: any) { 
       gameService.getGame(game.id).then(
         it => {
-          this.setGame(it);
+          this.game = it
           this.selectedImg = it.imgs[0].value
-          window.scrollTo(0, 0);
         }
       )
     },
     changeImage(index: number){
       this.selectedImg = this.game.imgs[index].value
-    },
-    userChoice(user: any) {
-      this.setUser(user);
-      window.scrollTo(0, 0);
     },
     showStaff() {
       this.staffObj.enabled = !this.staffObj.enabled;
@@ -101,14 +88,22 @@ const singleGameComponent: any = {
     }
   },
   beforeMount(){
-    gameService.getGame(this.game.id).then(
+    this.selectedImg = this.noGame
+    this.recomendations = [
+      {game: {gameImage:this.noGame}},
+      {game: {gameImage:this.noGame}},
+      {game: {gameImage:this.noGame}},
+      {game: {gameImage:this.noGame}},
+      {game: {gameImage:this.noGame}}
+    ]
+    gameService.getGame(this.$route.params.id).then(
       it => {
-        this.setGame(it);
+        this.game = it
         this.selectedImg = it.imgs[0].value
       }
     )
   },
-  mounted() {  
+  mounted() {
     gameService.getMostRecommended().then(
       it => {
         this.recomendations = it
@@ -118,7 +113,7 @@ const singleGameComponent: any = {
       console.log(error)
     })
 
-    commentService.getCommentByGameID(this.game.id).then(
+    commentService.getCommentByGameID(this.$route.params.id).then(
       it => {
         this.userComment = it
       }

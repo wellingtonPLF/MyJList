@@ -5,10 +5,11 @@ import AboutComponent from './views/AboutScreen/AboutComponent.vue';
 import UserComponent from './views/UserScreen/UserComponent.vue';
 import SignInComponent from './views/SignInScreen/SignInComponent.vue';
 import SignUpComponent from './views/SignUpScreen/SignUpComponent.vue';
-import ProfileComponent from './views/ProfileScreen/ProfileComponent.vue';
+import AuthUserComponent from './views/AuthUserScreen/AuthUserComponent.vue';
 import SingleGameComponent from './views/SingleGameScreen/SingleGameComponent.vue';
 import GameListComponent from './views/GameListScreen/GameListComponent.vue';
 import TestComponent from './views/TestScreen/TestComponent.vue';
+import SingleUserComponent from './views/SingleUserScreen/SingleUserComponent.vue';
 import MaintenanceComponent from './components/_main/Maintenance/MaintenanceComponent.vue';
 
 const routes = [
@@ -45,15 +46,20 @@ const routes = [
   {
     path: '/profile',
     name: 'profile',
-    component: ProfileComponent
+    component: AuthUserComponent
   },
   {
-    path: '/singleGame',
+    path: '/user/:id',
+    name: 'singleUser',
+    component: SingleUserComponent
+  },
+  {
+    path: '/singleGame/:id',
     name: 'singleGame',
     component: SingleGameComponent
   },
   {
-    path: '/gameList',
+    path: '/gameList/:id',
     name: 'gameList',
     component: GameListComponent
   },

@@ -1,4 +1,3 @@
-import { mapActions } from "vuex";
 import HeaderComponent from "./../../components/_main/Header/HeaderComponent.vue";
 import gameService from "../../shared/services/gameService";
 
@@ -37,10 +36,6 @@ const homeComponent: any = {
     };
   },
   methods: {
-    ...mapActions("gameReducer", ["setGame"]),
-    gameChoice(game: any) {
-      this.setGame(game);
-    },
     changeExpected(value: string){
       if (value == 'release'){
         this.expected = this.releases

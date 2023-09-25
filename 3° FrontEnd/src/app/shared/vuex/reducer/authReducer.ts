@@ -1,25 +1,39 @@
 import { I_User } from "../../interfaces/I_User"
 import AuthAction from "../action/authAction"
 
-export const USER_INITIAL_STATE: I_User = {
+export const AUTH_INITIAL_STATE: I_User = {
   id: 0,
-  nickName: "unknow",
+  note: '',
+  nickname: "unknow",
   status: "unknow",
   joined: "--/--/--",
   sexuality: "unknow",
+  friend: [],
   bornDate: "--/--/--",
   auth: 0,
-  nationality: 0
+  playing: 0,
+  onHold: 0,
+  planning: 0,
+  dropped: 0,
+  completed: 0,
+  replayed: 0,
+  hours: 0,
+  game: {
+    id: 0,
+    gameImage: ''
+  },
+  nationality: { name: "", cod: "BR"},
+  recommendations: 0
 }
 
 const AuthReducer = {
   namespaced: true,
   state: {
-    user: USER_INITIAL_STATE
+    auth: AUTH_INITIAL_STATE
   },
   mutations: {
     userLogin (state: any, payload: I_User) {
-      state.user = payload
+      state.auth = payload
     }
   },
   actions: AuthAction

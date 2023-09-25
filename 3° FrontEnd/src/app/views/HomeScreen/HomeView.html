@@ -32,7 +32,8 @@
         <div id="cardList">
             <div v-for="game in expected.slice(0, 6)" :key="game.id" class="card">
                 
-                <router-link to="/singleGame" @click="gameChoice(game)" class="cardImage backImageConfig" :style="{backgroundImage: `url(${game.gameImage})`}"></router-link>
+                <router-link class="cardImage backImageConfig" 
+                :style="{backgroundImage: `url(${game.gameImage})`}" :to="`/singleGame/${game.id}`"></router-link>
                 <div>
                     <div>{{ game.name.slice(0, 20) }}</div>
                     <div v-if="game.name.length > 20">...</div>
@@ -77,14 +78,14 @@
         </div>
         <div id="top5" v-if="topRated.length != 0">
             <div>
-                <router-link to="/singleGame" :style="{ backgroundImage: `url(${topRated[0].gameImage})`}" @click="gameChoice(topRated[0])">
+                <router-link :style="{ backgroundImage: `url(${topRated[0].gameImage})`}" :to="`/singleGame/${topRated[0].id}`">
                     <div>
                         Top 1° - Most rated game 2023
                     </div>
                 </router-link>
             </div>
             <div>
-                <router-link to="/singleGame" v-for="item in topRated.slice(1, topRated.length)" :style="{ backgroundImage: `url(${item.gameImage})`}" @click="gameChoice(item)">
+                <router-link v-for="item in topRated.slice(1, topRated.length)" :style="{ backgroundImage: `url(${item.gameImage})`}" :to="`/singleGame/${item.id}`">
                     <div>
                         Top {{topRated.indexOf(item) + 1}}° - Most rated game 2023
                     </div>
@@ -96,7 +97,7 @@
     <div id="recommendations">
         <h2>Recommendations</h2>
         <div>
-            <router-link to="/singleGame" v-for="recomendation in recomendations.slice(0,4)" :key="recomendation.id" @click="gameChoice(recomendation.game)">
+            <router-link v-for="recomendation in recomendations.slice(0,4)" :key="recomendation.id" :to="`/singleGame/${recomendation.game.id}`">
                 <div class="recomendation">
                     <img :src="recomendation.game.gameImage" alt="RecommendationImage" />
                     <div>

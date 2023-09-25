@@ -21,5 +21,5 @@ export interface I_Game {
     playTime: number,
     themes: Array<string>,
     source: string,
-    img: Array<string>
+    imgs: any
 }

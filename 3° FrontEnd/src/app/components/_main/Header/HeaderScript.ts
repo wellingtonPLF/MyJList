@@ -1,18 +1,18 @@
 import { mapState, mapActions } from "vuex";
-import { USER_INITIAL_STATE } from "../../../shared/vuex/reducer/authReducer";
+import { AUTH_INITIAL_STATE } from "../../../shared/vuex/reducer/authReducer";
 import authService from "../../../shared/services/authService";
 
 export default {
     name: 'HeaderComponent',
     computed: {
         ...mapState('authReducer', {
-            userLogin: (state: any) => state.user
+            userLogin: (state: any) => state.auth
         })
     },
     methods: {
-        ...mapActions('authReducer', ['setUser']),
+        ...mapActions('authReducer', ['setAuth']),
         signOut(){
-            this.setUser(USER_INITIAL_STATE)
+            this.setAuth(AUTH_INITIAL_STATE)
             authService.logOut().then(
                 _ => {}
             )

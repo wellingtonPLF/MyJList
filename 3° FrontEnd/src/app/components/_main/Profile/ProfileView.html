@@ -15,19 +15,19 @@
                 <div></div>
             </div>
             <div>
-                <div v-if="user.nationality != undefined">
+                <div>
                     <div id="userProfile">
                         <div class="backImageConfig"></div>
                         <div>
                             <div>
-                                <div>Status: {{(user.status == "off")? 'Offline': 'Online'}}</div>
+                                <div>Status: {{(obj.user.status == "off")? 'Offline': 'Online'}}</div>
                                 <div id="userJoined">
                                     <div>Joined:</div>
-                                    <div>{{user.joined}}</div>
+                                    <div>{{obj.user.joined}}</div>
                                 </div>
                                 <div>
-                                    <div>
-                                        <font-awesome-icon :icon="['fas', 'paper-plane']" />
+                                    <div @click="show()">
+                                        <font-awesome-icon  :icon="['fas', 'paper-plane']" />
                                     </div>
                                     <div>
                                         <font-awesome-icon :icon="['fas', 'gift']" />
@@ -43,13 +43,13 @@
                             <div>
                                 <div class="centralize">
                                     <div>Location: </div>
-                                    <img style="padding-left: 7px;" :title="user.nationality.value" :src="`https://flagcdn.com/24x18/${user.nationality.cod.toLowerCase()}.png`" 
-                                    :srcset="`https://flagcdn.com/48x36/${user.nationality.cod.toLowerCase()}.png 2x, 
-                                    https://flagcdn.com/72x54/${user.nationality.cod.toLowerCase()}.png 3x`" 
-                                    width="24" height="18" :alt="user.nationality.value">
+                                    <img style="padding-left: 7px;" :title="obj.user.nationality.value" :src="`https://flagcdn.com/24x18/${obj.user.nationality.cod.toLowerCase()}.png`" 
+                                    :srcset="`https://flagcdn.com/48x36/${obj.user.nationality.cod.toLowerCase()}.png 2x, 
+                                    https://flagcdn.com/72x54/${obj.user.nationality.cod.toLowerCase()}.png 3x`" 
+                                    width="24" height="18" :alt="obj.user.nationality.value">
                                 </div>
                                 <div>
-                                    <h3>{{user.nickname}}</h3>
+                                    <h3>{{obj.user.nickname}}</h3>
                                     <div>
                                         <div>Also Available at</div>
                                         <div><font-awesome-icon :icon="['fas', 'link']" /> http://localhost:5173/profile</div>
@@ -58,10 +58,10 @@
                                 </div>
                             </div>
                             <div>
-                                <div>Sex: {{(user.sexuality == "M") ? "Masculine": "Feminine"}}</div>
+                                <div>Sex: {{(obj.user.sexuality == "M") ? "Masculine": "Feminine"}}</div>
                                 <div id="userBornDate">
                                     <div>Birthday:</div>
-                                    <div>{{user.bornDate}}</div>
+                                    <div>{{obj.user.bornDate}}</div>
                                 </div>
                                 <div id="network">
                                     <font-awesome-icon :icon="['fab', 'twitter']" />
@@ -79,45 +79,45 @@
                                 <div>
                                     <div style="background-color: green;"></div>
                                     <div>Playing</div>
-                                    <div>{{user.playing}}</div>
+                                    <div>{{obj.user.playing}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: blue;"></div>
                                     <div>Complete</div>
-                                    <div>{{user.completed}}</div>
+                                    <div>{{obj.user.completed}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: yellow;"></div>
                                     <div>On-Hold</div>
-                                    <div>{{user.onHold}}</div>
+                                    <div>{{obj.user.onHold}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: red;"></div>
                                     <div>Dropped</div>
-                                    <div>{{user.dropped}}</div>
+                                    <div>{{obj.user.dropped}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: gray;"></div>
                                     <div>Plan to Play</div>
-                                    <div>{{user.planning}}</div>
+                                    <div>{{obj.user.planning}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: rgb(7, 180, 180);"></div>
                                     <div>Replayed</div>
-                                    <div>{{user.replayed}}</div>
+                                    <div>{{obj.user.replayed}}</div>
                                 </div>
                             </div>
                             <div>
                                 <div>
-                                    <div>{{user.planning + user.playing + user.completed + user.dropped + user.onHold}}</div>
+                                    <div>{{obj.user.planning + obj.user.playing + obj.user.completed + obj.user.dropped + obj.user.onHold}}</div>
                                     <div>Total Entries</div>
                                 </div>
                                 <div>
-                                    <div>{{user.hours}}</div>
+                                    <div>{{obj.user.hours}}</div>
                                     <div>Total Days</div>
                                 </div>
                                 <div>
-                                    <div>{{user.hours}}</div>
+                                    <div>{{obj.user.hours}}</div>
                                     <div>Total Hours</div>
                                 </div>
                             </div>
@@ -129,11 +129,11 @@
                 </div>
             </div>
             <div id="profileData">
-                <div v-if="user.nationality != undefined">
+                <div v-if="obj.user.nationality != undefined">
                     <div>
                         <div>
                             <div>
-                                <router-link to="/gameList" id="myGameList">
+                                <router-link id="myGameList" :to="`/gameList/${obj.user.id}`">
                                     My Game List
                                 </router-link>
                                 <div>
@@ -157,19 +157,19 @@
                                     </div>
                                     <div>
                                         <div>Recomendations</div>
-                                        <div>{{user.recommendations}}</div>
+                                        <div>{{obj.user.recommendations}}</div>
                                     </div>
                                 </div>
                             </div>
                             <div id="profileNotes">
                                 <div>Notes</div>
-                                <input style="padding-left: 5px;" placeholder="Type your note right here!" :v-model="user.note" />
+                                <input style="padding-left: 5px;" placeholder="Type your note right here!" :v-model="obj.user.note" />
                             </div>
                         </div>
                         <div id="historyList">
                             <div>Last Games Updates</div>
                             <div>
-                                <router-link to="/singleGame" v-for="item in user.lastUpdated" @click="gameChoice(item.game)">
+                                <router-link v-for="item in obj.user.lastUpdated" :to="`/singleGame/${item.game.id}`">
                                     <div class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></div>
                                 </router-link>
                             </div>
@@ -189,8 +189,8 @@
                         <div>
                             <div>Friends</div>
                             <div id="friends">
-                                <router-link v-if="user.friend.length != 0" to="/profile" v-for="item in user.friend" @click="userChoice(user)" >
-                                    <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${(user.sexuality === 'Male') ? imgType.male : imgType.female})`}"></div>
+                                <router-link v-if="obj.user.friend.length != 0" v-for="item in obj.user.friend" :to="`/user/${obj.user.id}`">
+                                    <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${(obj.user.sexuality === 'Male') ? imgType.male : imgType.female})`}"></div>
                                 </router-link>
                                 <div v-else style="text-align: center; width: 100%;">
                                     <div>No Friend Found</div>
@@ -200,7 +200,7 @@
                         <div>
                             <div>Favorite Games</div>
                             <div id="favGame">
-                                <router-link to="/singleGame" v-for="item in user.favoriteGames" @click="gameChoice(item.game)" 
+                                <router-link v-for="item in obj.user.favoriteGames" :to="`/singleGame/${item.game.id}`"
                                 class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></router-link>
                             </div>
                         </div>

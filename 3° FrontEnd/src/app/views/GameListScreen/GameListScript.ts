@@ -37,7 +37,8 @@ const gameListComponent: any = {
     }
   },
   mounted() {
-    registryService.listAll().then(
+    console.log()
+    registryService.getRegistryByUserID(this.$route.params.id).then(
       it => {
         this.registry = it
         this.registryList = it

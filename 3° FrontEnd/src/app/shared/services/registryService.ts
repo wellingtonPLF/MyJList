@@ -27,6 +27,16 @@ class RegistryService {
     }
   }
 
+  async getRegistryByUserID(id: number) {
+    try{
+      const { data } = await api.get(`${this.path}/getRegistryByUserID/${id}`);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  }
+
 //   async insert(user: any) {
 //     try{
 //       const { data } = await api.post(`${this.path}/`, User.simpleRefract(user));

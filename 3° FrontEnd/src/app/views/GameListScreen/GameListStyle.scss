@@ -17,7 +17,6 @@
 // ----------------------------------------------------------
 #gameListBanner {
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
     flex-direction: column;
     height: 380px;
@@ -27,24 +26,27 @@
 }
 
 #gameListBanner > div:first-child {
+    position: relative;
     display: flex;
     color: white;
-    width: 100%;
-}
-
-#gameListBanner > div:first-child > div {
-    margin-left: 20px;
-    margin-top: 20px;
-    cursor: pointer;
 }
 
 #gameListBanner > div:nth-child(2) {
     display: flex;
-    margin: 0px 0px 15px 15px;
     justify-content: flex-end;
 }
 
 #gameListBanner > div:nth-child(2) > div {
+    display: flex;
+    padding-left: 15px;
+    justify-content: flex-end;
+    background-color: rgba(7, 8, 8, 0.623);
+    border-top-left-radius: 10px;
+    height: 50px;
+    line-height: 50px;
+}
+
+#gameListBanner > div:nth-child(2) > div > div {
     margin: 0px 20px;
     cursor: pointer;
 }
@@ -105,14 +107,14 @@ $tagsBorderColor: rgb(56, 56, 56);
     font-size: 15px;
 }
 
-#gameCardList > div:first-child {
+#cardImage {
     display: flex;
     align-items: flex-end;
     color: white;
     height: 200px;
 }
 
-#gameCardList > div:first-child > div {
+#cardImage > div {
     background-color: rgba(0, 0, 0, 0.781);
     width: 100%;
     height: 40px;

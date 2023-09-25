@@ -1,15 +1,17 @@
 <div id="gameList">
     <div class="backImageConfig" id="gameListBanner">
-        <div>
+        <div class="backPage">
             <GoBackComponent />
         </div>
-        <div>
-            <div>status</div>
-            <div>filter</div>
-            <div>search</div>
-        </div>
+        <!-- <div class="unselect">
+            <div>
+                <div>status</div>
+                <div>filter</div>
+                <div>search</div>
+            </div>
+        </div> -->
     </div>
-    <div>
+    <div class="unselect">
         <div @click="filterBy('all')">All Games</div>
         <div @click="filterBy('Playing')">Playing</div>
         <div @click="filterBy('Replaying')">Replaying</div>
@@ -33,8 +35,14 @@
     </div>
     <div v-if="registry.length != 0">
         <div id="gameCardList" v-for="item in registry">
-            <div class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}">
-                <div>{{item.name}}</div>
+            <div>
+                <router-link class="backImageConfig" id="cardImage" 
+                :style="{backgroundImage: `url(${item.game.gameImage})`}" :to="`/singleGame/${item.game.id}`">
+                    <div>
+                        {{ item.game.name.slice(0, 40) }}
+                        <span v-if="item.game.name.length > 40">. . .</span>
+                    </div>
+                </router-link>
             </div>
             <div>
                 <div>{{item.game.playtime}} hours</div>
@@ -75,16 +83,17 @@
                         </button>
                     </div>
                     <div>
-                        <select name="type">
-                            <option value="Bad script">Bad script</option>
-                            <option value="Good script">Good script</option>
+                        <select name="type" v-model="item.tag.value">
+                            <option value="Undefined">Undefined</option>
+                            <option value="Bad Script">Bad script</option>
+                            <option value="Good Script">Good script</option>
                         </select>
                         <button @click="okL()" style="width: 30px; margin-left: 2px;">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>
                 </div>
-                <div>
+                <div class="unselect" style="cursor: default;">
                     <div>Status</div>
                     <div>Score</div>
                     <div>Tags</div>

@@ -1,5 +1,4 @@
 import FilterComponent from "../../components/dialogs/FilterDialog/FilterComponent.vue";
-import { mapActions } from "vuex";
 import { I_Game } from "../../shared/interfaces/I_Game";
 import gameService from "../../shared/services/gameService";
 import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue"
@@ -28,10 +27,6 @@ const gameComponent: any = {
     })
   },
   methods: {
-    ...mapActions('gameReducer', ['setGame']),
-    gameChoice(game: any) {
-      this.setGame(game)
-    },
     popularity() {
       this.optionSelected = 'popularity'
       const popular = this.games.filter(x => x.popularity == true).sort((a: any, b: any) => b.score - a.score)

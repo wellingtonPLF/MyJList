@@ -1,10 +1,21 @@
 export interface I_User {
     id?: number;
-    nickName?: string;
+    nickname?: string;
     bornDate?: string;
     auth?: number;
     status?: string,
     joined?: string,
-    nationality?: number,
+    friend: Array<any>,
+    nationality?: any,
+    playing: number,
+    onHold: number,
+    planning: number,
+    dropped: number,
+    completed: number,
+    replayed: number,
+    hours: number,
+    note: string,
+    game: any,
+    recommendations: number,
     sexuality?: string
 }
