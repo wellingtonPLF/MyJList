@@ -1,6 +1,6 @@
 <div id="profilePage">
     <span class="backPage">
-        <GoBackComponent />
+        <GoBackComponent :gChoice="gameChoice"/>
     </span>
     <div id="profile">
         <div>
@@ -269,7 +269,7 @@
                     <div>
                         <div>You May Like</div>
                         <div>
-                            <router-link v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item.game)"
+                            <router-link v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item.game.id)"
                                 :style="{backgroundImage: `url(${item.game.gameImage})`}" :to="`/singleGame/${item.game.id}`">
                             </router-link>
                         </div>

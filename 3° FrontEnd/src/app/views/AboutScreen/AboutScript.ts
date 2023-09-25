@@ -1,5 +1,6 @@
-import axios, { AxiosResponse } from "axios";
 import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
+import userService from "../../shared/services/userService.ts"
+import { AUTH_INITIAL_STATE } from "../../shared/vuex/reducer/authReducer.ts";
 
 const aboutComponent: any = {
   name: "AboutComponent",
@@ -9,10 +10,10 @@ const aboutComponent: any = {
   data() {
     return {
       users: [] as any[],
-      user: {} as any,
+      user: AUTH_INITIAL_STATE,
       imgType: {
-        male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
-        female: "https://img.freepik.com/premium-photo/cute-girl-3d-character-design-cartoon-girl-avatar_432516-5510.jpg?w=2000"
+        male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
+        female: "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg"
       },
     };
   },
@@ -30,15 +31,17 @@ const aboutComponent: any = {
     }
   },
   mounted() {
-    axios
-      .get("jsons/users.json")
-      .then((it: AxiosResponse<any[]>) => {
-        this.users = it.data.slice(0,6);
-        this.user = this.users[0]
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    userService.listAll().then(
+      it => {
+        console.log(it)
+        this.users = it.filter((u) => {
+          return u.role.some((i) => i.roleName === "ROLE_ADMIN")
+        })
+        if (this.users.length != 0) {
+          this.user = this.users[0]
+        }
+      }
+    )
   },
 };
 

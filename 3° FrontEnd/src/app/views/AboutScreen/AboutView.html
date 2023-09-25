@@ -15,19 +15,19 @@
                 <div id="staffCard">
                     <div>
                         <span>
-                            <img :src="(user.sex === 'Male') ? imgType.male : imgType.female" alt="profile_Photo" />
-                        </span>                
+                            <img v-if="users.length != 0" :src="(user.sexuality === 'M') ? imgType.male : imgType.female" alt="profile_Photo" />
+                        </span>
                         <div>
                             <div>
                                 <div v-for="(item, index) in users.slice(0,4)" @click="() => {chooseUser(index)}">
-                                    <img :src="(item.sex === 'Male') ? imgType.male : imgType.female" alt="profile_Photo" />
+                                    <img :src="(item.sexuality === 'M') ? imgType.male : imgType.female" alt="profile_Photo" />
                                 </div>
                             </div>
                             <div>
                                 <div>
-                                    <h4>{{user.name}}</h4>
+                                    <h4>{{user.nickname}}</h4>
                                     <div>{{user.email}}</div>
-                                    <div>{{user.description}}</div>
+                                    <div>{{user.note}}</div>
                                 </div>
                             </div>
                         </div>

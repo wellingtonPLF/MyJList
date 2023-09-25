@@ -1,8 +1,12 @@
+import { PropType } from "vue";
 
 const gameListComponent: any = {
   name: "GameListComponent",
   data() {
     return {};
+  },
+  props: {
+    gChoice: Function as PropType<(game: any) => void>
   },
   methods: {
     goBack() {
@@ -10,6 +14,10 @@ const gameListComponent: any = {
         this.$router.push("/")
       }
       else {
+        const pagePath = this.$router.options.history.state.back.split('/')
+        if (pagePath[1] == 'singleGame'){
+          this.gChoice(pagePath[2])
+        }
         this.$router.back()
       }
     },

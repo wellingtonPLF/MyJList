@@ -20,10 +20,10 @@ const singleGameComponent: any = {
       selectedImg: undefined,
       star: true,
       commentToSend: undefined,
-      noGame: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg",
 
       gameStatus: { vote: "Default", registry: "Default" },
 
+      noGame: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg",
       imgType: {
         male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
         female:
@@ -53,13 +53,22 @@ const singleGameComponent: any = {
     };
   },
   methods: {
-    gameChoice(game: any) { 
-      gameService.getGame(game.id).then(
+    gameChoice(id: number) { 
+      gameService.getGame(id).then(
         it => {
           this.game = it
           this.selectedImg = it.imgs[0].value
         }
       )
+      
+      commentService.getCommentByGameID(id).then(
+        it => {
+          this.userComment = it
+        }
+      )
+      .catch((error) => {
+        console.log(error)
+      })
     },
     changeImage(index: number){
       this.selectedImg = this.game.imgs[index].value
@@ -72,13 +81,6 @@ const singleGameComponent: any = {
     },
     showRequirements() {
       this.requirementsObj.enabled = !this.requirementsObj.enabled;
-    },
-    goBack() {
-      if (this.$router.options.history.state.back == null) {
-        this.$router.push("/");
-      } else {
-        this.$router.back();
-      }
     },
     fav() {
       this.star = !this.star;
