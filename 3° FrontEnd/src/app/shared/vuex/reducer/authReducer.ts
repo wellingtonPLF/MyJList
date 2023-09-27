@@ -22,7 +22,7 @@ export const AUTH_INITIAL_STATE: I_User = {
     id: 0,
     gameImage: ''
   },
-  nationality: { name: "", cod: "BR"},
+  nationality: { name: "", cod: ""},
   recommendations: 0
 }
 

@@ -1,6 +1,7 @@
 import GoBackComponent from "../../features/GoBack/GoBackComponent.vue"
 import { I_User } from "../../../shared/interfaces/I_User";
 import { PropType } from "vue";
+import { mapState } from "vuex";
 
 const profileComponent: any = {
   name: "ProfileComponent",
@@ -15,14 +16,15 @@ const profileComponent: any = {
       }
     };
   },
+  computed: {
+    ...mapState('authReducer', {
+      auth: (state: any) => state.auth
+    })
+  },
   props: {
     obj: Object as PropType<I_User>
   },
   methods: {
-    show(){
-      console.log(this.user, "asdasdasdad")
-      console.log(this.obj.user)
-    },  
     goBack() {
       if (this.$router.options.history.state.back == null) {
         this.$router.push("/")

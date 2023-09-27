@@ -15,7 +15,7 @@
         <div @click="filterBy('all')">All Games</div>
         <div @click="filterBy('Playing')">Playing</div>
         <div @click="filterBy('Replaying')">Replaying</div>
-        <div @click="filterBy('Plan')">Plan to play</div>
+        <div @click="filterBy('Plan to Play')">Plan to play</div>
         <div @click="filterBy('On-Hold')">On-Hold</div>
         <div @click="filterBy('Dropped')">Dropped</div>
         <div @click="filterBy('Completed')">Completed</div>
@@ -48,10 +48,10 @@
                 <div>{{item.game.playtime}} hours</div>
                 <div>{{item.game.playtime}} minutes</div>
                 <div>
-                    <div>
-                        <div :style="{width: `${progress}%`}"></div>
+                    <div style="z-index: 10000;">
+                        <div :style="{width: `${progress}%`, backgroundColor: `${colorChoice(item.progress.toLowerCase())}`}"></div>
                     </div>
-                    ({{progress}}%)
+                    <!-- ({{progress}}%) -->
                 </div>
             </div>
             <div>

@@ -143,15 +143,16 @@ $tagsBorderColor: rgb(56, 56, 56);
 }
 
 #gameCardList > div:nth-child(2) > div:nth-child(3) > div:first-child {
-    width: 250px;
+    width: 98%;
+    // width: 250px;
     height: $progresBar;
     margin-right: 10px;    
-    background-color: rgb(44, 79, 139);
+    // background-color: rgb(44, 79, 139);
 }
 
 #gameCardList > div:nth-child(2) > div:nth-child(3) > div:first-child > div {
     height: $progresBar;
-    background-color: rgb(0, 153, 255);
+    // background-color: rgb(0, 153, 255);
 }
 
 #gameCardList > div:nth-child(3) {

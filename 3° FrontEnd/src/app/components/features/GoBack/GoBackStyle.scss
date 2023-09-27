@@ -25,10 +25,12 @@
 
 #goBack > div:first-child > * {
     margin-left: 1px;
+    cursor: pointer;
 }
 
 #goBack > div:nth-child(2) {
     margin-right: 11px;
     font-size: 17px;
     color: rgb(40, 40, 43); 
+    cursor: pointer;
 }

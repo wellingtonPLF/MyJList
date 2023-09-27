@@ -141,9 +141,15 @@
                                     <div>{{game.release}}</div>
                                 </div>
                                 <div>
-                                    <div style="margin-bottom: 3px;">Type</div>
-                                    <div style="display: flex;">
-                                        <div v-for="item in game.status" style="margin: 0px 5px;">{{(item.value == 'Off')? 'Offline': 'Online'}}</div>
+                                    <div>
+                                        <div>Favorites: {{game.favRank}}</div>
+                                        <div></div>
+                                    </div>
+                                    <div>
+                                        <div style="margin-bottom: 3px;">Type</div>
+                                        <div style="display: flex;">
+                                            <div v-for="item in game.status" style="margin: 0px 5px;">{{(item.value == 'Off')? 'Offline': 'Online'}}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -287,8 +293,8 @@
                             <div>
                                 <div>Últimas Análises</div>
                                 <div>
-                                    <div>Favorites ({{game.favRank}})</div>
-                                    <div>Recomendation ({{game.recommendation}})</div>
+                                    <div>Number of Comments ({{userComment.length}})</div>
+                                    <div>Recomendations ({{game.recommendation}})</div>
                                 </div>
                             </div>
                             <div class="userComment" v-for="(item, index) in userComment">

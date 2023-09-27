@@ -239,11 +239,23 @@ $backImageHeight: 650px;
     margin-top: 30px;
     justify-content: space-around;
     height: 100px;
-    width: 80%;
+    width: 70%;
 }
 
 #statistics > div:first-child  > div:nth-child(2) > div:nth-child(2) > div:nth-child(2){
     color: rgb(203, 206, 26);
+}
+
+#statistics > div:first-child  > div:nth-child(2) > div:nth-child(3) > div{
+    margin-top: 15px;
+}
+
+#statistics > div:first-child  > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2){
+    text-align: center;
+}
+
+#statistics > div:first-child  > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > * {
+    width: 100%;
 }
 
 // -----------------------------------------------------------------------------------------------
@@ -509,7 +521,7 @@ $buttonWidth: 60px;
 
 #gameComments > div:first-child > div:nth-child(2) > div:first-child > div:nth-child(2) {
     display: flex;
-    width: 250px;
+    min-width: 340px;
     justify-content: space-between;
 }
 // -----------
