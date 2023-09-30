@@ -134,7 +134,7 @@
                             <div>
                                 <router-link id="myGameList" :to="`/gameList/${obj.user.id}`">
                                     <span style="padding-right: 5px;">
-                                        {{(auth.id != 0) ? 'My': ((obj.user.sexuality == "M")? 'His' : 'Her')}}
+                                        {{(auth.id != 0 && obj.user.id == auth.id) ? 'My': ((obj.user.sexuality == "M")? 'His' : 'Her')}}
                                     </span> Game List
                                 </router-link>
                                 <div>
@@ -164,7 +164,7 @@
                             </div>
                             <div id="profileNotes">
                                 <div>Notes</div>
-                                <textarea v-if="auth.id != 0" placeholder="Type your note right here!" v-model="auth.note"></textarea>
+                                <textarea v-if="auth.id != 0 && obj.user.id == auth.id" placeholder="Type your note right here!" v-model="auth.note"></textarea>
                                 <div v-else :style="{overflowY: (auth.note.length > 288)? 'scroll': ''}">{{auth.note}}</div>
                             </div>
                         </div>

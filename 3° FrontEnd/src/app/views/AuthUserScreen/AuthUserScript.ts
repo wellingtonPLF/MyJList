@@ -15,7 +15,7 @@ const authUserComponent: any = {
   },
   data() {
     return {
-      auth: AUTH_INITIAL_STATE
+      user: AUTH_INITIAL_STATE
     }
   },
   methods: {
@@ -24,7 +24,7 @@ const authUserComponent: any = {
   mounted() {
     userService.getAuthenticatedUser().then(
       it => {
-        this.auth = it;
+        this.user = it;
         this.setAuth(it)
       }
     )

@@ -20,8 +20,10 @@
                         <div id="userInfo">
                             <div class="backImageConfig" :style="{backgroundImage: `url('${game.gameImage}')`}">
                                 <div style="width: 100%; height: 100%; box-sizing: border-box; border: 5px solid rgba(255, 255, 255, 0.445);">
-                                    <font-awesome-icon @click="fav()" v-if="star" :icon="['far', 'star']" class="favStar" style="color: white;"/>
-                                    <font-awesome-icon @click="fav()" v-else :icon="['far', 'star']" class="favStar" />
+                                    <div v-if="auth.id != 0">
+                                        <font-awesome-icon v-if="star" @click="fav()" :icon="['far', 'star']" class="favStar" style="color: white;"/>
+                                        <font-awesome-icon v-else @click="fav()" :icon="['far', 'star']" class="favStar" />
+                                    </div>
                                 </div>
                             </div>
                             <div v-if="game.name != undefined">
@@ -49,7 +51,7 @@
                                     </div>
                                 </div>
                                 <div id="network">
-                                    <div>
+                                    <div v-if="auth.id != 0">
                                         <button :style="{backgroundColor: (game.id == 0) ? 'rgb(66, 70, 97)': ''}">Add to List</button>
                                         <div>
                                             <select name="vote" v-model="gameStatus.vote">
@@ -70,11 +72,14 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <span v-else>
+                                        <div>SIGN IN</div>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div id="network">
-                            <div>
+                            <div v-if="auth.id != 0">
                                 <button>Add to List</button>
                                 <div>
                                     <select name="vote" v-model="gameStatus.vote">
@@ -95,6 +100,9 @@
                                     </select>
                                 </div>
                             </div>
+                            <span v-else>
+                                <div>SIGN IN</div>
+                            </span>
                         </div>
                     </div>
                     <div id="statistics">
@@ -134,7 +142,7 @@
                             <div>
                                 <div>
                                     <div>Approx. Time</div>
-                                    <div>{{game.playtime}}m</div>
+                                    <div>{{hoursMinutes()}}</div>
                                 </div>
                                 <div>
                                     <div>Publication</div>
@@ -148,7 +156,9 @@
                                     <div>
                                         <div style="margin-bottom: 3px;">Type</div>
                                         <div style="display: flex;">
-                                            <div v-for="item in game.status" style="margin: 0px 5px;">{{(item.value == 'Off')? 'Offline': 'Online'}}</div>
+                                            <div v-for="item in game.status" style="margin: 0px 5px;">{{
+                                                (item.value != undefined) ? ((item.value == 'Off')? 'Offline': 'Online') : 'unknow'
+                                            }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -236,13 +246,17 @@
                             <div id="plataforms">
                                 <div>Plataforms</div>
                                 <div>
-                                    <div v-for="item in game.plataform">{{item.value}}</div>
+                                    <div v-for="item in game.plataform">{{
+                                        (item.value != undefined)? item.value : 'unknow'
+                                    }}</div>
                                 </div>
                             </div>
                             <div id="achievements">
                                 <div>Achievements</div>
                                 <div>
-                                    <div v-for="item in game.achievements">{{item.value}}</div>
+                                    <div v-for="item in game.achievements">{{
+                                        (item.value != undefined)? item.value : 'unknow'
+                                    }}</div>
                                 </div>
                             </div>
                             <div id="information">
@@ -250,14 +264,20 @@
                                 <div>
                                     <div>Premiede: {{game.premiede}}</div>
                                     <div style="display: flex;">Producers:
-                                        <div v-for="item in game.producer" style="margin-left: 5px;">{{item.value}}</div>
+                                        <div v-for="item in game.producer" style="margin-left: 5px;">{{
+                                            (item.value != undefined)? item.value : 'unknow'
+                                        }}</div>
                                     </div>
                                     <div style="display: flex;">Studio: 
-                                        <div v-for="item in game.studio" style="margin-left: 5px;">{{item.value}}</div>
+                                        <div v-for="item in game.studio" style="margin-left: 5px;">{{
+                                            (item.value != undefined)? item.value : 'unknow'
+                                        }}</div>
                                     </div>
                                     <div>Source: {{game.source}}</div>
                                     <div style="display: flex;">Themes:
-                                        <div v-for="item in game.theme" style="margin-left: 5px;">{{item.value}}</div>
+                                        <div v-for="item in game.theme" style="margin-left: 5px;">{{
+                                            (item.value != undefined)? item.value : 'unknow'
+                                        }}</div>
                                     </div>
                                 </div>
                             </div>

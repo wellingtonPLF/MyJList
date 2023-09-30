@@ -45,8 +45,8 @@
                 </router-link>
             </div>
             <div>
-                <div>{{item.game.playtime}} hours</div>
-                <div>{{item.game.playtime}} minutes</div>
+                <div>{{hoursMinutes(item.game.playtime)[0]}} hours</div>
+                <div>{{hoursMinutes(item.game.playtime)[1]}} {{(hoursMinutes(item.game.playtime)[1] == 1) ? 'minute' : 'minutes'}}</div>
                 <div>
                     <div style="z-index: 10000;">
                         <div :style="{width: `${progress}%`, backgroundColor: `${colorChoice(item.progress.toLowerCase())}`}"></div>
@@ -57,7 +57,7 @@
             <div>
                 <div>
                     <div>
-                        <select name="status" v-model="item.progress" style="font-weight: 600; color: rgb(104, 21, 107);">
+                        <select v-if="auth.id != 0 && $route.params.id == auth.id" name="status" v-model="item.progress" style="font-weight: 600; color: rgb(104, 21, 107);">
                             <option value="Completed">Completed</option>
                             <option value="Playing">Playing</option>
                             <option value="Plan to Play">Plan to Play</option>
@@ -65,12 +65,13 @@
                             <option value="On-Hold">On-Hold</option>
                             <option value="Replaying">Replaying</option>
                         </select>
-                        <button @click="okL()" style="width: 30px; margin-left: 2px;">
+                        <div v-else>{{item.progress}}</div>
+                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()" style="width: 30px; margin-left: 2px;">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>
                     <div>
-                        <select name="score" v-model="item.note">
+                        <select v-if="auth.id != 0 && $route.params.id == auth.id" name="score" v-model="item.note">
                             <option value="Incredible">Awesome</option>
                             <option value="Great">Great</option>
                             <option value="Good">Good</option>
@@ -78,17 +79,19 @@
                             <option value="Meh">Meh</option>
                             <option value="Horrible">Horrible</option>
                         </select>
-                        <button @click="okL()" style="width: 30px; margin-left: 2px;">
+                        <div v-else>{{item.note}}</div>
+                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()" style="width: 30px; margin-left: 2px;">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>
                     <div>
-                        <select name="type" v-model="item.tag.value">
+                        <select v-if="auth.id != 0 && $route.params.id == auth.id" name="type" v-model="item.tag.value">
                             <option value="Undefined">Undefined</option>
                             <option value="Bad Script">Bad script</option>
                             <option value="Good Script">Good script</option>
                         </select>
-                        <button @click="okL()" style="width: 30px; margin-left: 2px;">
+                        <div v-else>{{item.tag.value}}</div>
+                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()" style="width: 30px; margin-left: 2px;">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>

@@ -144,6 +144,21 @@ $backImageHeight: 650px;
     border-radius: 20px;
 }
 
+#network > span > div {
+    border: 3px solid gray; 
+    color: gray; 
+    height: 40px; width: 240px; 
+    margin-top: 15px; 
+    cursor: pointer; 
+    text-align: center; 
+    line-height: 40px; 
+    font-weight: 600;
+}
+
+#network > span > div::selection {
+    background-color: transparent;
+}
+
 #network > div{
     display: flex;
     flex-direction: column;
@@ -687,6 +702,14 @@ $buttonWidth: 60px;
 @media screen and (max-width: 600px) {
     #userProfile > div:first-child > div:first-child > div:nth-child(2){
         display: flex;
+    }
+
+    #network > span {
+        width: 100%;
+    }
+
+    #network > span > div {
+        width: 100%;
     }
 
     #network > div > div {

@@ -1,5 +1,6 @@
 import registryService from "../../shared/services/registryService";
 import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue";
+import { mapState } from "vuex";
 
 const gameListComponent: any = {
   name: "GameListComponent",
@@ -13,16 +14,28 @@ const gameListComponent: any = {
       emptyList: 'Loading. . .',
       progress: 100,
       colors: [
-        { playing: 'rgb(50 222 14)'},
         { completed: 'rgb(215 17 236)'},
-        { dropped: '#f00000'},
+        { playing: 'rgb(50 222 14)'},
         { replaying: '#0ed8d8'},
         { planning: '#878c95'},
+        { dropped: '#f00000'},
         { onHold: '#f7d614'}
       ]
     };
   },
+  computed: {
+    ...mapState('authReducer', {
+      auth: (state: any) => state.auth
+    })
+  },
   methods: {
+    hoursMinutes(playtime: any){
+      const hours_minutes_total = Math.round(playtime * 60)
+      const hours = Math.floor(playtime)
+      const hours_total = hours * 60
+      const minutes = hours_minutes_total - hours_total
+      return [hours, minutes]
+    },
     colorChoice(key: any){
       if (key == 'plan to play') {
         return this.colors.find(obj => 'planning' in obj)['planning']

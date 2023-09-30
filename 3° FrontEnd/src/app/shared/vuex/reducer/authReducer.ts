@@ -7,7 +7,7 @@ export const AUTH_INITIAL_STATE: I_User = {
   nickname: "unknow",
   status: "unknow",
   joined: "--/--/--",
-  sexuality: "unknow",
+  sexuality: "M",
   friend: [],
   bornDate: "--/--/--",
   auth: 0,

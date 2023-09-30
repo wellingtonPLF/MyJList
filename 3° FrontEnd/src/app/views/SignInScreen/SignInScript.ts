@@ -29,6 +29,7 @@ const signInComponent: any = {
       }
     },
     login() {
+      // if (this.username == undefined || this.password == undefined) 
       authService.authentication(this.auth).then(
         _ => {
           userService.getAuthenticatedUser().then(
@@ -45,11 +46,10 @@ const signInComponent: any = {
           this.$router.push('/maintenance');
         }
         this.error.enabled = true
-        this.error.msg = msg.code
+        this.error.msg = msg.detail
       })
     }
-  },
-  mounted() { },
+  }
 };
 
 export default signInComponent;

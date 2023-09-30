@@ -4,6 +4,7 @@ import gameService from "../../shared/services/gameService";
 import commentService from "../../shared/services/commentService";
 import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
 import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer";
+import { mapState } from "vuex";
 
 library.add(faStar);
 
@@ -11,6 +12,11 @@ const singleGameComponent: any = {
   name: "SingleGameComponent",
   components: {
     GoBackComponent
+  },
+  computed: {
+    ...mapState('authReducer', {
+      auth: (state: any) => state.auth
+    })
   },
   data() {
     return {
@@ -53,6 +59,13 @@ const singleGameComponent: any = {
     };
   },
   methods: {
+    hoursMinutes(){
+      const hours_minutes_total = Math.round(this.game.playtime * 60)
+      const hours = Math.floor(this.game.playtime)
+      const hours_total = hours * 60
+      const minutes = hours_minutes_total - hours_total
+      return `${hours}h ${minutes}m`
+    },
     gameChoice(id: number) { 
       gameService.getGame(id).then(
         it => {

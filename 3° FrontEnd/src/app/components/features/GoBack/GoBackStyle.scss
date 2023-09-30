@@ -21,11 +21,11 @@
     background-color: rgb(40, 40, 43);
     border-radius: 100%;
     margin-left: 4px;
+    cursor: pointer;
 }
 
 #goBack > div:first-child > * {
     margin-left: 1px;
-    cursor: pointer;
 }
 
 #goBack > div:nth-child(2) {

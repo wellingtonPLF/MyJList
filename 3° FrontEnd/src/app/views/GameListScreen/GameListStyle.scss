@@ -196,6 +196,17 @@ $tagsBorderColor: rgb(56, 56, 56);
     height: 30px;
 }
 
+#gameCardList > div:nth-child(3) > div:first-child > div > div{
+    line-height: 35px;
+    padding-left: 5px;
+    cursor: default;
+    border-bottom: 1px solid black;
+}
+
+#gameCardList > div:nth-child(3) > div:first-child > div > div::selection{
+    background-color: transparent;
+}
+
 #emptyList {
     text-align: center;
     font-size: 30px;
