@@ -47,7 +47,7 @@ $iconSize: 70px;
     margin: 0px;
 }
 
-#banner button, #bandle > div > div a {
+#banner button, #gameAwards > div a {
     padding: 0px 17px; 
     height: 40px;
     border: 0px;
@@ -60,7 +60,7 @@ $iconSize: 70px;
     background-color: $greenColor;
 }
 
-#banner button:hover, #bandle > div > div a:hover {
+#banner button:hover, #gameAwards > div a:hover {
     color: black;
     background-color: white;
 }
@@ -207,27 +207,20 @@ $iconSize: 70px;
     vertical-align: top;
 }
 
-$aspact-ratio-width: 2 * 1280; // Largura da Imagem * 2
-$aspact-ratio-height: 720; // Altura da Imagem
+// Largura da Imagem * 2 
+$aspact-ratio-width: 2 * 1280; //Width must be higher then height
+// Altura da Imagem
+$aspact-ratio-height: 720; 
 
 .aspect-ratio-container {
     display: inline-block;
     vertical-align: top;
+    height: auto;
     width: 50%;
     padding-top: calc($aspact-ratio-height/$aspact-ratio-width * 100%);
     position: relative;
     background-color: red;
 }
-
-// .content {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     margin-top: 10px;
-//     font-size: 4lvh; //dvh
-// }
 
 #gameAwards {
     position: absolute;
@@ -253,18 +246,31 @@ $aspact-ratio-height: 720; // Altura da Imagem
     padding: 10px 0px 45px 0px;
 }
 
-#gameAwards > div h3 {
-    font-weight: 100;
-    margin-bottom: 30px;
+#gameAwards > div h1 {
+    font-size: 3lvh;
 }
 
-#gameAwards > div a{
-    margin: 0px;
-    padding: 10px 15px;
-    color: white;
-    background-color: red;
-    text-decoration: unset;
+#gameAwards > div h3 {
+    font-size: 2lvh;
+    font-weight: 100;
+    margin-bottom: 2.5vh;
 }
+
+$aspact-ratio-width-awardsBtn: 2 * 450;
+$aspact-ratio-height-awardsBtn: 20;
+
+#gameAwards > div > div > a{
+    display: block;
+    text-align: center;
+    width: 20%;
+    height: auto;
+    min-width: 100px;
+    margin: 0px;
+    border-radius: 0.4vw;
+    font-size: 2dvh;
+    padding: calc($aspact-ratio-height-awardsBtn/$aspact-ratio-width-awardsBtn * 100%) 0px;
+}
+
 // ---------------------------------------------------------------------------------------------------
 
 .line{
