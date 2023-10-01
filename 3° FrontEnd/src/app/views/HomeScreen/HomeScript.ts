@@ -1,5 +1,6 @@
 import HeaderComponent from "./../../components/_main/Header/HeaderComponent.vue";
 import gameService from "../../shared/services/gameService";
+import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer.ts"
 
 interface Game {
   id: number;
@@ -19,7 +20,14 @@ const homeComponent: any = {
   data() {
     return {
       games: [] as Game[],
-      expected: [],
+      expected: [
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE
+      ],
       airing: [],
       releases: [],
       topRated: [],

@@ -30,7 +30,7 @@
         </div>
 
         <div id="cardList">
-            <div v-for="game in expected.slice(0, 6)" :key="game.id" class="card">
+            <div v-for="game in expected" :key="game.id" class="card">
                 
                 <router-link class="cardImage backImageConfig" 
                 :style="{backgroundImage: `url(${game.gameImage})`}" :to="`/singleGame/${game.id}`"></router-link>
@@ -53,19 +53,21 @@
         </div>
     </div>
     <div id="bandle">
-        <img src="https://actualidadriojabaja.com/wp-content/uploads/2022/11/StrayA_1.jpg" />
-        <div>
-            <div>
-                <h1>Game Awards</h1>
-                <h3>
-                    The Game Awards is an annual award ceremony that recognizes the best video games of each year and
-                    major accomplishments in the industry, that bring together a diverse group of game developers, game
-                    players, and notable names from popular culture to celebrate and advance gaming's position as the
-                    most immersive, challenging and inspiring form of entertainment.
-                </h3>
-                <a href="https://thegameawards.com/nominees/game-of-the-year" target="_blank">right here</a>
+        <img src="https://actualidadriojabaja.com/wp-content/uploads/2022/11/StrayA_1.jpg"/>
+        <span class="aspect-ratio-container">
+            <div id="gameAwards">
+                <div>
+                    <h1>Game Awards</h1>
+                    <h3>
+                        The Game Awards is an annual award ceremony that recognizes the best video games of each year and
+                        major accomplishments in the industry, that bring together a diverse group of game developers, game
+                        players, and notable names from popular culture to celebrate and advance gaming's position as the
+                        most immersive, challenging and inspiring form of entertainment.
+                    </h3>
+                    <a href="https://thegameawards.com/nominees/game-of-the-year" target="_blank">right here</a>
+                </div>
             </div>
-        </div>
+        </span>
     </div>
     <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
         <div class="line"></div>
