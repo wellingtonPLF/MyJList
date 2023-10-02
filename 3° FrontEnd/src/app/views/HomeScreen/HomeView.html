@@ -73,7 +73,7 @@
     </div>
     <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
         <div class="line"></div>
-        <h2 style="width: 245px;">&nbsp;&nbsp;&nbsp;&nbsp;Top rated games&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <h2 style="font-size: 2lvh;">&nbsp;&nbsp;&nbsp;&nbsp;Top rated games&nbsp;&nbsp;&nbsp;&nbsp;</h2>
         <div class="line"></div>
     </div>
     <div id="ranking">
@@ -81,19 +81,23 @@
             <router-link to="/game">Visualizar tudo</router-link>
         </div>
         <div id="top5" v-if="topRated.length != 0">
-            <div>
-                <router-link :style="{ backgroundImage: `url(${topRated[0].gameImage})`}" :to="`/singleGame/${topRated[0].id}`">
-                    <div>
-                        Top 1° - Most rated game 2023
-                    </div>
+            <figure>
+                <router-link :to="`/singleGame/${topRated[0].id}`">
+                    <img :src="topRated[0].gameImage" alt="top1">
+                    <figcaption>
+                        <div>Top 1° - Most rated game 2023</div>
+                    </figcaption>
                 </router-link>
-            </div>
+            </figure>
             <div>
-                <router-link v-for="item in topRated.slice(1, topRated.length)" :style="{ backgroundImage: `url(${item.gameImage})`}" :to="`/singleGame/${item.id}`">
-                    <div>
-                        Top {{topRated.indexOf(item) + 1}}° - Most rated game 2023
-                    </div>
-                </router-link>
+                <figure v-for="item in topRated.slice(1, topRated.length)">
+                    <router-link :to="`/singleGame/${item.id}`">
+                        <img :src="`${item.gameImage}`" alt="top1">
+                        <figcaption>
+                            <div>Top {{topRated.indexOf(item) + 1}}° - Most rated game 2023</div>
+                        </figcaption>
+                    </router-link>
+                </figure>
             </div>
         </div>
     </div>
