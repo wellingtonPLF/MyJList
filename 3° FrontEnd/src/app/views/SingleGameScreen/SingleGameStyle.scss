@@ -147,12 +147,19 @@ $backImageHeight: 650px;
 #network > span > div {
     border: 3px solid gray; 
     color: gray; 
-    height: 40px; width: 240px; 
+    height: 40px; 
+    width: 240px; 
     margin-top: 15px; 
-    cursor: pointer; 
     text-align: center; 
     line-height: 40px; 
     font-weight: 600;
+}
+
+#network > span > div > a {
+    display: flex;
+    justify-content: center;
+    color: gray;
+    width: 100%;
 }
 
 #network > span > div::selection {

@@ -1,7 +1,5 @@
 @import './../../../theme';
 
-$iconSize: 70px;
-
 #homePage{
     display: flex;
     flex-direction: column;
@@ -14,7 +12,7 @@ $iconSize: 70px;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    height: 500px;
+    height: 25vw;
     color: white;
     background-image: url("https://gameranx.com/wp-content/uploads/2023/01/Elden-Ring.jpg");
     background-size: cover;
@@ -23,71 +21,85 @@ $iconSize: 70px;
 }
 
 #banner > div{
-    max-width: 520px;
-    margin: 70px 30px 50px 50px;
+    width: 26vw;
+    margin-top: 4vw;
+    margin-left: 3vw;
 }
 
 #banner > div > div{
     background-color: rgb(17, 17, 17, 0.6); 
-    border-radius: 30px;
-    padding: 15px 0px 15px 28px;
-    margin-bottom: 20px;
+    border-radius: 1.7vw;
+    padding: 1vw 0px 1vw 1.3vw;
+    margin-bottom: 1.3vw;
 }
 
 #banner h1 {
-    font-size: 40px;
-    margin-left: 25px;
+    font-size: 2lvw;
+    margin-left: 1vw;
 }
 
 #banner h2 {
-    font-size: 25px;
+    font-size: 1.3lvw;
     font-weight: 200;
-    max-width: 500px;
-    min-height: 95px;
+    height: 5vw;
     margin: 0px;
 }
 
-#banner button, #gameAwards > div a {
-    padding: 0px 17px; 
-    height: 40px;
+#banner button {
+    margin-left: 1vw;
+}
+
+#banner button, #gameAwards > div > div > a{
+    display: flex;
+    align-items: center;
+    padding: 0px 1vw; 
     border: 0px;
-    border-radius: 5px;
+    height: 2.5vw;
+    width: fit-content;
+    border-radius: 0.3vw;
     cursor: pointer;
     font-weight: 600;
-    font-size: 19px;
-    margin-left: 25px;
+    font-size: 1lvw;
     color: white;
     background-color: $greenColor;
 }
 
-#banner button:hover, #gameAwards > div a:hover {
+#banner button:hover, #gameAwards > div > div > a:hover {
     color: black;
     background-color: white;
 }
 // ---------------------------------------------------------------------------------------------------
+
 #options{
     font-weight: 600;
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
-    justify-content: space-around;
+    align-items: center;
+    width: 70vw;
+    justify-content: space-between;
 }
 
 #options > div{
-    margin: 30px 10px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5vw;
 }
 
 #options > div > div:nth-child(2){
-    margin-top: 10px;
+    margin-top: 0.8vw;
     cursor: default;
     text-align: center;
+    font-size: 1lvw;
 }
+
+$iconSize: 4vw;
 
 #options .icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
+    font-size: 1.3lvw;
     cursor: pointer;
     border-radius: 100%;
     background-color: rgb(17, 17, 17);
@@ -98,7 +110,7 @@ $iconSize: 70px;
 }
 // ---------------------------------------------------------------------------------------------------
 #releases {
-    margin: 50px 40px 50px 40px;
+    margin: 2.5vw 2vw 2.5vw 2vw;
     width: 90%;
 }
 
@@ -107,14 +119,21 @@ $iconSize: 70px;
     justify-content: space-between;
 }
 
+#releases > div:first-child > div:first-child h2{
+    cursor: pointer;
+    font-size: 1lvw;
+}
+
 #releases > div:first-child > div:first-child div{
     font-weight: 600;
     color: rgb(1, 105, 1);
+    margin-left: 0.5vw; 
+    font-size: 0.9lvw;
+    cursor: pointer;
 }
 
 #releases > div:first-child > div:first-child h2:hover{
     color: rgb(142, 10, 146);
-    
 }
 
 #releases > div:first-child > div:first-child div:hover{
@@ -124,20 +143,19 @@ $iconSize: 70px;
 #releases > div:first-child > div:first-child{
     display: flex;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 1vw;
     justify-content: flex-start;
-    height: 30px;
 }
 
 .visualizeAll{
     display: flex;
     align-items: center;
     color: $blueColor;
+    font-size: 1.5lvh;
     font-weight: 600;
-    margin-right: 5px;
     text-decoration: unset;
 }
-
+// --------------------------------------------------------------------------------------------------------
 #cardList{
     display: flex;
     flex-wrap: wrap;
@@ -146,21 +164,22 @@ $iconSize: 70px;
 .card {
     display: flex;
     flex-direction: column;
-    width: 215px;
-    margin: 20px 0px 0px 20px;
+    width: 12vw;
+    margin-top: 0.3vw;
+    margin-left: 1vw;
 }
 
 .cardImage {
     width: 100%;
-    height: 220px;
+    height: 12vw;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 0.8vw;
 }
 
 .card > div:nth-child(2) {
     display: flex;
-    margin-top: 10px;
-    padding-left: 3px;
+    margin-top: 0.6vw;
+    font-size: 0.85lvw;
 }
 
 .card > div:nth-child(3) {
@@ -170,19 +189,16 @@ $iconSize: 70px;
 }
 
 .card > div:nth-child(3) > * {
-    margin-top: 3px;
-    margin-right: 15px;
-}
-
-.card > div:nth-child(3) > :first-child {
-    margin-left: 3px;
+    margin-top: 0.2vw;
+    margin-right: 0.8vw;
+    font-size: 0.8lvw;
 }
 
 .nintendo {
     display: flex;
-    padding: 3px 3px;
+    padding: 0.2vw;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 1vw;
     background-color: red; 
     color: white;
 }
@@ -190,8 +206,8 @@ $iconSize: 70px;
 .nintendo > div{
     cursor: default;
     border: 1px solid white;
-    border-radius: 15px;
-    padding: 3px 8px;
+    border-radius: 1vw;
+    padding: 0.2vw 0.5vw;
 }
 // ---------------------------------------------------------------------------------------------------  
 #bandle{
@@ -246,29 +262,15 @@ $aspact-ratio-height: 720;
 }
 
 #gameAwards > div h1 {
-    font-size: 3lvh;
+    font-size: 1.6lvw;
 }
 
 #gameAwards > div h3 {
-    font-size: 2lvh;
+    font-size: 1lvw;
     font-weight: 100;
     margin-bottom: 2.5vh;
 }
 
-$aspact-ratio-width-awardsBtn: 2 * 450;
-$aspact-ratio-height-awardsBtn: 20;
-
-#gameAwards > div > div > a{
-    display: block;
-    text-align: center;
-    width: 20%;
-    height: auto;
-    min-width: 100px;
-    margin: 0px;
-    border-radius: 0.4vw;
-    font-size: 2dvh;
-    padding: calc($aspact-ratio-height-awardsBtn/$aspact-ratio-width-awardsBtn * 100%) 0px;
-}
 
 // ---------------------------------------------------------------------------------------------------
 
@@ -291,11 +293,10 @@ $aspact-ratio-height-awardsBtn: 20;
 }
 
 #ranking .visualizeAll{
-    height: 30px;
-    font-size: 1.5lvh;
     justify-content: flex-end;
     width: 94%;
-    margin-bottom: 0.5vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.8vw;
 }
 
 #ranking .visualizeAll > * {
@@ -315,6 +316,7 @@ $aspact-ratio-height-awardsBtn: 20;
 
 #top5 figure {
     margin: 0px;
+    height: 26vw;
 }
 
 #top5 figure img {
@@ -380,7 +382,7 @@ $aspact-ratio-height-awardsBtn: 20;
 }
 
 // ---------------------------------------- Recomendations -----------------------------------------------------
-$recomendationSize: 90%;
+$recomendationSize: 92%;
 
 #recommendations {
     display: flex;
@@ -393,26 +395,29 @@ $recomendationSize: 90%;
 #recommendations > h2 {
     width: $recomendationSize;
     text-align: end;
-    margin-right: 20px;
+    font-size: 1.2lvw;
+    margin-right: 1vw;
 }
 
 #recommendations > div {
     display: flex;
-    justify-content: space-evenly;
-    height: 100%;
     flex-wrap: wrap;
+    height: 100%;
+    justify-content: space-between;
     width: $recomendationSize;
 }
 
 .recomendation {
     display: flex;
     flex-direction: column;
-    height: 355px;
-    width: 335px;
+    height: 19vw;
+    width: 18vw;
     border-radius: 3px;
     color: white;
     margin-bottom: 10px;
     cursor: pointer;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     background-color: $grayColor;
 }
 
@@ -424,46 +429,48 @@ $recomendationSize: 90%;
     border-top-right-radius: 3px;
 }
 
-.recomendation h3 {
-    margin-top: 25px;
-    margin-left: 15px;
-}
 
-.recomendation > div:nth-child(2){
-    height: 35px;
+.recomendation h3 {
+    margin-top: 1vw;
+    margin-left: 0.8vw;
+    font-size: 1lvw;
 }
 
 .expert{
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: fit-content;
-    height: 100%;
-    // background-color: rgba(22, 88, 60, 0.637);
-    border-radius: 30px;
-    padding: 0px 20px 0px 10px;
-    color: white;
-    margin: 10px 0px 0px 10px;
+    height: 2vw;
+    padding-top: 0.3vw;
+    padding-left: 0.9vw;
 }
 
 .expert div:first-child {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 2vw;
     border-radius: 100%;
-    width: 30px;
-    height: 30px;
+}
+
+.expert div:first-child > :first-child {
+    height: 50%;
+    width: 50%;
 }
 
 .expert h4 {
-    padding-left: 10px;
+    text-align: center;
+    line-height: 2.3vw;
+    padding-left: 0.4vw;
+    height: 100%;
+    font-size: 1lvw;
 }
 
 .recomendation > div:last-of-type {
     text-align: end;
-    font-size: 12px;
-    margin-top: 15px;
-    padding-right: 15px;
+    font-size: 0.6lvw;
+    margin-top: 1vw;
+    padding-right: 1vw;
 }
 
 // ------------------------------------------------------------------

@@ -15,7 +15,9 @@ const gameListComponent: any = {
       }
       else {
         const pagePath = this.$router.options.history.state.back.split('/')
-        if (pagePath[1] == 'singleGame' && this.$route.name != 'singleUser'){
+        if (pagePath[1] == 'singleGame' 
+        && this.$route.name != 'singleUser'
+        && this.$route.name != 'signIn'){
           this.gChoice(pagePath[2])
         }
         this.$router.back()
