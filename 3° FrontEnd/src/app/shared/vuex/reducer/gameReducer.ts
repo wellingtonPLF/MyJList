@@ -33,6 +33,24 @@ export const GAME_INITIAL_STATE: I_Game = {
     ]
 }
 
+export const RECOMMENDATION_INITIAL_STATE = {
+  id: 0,
+  publication: 'xxxx-xx-xx',
+  content: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam iure aut rem delectus sunt accusantium nulla iste suscipit! Alias, dicta? Mollitia, quis necessitatibus consectetur dolor recusandae nihil unde fugiat ab?',
+  game: {
+    gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg',
+    id: 0
+  },
+  user: {
+    id: 0,
+    nickname: 'Unknow',
+    sexuality: undefined,
+    status: undefined,
+    userImage: undefined
+  },
+  vote: undefined
+}
+
 const GameReducer = {
   namespaced: true,
   state: {

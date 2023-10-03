@@ -1,6 +1,7 @@
 import HeaderComponent from "./../../components/_main/Header/HeaderComponent.vue";
 import gameService from "../../shared/services/gameService";
 import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer.ts"
+import { RECOMMENDATION_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer.ts"
 
 interface Game {
   id: number;
@@ -30,8 +31,20 @@ const homeComponent: any = {
       ],
       airing: [],
       releases: [],
-      topRated: [],
-      recomendations: [] as Game[],
+      topRated: [
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE
+      ],
+      recomendations: [
+        RECOMMENDATION_INITIAL_STATE,
+        RECOMMENDATION_INITIAL_STATE,
+        RECOMMENDATION_INITIAL_STATE,
+        RECOMMENDATION_INITIAL_STATE,
+        RECOMMENDATION_INITIAL_STATE
+      ],
       options: [
         { icon: "gamepad", name: "Games", path: "/game", done: true },
         { icon: "video", name: "Trailers", path: "/", done: false },

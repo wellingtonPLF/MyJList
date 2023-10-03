@@ -2,7 +2,7 @@
 
 header {
     width: 100%;
-    height: 5vh;
+    height: 2.5vw;
     background-color: rgb(17, 17, 17, 0.7); 
 }
 
@@ -19,12 +19,11 @@ header {
     height: 100%;
     justify-content: space-around;
     align-items: center;
-    margin-right: 10px;
 }
 
 #auth > div:first-child > :first-child, #auth > div:first-child > :last-child{
     text-align: center;
-    font-size: 1.7lvh;
+    font-size: 1lvw;
     font-weight: 600;
     text-decoration: unset;
     color: white;
@@ -34,8 +33,8 @@ header {
 }
 
 #auth > div:first-child div {
-    font-size: 1.7lvh;
-    padding: 0px 2vh;
+    font-size: 1lvw;
+    padding: 0px 2vw;
 }
 
 #userLogin{

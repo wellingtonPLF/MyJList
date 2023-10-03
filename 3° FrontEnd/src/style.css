@@ -3,7 +3,7 @@ body {
 }
 
 *::-webkit-scrollbar, .about::-webkit-scrollbar {
-  width: 8px;
+  width: 0.5vw;
 }
 
 *::-webkit-scrollbar-thumb, .about::-webkit-scrollbar-thumb {

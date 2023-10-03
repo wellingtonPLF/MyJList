@@ -1,12 +1,18 @@
-$socialSize: 40px;
+$socialSize: 2.3vw;
 
 footer {
     color: white;
 }
 
 footer > div:first-child{
-    padding: 10px 0px 10px 0px;
+    padding: 0.5vw 0px;
 
+}
+
+footer > div:nth-child(2) {
+    height: 2.3vw;
+    font-size: 1lvw;
+    margin-top: 1.4vw;
 }
 
 #socialNetwork, #enterprise, #terms, #terms > div, #socialNetwork a, footer > div:first-child{
@@ -17,46 +23,48 @@ footer > div:first-child{
 
 #socialNetwork a {
     background-color: #282828;
-    margin: 10px;
+    margin: 0.5vw;
+    font-size: 1lvw;
     width: $socialSize;
     height: $socialSize;
     color: white;
-    border-radius: 15px;
+    border-radius: 0.6vw;
 }
 
 #enterprise {
     text-align: center;
-    margin: 0px 10px;
+    margin: 0px 0.5vw;
     cursor: default;
     color: #7e7e7e;
     flex-direction: column;
 }
 
-#enterprise div:nth-child(1){
-    font-size: 12px;
+#enterprise > div{
+    font-size: 0.6lvw;
 }
 
 #terms {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 0.7vw;
 }
 
 #terms > div > *{
     font-weight: 600;
-    margin: 0px 10px;
+    font-size: 0.8lvw;
+    margin: 0px 0.6vw;
     color: white;
     cursor: pointer;
 }
 
-@media screen and (max-width: 635px) {
-    #terms > div {
-        flex-direction: column;
-        margin-bottom: 5px;
-    }
+// @media screen and (max-width: 635px) {
+//     #terms > div {
+//         flex-direction: column;
+//         margin-bottom: 5px;
+//     }
 
-    #terms > div > * {
-        margin: 5px 0px;
-    }
-}
+//     #terms > div > * {
+//         margin: 5px 0px;
+//     }
+// }
