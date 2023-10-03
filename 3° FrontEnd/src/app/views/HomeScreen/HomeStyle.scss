@@ -525,12 +525,13 @@ $borderRecomendation: 0.5vw;
         font-size: 4lvw;
     }
 
-    $iconSize: 18vw;
+    $iconSize: 15vw;
     
     #options .icon {
-        font-size: 7lvw;
+        font-size: 6lvw;
         width: $iconSize;
         height: $iconSize;
+        margin: 0px 2vw;
     }
     // ------------------------------------------------
     #releases {
@@ -598,7 +599,7 @@ $borderRecomendation: 0.5vw;
         flex-direction: column;
     }
 
-    $bandle-Width-img: 100vw;
+    $bandle-Width-img: 100%;
     $bandle-Height-img: 60vw;
     
     #bandle > img {
@@ -698,7 +699,6 @@ $borderRecomendation: 0.5vw;
     }
     // ------------------------------------------------
 
-// \/
     #recommendations > h2 {
         font-size: 4lvw;
     }

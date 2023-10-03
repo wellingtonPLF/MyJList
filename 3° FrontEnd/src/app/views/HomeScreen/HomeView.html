@@ -35,8 +35,8 @@
                 <router-link class="cardImage backImageConfig" 
                 :style="{backgroundImage: `url(${game.gameImage})`}" :to="`/singleGame/${game.id}`"></router-link>
                 <div>
-                    <div v-if="game.name.length < 20">{{ game.name}}</div>
-                    <div v-else>{{ game.name.slice(0, 20) + '. . .' }}</div>
+                    <div v-if="game.name.length < 26">{{ game.name}}</div>
+                    <div v-else>{{ game.name.slice(0, 26) + '. . .' }}</div>
                 </div>
                 <div>
                     <div v-for="plataform in game.plataform">

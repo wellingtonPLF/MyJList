@@ -543,9 +543,12 @@ $buttonWidth: 60px;
 
 #gameComments > div:first-child > div:nth-child(2) > div:first-child > div:nth-child(2) {
     display: flex;
-    min-width: 340px;
-    justify-content: space-between;
 }
+
+#gameComments > div:first-child > div:nth-child(2) > div:first-child > div:nth-child(2) > div:first-child {
+    margin-right: 10px;
+}
+
 // -----------
 
 .userComment {
@@ -755,6 +758,14 @@ $buttonWidth: 60px;
     #statistics {
         padding-bottom: 0px;
         align-items: center;
+    }
+
+    #statistics > div:first-child > div:nth-child(2) {
+        margin-bottom: 30px;
+    }
+
+    #statistics > div:nth-child(2) {
+        display: none;
     }
 
     #statistics > div:nth-child(2) img {

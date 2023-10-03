@@ -9,7 +9,7 @@ export const GAME_INITIAL_STATE: I_Game = {
     release: "unknow",
     premiede: "unknow",
     recommendation: 0,
-    description: "Loading. . .",
+    description: "Loading . . .",
     popularity: "unknow",
     playTime: 0.0,
     source: "unknow",

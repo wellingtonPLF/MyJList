@@ -29,8 +29,20 @@ const homeComponent: any = {
         GAME_INITIAL_STATE,
         GAME_INITIAL_STATE
       ],
-      airing: [],
-      releases: [],
+      airing: [
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE
+      ],
+      releases: [
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE
+      ],
       topRated: [
         GAME_INITIAL_STATE,
         GAME_INITIAL_STATE,
