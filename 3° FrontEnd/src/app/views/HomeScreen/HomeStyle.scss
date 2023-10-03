@@ -5,6 +5,11 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
+    position: relative;
+}
+
+#homePage > :first-child {
+    position: absolute;
 }
 // ---------------------------------------------------------------------------------------------------
 #banner{
@@ -51,6 +56,7 @@
 #banner button, #gameAwards > div > div > a{
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0px 1vw; 
     border: 0px;
     height: 2.5vw;
@@ -209,49 +215,31 @@ $iconSize: 4vw;
     padding: 0.2vw 0.5vw;
 }
 // ---------------------------------------------------------------------------------------------------  
+
+$bandle-Width-img: 50vw;
+$bandle-Height-img: 28vw;
+
 #bandle{
+    display: flex;
     width: 100%;
-    background-color: blue;
 }
 
 #bandle > img {
     display: inline-block;
-    width: 50%;
-    height: auto;
+    width: $bandle-Width-img;
+    height: $bandle-Height-img;
     vertical-align: top;
-}
-
-// Largura da Imagem * 2 
-$aspact-ratio-width: 2 * 1280; //Width must be higher then height
-// Altura da Imagem
-$aspact-ratio-height: 720; 
-
-.aspect-ratio-container {
-    display: inline-block;
-    vertical-align: top;
-    height: auto;
-    width: 50%;
-    padding-top: calc($aspact-ratio-height/$aspact-ratio-width * 100%);
-    position: relative;
-    background-color: red;
 }
 
 #gameAwards {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    width: 100%;
-    height: 100%;
+    width: $bandle-Width-img;
+    height: $bandle-Height-img;
     background-image: linear-gradient(to bottom right, rgba(8, 14, 22, 0.788) 30%, rgba(0, 128, 0, 0)), 
     url("https://i.pinimg.com/736x/0e/66/a6/0e66a6b7de72bdd1650b02d70f85ed85.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 #gameAwards > div {
@@ -269,8 +257,19 @@ $aspact-ratio-height: 720;
     margin-bottom: 1.3vw;
 }
 
-
 // ---------------------------------------------------------------------------------------------------
+
+#topTitle {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+}
+
+#topTitle > h2 {
+    font-size: 1.2lvw;
+    padding: 0px 2vw;
+}
 
 .line{
     background-color: black;
@@ -416,6 +415,7 @@ $borderRecomendation: 0.5vw;
     color: white;
     margin-bottom: 1vw;
     cursor: pointer;
+    position: relative;
     background-color: $grayColor;
 }
 
@@ -427,26 +427,27 @@ $borderRecomendation: 0.5vw;
     border-top-right-radius: $borderRecomendation;
 }
 
+.recomendation > div:nth-child(3)  {
+    display: flex;
+    justify-content: center;
+}
 
 .recomendation h3 {
-    margin-top: 1vw;
-    margin-left: 0.8vw;
     font-size: 1lvw;
+    width: 92%;
 }
 
 .expert{
     display: flex;
     align-items: center;
-    height: 2vw;
-    padding-top: 0.3vw;
-    padding-left: 0.9vw;
+    padding: 0.5vw 0px 0px 0.5vw;
 }
 
 .expert div:first-child {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 2vw;
     width: 2vw;
     border-radius: 100%;
 }
@@ -459,35 +460,290 @@ $borderRecomendation: 0.5vw;
 .expert h4 {
     display: flex;
     align-items: center;
-    padding-top: 0.3vw;
-    padding-left: 0.4vw;
     height: 100%;
+    margin: 0px;
+    padding-left: 0.5vw;
+    padding-top: 0.3vw;
     font-size: 1lvw;
 }
 
 .recomendation > div:last-of-type {
-    text-align: end;
     font-size: 0.6lvw;
-    margin-top: 1vw;
+    padding-bottom: 1vw;
     padding-right: 1vw;
+    position: absolute;
+    bottom: 0px;
+    right: 0px
 }
 
 // ------------------------------------------------------------------
 
 @media screen and (max-width: 800px) {
-    // #banner {
-    //     height: 200px;
-    //     background-size: cover;
-    // }
-    // #banner > div {
-    //     background-color: red;
-    //     min-width: 300px;
-    //     min-height: 100px;
-    // }
-    // #banner > div > h1 {
-    //     font-size: 30px;
-    // }
-}
+    #banner {
+        justify-content: center;
+        align-items: center;
+        height: 100vw;
+    }
+    #banner > div {
+        min-width: 80vw;
+        height: auto;
+    }
 
-@media screen and (max-width: 400px) {
+    #banner > div > h1 {
+        font-size: 8.5lvw;
+    }
+
+    #banner > div > div {
+        padding: 4vw;
+        margin-bottom: 5vw;
+    }
+
+    #banner > div > div > h2 {
+        font-size: 5.5lvw;
+        height: auto;
+    }
+
+    #banner button, #gameAwards > div > div > a {
+        height: 10vw;
+        width: 25vw;
+        font-size: 4.2lvw;
+        border-radius: 2vw;
+    }
+    // ------------------------------------------------
+    #options {
+        width: 70vw;
+        margin: 2vw 0px;
+        justify-content: space-around;
+    }
+
+    #options > div{
+        margin-top: 5vw;
+    }
+    
+    #options > div > div:nth-child(2){
+        margin-top: 2vw;
+        font-size: 4lvw;
+    }
+
+    $iconSize: 18vw;
+    
+    #options .icon {
+        font-size: 7lvw;
+        width: $iconSize;
+        height: $iconSize;
+    }
+    // ------------------------------------------------
+    #releases {
+        margin: 3vw;
+        width: 90%;
+    }
+    
+    #releases > div:first-child > div:first-child h2{
+        font-size: 4lvw;
+        margin-left: 1vw;
+    }
+    
+    #releases > div:first-child > div:first-child div{
+        margin-left: 2vw;
+        font-size: 3.5lvw;
+    }
+    
+    #releases > div:first-child > div:first-child{
+        padding-left: 1vw;
+    }
+    
+    .visualizeAll{
+        margin-right: 2vw;
+        font-size: 3lvw;
+    }
+
+    // ------------------------------------------------
+    
+    .card {
+        width: 42vw;
+        margin-left: 2vw;   
+    }
+    
+    .cardImage {
+        height: 40vw;
+        border-radius: 3vw;
+    }
+    
+    .card > div:nth-child(2) {
+        margin-top: 1.5vw;
+        font-size: 4lvw;
+    }
+    
+    .card > div:nth-child(3) > * {
+        margin-top: 1vw;
+        margin-right: 2vw;
+        font-size: 3lvw;
+        margin-bottom: 2vw;
+    }
+    
+    .nintendo {
+        padding: 1vw;
+        border-radius: 5vw;
+    }
+    
+    .nintendo > div {
+        border: 0.3vw solid white;
+        border-radius: 3vw;
+        padding: 1vw 1.5vw;
+    }
+
+    // ------------------------------------------------
+
+    #bandle{
+        flex-direction: column;
+    }
+
+    $bandle-Width-img: 100vw;
+    $bandle-Height-img: 60vw;
+    
+    #bandle > img {
+        width: $bandle-Width-img;
+        height: $bandle-Height-img;
+    }
+    
+    #gameAwards {
+        width: $bandle-Width-img;
+        height: $bandle-Height-img + 10vw;
+    }
+    
+    #gameAwards > div h1 {
+        font-size: 9lvw;
+    }
+    
+    #gameAwards > div h3 {
+        font-size: 3lvw;
+        margin-bottom: 3vw;
+    }
+
+    // ------------------------------------------------
+
+    #topTitle > h2 {
+        font-size: 5lvw;
+        padding: 0px 4vw;
+    }
+    
+    .line{
+        width: 20%;
+        height: 0.6vw;
+    }
+
+    // ------------------------------------------------
+
+    #ranking {
+        padding: 0.5vw 0px 1vw 0px;
+        margin-bottom: 1.2vw;
+    }
+    
+    #ranking .visualizeAll{
+        width: 92%;
+        margin-top: 5vw;
+        margin-bottom: 4vw;
+    }
+
+    // ------------------------------------------------
+
+    #top5{
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        margin-bottom: 6vw;
+    }
+    
+    #top5 figure {
+        height: 26vw;
+    }
+    
+    #top5 > figure {
+        margin-bottom: 1vw;
+        width: 100%;
+        height: 50vw;
+        max-height: unset;
+    }
+    
+    #top5 > div {
+        width: 100%;
+        flex-direction: unset;
+        height: 50vw;
+        max-height: unset;
+    }    
+    
+    #top5 > div > figure{
+        width: 44.5vw;
+    }
+    
+    #top5 > div > figure:nth-child(1), #top5 > div > figure:nth-child(2){
+        margin-left: 0;
+    }
+    
+    #top5 > div > figure:nth-child(3), #top5 > div > figure:nth-child(4){
+        margin-left: 0;   
+    }
+    
+    #top5 figure > a > img {
+        width: 100%;
+    }
+    
+    #top5 figcaption {
+        padding: 2.5vw 0px;
+    }
+    
+    #top5 figcaption > div {
+        font-size: 2.5vw;
+        padding-left: 3vw;
+    }
+    // ------------------------------------------------
+
+// \/
+    #recommendations > h2 {
+        font-size: 4lvw;
+    }
+
+    $borderRecomendation: 2vw;
+
+    .recomendation {
+        height: 55vw;
+        width: 45.5vw;
+        border-radius: $borderRecomendation;
+        margin-bottom: 1vw;
+    }
+
+    .recomendation img {
+        border-top-left-radius: $borderRecomendation;
+        border-top-right-radius: $borderRecomendation;
+    }
+
+    .recomendation > div:nth-child(3)  {
+        margin-top: 1vw;
+    }
+
+    .recomendation h3 {
+        font-size: 2.7lvw;
+        margin: 1vw 0px;
+    }
+        
+    .expert{
+        padding: 0.5vw 0px 0px 0.5vw;
+    }
+
+    .expert div:first-child {
+        height: 4.8vw;
+        width: 4.8vw;
+    }
+
+    .expert h4 {
+        padding-left: 0.5vw;
+        padding-top: 0.3vw;
+        font-size: 2.5lvw;
+    }
+
+    .recomendation > div:last-of-type {
+        font-size: 2lvw;
+        padding-bottom: 2.5vw;
+        padding-right: 2vw;
+    }
 }

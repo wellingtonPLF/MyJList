@@ -1,6 +1,6 @@
 <div id="homePage">
+    <HeaderComponent /> 
     <div id="banner">
-        <HeaderComponent />
         <div>
             <h1>Your Game List</h1>
             <div>
@@ -35,8 +35,8 @@
                 <router-link class="cardImage backImageConfig" 
                 :style="{backgroundImage: `url(${game.gameImage})`}" :to="`/singleGame/${game.id}`"></router-link>
                 <div>
-                    <div>{{ game.name.slice(0, 20) }}</div>
-                    <div v-if="game.name.length > 20">...</div>
+                    <div v-if="game.name.length < 20">{{ game.name}}</div>
+                    <div v-else>{{ game.name.slice(0, 20) + '. . .' }}</div>
                 </div>
                 <div>
                     <div v-for="plataform in game.plataform">
@@ -54,26 +54,24 @@
     </div>
     <div id="bandle">
         <img src="https://actualidadriojabaja.com/wp-content/uploads/2022/11/StrayA_1.jpg"/>
-        <span class="aspect-ratio-container">
-            <div id="gameAwards">
+        <span id="gameAwards" class="backImageConfig">
+            <div>
+                <h1>Game Awards</h1>
+                <h3>
+                    The Game Awards is an annual award ceremony that recognizes the best video games of each year and
+                    major accomplishments in the industry, that bring together a diverse group of game developers, game
+                    players, and notable names from popular culture to celebrate and advance gaming's position as the
+                    most immersive, challenging and inspiring form of entertainment.
+                </h3>
                 <div>
-                    <h1>Game Awards</h1>
-                    <h3>
-                        The Game Awards is an annual award ceremony that recognizes the best video games of each year and
-                        major accomplishments in the industry, that bring together a diverse group of game developers, game
-                        players, and notable names from popular culture to celebrate and advance gaming's position as the
-                        most immersive, challenging and inspiring form of entertainment.
-                    </h3>
-                    <div>
-                        <a href="https://thegameawards.com/nominees/game-of-the-year" target="_blank">right here</a>
-                    </div>
+                    <a href="https://thegameawards.com/nominees/game-of-the-year" target="_blank">right here</a>
                 </div>
             </div>
         </span>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+    <div id="topTitle">
         <div class="line"></div>
-        <h2 style="font-size: 1.2lvw;">&nbsp;&nbsp;&nbsp;&nbsp;Top rated games&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        <h2>Top rated games</h2>
         <div class="line"></div>
     </div>
     <div id="ranking">
@@ -114,7 +112,9 @@
                         </div>
                         <h4>{{recomendation.user.nickname}}</h4> 
                     </div>
-                    <h3>{{recomendation.content.slice(0, 93)}} . . .</h3>
+                    <div>
+                        <h3>{{recomendation.content.slice(0, 93)}}</h3>
+                    </div>
                     <div>{{recomendation.publication}}</div>
                 </div>
             </router-link>
