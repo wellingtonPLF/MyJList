@@ -22,6 +22,9 @@
 $portalSize: 18vw;
 $portalIn: $portalSize * 90/100;
 
+$minPortal: 350px;
+$minPortalIn: $minPortal * 90/100;
+
 #login > div > div:first-child {
     display: flex;
     justify-content: center;
@@ -31,6 +34,8 @@ $portalIn: $portalSize * 90/100;
     border-radius: 100%;
     width: $portalSize;
     height: $portalSize;
+    // min-width: $minPortal;
+    // min-height: $minPortal;
 }
 
 #login > div > div:first-child > :first-child{
@@ -38,6 +43,8 @@ $portalIn: $portalSize * 90/100;
     border-radius: 100%;
     width: $portalIn;
     height: $portalIn;
+    // min-width: $minPortalIn;
+    // min-height: $minPortalIn;
 }
 // ------------------------------------------------------
 
@@ -51,6 +58,7 @@ $portalIn: $portalSize * 90/100;
     justify-content: center;
     align-items: flex-end;
     height: 2vw;
+    // min-height: 35px;
 }
 
 #login > div > div:last-child > div:last-child{
@@ -65,7 +73,7 @@ $portalIn: $portalSize * 90/100;
 
 $inputHeight: 1.5vw;
 $inputWidth: 10vw;
-$inputPaddingLeft: 1vw;
+$inputPaddingLeft: 0.8vw;
 $inputRadius: 2vw;
 
 #login > div > div:last-child > div:last-child input {
@@ -76,12 +84,17 @@ $inputRadius: 2vw;
     padding-left: $inputPaddingLeft;
     height: $inputHeight;
     width: $inputWidth;
+
+    // min-height: 30px;
+    // min-width: 180px;
 }
 
 #login button {
     border-radius: $inputRadius;
     height: $inputHeight + 0.2vw;
     width: $inputWidth + $inputPaddingLeft;
+    // min-height: 35px;
+    // min-width: 180px + 12px;
     color: white;
     font-weight: 600;
     font-size: 0.7vw;
@@ -99,5 +112,39 @@ $inputRadius: 2vw;
     top: -0.3vw;
     font-size: 0.8vw;
     margin-top: 0.3vw;
+    margin-left: 0.2vw;
     color: rgb(241, 15, 15);
 }
+
+// @media screen and (max-width: 1920px) {
+
+//     #login > div > div:first-child {
+//         border: 3px solid white;
+//     }
+
+//     #login > div > div:first-child > :first-child{
+//         border: 7px solid white;
+//     }
+
+//     #login > div > div:last-child > div:last-child {
+//         min-height: 120px;
+//         margin-top: 40px;
+//     }
+
+//     #login > div > div:last-child > div:last-child input {
+//         padding-left: 15px;
+//         border-radius: 30px;
+//         font-size: 13px;
+//     }
+
+//     #login button {
+//         border-radius: 30px;
+//         font-size: 13px;
+//         border: 2px solid white;
+//     }
+
+//     #error {
+//         font-size: 15px;
+//         margin-left: 4px;
+//     }
+// }
