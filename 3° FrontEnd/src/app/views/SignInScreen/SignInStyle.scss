@@ -19,11 +19,8 @@
 }
 
 // ------------------------------------------------------
-$portalSize: 30vh;
+$portalSize: 35vh;
 $portalIn: $portalSize * 90/100;
-
-$minPortal: 350px;
-$minPortalIn: $minPortal * 90/100;
 
 #login > div > div:first-child {
     display: flex;
@@ -32,6 +29,7 @@ $minPortalIn: $minPortal * 90/100;
     background-color: black;
     border: 0.34vh solid white;
     border-radius: 100%;
+    margin-bottom: 0.8vh;
     width: $portalSize;
     height: $portalSize;
 }
@@ -56,9 +54,11 @@ $minPortalIn: $minPortal * 90/100;
     height: 3.34vh;
 }
 
+$divHeight:  12vh;
+
 #login > div > div:last-child > div:last-child{
     display: flex;
-    height: 10vh;
+    height: $divHeight;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
@@ -66,8 +66,8 @@ $minPortalIn: $minPortal * 90/100;
     margin-top: 3.34vh;
 }
 
-$inputHeight: 2.5vh;
-$inputWidth: 16.7vh;
+$inputHeight: $divHeight * 27/100;
+$inputWidth: 20.7vh;
 $inputPaddingLeft: 1.34vh;
 $inputRadius: 3.34vh;
 
@@ -100,7 +100,7 @@ $inputRadius: 3.34vh;
 #error {
     position: absolute;
     top: -0.5vh;
-    font-size: 1.34vh;
+    font-size: 1.6vh;
     margin-top: 0.5vh;
     margin-left: 0.34vh;
     color: rgb(241, 15, 15);
