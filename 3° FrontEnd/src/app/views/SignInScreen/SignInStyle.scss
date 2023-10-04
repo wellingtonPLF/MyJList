@@ -19,7 +19,7 @@
 }
 
 // ------------------------------------------------------
-$portalSize: 18vw;
+$portalSize: 30vh;
 $portalIn: $portalSize * 90/100;
 
 $minPortal: 350px;
@@ -30,21 +30,17 @@ $minPortalIn: $minPortal * 90/100;
     justify-content: center;
     align-items: center;
     background-color: black;
-    border: 0.2vw solid white;
+    border: 0.34vh solid white;
     border-radius: 100%;
     width: $portalSize;
     height: $portalSize;
-    // min-width: $minPortal;
-    // min-height: $minPortal;
 }
 
 #login > div > div:first-child > :first-child{
-    border: 0.4vw solid white;
+    border: 0.67vh solid white;
     border-radius: 100%;
     width: $portalIn;
     height: $portalIn;
-    // min-width: $minPortalIn;
-    // min-height: $minPortalIn;
 }
 // ------------------------------------------------------
 
@@ -57,49 +53,43 @@ $minPortalIn: $minPortal * 90/100;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 2vw;
-    // min-height: 35px;
+    height: 3.34vh;
 }
 
 #login > div > div:last-child > div:last-child{
     display: flex;
-    height: 6vw;
+    height: 10vh;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     color: white;
-    margin-top: 2vw;
+    margin-top: 3.34vh;
 }
 
-$inputHeight: 1.5vw;
-$inputWidth: 10vw;
-$inputPaddingLeft: 0.8vw;
-$inputRadius: 2vw;
+$inputHeight: 2.5vh;
+$inputWidth: 16.7vh;
+$inputPaddingLeft: 1.34vh;
+$inputRadius: 3.34vh;
 
 #login > div > div:last-child > div:last-child input {
     border-radius: $inputRadius;
     padding: 0;
-    font-size: 0.7vw;
+    font-size: 1.17vh;
     border: unset;
     padding-left: $inputPaddingLeft;
     height: $inputHeight;
     width: $inputWidth;
-
-    // min-height: 30px;
-    // min-width: 180px;
 }
 
 #login button {
     border-radius: $inputRadius;
-    height: $inputHeight + 0.2vw;
+    height: $inputHeight + 0.33vh;
     width: $inputWidth + $inputPaddingLeft;
-    // min-height: 35px;
-    // min-width: 180px + 12px;
     color: white;
     font-weight: 600;
-    font-size: 0.7vw;
+    font-size: 1.17vh;
     background-color: black;
-    border: 0.2vw solid white;
+    border: 0.34vh solid white;
 }
 
 #login button:hover {
@@ -109,42 +99,9 @@ $inputRadius: 2vw;
 
 #error {
     position: absolute;
-    top: -0.3vw;
-    font-size: 0.8vw;
-    margin-top: 0.3vw;
-    margin-left: 0.2vw;
+    top: -0.5vh;
+    font-size: 1.34vh;
+    margin-top: 0.5vh;
+    margin-left: 0.34vh;
     color: rgb(241, 15, 15);
 }
-
-// @media screen and (max-width: 1920px) {
-
-//     #login > div > div:first-child {
-//         border: 3px solid white;
-//     }
-
-//     #login > div > div:first-child > :first-child{
-//         border: 7px solid white;
-//     }
-
-//     #login > div > div:last-child > div:last-child {
-//         min-height: 120px;
-//         margin-top: 40px;
-//     }
-
-//     #login > div > div:last-child > div:last-child input {
-//         padding-left: 15px;
-//         border-radius: 30px;
-//         font-size: 13px;
-//     }
-
-//     #login button {
-//         border-radius: 30px;
-//         font-size: 13px;
-//         border: 2px solid white;
-//     }
-
-//     #error {
-//         font-size: 15px;
-//         margin-left: 4px;
-//     }
-// }
