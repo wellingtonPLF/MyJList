@@ -19,69 +19,74 @@
 }
 
 // ------------------------------------------------------
-$portalSize: 350px;
+$portalSize: 18vw;
+$portalIn: $portalSize * 90/100;
 
-#login > div > div:first-child{
+#login > div > div:first-child {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
-    border: 3px solid white;
+    border: 0.2vw solid white;
     border-radius: 100%;
     width: $portalSize;
     height: $portalSize;
 }
 
 #login > div > div:first-child > :first-child{
-    border: 7px solid white;
+    border: 0.4vw solid white;
     border-radius: 100%;
-    width: $portalSize - 35px;
-    height: $portalSize - 35px;
+    width: $portalIn;
+    height: $portalIn;
 }
 // ------------------------------------------------------
 
 #login > div > div:last-child {
     display: flex;
     position: relative;
-    width: 222px;
 }
 
 #login > div > div:last-child > div:first-child {
     display: flex;
     justify-content: center;
-    width: 100%;
     align-items: flex-end;
-    height: 40px;
+    height: 2vw;
 }
 
 #login > div > div:last-child > div:last-child{
     display: flex;
-    height: 120px;
-    width: 220px;
+    height: 6vw;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     color: white;
-    margin-top: 40px;
+    margin-top: 2vw;
 }
 
+$inputHeight: 1.5vw;
+$inputWidth: 10vw;
+$inputPaddingLeft: 1vw;
+$inputRadius: 2vw;
+
 #login > div > div:last-child > div:last-child input {
-    border-radius: 30px;
-    padding: 0px;
+    border-radius: $inputRadius;
+    padding: 0;
+    font-size: 0.7vw;
     border: unset;
-    padding-left: 15px;
-    height: 30px;
-    width: 200px;
+    padding-left: $inputPaddingLeft;
+    height: $inputHeight;
+    width: $inputWidth;
 }
 
 #login button {
-    border-radius: 30px;
-    height: 35px;
-    width: 215px;
+    border-radius: $inputRadius;
+    height: $inputHeight + 0.2vw;
+    width: $inputWidth + $inputPaddingLeft;
     color: white;
     font-weight: 600;
+    font-size: 0.7vw;
     background-color: black;
-    border: 2px solid white;
+    border: 0.2vw solid white;
 }
 
 #login button:hover {
@@ -91,7 +96,8 @@ $portalSize: 350px;
 
 #error {
     position: absolute;
-    top: -5px;
-    margin-top: 4px;
+    top: -0.3vw;
+    font-size: 0.8vw;
+    margin-top: 0.3vw;
     color: rgb(241, 15, 15);
 }

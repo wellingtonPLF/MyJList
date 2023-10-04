@@ -3,7 +3,7 @@ footer {
 }
 
 footer > div:first-child{
-    padding: 0.5vw 0px;
+    padding: 1vw 0px;
 }
 
 footer > div:nth-child(2) {
@@ -56,6 +56,10 @@ $socialSize: 2.3vw;
 }
 
 @media screen and (max-width: 800px) {
+    footer {
+        padding-top: 5vw;
+    }
+
     footer > div:first-child{
         padding: 0px;
     }
@@ -82,7 +86,7 @@ $socialSize: 2.3vw;
     
     #terms {
         width: 100%;
-        margin: 3vw 0px;
+        margin: 3vw 0px 8vw 0px;
     }
     
     #terms > div > *{
