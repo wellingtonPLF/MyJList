@@ -1,35 +1,28 @@
 import userService from "../../shared/services/userService";
+import { AUTH_INITIAL_STATE } from "../../shared/vuex/reducer/authReducer";
 import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue";
-
-interface User {
-  id: number;
-  img: string;
-  name: string;
-}
 
 const userComponent: any = {
   name: "UserComponent",
   components: { GoBackComponent },
   data() {
     return {
-      users: [] as User[],
+      users: [
+        AUTH_INITIAL_STATE,
+        AUTH_INITIAL_STATE,
+        AUTH_INITIAL_STATE
+      ] as any[],
       imgType: {
         male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
         female: "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg"
       }
     };
   },
-  
-  methods: {
-    userChoice(user: any){
-      this.$router.push(`/user/${user.id}`)
-      window.scrollTo(0, 0);
-    }
-  },
   mounted() {
     userService.listAll().then(
       (it: any) => {
         this.users = it
+        console.log(it[0])
       }
     ).catch((error) => {
       console.error(error);

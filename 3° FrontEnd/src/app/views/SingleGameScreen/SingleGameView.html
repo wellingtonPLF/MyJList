@@ -32,7 +32,7 @@
                                     <div id="popular" 
                                     :style="`color: ${(game.popularity)? '': 'rgb(199, 199, 199)'}; 
                                     border-color: ${(game.popularity)? '': 'gray'};`" v-if="true">{{(game.popularity)? 'POPULAR': 'NORMAL'}}</div>
-                                    <div>Score: {{game.score}}</div>
+                                    <div>Score: {{(typeof(game.score) != typeof(""))? game.score.toFixed(1) : game.score}}</div>
                                     <div>Ranked: #{{game.ranked}}</div>
                                     <div style="display: flex;">Languages: 
                                         <div v-for="item in game.language">&nbsp;

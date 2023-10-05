@@ -2,7 +2,6 @@
     min-height: 100vh;
     position: relative;
     background-image: url("https://wallpapercave.com/wp/wp9024479.jpg");
-    //https://img.itch.zone/aW1hZ2UvMTk0MjMwNC8xMTQxOTIzNy5qcGc=/original/woRZ38.jpg
 }
 
 #userPage > div{
@@ -12,46 +11,56 @@
     align-items: center;
     justify-content: center;
 }
+// --------------------------------------------------
 
 #searchBar{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15px;
-    border-radius: 10px;
-    width: 90%;
-    height: 70px;
+    position: relative;
+    width: 100%;
+    height: 3.68vh * 2;
 }
 
 #searchBar input:focus {
     outline: none;
 }
 
-#searchBar input {
-    border: unset;
-    border-radius: 30px;
-    border-top-right-radius: unset;
-    border-bottom-right-radius: unset;
-    font-size: 15px;
-    padding-left: 20px;
-    height: 40px;
-    width: 30%;
+#searchBar > span {
+    display: flex;
+    margin: auto;
+    width: 50vh;
+    margin-top: 1.3vh * 2;
 }
 
-#searchBar > div {
+$searchIconWidth: 12%;
+$searchHeight: 2.2vh * 2;
+
+#searchBar > span > input {
+    border: unset;
+    border-radius: 1.58vh * 2;
+    padding: 0px;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    font-size: 0.79vh * 2;
+    padding-left: 1.05vh * 2;
+    height: $searchHeight;
+    width: 100% - $searchIconWidth;
+}
+
+#searchBar > span > :last-child {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: $searchIconWidth;
     cursor: pointer;
-    height: 42px;
-    padding-right: 20px;
-    padding-left: 15px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    font-size: 2vh;
+    height: $searchHeight;
+    padding-right: 0.2vh * 2;
+    border-top-right-radius: 1.58vh * 2;
+    border-bottom-right-radius: 1.58vh * 2;
     background-color: white;
 }
 
-#searchBar > div:hover {
+#searchBar > span > div:hover {
     background-color: rgb(14, 102, 73);
     color: white;
 }
@@ -60,7 +69,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 30px 0px;
+    margin: 1.58vh * 2 0px;
     width: 92%;
 }
 // -----------------------------------------------------------------------
@@ -69,31 +78,40 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 380px;
-    height: 235px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    width: 20vh * 2;
+    height: 12.37vh * 2;
+    margin-bottom: 0.53vh * 2;
+    margin-left: 0.53vh * 2;
     position: relative;
     text-align: center;
 }
+
 #userCard > div:first-child{
     position: absolute;
-}
-
-#userCard > div:first-child > div:nth-child(2){
-    padding: 5px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    height: 24vh;
 }
 
 #userCard > div:first-child > div:first-child{
-    // object-fit: cover;
     padding: 0px;
-    width: 150px;
-    height: 150px;
-    border: 5px solid white;
+    width: 7.9vh * 2;
+    height: 7.9vh * 2;
+    border: 0.26vh * 2 solid white;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 100%;
+}
+
+#userCard > div:first-child > div:nth-child(2){
+    padding: 0.26vh * 2 0px 0.53vh * 2 0px;
+    font-size: 0.8vh * 2;
+}
+
+#userCard > div:first-child > b{
+    font-size: 0.9vh * 2;
+    
 }
 
 #userCard > div:last-child{
@@ -102,24 +120,55 @@
     background-color: white;
     width: 100%;
     height: 70%;
-    border-radius: 10px;
+    border-radius: 0.53vh * 2;
     margin-top: 20%;
 }
 
 #userCard > div:last-child > div{
-    width: 120px;
-    padding-top: 30px;
+    width: 6.32vh * 2;
+    padding-top: 1.58vh * 2;
 }
 
-$btnWidthHeight: 50px;
+#userCard > div:last-child > div > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.2vh;
+}
+
+#userCard > div:last-child > div > div:first-child > div:nth-child(2), img{
+    font-size: 0.8vh * 2;
+}
+
+#userCard > div:last-child > div:nth-child(2) > div:first-child > img{
+    width: 1.26vh * 2;
+    height: 0.95vh * 2; 
+}
+
+#userCard > div:last-child > div:first-child b{
+    font-size: 1.05vh * 2; 
+    color: rgb(32, 78, 90);
+}
+
+#userCard > div:last-child > div > :nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 8vh;
+}
+
+$btnWidthHeight: 2.63vh * 2;
 
 #report{
     border-radius: 100%;
     width: $btnWidthHeight;
     height: $btnWidthHeight;
+    padding: 0px;
     border: none;
-    margin-top: 15px;
-    font-size: 30px;
+    margin-top: 0.79vh * 2;
+    font-size: 1.58vh * 2;
     color: rgb(194, 4, 4);
     background-color: white;
 }
@@ -129,14 +178,58 @@ $btnWidthHeight: 50px;
     line-height: $btnWidthHeight;
     width: $btnWidthHeight;
     height: $btnWidthHeight;
-    margin-top: 15px;
-    color:  rgb(3, 39, 27);;
-    font-size: 30px;
+    margin-top: 0.79vh * 2;
+    color:  rgb(17, 53, 63);
+    
+    font-size: 1.58vh * 2;
     background-color: white;
 }
 
 // ------------------------------------------------------------
 
-@media screen and (max-width: 1175px) {
+@media screen and (max-width: 900px) {
+
+    $margin-Top-search: 1.79vh * 2;
+
+    .backPage {
+        position: relative;
+        margin: 0px;
+        margin-top: $margin-Top-search;
+    }
     
+    $searchHeight: 1.8vh * 2;
+
+    :deep(#goBack) {
+        height: $searchHeight;
+        border-radius: 1.58vh * 2;
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+    }
+    
+    #searchBar{
+        justify-content: center;
+    }
+
+    #searchBar > :first-child {
+        display: flex;
+        justify-content: center;
+    }
+
+    #searchBar > span {
+        margin: 0;
+        max-width: 30vh;
+        margin-top: $margin-Top-search;
+    }
+
+    #searchBar > span > input {
+        border-radius: unset;
+        font-size: 1.5vh;
+        padding-left: 0.5vh;
+        height: $searchHeight;
+    }
+
+    #searchBar > span > :last-child {
+        font-size: 1.7vh;
+        height: $searchHeight;
+    }
 }

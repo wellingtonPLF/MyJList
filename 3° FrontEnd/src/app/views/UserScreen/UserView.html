@@ -1,38 +1,47 @@
 <div id="userPage" class="backImageConfig">
-    <span class="backPage">
-        <GoBackComponent />
-    </span>
     <div>
         <div id="searchBar">
-            <input placeholder="Search username" />
-            <div>Search</div>
+            <GoBackComponent class="backPage"/>
+            <span >
+                <input placeholder="search username" />
+                <div>
+                    <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                </div>
+            </span>
         </div>
         <div id="allUsers">
             <div v-for="userCard in users" id="userCard">
                 <div>
-                    <div :style="{ backgroundImage: `url(${(userCard.sexuality === 'M') ? imgType.male : imgType.female})` }"></div>
+                    <div :style="{ backgroundImage: `
+                        url(${
+                            (userCard.userImage == null) ? ((userCard.sexuality === 'M') ? imgType.male : imgType.female) : userCard.userImage
+                        })
+                    ` }"></div>
                     <div>{{(userCard.role[0].roleName == 'ROLE_ADMIN')? 'Admin': 'User'}}</div>
-                    <b style="font-size: 17px;">{{userCard.nickname}}</b>
+                    <b>{{userCard.nickname}}</b>
                 </div>
                 <div>
                     <div>
                         <div>
-                            <b style="font-size:20px; color: rgb(32, 78, 90);">{{userCard.completed + userCard.planning + userCard.playing + userCard.dropped + userCard.onHold + userCard.replayed}}</b>
-                            <div>All Registry</div>
+                            <b>{{userCard.completed + userCard.planning + userCard.playing + userCard.dropped + userCard.onHold + userCard.replayed}}</b>
+                            <div>All Registry</div> 
                         </div>
-                        <button id="report" :style="`color: ${(userCard.role[0].roleName == 'ROLE_ADMIN')? 'gray':''}; cursor: not-allowed`">
-                            <font-awesome-icon :icon="['fas', 'ban']" />
-                        </button>
+                        <div>
+                            <button id="report" :style="`color: ${(userCard.role[0].roleName == 'ROLE_ADMIN')? 'gray':''}; 
+                            cursor: ${(userCard.role[0].roleName == 'ROLE_ADMIN')? 'not-allowed': 'pointer'};`">
+                                <font-awesome-icon :icon="['fas', 'ban']" />
+                            </button>
+                        </div>
                     </div>
                     <div>
                         <div>
                             <img :title="userCard.nationality.name" :src="`https://flagcdn.com/24x18/${userCard.nationality.cod.toLowerCase()}.png`" 
                             :srcset="`https://flagcdn.com/48x36/${userCard.nationality.cod.toLowerCase()}.png 2x, 
                             https://flagcdn.com/72x54/${userCard.nationality.cod.toLowerCase()}.png 3x`" 
-                            width="24" height="18" :alt="userCard.nationality.name">
+                            :alt="userCard.nationality.name">
                             <div>Nationality</div>
                         </div>
-                        <router-link class="centralize" to="/profile" @click="userChoice(userCard)">
+                        <router-link class="centralize" :to="`/user/${userCard.id}`">
                             <div id="viewPort">
                                 <font-awesome-icon :icon="['fas', 'door-open']" />
                             </div>

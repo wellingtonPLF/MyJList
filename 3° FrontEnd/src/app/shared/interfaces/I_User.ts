@@ -17,5 +17,7 @@ export interface I_User {
     note: string,
     game: any,
     recommendations: number,
-    sexuality?: string
+    sexuality?: string,
+    role?: any,
+    userImage?: any
 }

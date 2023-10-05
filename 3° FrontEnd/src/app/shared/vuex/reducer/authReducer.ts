@@ -18,11 +18,15 @@ export const AUTH_INITIAL_STATE: I_User = {
   completed: 0,
   replayed: 0,
   hours: 0,
+  userImage: 'https://as2.ftcdn.net/v2/jpg/05/51/70/53/500_F_551705397_bLnUIG0FP08qgPYSfAkRjVQcylIvwYDg.jpg',
+  role: [{
+     id: 0, roleName: ''
+  }],
   game: {
     id: 0,
     gameImage: ''
   },
-  nationality: { name: "", cod: ""},
+  nationality: { name: "Brazil", cod: "BR"},
   recommendations: 0
 }
 

@@ -4,9 +4,9 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgb(255, 255, 255);
-    border-radius: 17px;
-    height: 34px;
-    width: 70px;
+    border-radius: 0.89vh * 2;
+    height: 1.79vh * 2;
+    width: 3.68vh * 2;
 }
 
 #goBack > div:first-child {
@@ -14,23 +14,23 @@
     justify-content: center;
     align-items: center;
     color: white;
-    width: 27px;
-    height: 27px;
-    font-size: 16px;
+    width: 1.42vh * 2;
+    height: 1.42vh * 2;
+    font-size: 0.84vh * 2;
     transform: rotate(90deg);
     background-color: rgb(40, 40, 43);
     border-radius: 100%;
-    margin-left: 4px;
+    margin-left: 0.2vh * 2;
     cursor: pointer;
 }
 
 #goBack > div:first-child > * {
-    margin-left: 1px;
+    margin-left: 0.1vh * 2;
 }
 
 #goBack > div:nth-child(2) {
-    margin-right: 11px;
-    font-size: 17px;
+    margin-right: 0.58vh * 2;
+    font-size: 0.89vh * 2;
     color: rgb(40, 40, 43); 
     cursor: pointer;
 }

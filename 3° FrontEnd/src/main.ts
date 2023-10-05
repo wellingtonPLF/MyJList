@@ -30,7 +30,8 @@ import {
   faPowerOff,
   faArrowTurnDown,
   faDoorOpen,
-  faBan
+  faBan,
+  faSearch
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faYoutube,
@@ -50,6 +51,7 @@ const app = createApp(App);
 
 library.add(
   faGamepad,
+  faSearch,
   faUser,
   faHouse,
   faArrowTurnDown,

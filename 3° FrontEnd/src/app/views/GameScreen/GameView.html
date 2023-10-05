@@ -36,15 +36,15 @@
                         <div class="backImageConfig" :style="{backgroundImage: `url(${gameCard.gameImage})`}">
                             <div>
                                 <font-awesome-icon :icon="['far', 'star']" />
-                                <div>{{gameCard.score}}</div>
+                                <div>{{(typeof(gameCard.score) != typeof(""))? gameCard.score.toFixed(1) : gameCard.score}}</div>
                             </div>
                             <div>{{gameCard.name}}</div>
                         </div>
                     </div>
                 </router-link>
             </div>
-            <div v-else>
-                <h1 style="color: white; width: 320px;">{{loading}}</h1>
+            <div v-else style="width: fit-content; color: white; font-size: 1vw;">
+                <h1>{{loading}}</h1>
             </div>
         </div>
     </div>

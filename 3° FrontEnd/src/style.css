@@ -36,9 +36,9 @@ button {
 
 .backPage {
   position: absolute;
-  font-size: 20px;
+  font-size: 1.05vh * 2;
   z-index: 1000;
-  margin: 30px 0px 0px 30px;
+  margin: 3.16vh 0px 0px 3.16vh;
 }
 
 a {
