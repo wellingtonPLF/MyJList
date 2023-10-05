@@ -5,7 +5,7 @@
       "img": [
         "https://e0.pxfuel.com/wallpapers/780/80/desktop-wallpaper-the-legend-of-zelda-breath-of-the-wild-video-game-hq-the-legend-of-zelda-breath-of-the-wild-2019.jpg",
         "https://www.gamereactor.pt/media/grtv/74/287403_w926.jpg",
-        "https://s2-techtudo.glbimg.com/FH5k80VJNvclCziaYvKiPrHFquw=/0x0:695x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/z/u/6zde56S36J4H9UmtvZxw/2016-06-14-the-legend-of-zelda-breath-of-the-wild-e3-2016-combate.jpg",
+        "https://www.gamespot.com/a/uploads/screen_kubrick/1552/15524586/3223991-zelda-breath-of-the-wild-direct-feed-145-1920x1080.png",
         "https://i.guim.co.uk/img/media/22d6b308c89e62e229feb220208a639836e31fd9/60_0_1800_1080/master/1800.png?width=700&quality=85&auto=format&fit=max&s=25c588a5203feea6061c32112a66ebdc",
         "https://i.guim.co.uk/img/media/622341a1fc2856ad7299d136a177eae5ae290934/60_0_1800_1080/master/1800.png?width=300&quality=45&auto=format&fit=max&dpr=2&s=a97502ea605481c66251bebbca3f5c98"
       ],
@@ -20,7 +20,6 @@
       "studio": ["Nintendo"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "The Legend of Zelda: Breath of the Wild é um jogo eletrônico de ação-aventura..."
     },
     {
@@ -44,7 +43,6 @@
       "studio": ["Microsoft"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Red Dead Redemption 2 é um jogo eletrônico de ação-aventura desenvolvido..."
     },
     {
@@ -68,7 +66,6 @@
       "studio": ["Microsoft"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Esta impressionante repaginação de God of War reúne todas as característ..."
     },
     {
@@ -92,12 +89,11 @@
       "studio": ["Sony"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "The Witcher 3: Wild Hunt é um jogo eletrônico de RPG de ação em mundo..."
     },
     {
       "id": 5,
-      "gameImg": "https://assets-prd.ignimgs.com/2021/12/14/minecraft-1639513933156.jpg?width=300&crop=1%3A1%2Csmart",
+      "gameImg": "https://w0.peakpx.com/wallpaper/105/594/HD-wallpaper-video-game-minecraft.jpg",
       "img": [
         "https://vulcanpost.com/wp-content/uploads/2023/04/Minecraft-legends-first-look-review-gameplay-plot-002.jpg",
         "https://files.tecnoblog.net/wp-content/uploads/2020/05/como-instalar-shader-minecraft-sildurs.jpg",
@@ -116,7 +112,6 @@
       "studio": ["Microsoft"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "O Minecraft está disponível para jogar nas seguintes plataformas...."
     },
     {
@@ -124,7 +119,7 @@
       "gameImg": "https://assets-prd.ignimgs.com/2023/06/09/fortnitewilds-1686353306240.jpg?width=300&crop=1%3A1%2Csmart",
       "img": [
         "https://www.vigamusmagazine.com/wp-content/uploads/2018/02/Fortnite2Fhome2Ffn_battle_royale-1268x717-cf9fa8a783c249aa8d6929126e29f5f190620357.jpg",
-        "https://s2-techtudo.glbimg.com/QdtQWZrkNdelN9vwO66761jHeS8=/0x0:1920x1080/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2018/P/W/UaSopXTP6MlzJT4e7dCQ/fortnite-cross-play-ps4-truegamerrevolution.jpg",
+        "https://d39-a.sdn.cz/d_39/c_img_H_L/gqQDWt.jpeg?fl=cro,0,62,1200,675%7Cres,1200,,1%7Cjpg,80,,1",
         "https://i.pcmag.com/imagery/reviews/00XpAmYpxd6wvLkvIO672zY-3.png",
         "https://cdn.arstechnica.net/wp-content/uploads/2017/08/BoB_combatShot_var2-800x450.jpg",
         "https://e1.pxfuel.com/desktop-wallpaper/702/274/desktop-wallpaper-fortnite-squad-golf-cart-gameplay-computer-backgrounds-1496-1920x1080-px-picky-fortnite-game-play.jpg"
@@ -140,18 +135,17 @@
       "studio": ["Epic Games"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Fortnite é um jogo eletrônico multijogador on revelado originalmente em 2011..."
     },
     {
       "id": 7,
       "gameImg": "https://www.siliconera.com/wp-content/uploads/2022/12/street-fighter-6-box-art.jpg",
       "img": [
-        "https://s2-techtudo.glbimg.com/0BM3QTtL3LdaZkAxffStjBZ03L8=/0x0:1918x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/u/d/CoehQPRp23ca4q0slwpg/street-fighter-6-gameplay.png",
+        "https://esi.si.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_768/MTk4NDc0NzI4MzQ2NzU2OTQ5/marisa-sf6-punch.jpg",
         "https://i.pcmag.com/imagery/reviews/04QtV9tYUdB4Hix1hC8ek43-7.fit_lim.size_1050x.jpg",
         "https://i.pcmag.com/imagery/reviews/04QtV9tYUdB4Hix1hC8ek43-15.fit_lim.size_1050x.jpg",
-        "https://s2-techtudo.glbimg.com/60ageNvCQbDtxu2PTgE12pdU1h0=/0x0:3840x2160/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/G/T/p8dWJCTMKHsvhihVJlYA/188640cc4af85-screenshoturl.jpg",
-        "https://s2-techtudo.glbimg.com/SGQj0QsYH_VQDCto3-XdSD9B7qw=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/G/a/cqUvgUSimMVtV5AKPQAQ/deejay-street-fighter-6.jpg"
+        "https://cdn.ome.lt/yjIpFTqdMSOEwtTd4vWcGVV1GKI=/770x0/smart/uploads/conteudo/fotos/street-fighter-6-pro-vods_SKwXemy.jpg",
+        "https://www.xboxdynasty.de/wp-content/uploads/2020/11/street-fighter-6-12-720x405.jpg"
       ],
       "achievements": [
         "Game Finished", "Super Luck", "You rock!"
@@ -164,16 +158,15 @@
       "studio": ["Blizzard"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Street Fighter 6 é um jogo eletrônico de luta desenvolvido e publicado pela..."
     },
     {
       "id": 8,
       "gameImg": "https://i.blogs.es/a47ba2/ffxvi-cabecera/450_1000.webp",
       "img": [
-        "https://technewsspace.com/wp-content/uploads/2023/04/Final-Fantasy-XVI-at-State-of-Play-20-minutes-of.jpg",
-        "https://http2.mlstatic.com/D_NQ_NP_977026-MLU69660270227_052023-O.webp",
-        "https://s2-techtudo.glbimg.com/s4QAZz2iMkPDWOhJiBw3EbF5lYU=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/Z/S/4kBUK0SYiVWTMshAHevA/sukurinshiyotsuto-2023-04-14-011903.png",
+        "https://meups.com.br/wp-content/uploads/2023/04/final-fantasy-xvi-900x503.jpeg",
+        "https://videogames.si.com/.image/t_share/MTk5MTQzMDEyMzczMjQzNjY1/final-fantasy-16-screenshot-glhf-4.jpg",
+        "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/cc727de8439ef81bb95d289836b9dfaa.jpg",
         "https://dondon.media/wp-content/uploads/2023/06/ff16-staggering.webp",
         "https://psverso.com.br/wp-content/uploads/2023/02/Final-Fantasy-16-ganha-diversos-videos-de-gameplay-de-combate-768x432.jpg"
       ],
@@ -188,7 +181,6 @@
       "studio": ["Sony"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Final Fantasy XVI é um jogo eletrônico de RPG de ação desenvolvido e publicado..."
     },
     {
@@ -212,18 +204,17 @@
       "studio": ["Epic Games"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "As Dusk Falls é um jogo de aventura narrativa de 2022 desenvolvido pela Interior..."
     },
     {
       "id": 10,
       "gameImg": "https://nintendoboy.com.br/wp-content/uploads/2021/06/mario-rabbids-sparks-of-hope.jpg",
       "img": [
-        "https://uploads.jovemnerd.com.br/wp-content/uploads/2023/03/mario_rabbids_tower_of_doom__ex32w5p-1210x544.jpg",
-        "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4QNKc5GkgNikcIEyTnLWza/fe84e92b160a8c630577f37da5431d00/MRSH_SPACESHIP_960x540.png",
         "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/40ozvupjigBkXRrBrbC8QE/ae2c100af696ade0a9b1e99e7a188273/MRSH_ARTICLE_CMBK_04-SCRN-Combat-b.jpg",
-        "https://s2-techtudo.glbimg.com/-nM-uvRV_D8ISMBaxIj8ZPLSzgs=/0x0:1615x1072/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/R/I/t6RsBzRvOvojE1oAFEqA/scahc8.png",
-        "https://s2-techtudo.glbimg.com/kUzlXFB742lNOl3fjmkHE1qoRtQ=/0x0:1200x675/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/S/A/5wN7BHSQiiDFuFdM5vdg/mario-rabbids-sparks-of-hope-estrategia-gameplay-explorar.jpg"
+        "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4QNKc5GkgNikcIEyTnLWza/fe84e92b160a8c630577f37da5431d00/MRSH_SPACESHIP_960x540.png",
+        "https://www.comboinfinito.com.br/principal/wp-content/uploads/2022/06/mariorabbids.jpg",
+        "https://www.adrenaline.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=910&height=568&format=webp&quality=91&imagick=/wp-content/uploads/2021/06/mario-rabbids-sparks-of-hope.jpg",
+        "https://uploads.jovemnerd.com.br/wp-content/uploads/2023/03/mario_rabbids_tower_of_doom__ex32w5p-1210x544.jpg"
       ],
       "achievements": [
         "Game Finished", "Super Luck", "You rock!"
@@ -236,16 +227,15 @@
       "studio": ["Nintendo"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Mario + Rabbids Sparks of Hope é um videogame de estratégia baseado em turnos..."
     },
     {
       "id": 11,
-      "gameImg": "https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S1_2560x1440-91dc9490f14942ad5eeef278eb3ef4a6?h=270&quality=medium&resize=1&w=480",
+      "gameImg": "https://img.redbull.com/images/c_crop,w_1920,h_960,x_0,y_0,f_auto,q_auto/c_scale,w_1200/redbullcom/2022/1/14/tph8eejg335hlizybmjj/neon-agente-valorant",
       "img": [
         "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt2372d4c57445d2b2/61d65d73abe5293e65782c0d/CYPHER_4.jpg?auto=webp&disable=upscale&height=549",
-        "https://s2-g1.glbimg.com/KJmfhc3dzVmjSFHjeSTSpm_W9sQ=/0x0:1920x1080/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/d/A/jze8TURRKhTKz9LfLvRA/valorant1.jpg",
-        "https://s2-techtudo.glbimg.com/PQAoZgFPX9AdsSUB6q3hsx5NOBg=/0x0:695x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/M/h/OLeppwTt6PCzuZ9W2EQQ/valorant-perguntas-respostas-riot-gameplay-parecido-csgo-overwatch.jpg",
+        "https://cdn.folhape.com.br/img/pc/1100/1/dn_arquivo/2020/03/reveal-reactora-valorant.jpg",
+        "https://cdn.ome.lt/_sExWg8slXbKBCI0R9wMO426am8=/770x0/smart/uploads/conteudo/fotos/19801.jpg",
         "https://i0.wp.com/playerassist.com/wp-content/uploads/2022/12/featured-image-valorant-patch-5.12-adds-new-swiftplay-game-mode.png?fit=706%2C397&ssl=1",
         "https://external-preview.redd.it/CRAI93tjgAtI-SFw4JMde9DLDl-fv8tSx0PMADpagFs.png?width=640&crop=smart&format=pjpg&auto=webp&s=aecc80689e5c74110e27581f2c96658b489af6c5"
       ],
@@ -260,7 +250,6 @@
       "studio": ["Tencent"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Valorant é um jogo eletrônico multijogador gratuito para jogar de tiro em..."
     },
     {
@@ -284,7 +273,6 @@
       "studio": ["Blizzard"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Baldur's Gate III é a sequência do jogo de RPG Baldur's Gate II: Shadows of Amn..."
     },
     {
@@ -294,8 +282,8 @@
         "https://phantom-marca.unidadeditorial.es/7fa6670224e278b58a556f85985e3fcd/resize/828/f/jpg/assets/multimedia/imagenes/2020/12/24/16088107388379.jpg",
         "https://variety.com/wp-content/uploads/2018/07/league-of-legends-2015-05-15-18-05-46-91.png?w=1000&h=563&crop=1",
         "https://i.ytimg.com/vi/WJdpCJZsV9s/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEsgZShjMA8=&rs=AOn4CLB8YdGr-WUU2vfSZ-0_p6_iKdgYGg",
-        "https://s2-techtudo.glbimg.com/v_iNetgOt9LCh7K6itybJOX6fxs=/0x0:1440x902/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2018/n/q/y9YBAYRNqNBCw4EdTxZA/005.jpg",
-        "https://s2-techtudo.glbimg.com/1WsVTFR0RcuxnmvsPIeT2jP-W9A=/0x0:1600x1000/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2018/h/L/UFUAqFRYmJlrsIFRnwNw/mfhn7af.jpg"
+        "https://i.computer-bild.de/imgs/4/2/2/1/4/6/8/Screenshot-aus-League-of-Legends-1920x1080-93b7db489b1df434.jpg?impolicy=download_main_desktop",
+        "https://cdn.ligadosgames.com/imagens/lol-map-cke.jpg"
       ],
       "achievements": [
         "Game Finished", "Super Luck", "You rock!"
@@ -308,17 +296,16 @@
       "studio": ["Tencent"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "League of Legends é um jogo eletrônico do gênero multiplayer on battle arena..."
     },
     {
       "id": 14,
       "gameImg": "https://meups.com.br/wp-content/uploads/2022/07/FIFA-23-capa.jpg",
       "img": [
-        "https://s2-techtudo.glbimg.com/q7xoalzYhxy4DSJOlnDNh9j5Hdw=/0x0:1200x675/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/T/a/igizWPT1agFK6RMwtpKw/fifa-23-tudo-sobre-gmeplay-requisitos-minimos-jogo-ps4-ps5-xbox-pc.jpg",
+        "https://assets.xboxservices.com/assets/f1/e5/f1e5fc8a-bbdf-44db-9713-5119761602ef.jpg?n=FIFA-23_Gallery-0_1350x759_01.jpg",
         "https://wp.inews.co.uk/wp-content/uploads/2022/09/262f2363565c-fifa-23-screenshot.jpeg?w=940&h=530&crop=1",
         "https://gamerview.uai.com.br/wp-content/uploads/2022/10/FIFA-23-Review-Img11-1024x576.jpg",
-        "https://s2-techtudo.glbimg.com/g7ghzV9siZTY_XiK7yxsngNUYzY=/0x0:3840x2160/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/Y/R/9B5wgyRjiboYb3FGvUQQ/img-3386.jpg",
+        "https://www.adrenaline.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=910&height=568&format=webp&quality=91&imagick=/wp-content/uploads/2022/08/imagem_2022-08-29_093557497.png",
         "https://www.adrenaline.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=910&height=568&format=webp&quality=91&imagick=/wp-content/uploads/2022/07/FIFA_23_primeiro_gameplay_oficial_novidades_PS5_Xbox_PC.jpg"
       ],
       "achievements": [
@@ -332,7 +319,6 @@
       "studio": ["Sony"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "FIFA 23 é um jogo eletrônico de simulação de futebol desenvolvido pela Electronic Arts..."
     },
     {
@@ -343,7 +329,7 @@
         "https://images.ctfassets.net/qyr5bjm559gz/5oMZjfYPPNRWR27JC36C9c/591a8d292a2e56e12b40ea4ae3222fb3/hunting.jpg",
         "https://www.nme.com/wp-content/uploads/2023/07/palia-closed-beta-open-beta-pc-696x442.jpg",
         "https://www.alphabetagamer.com/wp-content/uploads/2021/06/Palia-beta-sign-up.jpg",
-        "https://www.gameskinny.com/wp-content/uploads/2023/08/palia-century-in-the-making-reth.jpg?w=640"
+        "https://sm.ign.com/t/ign_br/photo/default/palia-screenshot-2-1622596867917_hz7p.1080.jpg"
       ],
       "achievements": [
         "Game Finished", "Super Luck", "You rock!"
@@ -356,7 +342,6 @@
       "studio": ["Epic Games"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "From sprawling flower fields to hilly forests and rocky beaches - explore the stunning..."
     },
     {
@@ -365,9 +350,9 @@
       "img": [
         "https://i.pinimg.com/originals/53/48/1a/53481afac74dc65032df5f5d4cdbba30.png",
         "https://images.prismic.io/rivalryglhf/82526669-06b3-40db-906c-dbc31d00085c_dota+2+minimum+requirements.jpg?auto=compress,format&rect=0,59,1920,960&w=720&h=360",
-        "https://s2-techtudo.glbimg.com/P9D3gF1oI894A8VcBGSxu-oFpRY=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2019/l/r/5AOyIfS3Kajl2NAB2jLg/ss-f9ebafedaf2d5cfb80ef1f74baa18eb08cad6494.1920x1080.jpg",
         "https://cdn.ligadosgames.com/imagens/dota-2-cke.jpg",
-        "https://cdn.vox-cdn.com/thumbor/bEL7nyTQpADVIbXOHsUs5vd5a6c=/0x0:820x411/1400x933/filters:focal(231x142:361x272):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/60974851/terrain_spring.0.jpg"
+        "https://conteudo.imguol.com.br/blogs/342/files/2020/03/dota2-1024x570.jpg",
+        "https://www.driversupport.com/wp-content/uploads/2019/09/dota-2-1-1024x576.jpg"
       ],
       "achievements": [
         "Game Finished", "Super Luck", "You rock!"
@@ -380,7 +365,6 @@
       "studio": ["Valve"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Dota 2 é um jogo eletrônico do gênero multiplayer on battle arena desenvolvido e publicado..."
     },
     {
@@ -404,14 +388,13 @@
       "studio": ["Blizzard"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Sparkball, um jogo multiplayer empolgante com batalhas cheias de emoção, poderá ser..."
     },
     {
       "id": 18,
       "gameImg": "https://mmorpgplay.com.br/wp-content/uploads/2022/07/BlackDesert-Drakania-Featured.webp",
       "img": [
-        "https://cdn.cloudflare.steamstatic.com/steam/apps/582660/capsule_616x353.jpg?t=1688593123",
+        "https://mmorpg.gg/wp-content/uploads/2022/07/BDO-Review-Grind-1024x576.jpg",
         "https://www.psu.com/wp/wp-content/uploads/2021/11/BlackDesertOnline-1.jpeg",
         "https://media.altchar.com/prod/images/940_530/gm-a646ac30-1e18-485e-a77e-83d9cde7902a-black-desert-mobile.jpg",
         "https://images.tweaktown.com/pr/1/2/12116_01_celebrate-holidays-black-desert-online-sea.jpg",
@@ -428,7 +411,6 @@
       "studio": ["Sony"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Black Desert On é um vídeo game de MMORPG desenvolvido pela Pearl Abyss e publicado..."
     },
     {
@@ -452,7 +434,6 @@
       "studio": ["Microsoft"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "Grounded é um jogo de sobrevivência, desenvolvido pela Obsidian Entertainment ..."
     },
     {
@@ -476,7 +457,6 @@
       "studio": ["Nintendo"],
       "theme": ["Other"],
       "producer": ["Producer A"],
-      "language": ["English"],
       "description": "SpongeBob SquarePants: Battle for Bikini Bottom Rehydrated é um jogo eletrônico de plataforma..."
     }
   ]

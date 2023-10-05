@@ -1,6 +1,9 @@
 from main.subModels.game import Game
 from main.subModels.comment import Comment
 from main.subModels.registry import Registry
+from main.subModels.gametype import GameType
+from main.subModels.plataform import Plataform
+from main.subModels.studio import Studio
 from main.enum.jwtEnum import JwtEnum
 from rest_framework import viewsets
 from rest_framework.decorators import action
@@ -9,9 +12,14 @@ from main.serializers.gameSerializer import GameSerializer
 from main.serializers.commentSerializer import CommentSerializer
 from main.serializers.favoriteSerializer import FavoriteSerializer
 from main.serializers.releaseSerializer import ReleaseSerializer
+from main.serializers.plataformSerializer import PlataformSerializer
+from main.serializers.studioSerializer import StudioSerializer
+from main.serializers.gameTypeSerializer import GameTypeSerializer
 from main.authenticate import GameAuthentication
 from rest_framework.exceptions import ParseError
 from django.db.models import Count, Avg
+from django.db.models.functions import Cast
+from django.db.models import FloatField
 import datetime
 
 class GameViewSet(viewsets.ModelViewSet):
@@ -24,16 +32,33 @@ class GameViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(games, many=True)
         return Response(serializer.data)
 
+    #/game/getFilterData
+    @action(detail=False, methods=['GET'], url_path='getFilterData')
+    def getFilterData(self, request):
+        try:
+            plataform = Plataform.objects.all()
+            studios = Studio.objects.all()
+            gameTypes = GameType.objects.all()
+            result = {
+                "plataform": PlataformSerializer(plataform, many=True, read_only=True).data,
+                "studios": StudioSerializer(studios, many=True, read_only=True).data,
+                "gameTypes": GameTypeSerializer(gameTypes, many=True, read_only=True).data
+            }
+            return Response(result)
+        except:
+            raise ParseError("Something went Wrong in getMostRecommended")
+
     #/game/getMostRecommended
     @action(detail=False, methods=['GET'], url_path='getMostRecommended')
     def getMostRecommended(self, request):
         try:
-            queryRecommended = Registry.objects.filter(recommendation=1).values('game_id', 'recommendation').annotate(result=Count('game_id')).order_by('-result')[:5]
+            queryRecommended = Registry.objects.filter(recommendation=1).values('game_id', 'recommendation').annotate(result=Count('game_id')).order_by('-result')
             queryList = []
             for obj in queryRecommended:
                 result = Comment.objects.filter(game=obj['game_id']).order_by('-vote').first()
-                queryList.append(CommentSerializer(result).data)
-            return Response(queryList)
+                if (result != None):
+                    queryList.append(CommentSerializer(result).data)
+            return Response(queryList[:5])
         except:
             raise ParseError("Something went Wrong in getMostRecommended")
 
@@ -74,7 +99,7 @@ class GameViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['GET'], url_path='getTopRated')
     def getTopRated(self, request):
         try:
-            queryResult = Registry.objects.values('game_id').annotate(score=Avg('note')).order_by('-score')[:5]
+            queryResult = Registry.objects.values('game_id').annotate(score=Avg(Cast('note', output_field=FloatField()))).order_by('-score')[:5]
             resultList = []
             for i in queryResult:
                 game = Game.objects.filter(id=i['game_id'])

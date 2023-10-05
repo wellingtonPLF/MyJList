@@ -1,6 +1,7 @@
 from django.db import models
 from main.subModels.game import Game
 from main.subModels.user import User
+from main.subModels.tag import Tag
 from main.enum.gameEnum import GameEnum
 
 NOTE_CHOICES = [
@@ -28,6 +29,7 @@ class Registry(models.Model):
     progress = models.CharField(max_length = 30, default=GameEnum.PLAN.value, choices=PROGRESS_CHOICES)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"\n| Id: {self.id}\n| Note: {self.note}, Favorite: {self.favorite}, Progress: {self.progress} |\n"

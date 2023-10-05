@@ -1,3 +1,4 @@
+from main.subModels.tag import Tag
 from main.subModels.img import Img
 from main.subModels.role import Role
 from main.subModels.auth import Auth

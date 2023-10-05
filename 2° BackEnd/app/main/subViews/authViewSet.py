@@ -53,11 +53,6 @@ class AuthViewSet(viewsets.ModelViewSet):
             # raise ParseError(error)
             raise ParseError("Can't Authenticate, credentials not correct.")
 
-    @action(detail=False, methods=['GET'], url_path='testando')
-    def testando(self, request):
-        response = Response(f"{request.COOKIES}")
-        return response
-
     @action(detail=False, methods=['GET'], url_path='refresh')
     def refresh(self, request):
         response = Response("Refresh!")

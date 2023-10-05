@@ -2,6 +2,7 @@ from main.subModels.registry import Registry
 from rest_framework.response import Response
 from main.authenticate import RegistryAuthentication
 from rest_framework import viewsets
+from rest_framework.decorators import action
 from main.serializers.registrySerializer import RegistrySerializer
 
 class RegistryViewSet(viewsets.ModelViewSet):
@@ -13,6 +14,16 @@ class RegistryViewSet(viewsets.ModelViewSet):
         registryList = self.get_queryset()
         serializer = self.get_serializer(registryList, many=True)
         return Response(serializer.data)
+    
+    #/game/getRegistryByUserID
+    @action(detail=False, methods=['GET'], url_path='getRegistryByUserID/(?P<user_id>\d+)')
+    def getRegistryByUserID(self, request, user_id):
+        try:
+            query_registry = Registry.objects.filter(user=user_id)
+            result = RegistrySerializer(query_registry, many=True, read_only=True).data
+            return Response(result)
+        except:
+            raise ParseError("Something went Wrong in getRegistryByUserID")
 
     def get_registry(self, id):
         try:

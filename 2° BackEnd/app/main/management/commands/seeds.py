@@ -1,4 +1,5 @@
 from django_seed import Seed
+from main.subModels.tag import Tag
 from main.subModels.img import Img
 from main.subModels.user import User
 from main.subModels.auth import Auth
@@ -38,6 +39,14 @@ class Command(BaseCommand):
         seeder = Seed.seeder()
         roles = ['ROLE_USER', 'ROLE_ADMIN']
         password = '12345678'
+        languages = [ "zh","es","en","hi","ar","bn","pt","ru","ja",
+        "pa","de","jv","wuu","id","te","vi","ko","fr","mr","ta",
+        "ur","tr","it","yue","th","gu","jin","hak","pl","kn","hsn","ml","su",
+        "bho","ha","or","my","uk","tl","yo","mai","uz","sd","am","ff","ro","om","ig",
+        "az","awa","gan","ceb","nl","ku","sh","mg","skr","ne","si","ctg","za","km","tk",
+        "as","mad","so","mwr","mag","hne","hu","hne","el","ny","deccan","ak","kk",
+        "syl","zu","cs","rw","dhd","ht","ilo","qu","rn","sv","hmn","sn","ug","hil",
+        "mos","xh","be","bal","gom","tji","ln"]
         progressList = [
             GameEnum.PLAN.value, 
             GameEnum.PLAY.value, 
@@ -55,6 +64,7 @@ class Command(BaseCommand):
         numberOfEntities = 3
         numberOfComments = 100
         numberOfRegistry = 45
+        tags = ['Undefined', 'Bad Script', 'Good Script']
         stat = ["On", "Off"]
         sexuality = ["M", "F"]
         notes = [3, 5, 7, 8, 9, 10]
@@ -116,6 +126,7 @@ class Command(BaseCommand):
             except:
                 objct = {
                     'id': obj['id'],
+                    'cod': obj['cod'],
                     'name': obj['name']
                 }
                 nationality = Nationality(**objct)
@@ -128,7 +139,9 @@ class Command(BaseCommand):
             except:
                 objct = {
                     'id': obj['id'],
-                    'value': obj['lang']
+                    'value': obj['lang'],
+                    'langcod': obj['langcod'],
+                    'countrycod': obj['countrycod']
                 }
                 language = Language(**objct)
                 language.save()
@@ -248,7 +261,7 @@ class Command(BaseCommand):
                     'joined': seeder.faker.date_between(start_date='-5y', end_date='today').strftime('%Y-%m-%d'),
                     'note': '',
                     'status': 'off',
-                    'nationality': Nationality.objects.get(id=1),
+                    'nationality': Nationality.objects.get(id=randrange(243) + 1),
                     'auth': Auth.objects.get(id=index + 1)
                 }
                 user = User(**objct)
@@ -267,8 +280,7 @@ class Command(BaseCommand):
                     'name': obj['name'],
                     'description': obj['description'],
                     'playtime': round(uniform(1, 900), 2),
-                    'gameImage': obj['gameImg'],
-                    'tag': "Great Scenes"
+                    'gameImage': obj['gameImg']
                 }
                 game = Game(**objct)
                 game.save()
@@ -279,10 +291,15 @@ class Command(BaseCommand):
                     {'studio': Studio},
                     {'gameType': GameType},
                     {'producer': Producer},
-                    {'language': Language},
                     {'plataform': Plataform},
                     {'perspective': Perspective}
                 ]
+                
+                game.language.set([
+                    Language.objects.get(langcod=languages[randrange(len(languages))]),
+                    Language.objects.get(langcod=languages[randrange(len(languages))]),
+                    Language.objects.get(langcod=languages[randrange(len(languages))])
+                ])
 
                 for o in lista:
                     result = []
@@ -329,7 +346,20 @@ class Command(BaseCommand):
                 comment = Comment(**objct)
                 comment.save()
 
-        # # Registry
+        # Tag
+
+        for index in range(len(tags)):
+            try:
+                Tag.objects.get(id=index + 1)
+            except:
+                objct = {
+                    'id': index + 1,
+                    'value': tags[index],
+                }
+                tag = Tag(**objct)
+                tag.save()
+
+        # Registry
         index = 0
         while True:
             try:
@@ -348,7 +378,8 @@ class Command(BaseCommand):
                         'recommendation': randrange(2),
                         'progress': progressList[randrange(len(progressList))],
                         'user': User.objects.get(id=(userID)),
-                        'game': Game.objects.get(id=(gameID))
+                        'game': Game.objects.get(id=(gameID)),
+                        'tag': Tag.objects.get(id=randrange(3) + 1)
                     }
                     registry = Registry(**objct)
                     registry.save()

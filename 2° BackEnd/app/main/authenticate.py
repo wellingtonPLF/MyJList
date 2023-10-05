@@ -54,13 +54,10 @@ class UserAuthentication(BaseAuthentication):
 
         if method == "POST" and "/" in request.path:
             return None
+        elif method == "GET" and "/" in request.path:
+            return None
         else:
             roleList = self.authService.getRoles(request)
-            if method == "GET" and "/" in request.path:
-                if any(role.value in roleList for role in RoleEnum):
-                    return None
-                else:
-                    raise AuthenticationFailed('Access denied.')
             if method == "PUT" and "/" in request.path:
                 if any(role.value in roleList for role in RoleEnum):
                     return None

@@ -1,6 +1,7 @@
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from main.enum.jwtEnum import JwtEnum
 from main.subModels.comment import Comment
 from main.serializers.commentSerializer import CommentSerializer
@@ -16,6 +17,15 @@ class CommentViewSet(viewsets.ModelViewSet):
         comments = self.get_queryset()
         serializer = self.get_serializer(comments, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['GET'], url_path='getCommentByGame/(?P<game_id>\d+)')
+    def getCommentByGame(self, request, game_id):
+        try:
+            comment = Comment.objects.filter(game=game_id)
+            result = CommentSerializer(comment, many=True, read_only=True).data
+            return Response(result)
+        except:
+            raise ParseError("Something went Wrong in getCommentByGame")
 
     def get_comment(self, id):
         try:

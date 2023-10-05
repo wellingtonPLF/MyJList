@@ -16,7 +16,6 @@ class Game(models.Model):
     gameImage = models.CharField(max_length = 300, blank=False, null=False)
     description = models.CharField(max_length = 500, blank=False, null=False)
     name = models.CharField(max_length = 100)
-    tag = models.CharField(max_length = 50)
 
     theme =  models.ManyToManyField(Theme)
     studio = models.ManyToManyField(Studio)
@@ -28,4 +27,4 @@ class Game(models.Model):
     perspective = models.ManyToManyField(Perspective)
 
     def __str__(self):
-        return f"\n| Id: {self.id}\n| gameImage: {self.gameImage}"
+        return f"\n| Id: {self.id}\n| gameImage: {self.gameImage}\n| Name: {self.name}"

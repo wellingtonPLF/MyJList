@@ -15,7 +15,8 @@ from main.serializers.gameTypeSerializer import GameTypeSerializer
 from main.serializers.plataformSerializer import PlataformSerializer
 from main.serializers.perspectiveSerializer import PerspectiveSerializer
 from main.serializers.achievementSerializer import AchievementSerializer
-
+from django.db.models.functions import Cast
+from django.db.models import FloatField
 from django.db.models import Avg
 
 class GameSerializer(serializers.ModelSerializer):
@@ -36,6 +37,7 @@ class GameSerializer(serializers.ModelSerializer):
 
     score = serializers.SerializerMethodField()
     recommendation = serializers.SerializerMethodField()
+    commentTotal = serializers.SerializerMethodField()
 
     planning = serializers.SerializerMethodField()
     playing = serializers.SerializerMethodField()
@@ -52,9 +54,17 @@ class GameSerializer(serializers.ModelSerializer):
             return recommendation
         return recommendation
     
+    def get_commentTotal(self, game):
+        total = None
+        try:
+            total = len(Comment.objects.filter(game=game.id))
+        except:
+            return total
+        return total
+    
     def get_popularity(self, game):
         highScore = 'Great'
-        percent = 8/10
+        percent = 80/100
         minimum = 1430
         popularity = False
         try:
@@ -79,8 +89,8 @@ class GameSerializer(serializers.ModelSerializer):
     def get_score(self, game):
         score = 'N/A'
         try:
-            result = Registry.objects.filter(game=game.id).aggregate(score=Avg('note'))
-            score = round(result['score'], 2)
+            result = Registry.objects.filter(game=game.id).aggregate(score=Avg(Cast('note', output_field=FloatField())))
+            score = round(result['score'], 1)
             if (score == None):
                 score = 'N/A'
             result = None
@@ -91,7 +101,7 @@ class GameSerializer(serializers.ModelSerializer):
     def get_ranked(self, game):
         ranked = 'N/A'
         try:
-            gameList = Registry.objects.values('game_id').annotate(scoreResult=Avg('note')).order_by('-scoreResult')
+            gameList = Registry.objects.values('game_id').annotate(scoreResult=Avg(Cast('note', output_field=FloatField()))).order_by('-scoreResult')
             ranked = list(gameList.values_list('game_id', flat=True)).index(game.id) + 1
         except:
             return ranked
@@ -121,7 +131,7 @@ class GameSerializer(serializers.ModelSerializer):
             result = Registry.objects.filter(game=game.id)
             filter_result = len(result.filter(progress=GameEnum.PLAN.value))
             total = len(result)
-            planning = filter_result/total * 100
+            planning = round(filter_result/total * 100, 0)
         except:
             return planning
         return planning
@@ -132,7 +142,7 @@ class GameSerializer(serializers.ModelSerializer):
             result = Registry.objects.filter(game=game.id)
             filter_result = len(result.filter(progress=GameEnum.PLAY.value))
             total = len(result)
-            playing = filter_result/total * 100
+            playing = round(filter_result/total * 100, 0)
         except:
             return playing
         return playing
@@ -143,7 +153,7 @@ class GameSerializer(serializers.ModelSerializer):
             result = Registry.objects.filter(game=game.id)
             filter_result = len(result.filter(progress=GameEnum.HOLD.value))
             total = len(result)
-            onHold = filter_result/total * 100
+            onHold = round(filter_result/total * 100, 0)
         except:
             return onHold
         return onHold
@@ -154,7 +164,7 @@ class GameSerializer(serializers.ModelSerializer):
             result = Registry.objects.filter(game=game.id)
             filter_result = len(result.filter(progress=GameEnum.DROP.value))
             total = len(result)
-            dropped = filter_result/total * 100
+            dropped = round(filter_result/total * 100, 0)
         except:
             return dropped
         return dropped
@@ -165,7 +175,7 @@ class GameSerializer(serializers.ModelSerializer):
             result = Registry.objects.filter(game=game.id)
             filter_result = len(result.filter(progress=GameEnum.REPLAY.value))
             total = len(result)
-            replayed = filter_result/total * 100
+            replayed = round(filter_result/total * 100, 0)
         except:
             return replayed
         return replayed
@@ -176,7 +186,7 @@ class GameSerializer(serializers.ModelSerializer):
             result = Registry.objects.filter(game=game.id)
             filter_result = len(result.filter(progress=GameEnum.COMPLETE.value))
             total = len(result)
-            completed = filter_result/total * 100
+            completed = round(filter_result/total * 100, 0)
         except:
             return completed
         return completed
@@ -186,8 +196,8 @@ class GameSerializer(serializers.ModelSerializer):
         #fields = '__all__'
         fields = (
             'id', 'score', 'name', 'playtime', 'release', 'favRank', 'ranked', 'popularity', 
-            'recommendation', 'source', 'premiede', 'gameImage', 'tag', 'description',
-            "planning", "playing", "onHold", "dropped", "replayed", "completed",
+            'recommendation', 'source', 'premiede', 'gameImage', 'description',
+            "planning", "playing", "onHold", "dropped", "replayed", "completed", "commentTotal",
             'theme', 'studio', 'producer', 'status', 'language', 'gameType', 
             'plataform', 'perspective', 'achievements', 'imgs'
         )
