@@ -198,6 +198,7 @@ class UserSerializer(serializers.ModelSerializer):
             "link",
             "role",
             "playing",
+            "userImage",
             "onHold",
             "dropped",
             "completed",

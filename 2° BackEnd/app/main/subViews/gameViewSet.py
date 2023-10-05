@@ -30,6 +30,7 @@ class GameViewSet(viewsets.ModelViewSet):
     def list(self, request):
         games = self.get_queryset()
         serializer = self.get_serializer(games, many=True)
+        print(serializer.data)
         return Response(serializer.data)
 
     #/game/getFilterData
