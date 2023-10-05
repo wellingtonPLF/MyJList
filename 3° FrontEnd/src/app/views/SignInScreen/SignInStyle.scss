@@ -71,10 +71,12 @@ $inputWidth: 20.7vh;
 $inputPaddingLeft: 1.34vh;
 $inputRadius: 3.34vh;
 
+$fontSize: 1.17vh;
+
 #login > div > div:last-child > div:last-child input {
     border-radius: $inputRadius;
     padding: 0;
-    font-size: 1.17vh;
+    font-size: $fontSize;
     border: unset;
     padding-left: $inputPaddingLeft;
     height: $inputHeight;
@@ -87,7 +89,7 @@ $inputRadius: 3.34vh;
     width: $inputWidth + $inputPaddingLeft;
     color: white;
     font-weight: 600;
-    font-size: 1.17vh;
+    font-size: $fontSize;
     background-color: black;
     border: 0.34vh solid white;
 }
@@ -104,4 +106,28 @@ $inputRadius: 3.34vh;
     margin-top: 0.5vh;
     margin-left: 0.34vh;
     color: rgb(241, 15, 15);
+}
+
+
+@media screen and (max-height: 800px) {
+    $divHeight:  15vh;
+    $inputHeight: $divHeight * 27/100;
+    $inputWidth: 24.7vh;
+    $fontSize: 1.4vh;
+
+    #login > div > div:last-child > div:last-child{
+        height: $divHeight;
+    }
+
+    #login > div > div:last-child > div:last-child input {
+        font-size: $fontSize;
+        height: $inputHeight;
+        width: $inputWidth;
+    }
+
+    #login button {
+        height: $inputHeight + 0.33vh;
+        width: $inputWidth + $inputPaddingLeft;
+        font-size: $fontSize;
+    }
 }

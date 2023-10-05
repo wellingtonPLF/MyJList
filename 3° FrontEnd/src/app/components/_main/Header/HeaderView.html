@@ -2,18 +2,22 @@
 <header>
     <div id="auth">
         <div :style="{justifyContent: `${(userLogin.id == 0) ? '': 'center'}`}">
+            <!-- --------------------------------------------------------------- -->
             <router-link v-if="userLogin.id == 0" to="/signIn">SIGN IN</router-link>
-            <div @click="signOut()" v-else style="color: rgb(224, 65, 65); width: 100px;">
+            <div @click="signOut()" v-else style="color: rgb(224, 65, 65);">
                 <font-awesome-icon :icon="['fas', 'power-off']" />
             </div>
+            <!-- --------------------------------------------------------------- -->
             <div v-if="userLogin.id == 0">
                 <font-awesome-icon :icon="['fas', 'users']" />
             </div>
             <router-link v-else id="userLogin" to="/profile">{{userLogin.nickname}}</router-link>
+            <!-- --------------------------------------------------------------- -->
             <router-link v-if="userLogin.id == 0" to="/signUp">SIGN UP</router-link>
-            <router-link v-else to="/" style="color: rgb(174, 169, 218); width: 100px;">
+            <div v-else to="/" style="color: rgb(174, 169, 218);">
                 <font-awesome-icon :icon="['far', 'bell']" />
-            </router-link>
+            </div>
+
         </div>
     </div>
 </header>

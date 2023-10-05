@@ -19,7 +19,7 @@ const signUpComponent: any = {
           email: undefined,
           sexuality: undefined,
           nationality: undefined,
-          bordDate: undefined
+          bornDate: undefined
         },
         nationalitys: undefined,
         sexualitys: [{name: 'Masculine'} , {name: 'Feminine'}],
@@ -43,7 +43,7 @@ const signUpComponent: any = {
     },
     methods: {
       typeInput() {
-        if (this.keys[this.count - 1] == 'bordDate'){
+        if (this.keys[this.count - 1] == 'bornDate'){
           return 'date'
         }
         else if (this.keys[this.count - 1] == 'password'){
@@ -103,7 +103,7 @@ const signUpComponent: any = {
               return 
             }
           }
-          else if (this.keys[this.count - 1] == 'bordDate') {
+          else if (this.keys[this.count - 1] == 'bornDate') {
             const selected_date = new Date(this.value)
             const dateLimit = new Date(Date.now())
             dateLimit.setMonth(dateLimit.getMonth() - 1)
@@ -118,20 +118,25 @@ const signUpComponent: any = {
 
                 const nationality = this.nationalitys.filter((obj: any) => {
                   if (obj.name == this.user.nationality){
-                    return obj.id
+                    return true
                   }
                 })
-                const user: User = new User(this.user.nickname, this.user.bordDate, (this.user.sexuality == "Masculine") ? "M" : "F")
+                const user: User = new User(this.user.nickname, this.user.bornDate, (this.user.sexuality == "Masculine") ? "M" : "F")
                 user.auth = it.id
-                user.nationality = nationality[0].id
+                user.nationality = nationality[0]
 
                 userService.insert(user).then(
                   _ => {
                     this.$router.push('/')
                   }
-                )
+                ).catch( _ => {
+                  console.log('Error no user insertion')
+                })
               }
-            )
+            ).catch( _ => {
+              console.log('Error no auth insertion')
+            })
+
             return
           }
           else if (this.value.length < 3) {

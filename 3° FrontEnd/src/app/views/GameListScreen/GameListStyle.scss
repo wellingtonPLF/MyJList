@@ -19,145 +19,136 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    height: 380px;
+    height: 20vw;
     width: 100%;
     color: white;
     background-image: url('https://wallpaper.dog/large/9837.png');
 }
 
 #gameListBanner > div:first-child {
-    position: relative;
     display: flex;
     color: white;
 }
 
 #gameListBanner > div:nth-child(2) {
     display: flex;
+    align-items: flex-end;
+    height: 100%;
     justify-content: flex-end;
 }
+
+$statusheight: 2.5vw;
 
 #gameListBanner > div:nth-child(2) > div {
     display: flex;
-    padding-left: 15px;
     justify-content: flex-end;
     background-color: rgba(7, 8, 8, 0.623);
-    border-top-left-radius: 10px;
-    height: 50px;
-    line-height: 50px;
+    border-top-left-radius: 0.7vw;
+    height: $statusheight;
+    width: 14vw;
+    font-size: 0.9vw;
+    line-height: $statusheight;
 }
 
 #gameListBanner > div:nth-child(2) > div > div {
-    margin: 0px 20px;
+    margin: 0px 1.2vw;
     cursor: pointer;
 }
+
+$progressFilterHeight: 2.6vw;
 
 #gameList > div:nth-child(2) {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 50px;
+    height: $progressFilterHeight;
 }
 
 #gameList > div:nth-child(2) > div {
     height: 100%;
-    width: 100px;
+    width: 5vw;
     text-align: center;
     font-weight: 600;
+    font-size: 0.8vw;
     color: rgb(75, 75, 138);
-    line-height: 50px;
+    line-height: $progressFilterHeight;
 }
 
 #gameList > div:nth-child(2) > div:hover {
-    font-size: 18px;
+    font-size: 0.9lvw;
 }
-
 
 #gameList > div:nth-child(3) {
     display: none;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
 }
-
-#gameList > div:nth-child(3) > div {
-    width: 90%;
-}
-
-#gameList > div:nth-child(3) > div > * {
-    width: 100%;
-    height: 30px;
-}
-// ---------------------------------------------------------
-
-$progresBar: 7px;
-$heightValue: 35px;
-$tagsBackColor: rgb(38, 40, 38);
-$tagsBorderColor: rgb(56, 56, 56);
 
 #gameList > div:nth-child(4) {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
+    width: 74.1vw;
+    font-size: 1.8vw;
 }
-
+// ---------------------------------------------------------
 #gameCardList {
-    width: 322px;
-    margin: 0px 10px 10px 0px;
-    font-size: 15px;
+    width: 18vw;
+    margin: 0px 0.5vw 0.5vw 0px;
+    font-size: 0.8vw;
 }
 
 #cardImage {
     display: flex;
     align-items: flex-end;
     color: white;
-    height: 200px;
+    height: 11vw;
 }
 
 #cardImage > div {
     background-color: rgba(0, 0, 0, 0.781);
     width: 100%;
-    height: 40px;
-    line-height: 40px;
+    height: 2.11vw;
+    line-height: 2.11vw;
     text-align: center;
 }
+
+$tagsBackColor: rgb(38, 40, 38);
+$tagsBorderColor: rgb(56, 56, 56);
 
 #gameCardList > div:nth-child(2) {
     background-color: $tagsBackColor;
     color: white;
-    border: 3px solid $tagsBorderColor;
+    border: 0.16vw solid $tagsBorderColor;
 }
 
 #gameCardList > div:nth-child(2) > div {
-    padding: 5px 0px 0px 10px;
+    padding: 0.26vw 0px 0px 0.53vw;
 }
 
 #gameCardList > div:nth-child(2) > div:first-child {
-    padding-top: 8px;
+    padding-top: 0.42vw;
 }
 
 #gameCardList > div:nth-child(2) > div:nth-child(3) {
     display: flex;
     align-items: center;
-    padding-bottom: 5px;
+    padding-bottom: 0.26vw;
 }
+
+$progresBar: 0.37vw;
 
 #gameCardList > div:nth-child(2) > div:nth-child(3) > div:first-child {
     width: 98%;
-    // width: 250px;
     height: $progresBar;
-    margin-right: 10px;    
-    // background-color: rgb(44, 79, 139);
+    margin-right: 0.53vw;    
 }
 
 #gameCardList > div:nth-child(2) > div:nth-child(3) > div:first-child > div {
     height: $progresBar;
-    // background-color: rgb(0, 153, 255);
 }
 
 #gameCardList > div:nth-child(3) {
     display: flex;
-    border: 3px solid $tagsBorderColor;
+    border: 0.16vw solid $tagsBorderColor;
     border-top: unset;
 }
 
@@ -170,10 +161,12 @@ $tagsBorderColor: rgb(56, 56, 56);
     text-align: center;
 }
 
+$heightValue: 2vw;
+
 #gameCardList > div:nth-child(3) > div:nth-child(2) > div{
-    line-height: $heightValue - 2px;
-    height: $heightValue - 2px;
-    border: 3px solid $tagsBorderColor;
+    line-height: $heightValue - 0.11vw;
+    height: $heightValue - 0.11vw;
+    border: 0.16vw solid $tagsBorderColor;
     border-top: unset;
     border-right: unset;
     color: white;
@@ -187,20 +180,31 @@ $tagsBorderColor: rgb(56, 56, 56);
 #gameCardList > div:nth-child(3) > div:first-child > div {
     display: flex;
     align-items: center;
-    padding: 0px 5px;
+    padding: 0px 0.26vw;
     height: $heightValue;
 }
 
 #gameCardList > div:nth-child(3) > div:first-child > div > *{
     width: 100%;
-    height: 30px;
+    height: 1.58vw;
+    font-size: 0.7vw;
 }
 
 #gameCardList > div:nth-child(3) > div:first-child > div > div{
-    line-height: 35px;
-    padding-left: 5px;
+    line-height: 1.84vw;
+    padding-left: 0.26vw;
     cursor: default;
-    border-bottom: 1px solid black;
+    border-bottom: 0.1vw solid black;
+}
+
+#gameCardList > div:nth-child(3) > div:first-child > div > select{
+    padding-left: 0.2vw;
+}
+
+#gameCardList > div:nth-child(3) > div:first-child > div > button{
+    padding: 0px;
+    width: 2vw;
+    margin-left: 0.4vw;
 }
 
 #gameCardList > div:nth-child(3) > div:first-child > div > div::selection{
@@ -209,11 +213,12 @@ $tagsBorderColor: rgb(56, 56, 56);
 
 #emptyList {
     text-align: center;
-    font-size: 30px;
+    font-size: 1.58vw;
     font-weight: 600;
+    justify-content: center !important;
     color: rgb(91, 68, 126);
-    height: 200px;
-    line-height: 200px;
+    height: 10.53vw;
+    line-height: 10.53vw;
     cursor: default;
 }
 
@@ -223,13 +228,154 @@ $tagsBorderColor: rgb(56, 56, 56);
 
 // ----------------------------------------------------------------------
 
-@media screen and (max-width: 815px) {
+@media screen and (max-width: 800px) {
+    #gameListBanner {
+        height: 80vw;
+    }
+        
+    $statusheight: 2.5vw * 4;
+
+    #gameListBanner > div:nth-child(2) > div {
+        border-top-left-radius: 0.7vw * 4;
+        height: $statusheight;
+        width: 14vw * 4;
+        font-size: 0.9vw * 4;
+        line-height: $statusheight;
+    }
+
+    #gameListBanner > div:nth-child(2) > div > div {
+        margin: 0px 1.2vw * 4;
+    }
+    // -----------------------------------------------
+
     #gameList > div:nth-child(2) {
         display: none;
     }
 
     #gameList > div:nth-child(3) {
         display: flex;
-        width: 95%;
+    }
+
+    $selectHeight: 12vw;
+
+    #gameList > div:nth-child(3) > div{
+        display: flex;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        height: $selectHeight;
+        margin: 3vw 0px;
+        width: 100vw;
+    }
+
+    #gameList > div:nth-child(3) > div > * {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 85%;
+        width: 88%;
+        font-size: 4vw;
+        border-radius: 1vw;
+        padding: 0px 4vw;
+        margin-right: 2vw;
+        border: 0.6vw solid rgb(180, 182, 184);
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+    }
+
+    #gameList > div:nth-child(3) > div::after {
+        content: "▼";
+        font-size: 3vw;
+        right: 10vw;
+        position: absolute;
+    }
+
+    #gameList > div:nth-child(4) {
+        font-size: 5vw;
+        justify-content: center;
+        width: 100%;
+    }
+    // -----------------------------------------------
+
+    #gameCardList {
+        width: 88%;
+        margin: 0px 2vw 4vw 0px;
+        font-size: 4vw;
+    }
+    
+    #cardImage {
+        height: 50vw;
+    }
+    
+    #cardImage > div {
+        height: 10vw;
+        line-height: 10vw;
+    }
+    // -----------------------------------------------
+    #gameCardList > div:nth-child(2) {
+        border-width: 0.5vw;
+    }
+
+    #gameCardList > div:nth-child(2) > div {
+        padding-top: 2.5vw;
+        padding-left: 2vw;
+    }
+
+    #gameCardList > div:nth-child(2) > div:first-child {
+        padding-top: 2vw;
+    }
+
+    #gameCardList > div:nth-child(2) > div:nth-child(3) {
+        padding-bottom: 2vw;
+    }
+
+    $progresBar: 1.5vw;
+
+    #gameCardList > div:nth-child(2) > div:nth-child(3) > div:first-child {
+        height: $progresBar;
+        margin-right: 2vw;
+    }
+
+    #gameCardList > div:nth-child(2) > div:nth-child(3) > div:first-child > div {
+        height: $progresBar;
+    }
+
+    #gameCardList > div:nth-child(3) {
+        border: 0.5vw solid $tagsBorderColor;
+        border-top: unset;
+    }
+
+    $heightValue: 8vw;
+
+    #gameCardList > div:nth-child(3) > div:first-child > div {
+        padding: 0px 1vw;
+        height: $heightValue;
+    }
+
+    #gameCardList > div:nth-child(3) > div:first-child > div > *{
+        height: $heightValue - 1vw;
+        margin-top: 1vw;
+        font-size: 3vw;
+    }
+
+    #gameCardList > div:nth-child(3) > div:first-child > div > select{
+        padding-left: 0.5vw;
+    }
+
+    #gameCardList > div:nth-child(3) > div:first-child > div > button{
+        width: 8vw;
+        padding: 0px;
+    }
+
+    #gameCardList > div:nth-child(3) > div:first-child > div > div{
+        line-height: $heightValue;
+        font-size: 3.5vw;
+        padding-left: 1.5vw;
+    }
+
+    #gameCardList > div:nth-child(3) > div:nth-child(2) > div{
+        line-height: $heightValue + 1vw;
+        height: $heightValue - 0.2vw;
+        border-width: 0.7vw;
+        border-top: unset;
+        border-inline: unset;
     }
 }

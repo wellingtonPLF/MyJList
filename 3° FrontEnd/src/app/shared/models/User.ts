@@ -1,6 +1,6 @@
-import { I_User } from "../interfaces/I_User";
+// import { I_User } from "../interfaces/I_User";
 
-export class User implements I_User {
+export class User{
     private _id?: number;
     private _nickName?: string;
     private _bornDate?: string;
@@ -33,8 +33,8 @@ export class User implements I_User {
           nickname: user.nickName, 
           bornDate: user.bornDate,
           sexuality: user.sexuality,
-          nationality_id: user.nationality,
-          auth_id: user.auth
+          nationality: user.nationality,
+          auth: user.auth
         }
         return result;
     }
@@ -71,11 +71,11 @@ export class User implements I_User {
         this._sexuality = sexuality;
     }
 
-    get nationality(): number | undefined{
+    get nationality(): any | undefined{
         return this._nationality;
     }
 
-    set nationality(nationality: number | undefined){
+    set nationality(nationality: any | undefined){
         this._nationality = nationality;
     }
 

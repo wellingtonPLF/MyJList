@@ -6,7 +6,7 @@ export class Auth{
     private _email?: string;
     private _username?: string;
     private _password?: string;
-    private _roles?: Array<Role> = [new Role(2, "ROLE_USER")]
+    private _roles?: Array<Role> = [new Role(1, "ROLE_USER")]
 
     constructor(id: number, email: string, username: string, password: string);
     constructor();

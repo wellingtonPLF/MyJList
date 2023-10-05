@@ -3,13 +3,13 @@
         <div class="backPage">
             <GoBackComponent />
         </div>
-        <!-- <div class="unselect">
+        <div class="unselect">
             <div>
                 <div>status</div>
                 <div>filter</div>
                 <div>search</div>
             </div>
-        </div> -->
+        </div>
     </div>
     <div class="unselect">
         <div @click="filterBy('all')">All Games</div>
@@ -66,7 +66,7 @@
                             <option value="Replaying">Replaying</option>
                         </select>
                         <div v-else>{{item.progress}}</div>
-                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()" style="width: 30px; margin-left: 2px;">
+                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>
@@ -80,7 +80,7 @@
                             <option value="Horrible">Horrible</option>
                         </select>
                         <div v-else>{{item.note}}</div>
-                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()" style="width: 30px; margin-left: 2px;">
+                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>
@@ -91,7 +91,7 @@
                             <option value="Good Script">Good script</option>
                         </select>
                         <div v-else>{{item.tag.value}}</div>
-                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()" style="width: 30px; margin-left: 2px;">
+                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>

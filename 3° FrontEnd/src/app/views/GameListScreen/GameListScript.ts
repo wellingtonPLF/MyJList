@@ -11,7 +11,7 @@ const gameListComponent: any = {
     return {
       registry: [] as any[],
       registryList: [] as any[],
-      emptyList: 'Loading. . .',
+      emptyList: 'Loading . . .',
       progress: 100,
       colors: [
         { completed: 'rgb(215 17 236)'},
@@ -74,6 +74,9 @@ const gameListComponent: any = {
       it => {
         this.registry = it
         this.registryList = it
+        if (it.length == 0){
+          this.emptyList = 'Nothing to Render'
+        }
       }
     )
   },

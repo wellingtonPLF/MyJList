@@ -19,24 +19,25 @@
 }
 
 // ------------------------------------------------------
-$portalSize: 350px;
+$portalSize: 35vh;
+$portalIn: $portalSize * 90/100;
 
 #registry > div > div:first-child{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
-    border: 3px solid white;
+    border: 0.34vh solid white;
     border-radius: 100%;
     width: $portalSize;
     height: $portalSize;
 }
 
 #registry > div > div:first-child > :first-child{
-    border: 7px solid white;
+    border: 0.67vh solid white;
     border-radius: 100%;
-    width: $portalSize - 35px;
-    height: $portalSize - 35px;
+    width: $portalIn;
+    height: $portalIn;
 }
 // ------------------------------------------------------
 
@@ -45,29 +46,34 @@ $portalSize: 350px;
     flex-direction: column;
     position: relative;
     align-items: flex-end;
-    width: 285px;
+    margin-left: 2vh;
 }
 
 #userForm > div:first-child {
     position: absolute;
-    height: 40px;
-    line-height: 60px;
-    width: 250px;
+    line-height: 5.5vh;
+    width: 25vh;
 }
 
 #userForm > div:first-child > div {
-    margin-left: 10px;
+    margin-left: 1vh;
+    font-size: 1.7vh;
     color: red;
+    cursor: default;
+}
+
+#userForm > div:first-child > div::selection {
+    background-color: transparent;
 }
 
 #userForm > div:nth-child(2){
     display: flex;
-    height: 150px;
-    width: 250px;
+    height: 15vh;
+    width: 25.5vh;
+    margin-top: 1vh;
     align-items: center;
     justify-content: space-around;
     color: white;
-    margin-top: 10px;
 }
 
 select {
@@ -79,28 +85,73 @@ select > :first-child {
     display: none;
 }
 
-#userForm > div:nth-child(2) > div:first-child :first-child {
-    border-radius: 30px;
-    padding: 0px;
-    padding-left: 15px;
-    height: 30px;
+$inputRadius: 3.34vh;
+$inputWidth: 20vh;
+$inputHeight: 12vh  * 27/100;
+$inputPaddingLeft: 1.34vh;
+$fontSize: 1.18vh;
+
+#userForm > div:nth-child(2) > div:first-child > input, select {
+    padding: 0;
     appearance: none;
-    border: 2px solid black;
-    height: 35px;
+    border: unset;
+    border-radius: $inputRadius;
+    padding-left: $inputPaddingLeft;
+    font-size: $fontSize;
+    height: $inputHeight;
+    width: 20vh;
+}
+
+#userForm select {
+    width: 21vh;
+}
+
+#userForm > div:nth-child(2) > div:first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+#userForm > div:nth-child(2) > div:last-child {
+    font-size: $fontSize + 0.8vh;
 }
 
 #registry button {
-    border-radius: 30px;
-    height: 35px;
-    width: 215px;
+    border-radius: $inputRadius;
+    height: $inputHeight + 0.4vh;
+    width: $inputWidth + $inputPaddingLeft;
+    font-size: $fontSize;
     color: white;
     font-weight: 600;
-    margin-top: 8px;
+    margin-top: 1vh;
     background-color: black;
-    border: 2px solid white;
+    border: 0.34vh solid white;
 }
 
 #registry button:hover {
     background-color: white;
     color: black;
+}
+
+@media  screen and (max-width: 800px) {
+    $inputHeight: 15vh  * 27/100;
+
+    #userForm > div:nth-child(2){
+        margin-top: 2vh;
+    }
+
+    $fontSize: 1.4vh;
+
+    #userForm > div:nth-child(2) > div:first-child :first-child {
+        height: $inputHeight;
+        font-size: $fontSize;
+    }
+
+    #userForm > div:nth-child(2) > div:last-child {
+        font-size: $fontSize + 0.8vh;
+    }    
+
+    #registry button {
+        font-size: $fontSize;
+        height: $inputHeight;
+    }
 }
