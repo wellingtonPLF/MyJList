@@ -21,7 +21,7 @@
         </div>
         <div>
             <div>
-                <div @click="showfilterMethod()" :style="`color: ${(optionSelected == 'filter')? '#34578b': 'unset'}`">FILTER</div>
+                <div @click="showfilterMethod()" :style="`color: ${(optionSelected == 'filter')? '#34578b': 'unset'};`">FILTER</div>
                 <div @click="score()" :style="`color: ${(optionSelected == 'score')? '#34578b': 'unset'}`">SCORE</div>
                 <div @click="popularity()" :style="`color: ${(optionSelected == 'popularity')? '#34578b': 'unset'}`">POPULARITY</div>
                 <select name="customFilter" id="selectCustom" v-model="selectedOption" @change="handleSelectedOption">

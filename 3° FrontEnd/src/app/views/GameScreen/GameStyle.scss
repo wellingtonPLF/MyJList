@@ -397,9 +397,14 @@ $searchHeight: 2.2vh * 2;
         width: 100%;
     }
 
-    #gamePage > div > div:nth-child(2) > div > *:hover, #selectCustom:hover {
+    #gamePage > div > div:nth-child(2) > div > *:active, #selectCustom:active {
         color: white !important;
-        background-color: rgb(27, 42, 46);   
+        background-color: rgb(27, 42, 46); 
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    #gamePage > div > div:nth-child(2) > div > *::selection, #selectCustom::selection{
+        background-color: transparent;
     }
 }
 
