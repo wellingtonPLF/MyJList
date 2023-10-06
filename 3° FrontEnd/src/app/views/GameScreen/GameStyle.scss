@@ -243,6 +243,14 @@ $searchHeight: 2.2vh * 2;
     background-color: rgba(0, 0, 0, 0.623);
 }
 
+// -----------------Loading
+
+#loadingGame{
+    width: fit-content !important;
+    color: white; 
+    font-size: 2vh;
+}
+
 // ----------------------------------------------------
 
 @media screen and (max-width: 920px) {
@@ -254,11 +262,12 @@ $searchHeight: 2.2vh * 2;
 @media screen and (max-width: 1280px) {
     #gamePage > div > div:first-child {
         background-size: auto;
-        height: 42vh;
+        height: auto;
     }
 
     #gamePage > div > div:first-child > div:first-child{
         align-items: center;
+        margin: 5vh 0px;
     }
 }
 
@@ -352,6 +361,10 @@ $searchHeight: 2.2vh * 2;
 
 @media screen and (max-width: 610px) {
 
+    #loadingGame {
+        font-size: 2.5vw;
+    }
+
     #gamePage > div > div:first-child > div:first-child > div {
         margin-left: 5vw;
     }
@@ -381,7 +394,7 @@ $searchHeight: 2.2vh * 2;
 
     #selectCustom {
         border: unset;
-        width: 100% !important;
+        width: 100%;
     }
 
     #gamePage > div > div:nth-child(2) > div > *:hover, #selectCustom:hover {
