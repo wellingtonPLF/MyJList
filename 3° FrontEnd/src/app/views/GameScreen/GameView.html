@@ -1,7 +1,4 @@
 <div id="gamePage" class="backImageConfig">
-    <span class="backPage">
-        <GoBackComponent />
-    </span>
     <FilterComponent v-if="filter == false" :openClose="filter" :openClosefilter="showfilterMethod" :filter="filterMethodResult"/>
     <div>
         <div class="backImageConfig">
@@ -13,8 +10,13 @@
                 </div>
             </div>
             <div id="searchBar">
-                <input placeholder="Search your game" />
-                <div>Search</div>
+                <GoBackComponent class="backPage"/>
+                <span >
+                    <input placeholder="search your game" />
+                    <div>
+                        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                    </div>
+                </span>
             </div>
         </div>
         <div>
@@ -22,7 +24,7 @@
                 <div @click="showfilterMethod()" :style="`color: ${(optionSelected == 'filter')? '#34578b': 'unset'}`">FILTER</div>
                 <div @click="score()" :style="`color: ${(optionSelected == 'score')? '#34578b': 'unset'}`">SCORE</div>
                 <div @click="popularity()" :style="`color: ${(optionSelected == 'popularity')? '#34578b': 'unset'}`">POPULARITY</div>
-                <select name="customFilter" class="selectCustom" v-model="selectedOption" @change="handleSelectedOption">
+                <select name="customFilter" id="selectCustom" v-model="selectedOption" @change="handleSelectedOption">
                     <option value="Default" disabled style="background-color: white; color: black;">CUSTOMIZATION</option>
                     <option value="Commented" style="background-color: white; color: black;">Most Commented</option>
                     <option value="Recommended" style="background-color: white; color: black;">Most Recommended</option>
@@ -36,7 +38,7 @@
                         <div class="backImageConfig" :style="{backgroundImage: `url(${gameCard.gameImage})`}">
                             <div>
                                 <font-awesome-icon :icon="['far', 'star']" />
-                                <div>{{(typeof(gameCard.score) != typeof(""))? gameCard.score.toFixed(1) : gameCard.score}}</div>
+                                <div>{{(typeof(gameCard.score) != typeof(""))? ((gameCard.score === 10)? 10 : gameCard.score.toFixed(1)) : gameCard.score}}</div>
                             </div>
                             <div>{{gameCard.name}}</div>
                         </div>

@@ -254,6 +254,7 @@ $heightValue: 2vw;
 
     #gameList > div:nth-child(3) {
         display: flex;
+        width: 100%;
     }
 
     $selectHeight: 12vw;
@@ -265,7 +266,7 @@ $heightValue: 2vw;
         justify-content: center;
         height: $selectHeight;
         margin: 3vw 0px;
-        width: 100vw;
+        width: 100%;
     }
 
     #gameList > div:nth-child(3) > div > * {

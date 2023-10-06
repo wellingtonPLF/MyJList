@@ -1,6 +1,7 @@
 import FilterComponent from "../../components/dialogs/FilterDialog/FilterComponent.vue";
 import { I_Game } from "../../shared/interfaces/I_Game";
 import gameService from "../../shared/services/gameService";
+import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer";
 import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue"
 
 const gameComponent: any = {
@@ -12,7 +13,16 @@ const gameComponent: any = {
   data() {
     return {
       list: [] as I_Game[],
-      games: [] as I_Game[],
+      games: [
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE,
+        GAME_INITIAL_STATE
+      ] as I_Game[],
       prevRoute: undefined,
       optionSelected: undefined,
       filter: true,

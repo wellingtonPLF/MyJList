@@ -1,9 +1,8 @@
-$searchBarHeight: 5.53vw;
+$searchBarHeight: 5.53vh * 2;
 
 #gamePage {
     position: relative;
     min-height: 100vh;
-    min-width: 8.95vw;
     background-image: linear-gradient(to bottom, rgb(0, 0, 0) 35%, rgba(12, 44, 59, 0.349)),
     url("https://wallpapercave.com/wp/wp2732962.jpg");
 }
@@ -20,7 +19,7 @@ $searchBarHeight: 5.53vw;
     flex-direction: column-reverse;
     width: 100%;
     color: white;
-    height: 26.32vw;
+    height: 26.32vh * 2;
     justify-content: flex-end;
     background-image: url("https://wallpaperaccess.com/full/5871207.png");
 }
@@ -33,146 +32,165 @@ $searchBarHeight: 5.53vw;
 } 
 
 #gamePage > div > div:first-child > div:first-child > div {
-    max-width: 25.26vw;
-    min-width: 14vw;
+    max-width: 25.26vh * 2;
+    min-width: 14vh * 2;
     margin-left: 10%;
-    margin-right: 1.05vw;
+    margin-right: 1.05vh * 2;
 }
 
 #gamePage > div > div:first-child > div:first-child > div h1 {
-    margin-left: 1.58vw;
-    font-size: 2.1vw;
+    margin-left: 1.58vh * 2;
+    font-size: 2.1vh * 2;
 }
 
 #gamePage > div > div:first-child > div:first-child > div h2 {
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 1.05vw 1.58vw;
-    border-radius: 1.58vw;
+    padding: 1vh * 2;
+    border-radius: 1vh * 2;
     font-weight: 100;
-    font-size: 1.2vw;
+    font-size: 1.2vh * 2;
 }
 
 #gamePage > div > div:nth-child(2){
-    border: 0.16vw solid rgb(27, 42, 46); // rgb(83, 80, 129);
+    border: 0.4vh solid rgb(27, 42, 46); // rgb(83, 80, 129);
     border-inline: unset;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
     width: 100%;
-    height: 2.37vw;
+    height: 2.37vh * 2;
 }
 
 #gamePage > div > div:nth-child(2) > div {
     display: flex;
-    width: 26.32vw;
+    align-items: center;
     justify-content: space-around;
 }
 
+$heightChoice: 4vh;
+
 #gamePage > div > div:nth-child(2) > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    font-size: 0.74vw;
+    font-size: 0.74vh * 2;
     font-weight: 600;
-    padding: 0.53vw 5vw;
+    width: 21.5vh;
+    height: $heightChoice;
+    margin: 0px 0.5vw;
     color: rgb(27, 42, 46);
-    margin-top: 0.16vw;
-    border-bottom: 0.16vw solid white;
+    margin-top: 0.16vh * 2;
+    box-sizing: border-box;
+    border-bottom: 0.1vh solid white;
 }
 
-#gamePage > div > div:nth-child(2) > div > select{
-    padding: 0.53vw 0.53vw;
+#selectCustom{
     text-align: center;
     font-weight: 600;
-    border-width: 0.1vw;
+    width: 18vh;
+    cursor: pointer;
+    height: $heightChoice;
+    margin: 0px 1.3vw;
+    border-width: 0.1vh * 2;
     -webkit-appearance: none;
         appearance: none;
-    font-size: 0.74vw;
+    font-size: 0.74vh * 2;
 }
 
 #gamePage > div > div:nth-child(2) > div > div:hover {
-    border-bottom: 0.16vw solid rgb(27, 42, 46);
+    border-bottom: 0.3vh solid rgb(27, 42, 46);
 }
 
-#searchBar {
+#searchBar{
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    border-radius: 0.53vw;
-    height: $searchBarHeight;
+    position: relative;
     width: 100%;
-    min-width: 18.42vw;
+    height: 3.68vh * 2;
 }
 
-#searchBar input {
+#searchBar input:focus {
+    outline: none;
+}
+
+#searchBar > span {
+    display: flex;
+    margin-left: auto;
+    margin-right: 5vh;
+    width: 45vh;
+    margin-top: 1.3vh * 2;
+}
+
+$searchIconWidth: 12%;
+$searchHeight: 2.2vh * 2;
+
+#searchBar > span > input {
     border: unset;
-    border-radius: 1.05vw;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    font-size: 0.79vw;
-    padding: 0;
-    padding-left: 1.05vw;
-    height: 2.1vw;
-    width: 22.37vw;
-    outline: unset;
-    margin-left: 1.05vw;
+    border-radius: 1.58vh * 2;
+    padding: 0px;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    font-size: 0.79vh * 2;
+    padding-left: 1.05vh * 2;
+    height: $searchHeight;
+    width: 100% - $searchIconWidth;
 }
 
-#searchBar > div {
+#searchBar > span > :last-child {
     display: flex;
     justify-content: center;
+    color: black;
     align-items: center;
-    border-top-right-radius: 1.05vw;
-    border-bottom-right-radius: 1.05vw;
+    width: $searchIconWidth;
     cursor: pointer;
-    font-size: 0.9vw;
-    padding: 0px 0.79vw;
-    color: white;
-    background-color: rgba(42, 64, 70, 0.8);
-    height: 2.1vw;
-    margin-right: 1.32vw;
+    font-size: 2vh;
+    height: $searchHeight;
+    padding-right: 0.2vh * 2;
+    border-top-right-radius: 1.58vh * 2;
+    border-bottom-right-radius: 1.58vh * 2;
+    background-color: white;
 }
 
 #allGames{
     display: flex;
-    justify-content: center;
     padding: 1.58vw 0px 0px 0px;
 }
 
 #allGames > div {
     display: flex;
     flex-wrap: wrap;
-    width: 89%;
-    justify-content: flex-start;
+    width: 88.7%;
+    margin: 0px auto;
+    justify-content: center;
 }
 
 #allGames > div > a {
     display: flex;
-    justify-content: center;
-    width: 14.74vw;
-    height: 6.1vw;
+    width: 14.1vh * 2;
+    height: 5.8vh * 2;
 }
 
 #gameCard {
     cursor: pointer;
-    width: 13.42vw;
-    height: 5.26vw;
+    width: 95%;
 }
 
 #gameCard > div:first-child {
     width: 100%;
-    height: 5.26vw;
+    height: 5.26vh * 2;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 0.26vw;
+    border-radius: 0.26vh * 2;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     overflow: hidden;
     transition: transform 1s;
     will-change: transform;
     filter: brightness(0.9);
-    border-left: 0.26vw solid rgb(243, 173, 42);
+    border-left: 0.35vh solid rgb(243, 173, 42);
 }
 
 #gameCard > div:first-child:hover {
@@ -190,70 +208,203 @@ $searchBarHeight: 5.53vw;
     position: absolute;
     top: 0px;
     right: 0px;
-    font-size: 0.9vw;
-    padding: 0.1vw 0px 0.2vw 0px;
-    width: 3.26vw;
+    font-size: 0.8vh * 2;
+    padding: 0.2vh 0px 0.6vh 0px;
+    width: 3vh * 2;
     background-color: rgba(0, 0, 0, 0.664);
-    border-top-right-radius: 0.26vw;
-    border-bottom-left-radius: 0.53vw;
+    border-top-right-radius: 0.26vh * 2;
+    border-bottom-left-radius: 0.53vh * 2;
     color: white;
 }
 
 #gameCard > div:first-child > div:first-child > :first-child{
-    height: 0.86vw;
+    height: 0.8vh * 2;
     color: rgb(238, 241, 44);
-    margin-left: 0.26vw;
+    margin-left: 0.26vh * 2;
 }
 
 #gameCard > div:first-child > div:first-child > div:last-child {
     text-align: center;
-    margin-top: 0.16vw;
-    margin-right: 0.16vw;
+    margin-top: 0.16vh * 2;
+    margin-right: 0.16vh * 2;
 }
 
 // -------------Card Name
 #gameCard > div:first-child > div:nth-child(2) {
     display: flex;
     align-items: center;
-    font-size: 0.9vw;
+    font-size: 0.9vh * 2;
     width: 100%;
-    padding-left: 0.53vw;
+    padding-left: 0.53vh * 2;
     bottom: 0px;
     position: absolute;
     color: white;
-    height: 1.58vw;
+    height: 1.58vh * 2;
     background-color: rgba(0, 0, 0, 0.623);
 }
 
 // ----------------------------------------------------
 
-// @media screen and (max-width: 1200px) {
-//     #gamePage > div > div:first-child {
-//         background-size: unset;
-//     }
-// }
+@media screen and (max-width: 920px) {
+    #gamePage > div > div:nth-child(2) > div > div {
+        width: 21.5vw;
+    }
+}
 
-// @media screen and (max-width: 650px) {
-//     #gamePage > div > div:nth-child(2){
-//         height: auto;
-//         border: unset;
-//         border-top: 0.16vw solid rgb(27, 42, 46);
-//     }
+@media screen and (max-width: 1280px) {
+    #gamePage > div > div:first-child {
+        background-size: auto;
+        height: 42vh;
+    }
 
-//     #gamePage > div > div:nth-child(2) > div{
-//         flex-direction: column;
-//         width: 100%;
-//         text-align: center;
-        
-//     }
+    #gamePage > div > div:first-child > div:first-child{
+        align-items: center;
+    }
+}
 
-//     #gamePage > div > div:nth-child(2) > div > div {
-//         border-color: black;
-//         margin: 0px;
-//     }
 
-//     #gamePage > div > div:nth-child(2) > div > *:hover, #selectCustom:hover {
-//         color: white;
-//         background-color: rgb(27, 42, 46);   
-//     }
-// }
+@media screen and (max-width: 675px) {
+    $margin-Top-search: 1.79vh * 2;
+
+    .backPage {
+        position: relative;
+        margin: 0px;
+        margin-top: $margin-Top-search;
+    }
+    
+    $searchHeight: 1.8vh * 2;
+
+    :deep(#goBack) {
+        height: $searchHeight;
+        border-radius: 1.58vh * 2;
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+    }
+    
+    #searchBar{
+        justify-content: center;
+    }
+
+    #searchBar > :first-child {
+        display: flex;
+        justify-content: center;
+    }
+
+    #searchBar > span {
+        margin: 0;
+        max-width: 60vw;
+        margin-top: $margin-Top-search;
+    }
+
+    #searchBar > span > input {
+        border-radius: unset;
+        font-size: 1.5vh;
+        padding-left: 0.5vh;
+        height: $searchHeight;
+    }
+
+    #searchBar > span > :last-child {
+        font-size: 1.7vh;
+        height: $searchHeight;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #allGames > div {
+        width: 95%;
+        padding: 4vw 0px 3vw 0px;
+    }
+    
+    #allGames > div > a {
+        width: 45vw;
+        height: 40vw;
+    }
+    
+    #gameCard {
+        width: 95%;
+    }
+    
+    #gameCard > div:first-child {
+        height: 95%;
+        border-radius: 3vw;
+        border-left: 0.5vw solid rgb(243, 173, 42);
+    }
+    
+    // ---------- Score
+    #gameCard > div:first-child > div:first-child {
+        font-size: 3vw;
+        padding: 0.3vw 0px 1vw 0px;
+        width: 10vw;
+        border-bottom-left-radius: 2vw;
+    }
+    
+    #gameCard > div:first-child > div:first-child > :first-child{
+        height: 2.5vw;
+        margin-left: 1vw;
+    }
+    
+    // -------------Card Name
+    #gameCard > div:first-child > div:nth-child(2) {
+        font-size: 3vw;
+        height: 7vw;
+    }
+}
+
+@media screen and (max-width: 610px) {
+
+    #gamePage > div > div:first-child > div:first-child > div {
+        margin-left: 5vw;
+    }
+
+    #gamePage > div > div:nth-child(2){
+        height: auto;
+    }
+
+    #gamePage > div > div:nth-child(2) > div{
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    $filtersHeight: 5vh;
+
+    #gamePage > div > div:nth-child(2) > div > div {
+        width: 100%;
+        margin: 0;
+        height: $filtersHeight;
+        border-bottom: 0.3vh solid rgb(27, 42, 46);
+    }
+
+    #selectCustom{
+        height: $filtersHeight;
+    }
+
+    #selectCustom {
+        border: unset;
+        width: 100% !important;
+    }
+
+    #gamePage > div > div:nth-child(2) > div > *:hover, #selectCustom:hover {
+        color: white !important;
+        background-color: rgb(27, 42, 46);   
+    }
+}
+
+@media screen and (max-width: 335px) {
+
+    #gamePage > div > div:first-child > div:first-child > div{
+        max-width: unset;
+        min-width: unset;
+        margin-right: 6vw;
+    }
+    
+    #gamePage > div > div:first-child > div:first-child > div > h1{
+        font-size: 9vw;
+    }
+
+    #gamePage > div > div:first-child > div:first-child > div > h2{
+        font-size: 5.5vw;
+        padding: 3vw;
+        border-radius: 3vw;
+    }
+}
