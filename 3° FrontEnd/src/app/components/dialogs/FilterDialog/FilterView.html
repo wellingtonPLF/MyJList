@@ -9,7 +9,7 @@
                 <fieldset>
                     <legend>Type of Game: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.type)"/></legend>
 
-                    <div v-for="item in typeOfGames">
+                    <div v-for="item in typeOfGames" class="changeInputSize">
                         <input type="checkbox" :value="item.value" :name="item.value" v-model="choose.type"/>
                         <label :for="item.value">{{item.value}}</label>
                     </div>
@@ -18,19 +18,21 @@
                     <legend>Type of Plataform: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.plataforms)"/></legend>
 
                     <div style="display: flex; flex-direction: column;">
-                        <div v-for="item in plataforms">
+                        <div v-for="item in plataforms" class="changeInputSize">
                             <input type="checkbox" :value="item.value" :name="item.value" v-model="choose.plataforms"/>
                             <label :for="item.value">{{item.value}}</label>
                         </div>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset style="display: flex;">
                     <legend>Status of Game: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.status)"/></legend>
 
-                    <div>
+                    <div class="changeInputSize">
                         <input type="checkbox" value="Offline" name="Offline" v-model="choose.status"/>
                         <label for="Offline">Offline</label>
-                        <input style="margin-left: 15px;" type="checkbox" value="Online" name="Online" v-model="choose.status"/>
+                    </div>
+                    <div class="changeInputSize">
+                        <input style="margin-left: 0.79vh * 2;" type="checkbox" value="Online" name="Online" v-model="choose.status"/>
                         <label for="Online">Online</label>
                     </div>
                 </fieldset>
@@ -60,24 +62,24 @@
                     </div>
                 </fieldset> -->
                 <fieldset>
-                    <legend style="display: flex; height: 21px; line-height: 21px;">Release date: 
-                        <div v-if="choose.release == 'Other'" style="margin-left: 5px;">
-                            <input style="width: 38px; text-align: center;" maxlength="2" placeholder="day" v-model="choose.dateObj.day"/>/
-                            <input style="width: 38px; text-align: center;" maxlength="2" placeholder="month" v-model="choose.dateObj.month"/>/
-                            <input style="width: 38px; text-align: center;" maxlength="4" placeholder="year" v-model="choose.dateObj.year"/>
+                    <legend style="display: flex; height: 1.11vh * 2; line-height: 1.11vh * 2;">Release date: 
+                        <div v-if="choose.release == 'Other'" style="margin-left: 0.26vh * 2;" class="changeInputSize">
+                            <input style="width: 2vh * 2; text-align: center;" maxlength="2" placeholder="day" v-model="choose.dateObj.day"/>/
+                            <input style="width: 2vh * 2; text-align: center;" maxlength="2" placeholder="month" v-model="choose.dateObj.month"/>/
+                            <input style="width: 2vh * 2; text-align: center;" maxlength="4" placeholder="year" v-model="choose.dateObj.year"/>
                         </div>
-                        <font-awesome-icon style="margin-left: 5px;" :icon="['fas', 'broom']" @click="clearIt(choose.release)"/>
+                        <font-awesome-icon style="margin-left: 0.26vh * 2;" :icon="['fas', 'broom']" @click="clearIt(choose.release)"/>
                     </legend>
                     <div>
-                        <div>
+                        <div class="changeInputSize">
                             <input type="radio" value="Other" name="release" v-model="choose.release"/>
                             <label for="Other">Other</label>
                         </div>
-                        <div>
+                        <div class="changeInputSize">
                             <input type="radio" value="Released" name="release" v-model="choose.release"/>
                             <label for="Released">Released</label>
                         </div>
-                        <div>
+                        <div class="changeInputSize">
                             <input type="radio" value="Didn't Release Yet" name="release" v-model="choose.release"/>
                             <label for="Didn't Release Yet">Didn't Release Yet</label>
                         </div>
@@ -87,7 +89,7 @@
                 <fieldset>
                     <legend>Studio: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.studios)"/></legend>
 
-                    <div v-for="item in studios">
+                    <div v-for="item in studios" class="changeInputSize">
                         <input type="checkbox" :value="item.value" :name="item.value" v-model="choose.studios"/>
                         <label :for="item.value">{{item.value}}</label>
                     </div>

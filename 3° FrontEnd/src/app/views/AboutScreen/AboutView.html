@@ -15,12 +15,16 @@
                 <div id="staffCard">
                     <div>
                         <span>
-                            <img v-if="users.length != 0" :src="(user.sexuality === 'M') ? imgType.male : imgType.female" alt="profile_Photo" />
+                            <img v-if="user.length != 0" :src="
+                            (user.userImage == null) ? ((user.sexuality === 'M') ? imgType.male : imgType.female) : user.userImage
+                            " alt="profile_Photo" />
                         </span>
                         <div>
                             <div>
                                 <div v-for="(item, index) in users.slice(0,4)" @click="() => {chooseUser(index)}">
-                                    <img :src="(item.sexuality === 'M') ? imgType.male : imgType.female" alt="profile_Photo" />
+                                    <img :src="
+                                    (user.userImage == null) ? ((user.sexuality === 'M') ? imgType.male : imgType.female) : user.userImage
+                                    " alt="profile_Photo" />
                                 </div>
                             </div>
                             <div>
@@ -33,12 +37,11 @@
                         </div>
                     </div>
                 </div>
-                <a href="https://super-protofolio.netlify.app/" target="_blank">Portifolio</a>
             </div>
         </div>
         <div id="portifolio">
             <div class="backImageConfig">
-                <a href="https://super-protofolio.netlify.app/" target="_blank">portifolio</a>
+                <a href="https://super-protofolio.netlify.app/" target="_blank">Portifolio</a>
             </div>
         </div>
     </div>

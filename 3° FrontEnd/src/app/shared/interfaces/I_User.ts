@@ -19,5 +19,6 @@ export interface I_User {
     recommendations: number,
     sexuality?: string,
     role?: any,
+    email?: string,
     userImage?: any
 }

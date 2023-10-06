@@ -3,18 +3,19 @@
     position: absolute;
     height: 100%;
     width: 100%;
+    font-size: 0.74vh * 2;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 3000;
 }
 
 #filter > div {
-    padding: 10px 12px 15px 15px;
+    padding: 0.53vh * 2 0.63vh * 2 0.79vh * 2 0.79vh * 2;
     top: 30%;
-    border-radius: 10px;
+    border-radius: 0.53vh * 2;
     position: fixed;
     background-color: white;
-    height: 360px;
-    width: 500px;
+    height: 18.95vh * 2;
+    width: 26.32vh * 2;
 }
 
 #filter > div > div:first-child {
@@ -27,24 +28,24 @@
 }
 
 #filter > div > div:nth-child(2) {
-    height: 290px;
-    margin-top: 10px;
+    height: 15.26vh * 2;
+    margin-top: 0.53vh * 2;
     overflow-y: scroll;
 }
 
 #filter > div > div:nth-child(2) > div {
-    margin-right: 3px;
+    margin-right: 0.15vh * 2;
 }
 
 #filter > div > div:nth-child(2) > div > fieldset {
-    margin-top: 15px;
+    margin-top: 0.79vh * 2;
 }
 
 #filter > div > div:nth-child(2) > div > fieldset:first-child {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 197px;
+    height: 10.37vh * 2;
     margin-top: 0px;
 }
 
@@ -55,7 +56,7 @@
 #filter > div > div:nth-child(2) > div > fieldset:nth-child(2) > div > div {
     display: flex;
     align-items: center;
-    margin-right: 10px; 
+    margin-right: 0.53vh * 2; 
 }
 
 #filter > div > div:nth-child(2) > div > fieldset:nth-child(2) > div > div:last-child {
@@ -74,10 +75,11 @@
 #filterButton > button {
     font-weight: 600;
     width: 49%;
+    font-size: 0.74vh * 2;
     border: unset;
-    border-radius: 5px;
-    margin: 10px 0px;
-    padding: 12px 0px;
+    border-radius: 0.26vh * 2;
+    margin: 0.53vh * 2 0px;
+    padding: 0.63vh * 2 0px;
 }
 
 #filterButton > button:first-child {
@@ -90,8 +92,107 @@
     background-color: rgb(5, 65, 70);
 }
 
+#filter fieldset {
+    font-size: 0.84vh * 2;
+    border: 0.2vh solid #333;
+}
+
+$inputSize: 0.8vh * 2;
+
+.changeInputSize {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5vh;
+    margin-bottom: 0.3vh;
+}
+
+.changeInputSize input {
+    width: $inputSize;
+    height: $inputSize;
+    margin: 0;
+    margin-right: 0.3vh;
+}
+
+.changeInputSize input:focus{
+    outline: unset;
+}
+
+.changeInputSize label {
+    display: flex;
+    padding-top: 0.15vh;
+    align-items: center;
+    height: $inputSize;
+}
 
 #filter fieldset > legend > * {
     cursor: pointer;
     color:rgb(60, 21, 83);
+}
+
+@media screen and (max-width: 610px) {
+    #filter {
+        font-size: 1.2vw * 3;
+    }
+
+    $heightProportion: 26vw;
+    
+    #filter > div {
+        padding: 0.53vw * 3 0.63vw * 3 0.79vw * 3 0.79vw * 3;
+        border-radius: 0.53vw * 3;
+        height: calc($heightProportion + 5vw) * 3;
+        width: 26.32vw * 3;
+        top: 23%;
+    }
+
+
+    #filter > div > div:nth-child(2) {
+        height: $heightProportion * 3;
+        margin-top: 0.53vw * 3;
+    }
+    
+    #filter > div > div:nth-child(2) > div {
+        margin-right: 0.15vw * 3;
+    }
+    
+    #filter > div > div:nth-child(2) > div > fieldset {
+        margin-top: 0.79vw * 3;
+    }
+    
+    #filter > div > div:nth-child(2) > div > fieldset:first-child {
+        // height: 10.37vw * 3;
+        height: auto;
+        flex-direction: row;
+        margin-top: 0px;
+    }
+    
+    #filter > div > div:nth-child(2) > div > fieldset:nth-child(2) > div > div {
+        margin-right: 0.53vw * 3; 
+    }
+
+    #filterButton > button {
+        font-size: 0.74vw * 3;
+        border-radius: 0.26vw * 3;
+        margin: 0.53vw * 3 0px;
+        padding: 0.63vw * 3 0px;
+    }
+
+    #filter fieldset {
+        flex-wrap: wrap;
+        font-size: 1vw * 3;
+        border: 0.2vh solid #333;
+    }
+    
+    .changeInputSize {
+        width: 33vw;
+    }
+
+    .changeInputSize input {
+        width: 4vw;
+        height: 5vw;
+    }
+
+    .changeInputSize label {
+        padding-top: 0.7vw;
+        height: 3vw;
+    }
 }

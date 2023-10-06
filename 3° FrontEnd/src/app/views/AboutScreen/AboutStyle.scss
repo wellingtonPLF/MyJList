@@ -1,7 +1,8 @@
 
 #about {
     display: flex;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     background-image:
     linear-gradient(to left top, rgb(0, 0, 0) 5%, rgba(255, 255, 255, 0)),
     url("https://images8.alphacoders.com/131/1311910.jpg"); 
@@ -11,38 +12,40 @@
 #about > div {
     display: flex;
     width: 100%;
+    padding: 10vh 0;
     justify-content: center;
 }
 
 #portifolio {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
-    height: 100%;
-    width: 520px;
+    width: 27.37vw;
 }
+
+$paddingPort: 2vw;
 
 #portifolio > div {
     display: flex;
     align-items: flex-end;
-    width: 500px;
-    height: 580px;
-    margin-top: 95px;
+    width: 26.32vw - $paddingPort;
+    height: 28.53vw - $paddingPort;
+    padding: $paddingPort;
+    margin-bottom: 1vw;
     background-image: url("https://wallpapersmug.com/download/1920x1080/da7528/hyper-light-drifter-minimal-game.jpg");
 }
 
 #portifolio a {
     text-align: center;
-    line-height: 50px;
-    height: 50px;
+    line-height: 2.63vw;
+    height: 2.63vw;
     background-color: white;
-    width: 150px;
+    width: 7.89vw;
     color: black;
-    font-size: 17px;
+    font-size: 0.89vw;
     font-weight: 600;
     border: unset;
     cursor: pointer;
-    margin: 0px 0px 30px 30px;
 }
 
 #portifolio a:hover {
@@ -50,37 +53,44 @@
     background-color: rgb(145, 8, 115);
 }
 
+$widthOfAll: 31.58vw;
+
 #aboutProject{
-    height: 100%;
-    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: $widthOfAll;
+    margin-right: 2.63vw;
 }
 
 #aboutProject > div:first-child {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-end;
-    height: 50%;
     width: 100%;
     color: white;
 }
 
 #aboutProject > div:first-child > div {
-    padding: 0px 10px 15px 25px;
     display: flex;
-    border-radius: 10px;
+    height: auto;
+    justify-content: center;
+    border-radius: 0.53vw;
     background-color: rgba(0, 0, 0, 0.7);
     flex-direction: column;
-    width: 550px;
-    margin-right: 50px;
+    width: 28.95vw;
+    padding: 1vw 2vw 1vw 2vw;
 }
 
 #aboutProject h1 {
-    font-size: 60px;
-    width: 515px;
+    font-size: 3.16vw;
+    width: 27.11vw;
+    margin: 1vw 0px 1.5vw 0px;
 }
 
 #aboutProject h2 {
-    font-size: 25px;
+    font-size: 1.32vw;
 }
 
 #aboutProjectDescription{
@@ -90,33 +100,30 @@
 
 #aboutProject > div:nth-child(2){
     display: flex;
-    height: 50%;
     width: 100%;
+    height: 14.5vw;
+    align-items: flex-end;
 }
 
-#aboutProject > div:nth-child(2) > a{
-    display: none;
-}
 
 // ---------------------------------------------------------------------------------------------------
-$imgsize: 150px;
-$heightBord: 15px;
-$staffCardProfileHeight: 60px;
 
 #staffCard{
-    width: 500px;
-    border-radius: 10px;
-    height: 230px;
-    margin-top: 50px;
+    width: $widthOfAll;
+    border-radius: 0.53vw;
+    height: 12.11vw;
     position: relative;
 }
 
 #staffCard > div {
     display: flex;
+    width: 100%;
     height: 100%;
     align-items: center;
     justify-content: flex-end;
 }
+
+$userImgWidth: 39%;
 
 #staffCard span {
     left: 0px;
@@ -124,180 +131,192 @@ $staffCardProfileHeight: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px;
     background-color: white;
     border-radius: 100%;
     border-bottom-right-radius: 0px;
-    width: calc($imgsize + $heightBord);
-    height: calc($imgsize + $heightBord);
+    width: $userImgWidth;
+    margin-left: 3%;
+    height: 100%;
 }
 
 #staffCard span img {
-    background-color: white;
     border-radius: 100%;
-    width: $imgsize;
-    height: $imgsize;
+    width: 94%;
+    height: 94%;
     object-fit: cover;
-    line-height: $imgsize;
     text-align: center;
 }
 
 #staffCard > div > div {
-    width: 67%;
-    height: calc($imgsize + $heightBord) ;
+    width: 100% - $userImgWidth;
+    height: 100%;
 }
+
+// -----------------------------
+
+$staffCardProfileHeight: 25%;
 
 #staffCard > div > div > div:first-child {
     display: flex;
     align-items: flex-end;
-    margin-left: 10px;
+    padding-left: 5%;
     height: $staffCardProfileHeight;
 }
+
+#staffCard > div > div > div:first-child > div {
+    display: flex;
+    width: 11.7%;
+    height: 70%;
+    margin-right: 5%;
+    margin-bottom: 4%;
+}
+
 #staffCard > div > div img {
     border-radius: 100%;
-    width: 30px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
-    border-radius: 100%;
-    border: 3px solid white;
-    margin: 0px 7px 5px 7px;
-    height: 30px;
+    border: 0.25vw solid white;
     object-fit: cover;
-    line-height: 30px;
 }
 
 #staffCard > div > div > div:nth-child(2) {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    padding-left: 6%;
+    border-top-right-radius: 0.53vw;
+    border-bottom-right-radius: 0.53vw;
     background-color: rgb(255, 255, 255);
     height: calc(100% - $staffCardProfileHeight);
 }
 
 #staffCard > div > div > div:nth-child(2) > div{
     display: flex;
+    height: 100%;
     flex-direction: column;
-    padding: 10px 0px 0px 14px;
 }
+
+$h4-height: 16%;
+
+#staffCard > div > div > div:nth-child(2) > div h4{
+    display: flex;
+    align-items: flex-end;
+    font-size: 1vw;
+    margin: 0;
+    height: $h4-height;
+}
+
+$email-height: 12%;
 
 #staffCard > div > div > div:nth-child(2) > div > div:nth-child(2) {
+    display: flex;
+    align-items: flex-end;
     color: rgb(99, 99, 99);
+    font-size: 0.8vw;
+    height: $email-height;
 }
 
+$fullHeightUserData: $h4-height + $email-height;
 
 #staffCard > div > div > div:nth-child(2) > div > div:nth-child(3) {
-    height: 48px;
-    margin-right: 5px;
-    padding-right: 5px;
+    height: calc(100% - $fullHeightUserData - 10%);
+    margin-top: 2%;
+    margin-right: 1%;
+    padding-right: 1%;
     overflow-y: scroll;
-    margin-top: 5px;
-}
-
-#staffCard > div > div > div:nth-child(2) > div h4 {
-    margin: 0px 0px 5px 0px;
+    font-size: 0.8vw;
 }
 
 // ---------------------------------------------------------------
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 800px){
+
+    #about > div {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    $widthOfAll: 90vw;
+
+    #aboutProject{
+        margin: 0;
+        width: $widthOfAll;
+    }
+
     #aboutProject > div:first-child > div {
-        width: 350px;
+        height: auto;
+        width: 100%;
+        border-radius: 3vw;
+        padding: 5vw;
+        padding-bottom: 1vw;
     }
 
     #aboutProject h1 {
-        font-size: 40px;
-        width: 345px;
+        font-size: 9vw;
+        width: auto;
+        margin: 1vw 0px 1.5vw 0px;
     }
 
-    #aboutProject > div:first-child {
-        height: 425px;
-    }
-
-    #about > div > div:first-child {
-        width: 450px;
-    }
-
-    #about > div > div:nth-child(2) {
-        width: 400px;
-    }
-
-    #portifolio > div {
-        width: 355px;
-        height: 355px;
-    }
-
-    #staffCard {
-        margin-top: 25px;
-        width: 400px;
-    }
-
-    #staffCard > div img {
-        width: 120px;
-        height: 120px;
-    }
-
-    #staffCard > div > div {
-        width: 67%;
-    }
-
-    #staffCard span {
-        width: 130px;
-        height: 130px;
-    }
-
-    #staffCard > div > div > div:nth-child(2){
-        height: calc(100% - 78px);
-    }
-
-    #staffCard > div > div > div:nth-child(2) > div > div:nth-child(3) {
-        height: 31px;
-        margin-top: 5px;
-    }
-}
-
-@media screen and (max-width: 830px){
-
-    #aboutProject {
-        width: 100%;
-    }
-
-    #aboutProject > div:first-child > div {
-        margin: 0px;
+    #aboutProject h2 {
+        font-size: 5.5vw;
     }
 
     #aboutProject > div:nth-child(2){
-        flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
+        height: auto;
+        margin: 15vw 0 7vw 0;
     }
 
-    #aboutProject > div:nth-child(2) > a{
-        display: block;
-        color: white;
-        background-color: rgb(131, 5, 87);
-        border: unset;
-        padding: 20px 30%;
-        font-size: 20px;
-        font-weight: 600;
-        border-radius: 10px;
+    #staffCard{
+        width: $widthOfAll;
+        border-radius: 0.53vw;
+        height: 34vw;
+        position: relative;
+    }    
+
+    #staffCard > div > div img {
+        border: 0.5vw solid white;
     }
 
-    #aboutProject > div:nth-child(2) > a:hover{
-        color: black;
-        background-color: white;
+    #staffCard > div > div > div:nth-child(2) {
+        border-top-right-radius: 1vw;
+        border-bottom-right-radius: 1vw;
     }
 
-    #staffCard {
-        width: 350px;
+    #staffCard > div > div > div:nth-child(2) > div h4{
+        font-size: 3.5vw;
     }
 
-    #staffCard > div > div {
-        width: 63%;
+    #staffCard > div > div > div:nth-child(2) > div > div:nth-child(2) {
+        font-size: 2.5vw;
     }
 
-    #aboutProject > div:first-child {
-        justify-content: center !important;
+    #staffCard > div > div > div:nth-child(2) > div > div:nth-child(3) {
+        font-size: 2vw;
     }
-
+    
     #portifolio {
-        display: none;
+        width: $widthOfAll;
+    }
+
+    #portifolio > div {
+        justify-content: center;
+        height: auto;
+        padding: 0px;
+        width: 100%;
+        margin: 0;
+        background-image: unset;
+    }
+
+    $portFolioButton: 15vw;
+
+    #portifolio > div a {
+        border-radius: 3vw;
+        width: 100%;
+        font-size: 5vw;
+        height: $portFolioButton;
+        line-height: $portFolioButton;
+        text-align: center;
+        color: white;
+        background-color: rgb(117, 10, 90);
     }
 }

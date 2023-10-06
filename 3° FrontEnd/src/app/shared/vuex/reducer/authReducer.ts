@@ -16,6 +16,7 @@ export const AUTH_INITIAL_STATE: I_User = {
   planning: 0,
   dropped: 0,
   completed: 0,
+  email: 'unknow',
   replayed: 0,
   hours: 0,
   userImage: 'https://as2.ftcdn.net/v2/jpg/05/51/70/53/500_F_551705397_bLnUIG0FP08qgPYSfAkRjVQcylIvwYDg.jpg',

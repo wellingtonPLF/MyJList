@@ -2,8 +2,9 @@
 #maintenance{
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    font-size: 50px;
+    height: 100%;
+    font-size: 2.63vh * 2;
+    min-height: 100vh;
     position: relative;
 }
 
@@ -13,10 +14,32 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    min-height: 80vh;
 }
 
 #maintenance img {
-    width: 350px;
-    height: 200px;
-    margin-bottom: 30px;
+    width: 18.42vh * 2;
+    height: 18.16vh * 2;
+    margin-bottom: 1.58vh * 2;
+}
+
+@media screen and (max-width: 850px) {
+    #maintenance{
+        font-size: 5.63vw;
+    }
+
+    #maintenance img {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 400px){
+    #maintenance img {
+        width: 85vw;
+        height: 85vw;
+    }
+
+    #maintenance > div {
+        margin: 10% 0;
+    }
 }

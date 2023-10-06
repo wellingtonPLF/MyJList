@@ -9,7 +9,11 @@ const aboutComponent: any = {
   },
   data() {
     return {
-      users: [] as any[],
+      users: [
+        AUTH_INITIAL_STATE,
+        AUTH_INITIAL_STATE,
+        AUTH_INITIAL_STATE
+      ] as any[],
       user: AUTH_INITIAL_STATE,
       imgType: {
         male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
@@ -33,7 +37,6 @@ const aboutComponent: any = {
   mounted() {
     userService.listAll().then(
       it => {
-        console.log(it)
         this.users = it.filter((u) => {
           return u.role.some((i) => i.roleName === "ROLE_ADMIN")
         })
