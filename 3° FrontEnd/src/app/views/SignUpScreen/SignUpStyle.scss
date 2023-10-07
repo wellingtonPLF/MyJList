@@ -20,7 +20,7 @@
 
 // ------------------------------------------------------
 $portalSize: 35vh;
-$portalIn: $portalSize * 90/100;
+$portalIn: calc($portalSize * 90/100);
 
 #registry > div > div:first-child{
     display: flex;
@@ -87,7 +87,7 @@ select > :first-child {
 
 $inputRadius: 3.34vh;
 $inputWidth: 20vh;
-$inputHeight: 12vh  * 27/100;
+$inputHeight: calc(12vh  * 27/100);
 $inputPaddingLeft: 1.34vh;
 $fontSize: 1.18vh;
 
@@ -133,7 +133,7 @@ $fontSize: 1.18vh;
 }
 
 @media  screen and (max-width: 800px) {
-    $inputHeight: 15vh  * 27/100;
+    $inputHeight: calc(15vh  * 27/100);
 
     #userForm > div:nth-child(2){
         margin-top: 2vh;

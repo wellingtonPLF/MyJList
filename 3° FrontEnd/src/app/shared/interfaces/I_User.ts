@@ -15,10 +15,11 @@ export interface I_User {
     replayed: number,
     hours: number,
     note: string,
-    game: any,
     recommendations: number,
     sexuality?: string,
     role?: any,
     email?: string,
-    userImage?: any
+    userImage?: any,
+    lastUpdated?: any,
+    favoriteGames?: any
 }

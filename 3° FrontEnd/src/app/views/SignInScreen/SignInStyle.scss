@@ -20,7 +20,7 @@
 
 // ------------------------------------------------------
 $portalSize: 35vh;
-$portalIn: $portalSize * 90/100;
+$portalIn: calc($portalSize * 90/100);
 
 #login > div > div:first-child {
     display: flex;
@@ -66,7 +66,7 @@ $divHeight:  12vh;
     margin-top: 3.34vh;
 }
 
-$inputHeight: $divHeight * 27/100;
+$inputHeight: calc($divHeight * 27/100);
 $inputWidth: 20.7vh;
 $inputPaddingLeft: 1.34vh;
 $inputRadius: 3.34vh;
@@ -111,7 +111,7 @@ $fontSize: 1.17vh;
 
 @media screen and (max-height: 800px) {
     $divHeight:  15vh;
-    $inputHeight: $divHeight * 27/100;
+    $inputHeight: calc($divHeight * 27/100);
     $inputWidth: 24.7vh;
     $fontSize: 1.4vh;
 

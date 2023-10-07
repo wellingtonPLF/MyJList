@@ -23,10 +23,42 @@ export const AUTH_INITIAL_STATE: I_User = {
   role: [{
      id: 0, roleName: ''
   }],
-  game: {
-    id: 0,
-    gameImage: ''
-  },
+  favoriteGames: [
+    { 
+      id: 0, 
+      game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+    },
+    { 
+      id: 0, 
+      game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+    },
+    { 
+      id: 0, 
+      game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+    },
+    { 
+      id: 0, 
+      game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+    }
+  ],
+  lastUpdated: [
+    { 
+      id: 0, 
+      game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+    },
+    { 
+      id: 0, 
+      game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+    },
+    { 
+      id: 0, 
+      game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+    },
+    { 
+      id: 0, 
+      game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+    }
+  ],
   nationality: { name: "Brazil", cod: "BR"},
   recommendations: 0
 }

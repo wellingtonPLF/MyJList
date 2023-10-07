@@ -11,7 +11,9 @@
             <div>
                 <div>
                     <div id="userProfile">
-                        <div class="backImageConfig"></div>
+                        <div class="backImageConfig">
+                            <div style="font-family: 'Secular One', sans-serif;">i</div>
+                        </div>
                         <div>
                             <div>
                                 <div>Status: {{(obj.user.status == "off")? 'Offline': 'Online'}}</div>
@@ -35,9 +37,9 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="centralize">
+                                <div id="countryLocation" class="centralize">
                                     <div>Location: </div>
-                                    <img v-if="obj.user.nationality.name != ''" style="padding-left: 7px;" :title="obj.user.nationality.name" 
+                                    <img v-if="obj.user.nationality.name != ''" :title="obj.user.nationality.name" 
                                     :src="`https://flagcdn.com/24x18/${obj.user.nationality.cod.toLowerCase()}.png`" 
                                     :srcset="`https://flagcdn.com/48x36/${obj.user.nationality.cod.toLowerCase()}.png 2x, 
                                     https://flagcdn.com/72x54/${obj.user.nationality.cod.toLowerCase()}.png 3x`" 
@@ -45,8 +47,22 @@
                                 </div>
                                 <div>
                                     <h3>{{obj.user.nickname}}</h3>
-                                    <div style="width: 130px; margin: 0px 20px;">
-                                        <div style="cursor: pointer; border-bottom: 2px solid white;">Also Available at</div>
+                                    <div id="linkList">
+                                        <div>Also Available at</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div title="chat">
+                                        <font-awesome-icon style="color: rgb(168, 168, 168);" :icon="['fas', 'paper-plane']" />
+                                    </div>
+                                    <div title="send a gift">
+                                        <font-awesome-icon style="color: rgb(184, 184, 184);" :icon="['fas', 'gift']" />
+                                    </div>
+                                    <div title="usuarios bloqueados">
+                                        <font-awesome-icon style="color: rgb(184, 184, 184);" :icon="['fas', 'user-slash']" />
+                                    </div>
+                                    <div title="solicitação de amizade or add Friend">
+                                        <font-awesome-icon :icon="['fas', 'user-plus']" />
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +118,7 @@
                             </div>
                             <div>
                                 <div>
-                                    <div>{{obj.user.planning + obj.user.playing + obj.user.completed + obj.user.dropped + obj.user.onHold}}</div>
+                                    <div>{{obj.user.playing + obj.user.completed + obj.user.dropped + obj.user.onHold}}</div>
                                     <div>Total Entries</div>
                                 </div>
                                 <div>
@@ -117,6 +133,7 @@
                         </div>
                         <div>
                             <img src="https://cdn-icons-png.flaticon.com/512/64/64720.png" width="230" height="230" alt="imagem"/>
+                            <button>User Statistics</button>
                         </div>
                     </div>
                 </div>
@@ -127,26 +144,26 @@
                         <div>
                             <div>
                                 <router-link id="myGameList" :to="`/gameList/${obj.user.id}`">
-                                    <span style="padding-right: 5px;">
+                                    <span>
                                         {{(auth.id != 0 && obj.user.id == auth.id) ? 'My': ((obj.user.sexuality == "M")? 'His' : 'Her')}}
                                     </span> Game List
                                 </router-link>
                                 <div>
                                     <div>
                                         <div>Forum Posts</div>
-                                        <div>
+                                        <div style="color: gray;">
                                             <font-awesome-icon :icon="['fas', 'ban']" />
                                         </div>
                                     </div>
                                     <div>
                                         <div>Reviews</div>
-                                        <div>
+                                        <div style="color: gray;">
                                             <font-awesome-icon :icon="['fas', 'ban']" />
                                         </div>
                                     </div>
                                     <div>
                                         <div>Clubs</div>
-                                        <div>
+                                        <div style="color: gray;">
                                             <font-awesome-icon :icon="['fas', 'ban']" />
                                         </div>
                                     </div>
