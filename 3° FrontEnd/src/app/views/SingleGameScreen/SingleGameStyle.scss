@@ -1,7 +1,7 @@
 
 #profilePage {
     min-height: 100vh;
-    min-width: 400px;
+    min-width: 403px;
     position: relative;
     background-color: #1a1a1a;
 }
@@ -50,7 +50,7 @@ $maxPageSize: 1450px;
     position: relative;
     width: 100%;
     color: black;
-    height: 3.68vh * 2;
+    height: 69px;
 }
 
 #searchBar input:focus {
@@ -60,21 +60,21 @@ $maxPageSize: 1450px;
 #searchBar > span {
     display: flex;
     margin: 0 50px 0 auto;
-    width: 50vh;
-    margin-top: 1.3vh * 2;
+    width: 450px;
+    margin-top: 24px;
 }
 
 $searchIconWidth: 12%;
-$searchHeight: 2.2vh * 2;
+$searchHeight: 41px;
 
 #searchBar > span > input {
     border: unset;
-    border-radius: 1.58vh * 2;
+    border-radius: 30px;
     padding: 0px;
     border-top-right-radius: unset;
     border-bottom-right-radius: unset;
-    font-size: 0.79vh * 2;
-    padding-left: 1.05vh * 2;
+    font-size: 15px;
+    padding-left: 19px;
     height: $searchHeight;
     width: 100% - $searchIconWidth;
 }
@@ -85,11 +85,11 @@ $searchHeight: 2.2vh * 2;
     align-items: center;
     width: $searchIconWidth;
     cursor: pointer;
-    font-size: 2vh;
+    font-size: 19px;
     height: $searchHeight;
-    padding-right: 0.2vh * 2;
-    border-top-right-radius: 1.58vh * 2;
-    border-bottom-right-radius: 1.58vh * 2;
+    padding-right: 3px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
     background-color: white;
 }
 
@@ -116,6 +116,10 @@ $searchHeight: 2.2vh * 2;
     display: flex;
     width: 100%;
     justify-content: space-between;
+}
+
+#userProfile > div:first-child > div:first-child {
+    margin: 0 1vw;
 }
 
 #userProfile > div:first-child > div:first-child > div:nth-child(2){
@@ -312,6 +316,10 @@ $searchHeight: 2.2vh * 2;
     width: 100%;
     max-width: $maxPageSize;
     background: #1a1a1a;
+}
+
+#gameData > div {
+    margin: 0 15px;
 }
 
 #gameData > div:first-child {
@@ -712,19 +720,17 @@ $buttonWidth: 60px;
 }
 
 @media screen and (max-width: 925px) {
-    $margin-Top-search: 1.79vh * 2;
+    $margin-Top-search: 30px;
 
     .backPage {
         position: relative;
         margin: 0px;
         margin-top: $margin-Top-search;
     }
-    
-    $searchHeight: 1.8vh * 2;
 
     :deep(#goBack) {
-        height: $searchHeight;
-        border-radius: 1.58vh * 2;
+        border-radius: 30px;
+        height: 41px;
         border-top-right-radius: unset;
         border-bottom-right-radius: unset;
     }
@@ -740,20 +746,13 @@ $buttonWidth: 60px;
 
     #searchBar > span {
         margin: 0;
-        max-width: 30vh;
+        width: 70vw;
+        min-width: 300px;
         margin-top: $margin-Top-search;
     }
 
     #searchBar > span > input {
         border-radius: unset;
-        font-size: 1.5vh;
-        padding-left: 0.5vh;
-        height: $searchHeight;
-    }
-
-    #searchBar > span > :last-child {
-        font-size: 1.7vh;
-        height: $searchHeight;
     }
 }
 
@@ -796,12 +795,16 @@ $buttonWidth: 60px;
         display: flex;
     }
 
+    #profile > div:first-child > :nth-child(2) {
+        height: calc(100% - 232px);
+    }
+
     #network > span {
         width: 100%;
     }
 
     #network > span > div {
-        width: 100%;
+        width: calc(100% - 6px);
     }
 
     #network > div > div {
