@@ -1,82 +1,107 @@
 
 #profilePage {
     min-height: 100vh;
+    min-width: 400px;
     position: relative;
+    background-color: #1a1a1a;
+}
+
+#profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }
 
 #profile > div:first-child {
-    display: flex;
-    position: relative;
+    background-image: url("https://images2.alphacoders.com/713/713713.jpg");
+    height: auto; 
+    width: 100%;
+    position: relative; 
+    display: flex; 
+    align-items: center;
     flex-direction: column;
-    color: white;
 }
 
 #profile > div:first-child > div:first-child {
     display: flex;
-    justify-content: flex-end;
-    width: 98%;
-    z-index: 110;  
+    width: 100%;
 }
 
-#searchProfile {
+#profile > div:first-child > :nth-child(2) {
+    background-color: rgb(0, 0, 0, 0.7); 
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 200px);
+    bottom: 0;
+}
+
+$maxPageSize: 1450px;
+
+#profile > div:first-child > :last-child {
+    z-index: 10; 
+    position: relative;
+    margin-top: 100px;
+    max-width: $maxPageSize;
+}
+
+#searchBar{
     display: flex;
-    margin-top: 30px;
-    width: 350px;
-    text-align: center; 
+    position: relative;
+    width: 100%;
+    color: black;
+    height: 3.68vh * 2;
 }
 
-#searchProfile div {
+#searchBar input:focus {
+    outline: none;
+}
+
+#searchBar > span {
     display: flex;
-    align-items: center;
-    padding: 0px 15px 0px 10px;
-    background-color: #226d9bcb;
-    border-top-right-radius: 30px;
-    cursor: pointer;
-    height: 32px;
-    border-bottom-right-radius: 30px;
+    margin: 0 50px 0 auto;
+    width: 50vh;
+    margin-top: 1.3vh * 2;
 }
 
-#searchProfile input {
+$searchIconWidth: 12%;
+$searchHeight: 2.2vh * 2;
+
+#searchBar > span > input {
     border: unset;
-    width: 250px;
-    outline: unset;
-    height: 30px;
-    border-radius: 30px;
-    padding-left: 20px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-radius: 1.58vh * 2;
+    padding: 0px;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    font-size: 0.79vh * 2;
+    padding-left: 1.05vh * 2;
+    height: $searchHeight;
+    width: 100% - $searchIconWidth;
 }
 
-#profile > div:first-child > div {
-    z-index: 100;
+#searchBar > span > :last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $searchIconWidth;
+    cursor: pointer;
+    font-size: 2vh;
+    height: $searchHeight;
+    padding-right: 0.2vh * 2;
+    border-top-right-radius: 1.58vh * 2;
+    border-bottom-right-radius: 1.58vh * 2;
+    background-color: white;
 }
 
-$backImageHeight: 650px;
-
-#profile > div:first-child > div:nth-child(2) > div:first-child {
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    height: $backImageHeight;
-    z-index: 8;
-    background-image: url("https://images2.alphacoders.com/713/713713.jpg");
-    background-position: center;
-}
-
-#profile > div:first-child > div:nth-child(2) > div:nth-child(2) {
-    width: 100%;
-    height: calc($backImageHeight - 282px);
-    position: absolute;
-    top: 282px;
-    z-index: 10;
-    background-color: rgb(0, 0, 0, 0.7);
+#searchBar > span > div:hover {
+    background-color: rgb(14, 102, 73);
+    color: white;
 }
 
 // -------------------------------------------------------
 
 #userProfile {
     display: flex;
-    justify-content: space-around;
     width: 100%;
     margin-top: 160px;
     padding-bottom: 20px;
@@ -89,7 +114,7 @@ $backImageHeight: 650px;
 
 #userProfile > div:first-child {
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -258,9 +283,8 @@ $backImageHeight: 650px;
     display: flex; 
     flex-wrap: wrap;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 25px;
     justify-content: space-around;
-    height: 100px;
     width: 70%;
 }
 
@@ -285,13 +309,13 @@ $backImageHeight: 650px;
 #gameData {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100%;
+    max-width: $maxPageSize;
     background: #1a1a1a;
 }
 
 #gameData > div:first-child {
     display: flex;
-    width: 90%;
     justify-content: space-between;
 }
 
@@ -467,7 +491,6 @@ $backImageHeight: 650px;
 
 #gameRecomendation {
     display: flex;
-    width: 90%;
 }
 
 #gameRecomendation > div:first-child {
@@ -490,11 +513,8 @@ $backImageHeight: 650px;
 
 // ------------------------------------------------------------------------
 
-$buttonWidth: 60px;
-
 #gameComments {
     display: flex;
-    width: 90%;
     justify-content: flex-start;
     margin-top: 20px;
 }
@@ -507,6 +527,8 @@ $buttonWidth: 60px;
     height: 30px;
     padding: 10px 0px 10px 0px;
 }
+
+$buttonWidth: 60px;
 
 #gameComments > div:first-child > div:first-child > input{
     height: 100%;
@@ -565,6 +587,11 @@ $buttonWidth: 60px;
     min-width: 70px;
 }
 
+.userComment > div:first-child > div > div:nth-child(2) {
+    font-size: 13px; 
+    margin-top: 5px;
+}
+
 .userCommentIMG {
     margin-bottom: 10px;
     width: 50px;
@@ -614,6 +641,21 @@ $buttonWidth: 60px;
 // ------------------------------------------------------------------
 
 @media screen and (max-width: 1345px) {
+
+    #statistics > div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 230px;
+        height: 230px;
+    }
+
+    #statistics > div:nth-child(2) img{
+        width: 160px;
+        height: 160px;
+        filter: invert(100%);
+    }
+
     #gameData > div:first-child {
         flex-direction: column;
     }
@@ -621,7 +663,6 @@ $buttonWidth: 60px;
     #gameData {
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
     #gameData > div:first-child > div:nth-child(2) {
@@ -642,16 +683,6 @@ $buttonWidth: 60px;
 }
 
 @media screen and (max-width: 1185px) {
-    $backImageHeight: 860px;
-
-    #profile > div:first-child > div:nth-child(2) > div[data-v-3d8b3ee2]:first-child {
-        height: $backImageHeight;
-        background-position: center;
-    }
-
-    #profile > div:first-child > div:nth-child(2) > div[data-v-3d8b3ee2]:nth-child(2) {
-        height: calc($backImageHeight - 282px);
-    }
 
     #userProfile > div:first-child{
         flex-direction: column;
@@ -667,8 +698,12 @@ $buttonWidth: 60px;
 
 @media screen and (max-width: 1150px) {
 
+    #gameData > div:first-child > div:first-child > div:first-child > div:first-child {
+        width: 62.5%;
+    }
+
     #gameData > div:first-child > div:first-child > div:first-child > div:nth-child(2) {
-        width: 340px;
+        width: 32%;
     }  
 
     #gameData > div:first-child > div:first-child > div:nth-child(2) > div > div:nth-child(2){
@@ -676,7 +711,54 @@ $buttonWidth: 60px;
     }
 }
 
+@media screen and (max-width: 925px) {
+    $margin-Top-search: 1.79vh * 2;
+
+    .backPage {
+        position: relative;
+        margin: 0px;
+        margin-top: $margin-Top-search;
+    }
+    
+    $searchHeight: 1.8vh * 2;
+
+    :deep(#goBack) {
+        height: $searchHeight;
+        border-radius: 1.58vh * 2;
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+    }
+    
+    #searchBar{
+        justify-content: center;
+    }
+
+    #searchBar > :first-child {
+        display: flex;
+        justify-content: center;
+    }
+
+    #searchBar > span {
+        margin: 0;
+        max-width: 30vh;
+        margin-top: $margin-Top-search;
+    }
+
+    #searchBar > span > input {
+        border-radius: unset;
+        font-size: 1.5vh;
+        padding-left: 0.5vh;
+        height: $searchHeight;
+    }
+
+    #searchBar > span > :last-child {
+        font-size: 1.7vh;
+        height: $searchHeight;
+    }
+}
+
 @media screen and (max-width: 900px) {
+    
     #userProfile {
         margin-top: 110px;
     }
@@ -776,5 +858,60 @@ $buttonWidth: 60px;
     #userInfo >  div:first-child {
         height: 175px;
         width: 150px;
+    }
+}
+
+@media screen and (max-width: 555px) {
+    
+    #gameComments {
+        margin-top: 1.05vw;
+    }
+
+    #gameComments > div:first-child > div:nth-child(2) > div:first-child {
+        font-size: 2.9vw;
+        padding: 2vw;
+    }
+
+    #gameComments > div:first-child > div:nth-child(2) > div:first-child > div:nth-child(2) > div:first-child {
+        margin-right: 1.5vw;
+    }
+   
+    .userComment {
+        margin-bottom: 1.5vw;
+    }
+
+    .userComment > div:first-child {
+        padding: 3vw;
+        min-width: 13vw;
+    }
+
+    .userComment > div:first-child > div > div:first-child {
+        font-size: 2.8vw;
+    }
+
+    .userComment > div:first-child > div > div:nth-child(2) {
+        font-size: 2.2vw;
+    }
+
+    .userCommentIMG {
+        margin-bottom: 2vw;
+        width: 9.2vw;
+        height: 9.2vw;
+    }
+
+    .userComment > div:nth-child(2) {
+        border-left: 0.4vw solid #3c3c44;
+        padding: 2vw 2vw 0px 2vw;
+        margin: 2vw 0px;
+        font-size: 2.8vw;
+    }
+
+    .userComment > div:nth-child(2) > div:nth-child(2) {
+        margin-bottom: 0.4vw;
+    }
+
+    .userComment > div:nth-child(2) > div:nth-child(2) > div:nth-child(2){
+        width: 40vw;
+        margin-right: 2vw;
     }
 }

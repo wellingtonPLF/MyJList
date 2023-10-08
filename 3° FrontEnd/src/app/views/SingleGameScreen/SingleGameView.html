@@ -1,19 +1,16 @@
 <div id="profilePage">
-    <span class="backPage">
-        <GoBackComponent :gChoice="gameChoice"/>
-    </span>
     <div id="profile">
-        <div>
-            <div>
-                <div id="searchProfile">
-                    <input placeholder="search user profile" />
-                    <div>search</div>
-                </div>
+        <div class="backImageConfig">
+            <div id="searchBar">
+                <GoBackComponent class="backPage"/>
+                <span >
+                    <input placeholder="search username" />
+                    <div>
+                        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                    </div>
+                </span>
             </div>
-            <div>
-                <div class="backImageConfig"></div>
-                <div></div>
-            </div>
+            <div></div>
             <div id="userProfile">
                 <div>
                     <div>
@@ -39,7 +36,7 @@
                                             <img :title="item.value"
                                             :src="`https://flagcdn.com/h20/${item.countrycod.toLowerCase()}.png`"
                                             :srcset="`https://flagcdn.com/h40/${item.countrycod.toLowerCase()}.png 2x,
-                                              https://flagcdn.com/h60/${item.countrycod.toLowerCase()}.png 3x`"
+                                            https://flagcdn.com/h60/${item.countrycod.toLowerCase()}.png 3x`"
                                             height="20" width="27"
                                             :alt="item.value">
                                         </div>
@@ -174,176 +171,178 @@
                     </div>
                 </div>
             </div>
-            <div id="gameData">
+        </div>
+        <div id="gameData">
+            <div>
                 <div>
                     <div>
                         <div>
-                            <div>
-                                <div class="backImageConfig"
-                                    :style="{backgroundImage: `url(${selectedImg})`}">
-                                </div>
-                                <div style="margin-top: 5px;" v-if="game.imgs">
-                                    <div v-for="(item, index) in game.imgs" class="backImageConfig" @click="changeImage(index)"
-                                        :style="{backgroundImage: `url(${item.value})`, cursor: 'pointer', borderColor: `${(selectedImg == item.value)? 'white': 'rgba(89, 82, 86, 0.5)'}`}">
-                                    </div>
-                                </div>
+                            <div class="backImageConfig"
+                                :style="{backgroundImage: `url(${selectedImg})`}">
                             </div>
-                            <div>
-                                <div id="description" v-if="game.description != undefined" :style="`overflow-y: ${(game.description.length > 780)? 'auto': 'unset'}`">{{game.description}}</div>
-                                <div>
-                                    <div>Network</div>
-                                    <div>
-                                        <font-awesome-icon :icon="['fab', 'twitter']" />
-                                        <font-awesome-icon :icon="['fab', 'square-facebook']" />
-                                        <font-awesome-icon :icon="['fab', 'instagram']" />
-                                        <font-awesome-icon :icon="['fab', 'youtube']" />
-                                        <font-awesome-icon :icon="['fab', 'twitch']" />
-                                    </div>
+                            <div style="margin-top: 5px;" v-if="game.imgs">
+                                <div v-for="(item, index) in game.imgs" class="backImageConfig" @click="changeImage(index)"
+                                    :style="{backgroundImage: `url(${item.value})`, cursor: 'pointer', borderColor: `${(selectedImg == item.value)? 'white': 'rgba(89, 82, 86, 0.5)'}`}">
                                 </div>
                             </div>
                         </div>
                         <div>
+                            <div id="description" v-if="game.description != undefined" :style="`overflow-y: ${(game.description.length > 780)? 'auto': 'unset'}`">{{game.description}}</div>
                             <div>
+                                <div>Network</div>
                                 <div>
-                                    <font-awesome-icon @click="showStaff()" :icon="['fas', 'chevron-right']" />
+                                    <font-awesome-icon :icon="['fab', 'twitter']" />
+                                    <font-awesome-icon :icon="['fab', 'square-facebook']" />
+                                    <font-awesome-icon :icon="['fab', 'instagram']" />
+                                    <font-awesome-icon :icon="['fab', 'youtube']" />
+                                    <font-awesome-icon :icon="['fab', 'twitch']" />
                                 </div>
-                                <div>
-                                    <div>Main Staff</div>
-                                    <div v-if="staffObj.enabled">
-                                        <div style="display: flex;" v-for="(value, property) in staffObj.staff">
-                                            <div>{{property}}: </div>
-                                            <div style="margin-left: 5px;">{{value}}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <font-awesome-icon @click="showCast()" :icon="['fas', 'chevron-right']" />
-                                </div>
-                                <div>
-                                    <div>Main Cast</div>
-                                    <div v-if="castObj.enabled">
-                                        <div v-for="(value, property) in castObj.cast">{{property}}: {{value}}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <font-awesome-icon @click="showRequirements()" :icon="['fas', 'chevron-right']" />
-                                </div>
-                                <div>
-                                    <div>System Requirements</div>
-                                    <div v-if="requirementsObj.enabled">
-                                        <div v-for="(value, property) in requirementsObj.requirement">{{property}}: {{value}}</div>
-                                    </div>
-                                </div>                                
                             </div>
                         </div>
                     </div>
                     <div>
                         <div>
-                            <div id="classification">
-                                <div>T</div>
-                                <div>Game Rating system</div>
+                            <div>
+                                <font-awesome-icon @click="showStaff()" :icon="['fas', 'chevron-right']" />
                             </div>
-                            <div id="plataforms">
-                                <div>Plataforms</div>
-                                <div>
-                                    <div v-for="item in game.plataform">{{
+                            <div>
+                                <div>Main Staff</div>
+                                <div v-if="staffObj.enabled">
+                                    <div style="display: flex;" v-for="(value, property) in staffObj.staff">
+                                        <div>{{property}}: </div>
+                                        <div style="margin-left: 5px;">{{value}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <font-awesome-icon @click="showCast()" :icon="['fas', 'chevron-right']" />
+                            </div>
+                            <div>
+                                <div>Main Cast</div>
+                                <div v-if="castObj.enabled">
+                                    <div v-for="(value, property) in castObj.cast">{{property}}: {{value}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <font-awesome-icon @click="showRequirements()" :icon="['fas', 'chevron-right']" />
+                            </div>
+                            <div>
+                                <div>System Requirements</div>
+                                <div v-if="requirementsObj.enabled">
+                                    <div v-for="(value, property) in requirementsObj.requirement">{{property}}: {{value}}</div>
+                                </div>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div id="classification">
+                            <div>T</div>
+                            <div>Game Rating system</div>
+                        </div>
+                        <div id="plataforms">
+                            <div>Plataforms</div>
+                            <div>
+                                <div v-for="item in game.plataform">{{
+                                    (item.value != undefined)? item.value : 'unknow'
+                                }}</div>
+                            </div>
+                        </div>
+                        <div id="achievements">
+                            <div>Achievements</div>
+                            <div>
+                                <div v-for="item in game.achievements">{{
+                                    (item.value != undefined)? item.value : 'unknow'
+                                }}</div>
+                            </div>
+                        </div>
+                        <div id="information">
+                            <div>Information</div>
+                            <div>
+                                <div>Premiede: {{game.premiede}}</div>
+                                <div style="display: flex;">Producers:
+                                    <div v-for="item in game.producer" style="margin-left: 5px;">{{
+                                        (item.value != undefined)? item.value : 'unknow'
+                                    }}</div>
+                                </div>
+                                <div style="display: flex;">Studio: 
+                                    <div v-for="item in game.studio" style="margin-left: 5px;">{{
+                                        (item.value != undefined)? item.value : 'unknow'
+                                    }}</div>
+                                </div>
+                                <div>Source: {{game.source}}</div>
+                                <div style="display: flex;">Themes:
+                                    <div v-for="item in game.theme" style="margin-left: 5px;">{{
                                         (item.value != undefined)? item.value : 'unknow'
                                     }}</div>
                                 </div>
                             </div>
-                            <div id="achievements">
-                                <div>Achievements</div>
-                                <div>
-                                    <div v-for="item in game.achievements">{{
-                                        (item.value != undefined)? item.value : 'unknow'
-                                    }}</div>
-                                </div>
-                            </div>
-                            <div id="information">
-                                <div>Information</div>
-                                <div>
-                                    <div>Premiede: {{game.premiede}}</div>
-                                    <div style="display: flex;">Producers:
-                                        <div v-for="item in game.producer" style="margin-left: 5px;">{{
-                                            (item.value != undefined)? item.value : 'unknow'
-                                        }}</div>
-                                    </div>
-                                    <div style="display: flex;">Studio: 
-                                        <div v-for="item in game.studio" style="margin-left: 5px;">{{
-                                            (item.value != undefined)? item.value : 'unknow'
-                                        }}</div>
-                                    </div>
-                                    <div>Source: {{game.source}}</div>
-                                    <div style="display: flex;">Themes:
-                                        <div v-for="item in game.theme" style="margin-left: 5px;">{{
-                                            (item.value != undefined)? item.value : 'unknow'
-                                        }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="resources">
-                                <div>Resources</div>
-                                <div>
-                                    <div>Api Game</div>
-                                    <div>WikiPedia</div>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                </div>
-                <div id="gameRecomendation">
-                    <div>
-                        <div>You May Like</div>
-                        <div>
-                            <router-link v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item.game.id)"
-                                :style="{backgroundImage: `url(${item.game.gameImage})`}" :to="`/singleGame/${item.game.id}`">
-                            </router-link>
-                        </div>
-                    </div>
-                </div>
-                <div id="gameComments">
-                    <div>
-                        <div>
-                            <input placeholder="Make a comment" v-model="commentToSend" />
-                            <button @click="sendComment()">
-                                <font-awesome-icon :icon="['fas', 'reply']" />
-                            </button>
-                        </div>
-                        <div>
+                        <div id="resources">
+                            <div>Resources</div>
                             <div>
-                                <div>Últimas Análises</div>
-                                <div>
-                                    <div>Number of Comments ({{userComment.length}})</div>
-                                    <div>Recomendations ({{game.recommendation}})</div>
-                                </div>
+                                <div>Api Game</div>
+                                <div>WikiPedia</div>
                             </div>
-                            <div class="userComment" v-for="(item, index) in userComment">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="gameRecomendation">
+                <div>
+                    <div>You May Like</div>
+                    <div>
+                        <router-link v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item.game.id)"
+                            :style="{backgroundImage: `url(${item.game.gameImage})`}" :to="`/singleGame/${item.game.id}`">
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+            <div id="gameComments">
+                <div>
+                    <div>
+                        <input placeholder="Make a comment" v-model="commentToSend" />
+                        <button @click="sendComment()">
+                            <font-awesome-icon :icon="['fas', 'reply']" />
+                        </button>
+                    </div>
+                    <div>
+                        <div>
+                            <div>Últimas Análises</div>
+                            <div>
+                                <div>Number of Comments ({{userComment.length}})</div>
+                                <div>Recomendations ({{game.recommendation}})</div>
+                            </div>
+                        </div>
+                        <div class="userComment" v-for="(item, index) in userComment">
+                            <div>
+                                <router-link class="userCommentIMG backImageConfig" :to="`/user/${item.user.id}`"
+                                    :style="{backgroundImage: `url(${(item.sex === 'Male') ? imgType.male : imgType.female})`}"></router-link>
                                 <div>
-                                    <router-link class="userCommentIMG backImageConfig" :to="`/user/${item.user.id}`"
-                                        :style="{backgroundImage: `url(${(item.sex === 'Male') ? imgType.male : imgType.female})`}"></router-link>
+                                    <div style="color: rgb(138, 189, 255);">{{item.user.nickname}}</div>
                                     <div>
-                                        <div style="color: rgb(138, 189, 255);">{{item.user.nickname}}</div>
-                                        <div style="font-size: 13px; margin-top: 5px;">{{(item.user.status == 'off') ? 'Offline': 'Online'}}</div>
-                                        <div style="font-size: 13px;">
+                                        <div>{{(item.user.status == 'off') ? 'Offline': 'Online'}}</div>
+                                        <div>
                                             <div>Publicado:</div>
                                             <div>{{item.publication}}</div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div>
+                                <div>{{item.content}}</div>
                                 <div>
-                                    <div>{{item.content}}</div>
+                                    <div style="cursor: default;">Útil?</div>
                                     <div>
-                                        <div style="cursor: default;">Útil?</div>
-                                        <div>
-                                            <div>Yes</div>
-                                            <div>No</div>
-                                            <div>Funny</div>
-                                            <div>Premiation</div>
-                                        </div>
+                                        <div>Yes</div>
+                                        <div>No</div>
+                                        <div>Funny</div>
+                                        <div>Premiation</div>
                                     </div>
                                 </div>
                             </div>
