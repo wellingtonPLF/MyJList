@@ -5,6 +5,7 @@ import commentService from "../../shared/services/commentService";
 import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
 import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer";
 import { mapState } from "vuex";
+import { USER_COMMENT_NULLOBJ } from "../../shared/vuex/reducer/authReducer";
 
 library.add(faStar);
 
@@ -22,7 +23,11 @@ const singleGameComponent: any = {
     return {
       recomendations: [] as any[],
       game: GAME_INITIAL_STATE,
-      userComment: [] as any[],
+      userComment: [
+        USER_COMMENT_NULLOBJ,
+        USER_COMMENT_NULLOBJ,
+        USER_COMMENT_NULLOBJ
+      ] as any[],
       selectedImg: undefined,
       star: true,
       commentToSend: undefined,
@@ -31,9 +36,9 @@ const singleGameComponent: any = {
 
       noGame: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg",
       imgType: {
-        male: "https://storage.prompt-hunt.workers.dev/clgrgds4b000qmh08559h5fk1_1",
+        male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
         female:
-          "https://img.freepik.com/premium-photo/cute-girl-3d-character-design-cartoon-girl-avatar_432516-5510.jpg?w=2000",
+          "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg",
       },
       staffObj: {
         enabled: false,

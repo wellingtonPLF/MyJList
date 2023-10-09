@@ -1,7 +1,7 @@
 
 #profilePage {
     min-height: 100vh;
-    min-width: 403px;
+    min-width: 320px;
     position: relative;
     background-color: #1a1a1a;
 }
@@ -532,7 +532,7 @@ $searchHeight: 41px;
 }
 
 #gameComments > div:first-child > div:first-child {
-    height: 30px;
+    height: 38px;
     padding: 10px 0px 10px 0px;
 }
 
@@ -540,19 +540,22 @@ $buttonWidth: 60px;
 
 #gameComments > div:first-child > div:first-child > input{
     height: 100%;
-    width: calc(100% - $buttonWidth - 12px);
+    width: calc(100% - $buttonWidth - 10px);
     border: unset;
+    padding: 0;
     padding-left: 10px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 5px;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
 }
 
 #gameComments > div:first-child > div:first-child > button{
-    height: calc(100% + 2px);
+    height: 100%;
     width: $buttonWidth;
     font-weight: 600;
     border: unset;
     color: white;
+    padding: 0;
     background-color: #3c3c44;
     transform: scaleY(-1);
     border-top-right-radius: 5px;
@@ -731,6 +734,7 @@ $buttonWidth: 60px;
     :deep(#goBack) {
         border-radius: 30px;
         height: 41px;
+        width: 80px;
         border-top-right-radius: unset;
         border-bottom-right-radius: unset;
     }
@@ -740,6 +744,7 @@ $buttonWidth: 60px;
     :deep(#goBack > div:nth-child(1)) {
         width: $backSize;
         height: $backSize;
+        font-size: 15px;
         margin-left: 6px;
     }
 
@@ -761,8 +766,12 @@ $buttonWidth: 60px;
     #searchBar > span {
         margin: 0;
         width: 70vw;
-        min-width: 300px;
+        min-width: 200px;
         margin-top: $margin-Top-search;
+    }
+
+    #searchBar > span > :last-child {
+        width: 55px;
     }
 
     #searchBar > span > input {
@@ -778,7 +787,7 @@ $buttonWidth: 60px;
 
     #searchProfile {
         margin-top: 70px;
-    }
+    }    
 
     #gameData > div:first-child > div:first-child > div:first-child {
         height: auto;
@@ -787,6 +796,14 @@ $buttonWidth: 60px;
 
     #gameData > div:first-child > div:first-child > div:first-child > div:first-child {
         width: 100%;
+    }
+
+    #gameData > div:first-child > div:first-child > div:first-child > div:first-child > div:first-child {
+        height: 50vw;
+    }
+
+    #gameData > div:first-child > div:first-child > div:first-child > div:first-child > div:nth-child(2) {
+        height: 12vw;
     }
 
     #gameData > div:first-child > div:first-child > div:first-child > div:nth-child(2) {
@@ -809,8 +826,25 @@ $buttonWidth: 60px;
         display: flex;
     }
 
+    #userProfile > div:first-child > div:first-child {
+        width: 90%;
+    }
+
     #profile > div:first-child > :nth-child(2) {
         height: calc(100% - 232px);
+    }
+
+    #network {
+        flex-direction: column;
+    }
+
+    #network > div:last-child {
+        height: 45px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 14px;
+        font-weight: 600;
+        background-color: rgb(117, 12, 121);
     }
 
     #network > span {
@@ -821,25 +855,26 @@ $buttonWidth: 60px;
         width: calc(100% - 6px);
     }
 
-    #network > div > div {
+    #network > div:first-child > div {
         display: flex;
         justify-content: space-between;
     }
 
-    #network > div > button {
+    #network > div:first-child > button {
         width: 100%;
     }
 
-    #network > div > div > select {
+    #network > div:first-child > div > select {
         width: 49%;
     }
 
-    #network > div > div > * {
+    #network > div:first-child > div > * {
         margin-right: 0px;
     }
 
     #userInfo {
         margin-top: 35px;
+        flex-direction: column;
     }
 
     #userInfo > div:nth-child(2) > div:nth-child(3) {
@@ -847,14 +882,17 @@ $buttonWidth: 60px;
     }
 
     #userInfo > div:nth-child(2) {
-        padding: 45px 0px 0px 10px;
+        padding: 20px 0px 0px 10px;
     }
     
-    #userInfo > div:first-child {
-        height: 200px;
+    #userInfo >  div:first-child {
+        height: 42vw;
+        min-height: 175px;
+        width: 100%;
     }
 
     #statistics {
+        display: none;
         padding-bottom: 0px;
         align-items: center;
     }
@@ -865,16 +903,6 @@ $buttonWidth: 60px;
 
     #statistics > div:nth-child(2) {
         display: none;
-    }
-
-    #statistics > div:nth-child(2) img {
-        width: 150px;
-        height: 150px;
-    }
-
-    #userInfo >  div:first-child {
-        height: 175px;
-        width: 150px;
     }
 }
 

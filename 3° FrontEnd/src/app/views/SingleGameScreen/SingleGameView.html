@@ -2,7 +2,7 @@
     <div id="profile">
         <div class="backImageConfig">
             <div id="searchBar">
-                <GoBackComponent class="backPage"/>
+                <GoBackComponent :gChoice="gameChoice" class="backPage"/>
                 <span >
                     <input placeholder="search username" />
                     <div>
@@ -31,7 +31,7 @@
                                     border-color: ${(game.popularity)? '': 'gray'};`" v-if="true">{{(game.popularity)? 'POPULAR': 'NORMAL'}}</div>
                                     <div>Score: {{(typeof(game.score) != typeof(""))? ((game.score === 10)? 10 : game.score.toFixed(1)) : game.score}}</div>
                                     <div>Ranked: #{{game.ranked}}</div>
-                                    <div style="display: flex;">Languages: 
+                                    <div style="display: flex; flex-wrap: wrap;">Languages: 
                                         <div v-for="item in game.language">&nbsp;
                                             <img :title="item.value"
                                             :src="`https://flagcdn.com/h20/${item.countrycod.toLowerCase()}.png`"
@@ -104,6 +104,7 @@
                                     <router-link to="/signIn">SIGN IN</router-link>
                                 </div>
                             </span>
+                            <div>GAME STATISTICS</div>
                         </div>
                     </div>
                     <div id="statistics">
@@ -322,7 +323,10 @@
                         <div class="userComment" v-for="(item, index) in userComment">
                             <div>
                                 <router-link class="userCommentIMG backImageConfig" :to="`/user/${item.user.id}`"
-                                    :style="{backgroundImage: `url(${(item.sex === 'Male') ? imgType.male : imgType.female})`}"></router-link>
+                                    :style="{backgroundImage: `url(${
+                                        (item.user.userImage == null) ? ((item.user.sexuality === 'M') ? imgType.male : imgType.female) : item.user.userImage
+                                    })
+                                    `}"></router-link>
                                 <div>
                                     <div style="color: rgb(138, 189, 255);">{{item.user.nickname}}</div>
                                     <div>
