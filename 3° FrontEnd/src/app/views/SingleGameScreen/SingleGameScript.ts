@@ -6,6 +6,7 @@ import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vu
 import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer";
 import { mapState } from "vuex";
 import { USER_COMMENT_NULLOBJ } from "../../shared/vuex/reducer/authReducer";
+import { Comment } from "../../shared/models/Comment";
 
 library.add(faStar);
 
@@ -104,6 +105,17 @@ const singleGameComponent: any = {
       this.star = !this.star;
     },
     sendComment() {
+      if (this.auth.id != 0) {
+        const comment = new Comment(this.commentToSend, this.auth, this.game)
+        commentService.insert(comment).then(
+          _ => {
+            console.log("Comment (OK)!")
+          }
+        ).catch((e: any) => {
+          console.log(e)
+        })
+      }
+
       this.commentToSend = ""
     }
   },

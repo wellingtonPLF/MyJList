@@ -1,8 +1,5 @@
+import { Comment } from "../models/Comment";
 import api from "./_axiosConfig";
-
-interface Comment {
-    id: number
-}
 
 class CommentService {
   path: string;
@@ -21,15 +18,15 @@ class CommentService {
     }
   } 
 
-  // async insert(comment: Comment) {
-  //   try{
-  //     const { data } = await api.post(`${this.path}/`, Comment.simpleRefract(Comment));
-  //     return data;
-  //   }
-  //   catch(error: any) {
-  //     return Promise.reject(error);
-  //   }
-  // } 
+  async insert(comment: Comment) {
+    try{
+      const { data } = await api.post(`${this.path}/`, Comment.simpleRefract(comment));
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  } 
 
   async update(comment: Comment) {
     try{

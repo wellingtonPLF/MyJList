@@ -15,7 +15,6 @@ const gameListComponent: any = {
       }
       else {
         const pagePath = this.$router.options.history.state.back.split('/')
-        console.log(pagePath[1])
         if (pagePath[1] == 'singleGame' 
         && this.$route.name != 'singleUser'
         && this.$route.name != 'signIn'){

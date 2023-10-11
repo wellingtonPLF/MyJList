@@ -100,6 +100,10 @@ $limitWidth: 1500px;
     height: 40px;
 }
 
+#userProfile > div:nth-child(2) > div:first-child > div:nth-child(3) > div:last-child, #network > *{
+    cursor: pointer;
+}
+
 #userProfile > div:nth-child(2) > div:nth-child(2) {
     text-align: center;
     margin: 0px 10px;
@@ -107,6 +111,10 @@ $limitWidth: 1500px;
 
 #userProfile > div:nth-child(2) > div:nth-child(2) > :last-child {
     display: none;
+}
+
+#userProfile > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div:last-child{
+    cursor: pointer;
 }
 
 #countryLocation img {

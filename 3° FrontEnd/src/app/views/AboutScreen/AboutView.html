@@ -23,7 +23,7 @@
                             <div>
                                 <div v-for="(item, index) in users.slice(0,4)" @click="() => {chooseUser(index)}">
                                     <img :src="
-                                    (user.userImage == null) ? ((user.sexuality === 'M') ? imgType.male : imgType.female) : user.userImage
+                                    (item.userImage == null) ? ((item.sexuality === 'M') ? imgType.male : imgType.female) : item.userImage
                                     " alt="profile_Photo" />
                                 </div>
                             </div>

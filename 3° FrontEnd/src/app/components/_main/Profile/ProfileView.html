@@ -23,16 +23,19 @@
                                 </div>
                                 <div>
                                     <div title="chat">
-                                        <font-awesome-icon  :icon="['fas', 'paper-plane']" />
+                                        <!-- <font-awesome-icon  :icon="['fas', 'paper-plane']" /> -->
+                                        <font-awesome-icon style="color: rgb(168, 168, 168);" :icon="['fas', 'ban']" />
                                     </div>
                                     <div title="send a gift">
-                                        <font-awesome-icon :icon="['fas', 'gift']" />
+                                        <!-- <font-awesome-icon :icon="['fas', 'gift']" /> -->
+                                        <font-awesome-icon style="color: rgb(168, 168, 168);" :icon="['fas', 'ban']" />
                                     </div>
                                     <div title="usuarios bloqueados">
-                                        <font-awesome-icon :icon="['fas', 'user-slash']" />
+                                        <!-- <font-awesome-icon :icon="['fas', 'user-slash']" /> -->
+                                        <font-awesome-icon style="color: rgb(168, 168, 168);" :icon="['fas', 'ban']" />
                                     </div>
                                     <div title="solicitação de amizade or add Friend">
-                                        <font-awesome-icon :icon="['fas', 'user-plus']" />
+                                        <font-awesome-icon :icon="['fas', 'user-plus']" @click="friendRequest"/>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +65,7 @@
                                         <font-awesome-icon style="color: rgb(184, 184, 184);" :icon="['fas', 'user-slash']" />
                                     </div>
                                     <div title="solicitação de amizade or add Friend">
-                                        <font-awesome-icon :icon="['fas', 'user-plus']" />
+                                        <font-awesome-icon :icon="['fas', 'user-plus']" @click="friendRequest"/>
                                     </div>
                                 </div>
                             </div>
@@ -122,11 +125,11 @@
                                     <div>Total Entries</div>
                                 </div>
                                 <div>
-                                    <div>{{obj.user.hours}}</div>
+                                    <div>{{Math.round(hoursMinutes(obj.user.hours)[0]/24, 0)}}</div>
                                     <div>Total Days</div>
                                 </div>
                                 <div>
-                                    <div>{{obj.user.hours}}</div>
+                                    <div>{{hoursMinutes(obj.user.hours)[0]}}</div>
                                     <div>Total Hours</div>
                                 </div>
                             </div>

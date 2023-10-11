@@ -32,6 +32,23 @@ const profileComponent: any = {
       else {
         this.$router.back()
       }
+    },
+    friendRequest() {
+      if (this.obj.user.id != 0) {
+        if (this.obj.user.id == this.auth.id){
+          console.log("Show Friend Requests")
+        }
+        else {
+          console.log("Making a Request")
+        }
+      }
+    },
+    hoursMinutes(playtime: any){
+      const hours_minutes_total = Math.round(playtime * 60)
+      const hours = Math.floor(playtime)
+      const hours_total = hours * 60
+      const minutes = hours_minutes_total - hours_total
+      return [hours, minutes]
     }
   }
 };

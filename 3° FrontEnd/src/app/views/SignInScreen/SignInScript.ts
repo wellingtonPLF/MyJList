@@ -15,7 +15,7 @@ const signInComponent: any = {
         username: undefined,
         password: undefined
       },
-      error: { enabled: false, msg: undefined }
+      error: { enabled: false, msg: undefined, count: 1 }
     };
   },
   methods: {
@@ -47,6 +47,8 @@ const signInComponent: any = {
         }
         this.error.enabled = true
         this.error.msg = msg.detail
+        this.error.count += 1;
+        this.auth.password = '';
       })
     }
   }

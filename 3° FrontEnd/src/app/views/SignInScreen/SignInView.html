@@ -9,7 +9,7 @@
                 <div></div>
             </div>
             <div>
-                <div v-if="error.enabled" id="error">{{error.msg}}</div>
+                <div v-if="error.enabled" id="error">{{error.msg}} ({{error.count}})</div>
                 <div>
                     <input placeholder="username" v-model="auth.username" />
                     <input placeholder="password" type="password" v-model="auth.password" />
