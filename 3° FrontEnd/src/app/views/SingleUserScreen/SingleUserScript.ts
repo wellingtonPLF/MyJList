@@ -12,15 +12,20 @@ const singleUserComponent: any = {
       user: AUTH_INITIAL_STATE
     }
   },
-  beforeMount() {
-    userService.getUser(this.$route.params.id).then(
-      it => {
-        this.user = it;
-      }
-    ).catch((error) => {
-      console.log(error)
-    })
+  methods: {
+    setUser(id: number) {
+      userService.getUser(id).then(
+        it => {
+          this.user = it;
+        }
+      ).catch((error) => {
+        console.log(error)
+      })
+    }
   },
+  beforeMount() {
+    this.setUser(this.$route.params.id)
+  }
 };
 
 export default singleUserComponent;

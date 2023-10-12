@@ -31,6 +31,8 @@ import {
   faArrowTurnDown,
   faDoorOpen,
   faBan,
+  faUserGroup,
+  faSquareCheck,
   faSearch
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -52,6 +54,8 @@ const app = createApp(App);
 library.add(
   faGamepad,
   faSearch,
+  faUserGroup,
+  faSquareCheck,
   faUser,
   faHouse,
   faArrowTurnDown,

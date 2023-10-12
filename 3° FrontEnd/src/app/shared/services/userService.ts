@@ -20,7 +20,7 @@ class UserService {
 
   async getUser(id: number) {
     try{
-      const { data } = await api.get(`${this.path}/${id}`);
+      const { data } = await api.get(`${this.path}/${id}/`);
       return data;
     }
     catch(error: any) {
@@ -50,7 +50,7 @@ class UserService {
 
   async update(user: User) {
     try{
-      const { data } = await api.put(`${this.path}/`, user);
+      const { data } = await api.put(`${this.path}/${user.id}/`, User.simpleRefract(user));
       return data;
     }
     catch(error: any) {

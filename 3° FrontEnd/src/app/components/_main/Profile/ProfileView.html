@@ -1,6 +1,6 @@
 <div id="profilePage">
     <span class="backPage">
-        <GoBackComponent />
+        <GoBackComponent :userChoice="updateUserData" />
     </span>
     <div id="profile">
         <div>
@@ -16,10 +16,10 @@
                         </div>
                         <div>
                             <div>
-                                <div>Status: {{(obj.user.status == "off")? 'Offline': 'Online'}}</div>
+                                <div>Status: {{(obj.status == "off")? 'Offline': 'Online'}}</div>
                                 <div id="userJoined">
                                     <div>Joined:</div>
-                                    <div>{{obj.user.joined}}</div>
+                                    <div>{{obj.joined}}</div>
                                 </div>
                                 <div>
                                     <div title="chat">
@@ -35,23 +35,29 @@
                                         <font-awesome-icon style="color: rgb(168, 168, 168);" :icon="['fas', 'ban']" />
                                     </div>
                                     <div title="solicitação de amizade or add Friend">
-                                        <font-awesome-icon :icon="['fas', 'user-plus']" @click="friendRequest"/>
+                                        <font-awesome-icon v-if="obj.id == auth.id" :icon="['fas', 'user-group']" />
+                                        <div v-else>
+                                            <font-awesome-icon v-if="(auth.id != 0 && !auth.friend.some((x: any) => x.id == obj.id))" :icon="['fas', 'user-plus']" @click="friendRequest"/>
+                                            <font-awesome-icon v-else-if="auth.id != 0" :icon="['fas', 'square-check']" style="color:rgb(231, 206, 172);"/>
+                                            <font-awesome-icon v-else style="color: rgb(168, 168, 168); cursor: default;" :icon="['fas', 'ban']" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <div id="countryLocation" class="centralize">
                                     <div>Location: </div>
-                                    <img v-if="obj.user.nationality.name != ''" :title="obj.user.nationality.name" 
-                                    :src="`https://flagcdn.com/24x18/${obj.user.nationality.cod.toLowerCase()}.png`" 
-                                    :srcset="`https://flagcdn.com/48x36/${obj.user.nationality.cod.toLowerCase()}.png 2x, 
-                                    https://flagcdn.com/72x54/${obj.user.nationality.cod.toLowerCase()}.png 3x`" 
-                                    width="24" height="18" :alt="obj.user.nationality.name">
+                                    <img v-if="obj.nationality.name != ''" :title="obj.nationality.name" 
+                                    :src="`https://flagcdn.com/24x18/${obj.nationality.cod.toLowerCase()}.png`" 
+                                    :srcset="`https://flagcdn.com/48x36/${obj.nationality.cod.toLowerCase()}.png 2x, 
+                                    https://flagcdn.com/72x54/${obj.nationality.cod.toLowerCase()}.png 3x`" 
+                                    width="24" height="18" :alt="obj.nationality.name">
                                 </div>
                                 <div>
-                                    <h3>{{obj.user.nickname}}</h3>
+                                    <h3>{{obj.nickname}}</h3>
                                     <div id="linkList">
                                         <div>Also Available at</div>
+                                        <div></div>
                                     </div>
                                 </div>
                                 <div>
@@ -70,10 +76,10 @@
                                 </div>
                             </div>
                             <div>
-                                <div>Sex: {{(obj.user.sexuality == "M") ? "Masculine": "Feminine"}}</div>
+                                <div>Sex: {{(obj.sexuality == "M") ? "Masculine": "Feminine"}}</div>
                                 <div id="userBornDate">
                                     <div>Birthday:</div>
-                                    <div>{{obj.user.bornDate}}</div>
+                                    <div>{{obj.bornDate}}</div>
                                 </div>
                                 <div id="network">
                                     <font-awesome-icon :icon="['fab', 'twitter']" />
@@ -91,45 +97,45 @@
                                 <div>
                                     <div style="background-color: green;"></div>
                                     <div>Playing</div>
-                                    <div>{{obj.user.playing}}</div>
+                                    <div>{{obj.playing}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: blue;"></div>
                                     <div>Complete</div>
-                                    <div>{{obj.user.completed}}</div>
+                                    <div>{{obj.completed}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: yellow;"></div>
                                     <div>On-Hold</div>
-                                    <div>{{obj.user.onHold}}</div>
+                                    <div>{{obj.onHold}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: red;"></div>
                                     <div>Dropped</div>
-                                    <div>{{obj.user.dropped}}</div>
+                                    <div>{{obj.dropped}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: gray;"></div>
                                     <div>Plan to Play</div>
-                                    <div>{{obj.user.planning}}</div>
+                                    <div>{{obj.planning}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: rgb(7, 180, 180);"></div>
                                     <div>Replayed</div>
-                                    <div>{{obj.user.replayed}}</div>
+                                    <div>{{obj.replayed}}</div>
                                 </div>
                             </div>
                             <div>
                                 <div>
-                                    <div>{{obj.user.playing + obj.user.completed + obj.user.dropped + obj.user.onHold}}</div>
+                                    <div>{{obj.playing + obj.completed + obj.dropped + obj.onHold}}</div>
                                     <div>Total Entries</div>
                                 </div>
                                 <div>
-                                    <div>{{Math.round(hoursMinutes(obj.user.hours)[0]/24, 0)}}</div>
+                                    <div>{{Math.round(hoursMinutes(obj.hours)[0]/24, 0)}}</div>
                                     <div>Total Days</div>
                                 </div>
                                 <div>
-                                    <div>{{hoursMinutes(obj.user.hours)[0]}}</div>
+                                    <div>{{hoursMinutes(obj.hours)[0]}}</div>
                                     <div>Total Hours</div>
                                 </div>
                             </div>
@@ -142,13 +148,13 @@
                 </div>
             </div>
             <div id="profileData">
-                <div v-if="obj.user.nationality != undefined">
+                <div v-if="obj.nationality != undefined">
                     <div>
                         <div>
                             <div>
-                                <router-link id="myGameList" :to="`/gameList/${obj.user.id}`">
+                                <router-link id="myGameList" :to="`/gameList/${obj.id}`">
                                     <span>
-                                        {{(auth.id != 0 && obj.user.id == auth.id) ? 'My': ((obj.user.sexuality == "M")? 'His' : 'Her')}}
+                                        {{(auth.id != 0 && obj.id == auth.id) ? 'My': ((obj.sexuality == "M")? 'His' : 'Her')}}
                                     </span> Game List
                                 </router-link>
                                 <div>
@@ -172,20 +178,20 @@
                                     </div>
                                     <div>
                                         <div>Recomendations</div>
-                                        <div>{{obj.user.recommendations}}</div>
+                                        <div>{{obj.recommendations}}</div>
                                     </div>
                                 </div>
                             </div>
                             <div id="profileNotes">
                                 <div>Notes</div>
-                                <textarea v-if="auth.id != 0 && obj.user.id == auth.id" placeholder="Type your note right here!" v-model="auth.note"></textarea>
+                                <textarea v-if="auth.id != 0 && obj.id == auth.id" placeholder="Type your note right here!" v-model="auth.note"></textarea>
                                 <div v-else :style="{overflowY: (auth.note.length > 288)? 'scroll': ''}">{{auth.note}}</div>
                             </div>
                         </div>
                         <div id="historyList">
                             <div>Last Games Updates</div>
                             <div>
-                                <router-link v-for="item in obj.user.lastUpdated" :to="`/singleGame/${item.game.id}`">
+                                <router-link v-for="item in obj.lastUpdated" :to="`/singleGame/${item.game.id}`">
                                     <div class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></div>
                                 </router-link>
                             </div>
@@ -205,9 +211,11 @@
                         <div>
                             <div>Friends</div>
                             <div id="friends">
-                                <router-link v-if="obj.user.friend.length != 0" v-for="item in obj.user.friend" :to="`/user/${obj.user.id}`">
-                                    <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${(obj.user.sexuality === 'Male') ? imgType.male : imgType.female})`}"></div>
-                                </router-link>
+                                <div v-if="obj.friend.length != 0" v-for="item in obj.friend" @click="showFriend(item.id)">
+                                    <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${
+                                        (item.userImage == null) ? ((item.sexuality === 'M') ? imgType.male : imgType.female) : item.userImage
+                                    })`}"></div>
+                                </div>
                                 <div v-else style="text-align: center; width: 100%;">
                                     <div>No Friend Found</div>
                                 </div>
@@ -216,7 +224,7 @@
                         <div>
                             <div>Favorite Games</div>
                             <div id="favGame">
-                                <router-link v-for="item in obj.user.favoriteGames" :to="`/singleGame/${item.game.id}`"
+                                <router-link v-for="item in obj.favoriteGames" :to="`/singleGame/${item.game.id}`"
                                 class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></router-link>
                             </div>
                         </div>

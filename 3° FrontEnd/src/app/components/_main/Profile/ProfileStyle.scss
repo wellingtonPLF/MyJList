@@ -94,9 +94,9 @@ $limitWidth: 1500px;
 
 #userProfile > div:nth-child(2) > div:first-child > div:nth-child(3), #network {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 180px;
+    width: 140px;
     height: 40px;
 }
 
@@ -106,7 +106,7 @@ $limitWidth: 1500px;
 
 #userProfile > div:nth-child(2) > div:nth-child(2) {
     text-align: center;
-    margin: 0px 10px;
+    margin: 0px 25px;
 }
 
 #userProfile > div:nth-child(2) > div:nth-child(2) > :last-child {
@@ -485,7 +485,7 @@ $favSize: 120px;
         cursor: pointer;
         border-radius: 100%;
         color: black;
-        background-color: rgb(218, 189, 64);
+        background-color:rgb(231, 206, 172);
     }
 
     #userProfile > div:first-child > :first-child::selection{
@@ -493,7 +493,7 @@ $favSize: 120px;
     }
 
     #userProfile > div:first-child > :first-child:active {
-        border: 2px solid white;
+        border: 2px solid rgb(231, 206, 172);
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -583,11 +583,6 @@ $favSize: 120px;
     #profileData > div > div:nth-child(2) > div:nth-child(2) > div:first-child {
         width: 92%;
         margin-left: 12px;
-    }
-
-    #friends > a:first-child,
-    #friends > a:last-child {
-        display: none;
     }
 
     #userBornDate, #userJoined {

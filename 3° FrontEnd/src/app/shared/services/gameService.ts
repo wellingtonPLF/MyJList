@@ -69,7 +69,7 @@ class GameService {
 
   async getGame(id: number) {
     try{
-      const { data } = await api.get(`${this.path}/${id}`);
+      const { data } = await api.get(`${this.path}/${id}/`);
       return data;
     }
     catch(error: any) {

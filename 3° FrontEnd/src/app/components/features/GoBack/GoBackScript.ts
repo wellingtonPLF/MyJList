@@ -6,7 +6,8 @@ const gameListComponent: any = {
     return {};
   },
   props: {
-    gChoice: Function as PropType<(game: any) => void>
+    gChoice: Function as PropType<(game: any) => void>,
+    userChoice: Function as PropType<(user: any) => void>
   },
   methods: {
     goBack() {
@@ -15,10 +16,16 @@ const gameListComponent: any = {
       }
       else {
         const pagePath = this.$router.options.history.state.back.split('/')
-        if (pagePath[1] == 'singleGame' 
-        && this.$route.name != 'singleUser'
-        && this.$route.name != 'signIn'){
-          this.gChoice(pagePath[2])
+        if (pagePath[1] == 'singleGame'){
+          if (this.$route.name != 'singleUser' && this.$route.name != 'signIn') {
+            this.gChoice(pagePath[2])
+          }
+        }
+        else if (pagePath[1] == 'user') {
+          if (this.$route.name != 'gameList' && this.$route.name != 'profile' && this.$route.name != 'singleGame') {
+            
+            this.userChoice(pagePath[2])
+          }
         }
         this.$router.back()
       }
@@ -26,9 +33,6 @@ const gameListComponent: any = {
     goBackHome() {
       this.$router.push("/")
     }
-  },
-  mounted() {
-    
   },
 };
 

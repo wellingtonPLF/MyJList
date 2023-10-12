@@ -11,10 +11,10 @@ export class User {
     private _status?: string;
     private _userImage?: string;
     private _nationality?: Nationality;
+    private _friend?: User;
     private _auth?: number;
-    private _friend?: any;
 
-    constructor(id:number, nickname: string, bornDate: string, sexuality: string);
+    constructor(id:number, nickname: string, bornDate: string, sexuality: string, nationality: Nationality);
     constructor(nickname: string, bornDate: string, sexuality: string);
     constructor();
     constructor(...myarray: any[]){
@@ -24,11 +24,12 @@ export class User {
             this._sexuality = myarray[2]
             return;
         }
-        if (myarray.length === 4) {
+        if (myarray.length === 5) {
             this._id = myarray[0]
             this._nickname = myarray[1]
             this._bornDate = myarray[2]
             this._sexuality = myarray[3]
+            this._nationality = myarray[4]
             return;
         }
     }
@@ -39,7 +40,12 @@ export class User {
           nickname: user.nickname, 
           bornDate: user.bornDate,
           sexuality: user.sexuality,
+          joined: user.joined,
+          note: user.note,
+          status: user.status,
+          userImage: user.userImage,
           nationality: user.nationality,
+          friend: user.friend,
           auth: user.auth
         }
         return result;
@@ -125,11 +131,11 @@ export class User {
         this._auth = auth;
     }
 
-    get friend(): number | undefined{
+    get friend(): User | undefined{
         return this._friend;
     }
 
-    set friend(friend: number | undefined){
+    set friend(friend: User | undefined){
         this._friend = friend;
     }
 }

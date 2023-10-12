@@ -2,14 +2,34 @@ import api from "./shared/services/_axiosConfig";
 import { ErrorResult } from "./shared/interfaces/I_ErrorResult";
 import authService from "./shared/services/authService";
 
+interface Retry {
+  count: number
+  url: string | undefined
+}
+
+var retry : Retry = {
+  count: 0,
+  url: ''
+};
+
 export const registerRequestInterceptor = () => {
   return api.interceptors.request.use((request) => {
+    if (retry.url == request.url) {
+      retry.count += 1;
+    }
+    else {
+      retry.url = request.url
+    }
     return request;
   });
 };
 
 export const registerResponseInterceptor = () => {
   return api.interceptors.response.use((response) => {
+    if (retry.count == 3) {
+      retry.count = 0
+      return Promise.reject("Error");
+    }
     return response;
   }, 
   async (err) => {
