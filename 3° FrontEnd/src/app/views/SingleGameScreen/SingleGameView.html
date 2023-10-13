@@ -49,18 +49,20 @@
                                 </div>
                                 <div id="network">
                                     <div v-if="auth.id != 0">
-                                        <button :style="{backgroundColor: (game.id == 0) ? 'rgb(66, 70, 97)': ''}">Add to List</button>
+                                        <button @click="addGameToUser" :style="{backgroundColor: (game.id == 0) ? 'rgb(66, 70, 97)': ''}">{{(disableSelection)? "Update Status" : "Add to List"}}</button>
                                         <div>
-                                            <select name="vote" v-model="gameStatus.vote">
+                                            <select :disabled="!disableSelection" name="vote" v-model="gameStatus.vote">
+                                                <option v-if="!disableSelection" :value="undefined">unknow</option>
                                                 <option value="Incredible">Incredible</option>
                                                 <option value="Great">Great</option>
-                                                <option value="Default">Good</option>
+                                                <option value="Good">Good</option>
                                                 <option value="Fine">Fine</option>
                                                 <option value="Meh">Meh</option>
                                                 <option value="Horrible">Horrible</option>
                                             </select>
-                                            <select name="registry" v-model="gameStatus.registry">
-                                                <option value="Default">Plan to Play</option>
+                                            <select :disabled="!disableSelection" name="registry" v-model="gameStatus.registry">
+                                                <option v-if="!disableSelection" :value="undefined">unknow</option>
+                                                <option value="Plan to Play">Plan to Play</option>
                                                 <option value="Completed">Completed</option>
                                                 <option value="Playing">Playing</option>
                                                 <option value="Dropped">Dropped</option>
@@ -79,18 +81,20 @@
                         </div>
                         <div id="network">
                             <div v-if="auth.id != 0">
-                                <button>Add to List</button>
+                                <button @click="addGameToUser">{{(disableSelection)? "Update Status" : "Add to List"}}</button>
                                 <div>
-                                    <select name="vote" v-model="gameStatus.vote">
+                                    <select :disabled="!disableSelection" name="vote" v-model="gameStatus.vote">
+                                        <option v-if="!disableSelection" :value="undefined">unknow</option>
                                         <option value="Incredible">Incredible</option>
                                         <option value="Great">Great</option>
-                                        <option value="Default">Good</option>
+                                        <option value="Good">Good</option>
                                         <option value="Fine">Fine</option>
                                         <option value="Meh">Meh</option>
                                         <option value="Horrible">Horrible</option>
                                     </select>
-                                    <select name="registry" v-model="gameStatus.registry">
-                                        <option value="Default">Plan to Play</option>
+                                    <select :disabled="!disableSelection" name="registry" v-model="gameStatus.registry">
+                                        <option v-if="!disableSelection" :value="undefined">unknow</option>
+                                        <option value="Plan to Play">Plan to Play</option>
                                         <option value="Completed">Completed</option>
                                         <option value="Playing">Playing</option>
                                         <option value="Dropped">Dropped</option>
@@ -244,7 +248,7 @@
                     <div>
                         <div id="classification">
                             <div>T</div>
-                            <div>Game Rating system</div>
+                            <div>Game Rating System</div>
                         </div>
                         <div id="plataforms">
                             <div>Plataforms</div>

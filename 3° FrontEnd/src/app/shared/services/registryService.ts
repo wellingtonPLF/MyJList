@@ -37,6 +37,16 @@ class RegistryService {
     }
   }
 
+  async getRegistryByUserGame_ID(user_id: number, game_id: number) {
+    try{
+      const { data } = await api.post(`${this.path}/getRegistryByUserGame_ID/`, {user_id: user_id, game_id: game_id});
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  }
+
 //   async insert(user: any) {
 //     try{
 //       const { data } = await api.post(`${this.path}/`, User.simpleRefract(user));

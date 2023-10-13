@@ -7,6 +7,7 @@ import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer";
 import { mapState } from "vuex";
 import { USER_COMMENT_NULLOBJ } from "../../shared/vuex/reducer/authReducer";
 import { Comment } from "../../shared/models/Comment";
+import registryService from "../../shared/services/registryService";
 
 library.add(faStar);
 
@@ -32,8 +33,8 @@ const singleGameComponent: any = {
       selectedImg: undefined,
       star: true,
       commentToSend: undefined,
-
-      gameStatus: { vote: "Default", registry: "Default" },
+      disableSelection: false,
+      gameStatus: { vote: undefined, registry: undefined },
 
       noGame: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg",
       imgType: {
@@ -65,7 +66,12 @@ const singleGameComponent: any = {
     };
   },
   methods: {
-    hoursMinutes(){
+    addGameToUser() {
+      if (this.disableSelection == true) {
+        console.log(this.gameStatus.vote, this.gameStatus.registry, this.game)
+      }
+    },
+    hoursMinutes() {
       const hours_minutes_total = Math.round(this.game.playtime * 60)
       const hours = Math.floor(this.game.playtime)
       const hours_total = hours * 60
@@ -117,6 +123,32 @@ const singleGameComponent: any = {
       }
 
       this.commentToSend = ""
+    },
+    setGameMethod() {
+      gameService.getGame(this.$route.params.id).then(
+        it => {
+          this.game = it
+          this.selectedImg = it.imgs[0].value
+        }
+      )
+    },
+    feedGameData() {
+      if (this.auth.id != 0) {
+        registryService.getRegistryByUserGame_ID(this.auth.id, this.$route.params.id).then(
+          it => {
+            this.game = it.game
+            this.selectedImg = it.game.imgs[0].value
+            this.gameStatus = { vote: it.note, registry: it.progress }
+            this.disableSelection = true
+            
+          }
+        ).catch(_ => {
+          this.setGameMethod()
+        })
+      }
+      else {
+        this.setGameMethod()
+      }
     }
   },
   beforeMount(){
@@ -127,15 +159,16 @@ const singleGameComponent: any = {
       {game: {gameImage:this.noGame}},
       {game: {gameImage:this.noGame}},
       {game: {gameImage:this.noGame}}
-    ]
-    gameService.getGame(this.$route.params.id).then(
-      it => {
-        this.game = it
-        this.selectedImg = it.imgs[0].value
-      }
-    )
+    ]    
+  },
+  watch: {
+    auth() {
+      this.feedGameData()
+    },
   },
   mounted() {
+    this.feedGameData()
+
     gameService.getMostRecommended().then(
       it => {
         this.recomendations = it
@@ -143,7 +176,7 @@ const singleGameComponent: any = {
     )
     .catch((error) => {
       console.log(error)
-    })
+    })    
 
     commentService.getCommentByGameID(this.$route.params.id).then(
       it => {
