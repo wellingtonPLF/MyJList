@@ -1,6 +1,6 @@
 <div id="profilePage">
     <span class="backPage">
-        <GoBackComponent :userChoice="updateUserData" />
+        <GoBackComponent :userChoice="changeUserData" />
     </span>
     <div id="profile">
         <div>
@@ -24,22 +24,23 @@
                                 <div>
                                     <div title="chat">
                                         <!-- <font-awesome-icon  :icon="['fas', 'paper-plane']" /> -->
-                                        <font-awesome-icon style="color: rgb(168, 168, 168);" :icon="['fas', 'ban']" />
+                                        <font-awesome-icon style="color: rgb(184, 7, 7);" :icon="['fas', 'ban']" />
                                     </div>
                                     <div title="send a gift">
                                         <!-- <font-awesome-icon :icon="['fas', 'gift']" /> -->
-                                        <font-awesome-icon style="color: rgb(168, 168, 168);" :icon="['fas', 'ban']" />
+                                        <font-awesome-icon style="color: rgb(184, 7, 7);" :icon="['fas', 'ban']" />
                                     </div>
                                     <div title="usuarios bloqueados">
                                         <!-- <font-awesome-icon :icon="['fas', 'user-slash']" /> -->
-                                        <font-awesome-icon style="color: rgb(168, 168, 168);" :icon="['fas', 'ban']" />
+                                        <font-awesome-icon style="color: rgb(184, 7, 7);" :icon="['fas', 'ban']" />
                                     </div>
-                                    <div title="solicitação de amizade or add Friend">
-                                        <font-awesome-icon v-if="obj.id == auth.id" :icon="['fas', 'user-group']" />
+                                    <div title="followers or follow">
+                                        <!-- <font-awesome-icon v-if="obj.id == auth.id" :icon="['fas', 'user-group']" /> -->
+                                        <font-awesome-icon v-if="obj.id == auth.id" style="color: rgb(184, 7, 7); cursor: default;" :icon="['fas', 'ban']" />
                                         <div v-else>
                                             <font-awesome-icon v-if="(auth.id != 0 && !auth.friend.some((x: any) => x.id == obj.id))" :icon="['fas', 'user-plus']" @click="friendRequest"/>
-                                            <font-awesome-icon v-else-if="auth.id != 0" :icon="['fas', 'square-check']" style="color:rgb(231, 206, 172);"/>
-                                            <font-awesome-icon v-else style="color: rgb(168, 168, 168); cursor: default;" :icon="['fas', 'ban']" />
+                                            <font-awesome-icon v-else-if="auth.id != 0" :icon="['fas', 'square-check']" style="color:rgb(248, 206, 115); cursor: default;"/>
+                                            <font-awesome-icon v-else style="color: rgb(184, 7, 7); cursor: default;" :icon="['fas', 'ban']" />
                                         </div>
                                     </div>
                                 </div>
@@ -53,9 +54,9 @@
                                     https://flagcdn.com/72x54/${obj.nationality.cod.toLowerCase()}.png 3x`" 
                                     width="24" height="18" :alt="obj.nationality.name">
                                 </div>
-                                <div>
+                                <div style="min-width: 170px;">
                                     <h3>{{obj.nickname}}</h3>
-                                    <div id="linkList">
+                                    <div id="linkList" v-if="obj.link.length != 0">
                                         <div>Also Available at</div>
                                         <div></div>
                                     </div>
@@ -82,11 +83,12 @@
                                     <div>{{obj.bornDate}}</div>
                                 </div>
                                 <div id="network">
-                                    <font-awesome-icon :icon="['fab', 'twitter']" />
+                                    <!-- <font-awesome-icon :icon="['fab', 'twitter']" />
                                     <font-awesome-icon :icon="['fab', 'square-facebook']" />
                                     <font-awesome-icon :icon="['fab', 'instagram']" />
                                     <font-awesome-icon :icon="['fab', 'youtube']" />
-                                    <font-awesome-icon :icon="['fab', 'twitch']" />  
+                                    <font-awesome-icon :icon="['fab', 'twitch']" />   -->
+                                    <font-awesome-icon v-for="item in [1,2,3,4,5]" :icon="['fas', 'ban']" />
                                 </div>
                             </div>
                         </div>
@@ -183,26 +185,34 @@
                                 </div>
                             </div>
                             <div id="profileNotes">
-                                <div>Notes</div>
+                                <div>
+                                    <span>Notes</span>
+                                    <font-awesome-icon v-if="auth.id != 0 && obj.id == auth.id" @click="updateUser" :icon="['fas', 'floppy-disk']" />
+                                </div>
                                 <textarea v-if="auth.id != 0 && obj.id == auth.id" placeholder="Type your note right here!" v-model="auth.note"></textarea>
-                                <div v-else :style="{overflowY: (auth.note.length > 288)? 'scroll': ''}">{{auth.note}}</div>
+                                <div v-else :style="{overflowY: (auth.note.length > 288)? 'scroll': ''}">
+                                    <div v-if="obj.note.length != 0">{{obj.note}}</div>
+                                    <div v-else>There's no note here . . .</div>
+                                </div>
                             </div>
                         </div>
                         <div id="historyList">
                             <div>Last Games Updates</div>
                             <div>
                                 <router-link v-for="item in obj.lastUpdated" :to="`/singleGame/${item.game.id}`">
-                                    <div class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></div>
+                                    <div class="backImageConfig containerBorderAnimation" :style="{backgroundImage: `url(${item.game.gameImage})`}"></div>
                                 </router-link>
                             </div>
                         </div>
                         <div>
                             <div>
-                                <font-awesome-icon :icon="['fas', 'chevron-right']" />
+                                <!-- <font-awesome-icon :icon="['fas', 'chevron-right']" /> -->
+                                <font-awesome-icon style="width: 20px; height: 22px; color: rgb(184, 7, 7);" :icon="['fas', 'ban']" />
                                 <div>Favorite Staff</div>
                             </div>
                             <div>
-                                <font-awesome-icon :icon="['fas', 'chevron-right']" />
+                                <!-- <font-awesome-icon :icon="['fas', 'chevron-right']" /> -->
+                                <font-awesome-icon style="width: 20px; height: 22px; color: rgb(184, 7, 7);" :icon="['fas', 'ban']" />
                                 <div>Favorite Cast</div>
                             </div>
                         </div>
@@ -212,7 +222,7 @@
                             <div>Friends</div>
                             <div id="friends">
                                 <div v-if="obj.friend.length != 0" v-for="item in obj.friend" @click="showFriend(item.id)">
-                                    <div id="friend" class="backImageConfig" :style="{backgroundImage: `url(${
+                                    <div id="friend" class="backImageConfig containerBorderAnimation" :style="{backgroundImage: `url(${
                                         (item.userImage == null) ? ((item.sexuality === 'M') ? imgType.male : imgType.female) : item.userImage
                                     })`}"></div>
                                 </div>
@@ -225,7 +235,7 @@
                             <div>Favorite Games</div>
                             <div id="favGame">
                                 <router-link v-for="item in obj.favoriteGames" :to="`/singleGame/${item.game.id}`"
-                                class="backImageConfig" :style="{backgroundImage: `url(${item.game.gameImage})`}"></router-link>
+                                class="backImageConfig containerBorderAnimation" :style="{backgroundImage: `url(${item.game.gameImage})`}"></router-link>
                             </div>
                         </div>
                     </div>

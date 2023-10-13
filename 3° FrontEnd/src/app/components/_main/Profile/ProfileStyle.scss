@@ -1,4 +1,6 @@
 
+$colorKindaYellow: rgb(248, 206, 115);
+
 #profilePage {
     height: 100%;
     min-height: 100vh;
@@ -83,13 +85,42 @@ $limitWidth: 1500px;
     background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayn_0.jpg");
 }
 
+$infoHeigth: 40px;
+
 #userProfile > div:first-child > :first-child {
-    display: none;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 17px;
+    height: $infoHeigth;
+    width: $infoHeigth;
+    text-align: center;
+    line-height: $infoHeigth + 3px;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 100%;
+    color: black;
+    background-color:$colorKindaYellow;
+}
+
+#userProfile > div:first-child > :first-child::selection{
+    background-color: transparent;
+}
+
+#userProfile > div:first-child > :first-child:active {
+    transform: scale(0.9);
+    -webkit-tap-highlight-color: transparent;
 }
 
 #userProfile > div:nth-child(2) {
     display: flex;
     margin: 15px 0px 0px 0px;
+}
+
+#network > * {
+    // cursor: pointer;
+    // color: gray;
+    color: rgb(184, 7, 7);
 }
 
 #userProfile > div:nth-child(2) > div:first-child > div:nth-child(3), #network {
@@ -100,7 +131,7 @@ $limitWidth: 1500px;
     height: 40px;
 }
 
-#userProfile > div:nth-child(2) > div:first-child > div:nth-child(3) > div:last-child, #network > *{
+#userProfile > div:nth-child(2) > div:first-child > div:nth-child(3) > div:last-child {
     cursor: pointer;
 }
 
@@ -256,8 +287,20 @@ $limitWidth: 1500px;
 }
 
 #profileNotes > :nth-child(1){
-    height: 25px;
+    display: flex;
+    height: 20px;
     line-height: 25px;
+}
+
+#profileNotes > :nth-child(1) > :nth-child(2){
+    margin: 0 0 auto 10px; 
+    font-size: 2vh;
+    color: $colorKindaYellow;
+    cursor: pointer;
+}
+
+#profileNotes > :nth-child(1) > :nth-child(2):active{
+    color: white;
 }
 
 #profileNotes > :nth-child(2){
@@ -380,13 +423,19 @@ $friendSize: 80px;
 #friend {
     width: $friendSize;
     height: $friendSize;
-    margin-right: 10px;
+    margin-right: 17px;
+    cursor: pointer;
     border-radius: 100%;
+}
+
+.containerBorderAnimation:hover {
+    transform: scale(0.97);
 }
 
 #favGame {
     display: flex;
     flex-wrap: wrap;
+    min-height: 120px;
     margin-top: 10px;
 }
 
@@ -468,33 +517,6 @@ $favSize: 120px;
 
     #userProfile > div:first-child {
         width: 240px;
-    }
-
-    $infoHeigth: 40px;
-
-    #userProfile > div:first-child > :first-child {
-        display: block;
-        position: absolute;
-        top: 10px;
-        right: 17px;
-        height: $infoHeigth;
-        width: $infoHeigth;
-        text-align: center;
-        line-height: $infoHeigth + 3px;
-        font-size: 25px;
-        cursor: pointer;
-        border-radius: 100%;
-        color: black;
-        background-color:rgb(231, 206, 172);
-    }
-
-    #userProfile > div:first-child > :first-child::selection{
-        background-color: transparent;
-    }
-
-    #userProfile > div:first-child > :first-child:active {
-        border: 2px solid rgb(231, 206, 172);
-        -webkit-tap-highlight-color: transparent;
     }
 
     #userProfile > div:nth-child(2) > div:first-child, #userProfile > div:nth-child(2) > div:nth-child(3)  {

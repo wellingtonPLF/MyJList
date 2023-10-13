@@ -24,9 +24,8 @@ const profileComponent: any = {
   },
   props: {
     obj: Object as PropType<I_User>,
-    updateUserData: Function as PropType<(id: number) => void>
+    changeUserData: Function as PropType<(id: number) => void>
   },
-
   methods: {
     goBack() {
       if (this.$router.options.history.state.back == null) {
@@ -34,6 +33,15 @@ const profileComponent: any = {
       }
       else {
         this.$router.back()
+      }
+    },
+    updateUser(){
+      if (this.obj.note != this.auth.note){
+        userService.update(this.obj).then(
+          _ => {
+            console.log("Update Request (OK)!")
+          }
+        )
       }
     },
     friendRequest() {

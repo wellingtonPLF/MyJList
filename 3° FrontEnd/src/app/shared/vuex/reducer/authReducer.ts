@@ -68,6 +68,7 @@ export const AUTH_INITIAL_STATE: I_User = {
       game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
     }
   ],
+  link: [],
   nationality: { name: "Brazil", cod: "BR"},
   recommendations: 0
 }

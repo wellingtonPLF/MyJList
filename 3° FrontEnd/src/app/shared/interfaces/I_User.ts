@@ -21,5 +21,6 @@ export interface I_User {
     email?: string,
     userImage?: any,
     lastUpdated?: any,
+    link?: any,
     favoriteGames?: any
 }

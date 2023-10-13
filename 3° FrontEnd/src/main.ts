@@ -28,6 +28,7 @@ import {
   faArrowsRotate,
   faHouse,
   faPowerOff,
+  faFloppyDisk,
   faArrowTurnDown,
   faDoorOpen,
   faBan,
@@ -54,6 +55,7 @@ const app = createApp(App);
 library.add(
   faGamepad,
   faSearch,
+  faFloppyDisk,
   faUserGroup,
   faSquareCheck,
   faUser,
