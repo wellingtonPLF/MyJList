@@ -22,6 +22,8 @@ from django.db.models.functions import Cast
 from django.db.models import FloatField
 import datetime
 
+from django.middleware.csrf import get_token
+
 class GameViewSet(viewsets.ModelViewSet):
     queryset = Game.objects.all()
     authentication_classes = [GameAuthentication]
@@ -30,7 +32,6 @@ class GameViewSet(viewsets.ModelViewSet):
     def list(self, request):
         games = self.get_queryset()
         serializer = self.get_serializer(games, many=True)
-        print(serializer.data)
         return Response(serializer.data)
 
     #/game/getFilterData
@@ -47,7 +48,7 @@ class GameViewSet(viewsets.ModelViewSet):
             }
             return Response(result)
         except:
-            raise ParseError("Something went Wrong in getMostRecommended")
+            raise ParseError("Something went Wrong in getFilterData")
 
     #/game/getMostRecommended
     @action(detail=False, methods=['GET'], url_path='getMostRecommended')
@@ -74,9 +75,10 @@ class GameViewSet(viewsets.ModelViewSet):
             expected = list(map(lambda item: item['game'], queryResult))
             
             gameResult = Game.objects.filter(id__in=expected)
-            result = ReleaseSerializer(gameResult, many=True, read_only=True).data
+            response = Response(ReleaseSerializer(gameResult, many=True, read_only=True).data)
 
-            return Response(result)
+            csrf_token = get_token(request)
+            return response
         except:
             raise ParseError("Something went Wrong in getReleases")
 
@@ -94,7 +96,7 @@ class GameViewSet(viewsets.ModelViewSet):
             
             return Response(result)
         except:
-            raise ParseError("Something went Wrong in getReleases")
+            raise ParseError("Something went Wrong in getAiring")
 
     #/game/getTopRated
     @action(detail=False, methods=['GET'], url_path='getTopRated')
@@ -133,21 +135,21 @@ class GameViewSet(viewsets.ModelViewSet):
 
         if (request.data["realease"] != None and request.data["realease"] != game.realease):
             game.realease = request.data["realease"]
-        elif (request.data["recommendation"] != None and request.data["recommendation"] != game.recommendation):
+        if (request.data["recommendation"] != None and request.data["recommendation"] != game.recommendation):
             game.recommendation = request.data["recommendation"]
-        elif (request.data["name"] != None and request.data["name"] != game.name):
+        if (request.data["name"] != None and request.data["name"] != game.name):
             game.name = request.data["name"]
-        elif (request.data["description"] != None and request.data["description"] != game.description):
+        if (request.data["description"] != None and request.data["description"] != game.description):
             game.description = request.data["description"]
-        elif (request.data["playtime"] != None and request.data["playtime"] != game.playtime):
+        if (request.data["playtime"] != None and request.data["playtime"] != game.playtime):
             game.playtime = request.data["playtime"]
-        elif (request.data["gameImage"] != None and request.data["gameImage"] != game.gameImage):
+        if (request.data["gameImage"] != None and request.data["gameImage"] != game.gameImage):
             game.gameImage = request.data["gameImage"]
-        elif (request.data["tag"] != None and request.data["tag"] != game.tag):
+        if (request.data["tag"] != None and request.data["tag"] != game.tag):
             game.tag = request.data["tag"]
-        elif (request.data["source"] != None and request.data["source"] != game.source):
+        if (request.data["source"] != None and request.data["source"] != game.source):
             game.source = request.data["source"]
-        elif (request.data["premiede"] != None and request.data["premiede"] != game.premiede):
+        if (request.data["premiede"] != None and request.data["premiede"] != game.premiede):
             game.premiede = request.data["premiede"]
 
         game = Game(**game)

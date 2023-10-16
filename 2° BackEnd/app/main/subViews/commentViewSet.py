@@ -34,20 +34,23 @@ class CommentViewSet(viewsets.ModelViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
     def create(self, request):
-        serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
+        try:
+            serializer = self.get_serializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors)
+        except Exception as error:
+            print(error)
 
     def update(self, request, pk):
         comment = self.get_comment(request.data["id"])
 
         if (request.data["content"] != None and request.data["content"] != comment.content):
             comment.content = request.data["content"]
-        elif (request.data["vote"] != None and request.data["vote"] != comment.vote):
+        if (request.data["vote"] != None and request.data["vote"] != comment.vote):
             comment.vote = request.data["vote"]
-        elif (request.data["publication"] != None and request.data["publication"] != comment.publication):
+        if (request.data["publication"] != None and request.data["publication"] != comment.publication):
             comment.publication = request.data["publication"]
 
         if self.get_comment(comment.id) == None:

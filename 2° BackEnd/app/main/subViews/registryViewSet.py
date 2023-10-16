@@ -1,9 +1,14 @@
 from main.subModels.registry import Registry
+from main.subModels.tag import Tag
+
 from rest_framework.response import Response
 from main.authenticate import RegistryAuthentication
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework import status
 from main.serializers.registrySerializer import RegistrySerializer
+from main.serializers.registryActionSerializer import RegistryActionSerializer
+from rest_framework.exceptions import ParseError
 
 class RegistryViewSet(viewsets.ModelViewSet):
     queryset = Registry.objects.all()
@@ -15,7 +20,7 @@ class RegistryViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(registryList, many=True)
         return Response(serializer.data)
     
-    #/game/getRegistryByUserID
+    #/registry/getRegistryByUserID
     @action(detail=False, methods=['GET'], url_path='getRegistryByUserID/(?P<user_id>\d+)')
     def getRegistryByUserID(self, request, user_id):
         try:
@@ -25,39 +30,52 @@ class RegistryViewSet(viewsets.ModelViewSet):
         except:
             raise ParseError("Something went Wrong in getRegistryByUserID")
 
+    #/registry/getRegistryByUserGame_ID
+    @action(detail=False, methods=['POST'], url_path='getRegistryByUserGame_ID')
+    def getRegistryByUserGame_ID(self, request):
+        try:
+            user_id = request.data["user_id"]
+            game_id = request.data["game_id"]
+            result = Registry.objects.get(game=game_id, user=user_id)
+            registry = RegistrySerializer(result).data
+            return Response(registry)
+        except Registry.DoesNotExist:
+            raise ParseError("Something went Wrong in getRegistryByUserGame_ID")
+
     def get_registry(self, id):
         try:
             return Registry.objects.get(id = id)
         except Registry.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            raise ParseError("Registry Not Found")
 
     def create(self, request):
-        serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
+        try:
+            serializer = RegistryActionSerializer(data=request.data)
+            if serializer.is_valid():
+                result = serializer.save()
+                registry = self.get_serializer(instance=result)
+                return Response(registry.data)
+            return Response(serializer.errors)
+        except Exception as e:
+            raise ParseError(e)
 
     def update(self, request, pk):
-        registry = self.get_registry(request.data["id"])
-
-        if (request.data["note"] != None and request.data["note"] != registry.note):
-            registry.note = request.data["note"]
-        elif (request.data["favorite"] != None and request.data["favorite"] != registry.favorite):
-            registry.favorite = request.data["favorite"]
-        elif (request.data["progress"] != None and request.data["progress"] != registry.progress):
-            registry.progress = request.data["progress"]
-
-        if self.get_registry(registry.id) == None:
-            raise rest_exceptions.ParseError("Error In Registry Update")
-            
-        registry.save()
-        serializer = RegistrySerializer(instance=registry)
-        return Response(serializer.data)
-
+        try:
+            instance = self.get_registry(request.data["id"])
+            serializer = RegistryActionSerializer(instance, data=request.data, partial=True)
+            if request.data['note'] == '':
+                request.data['note'] = None
+            if serializer.is_valid():
+                result = serializer.save()
+                registry = self.get_serializer(instance=result)
+                return Response(registry.data)
+            return Response(serializer.errors)
+        except Exception as e:
+            raise ParseError(e)
+        
     def destroy (self, request, pk):
         try:
             self.get_registry(pk).delete()
-            return Response("Successfully Deletion.", status=status.HTTP_204_NO_CONTENT)
+            return Response({'Result': "Successfully Deletion"}, status=status.HTTP_204_NO_CONTENT)
         except:
             raise ParseError("The requested Game Id was not found.")

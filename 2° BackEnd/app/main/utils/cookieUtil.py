@@ -11,13 +11,13 @@ class CookieUtil:
         except:
             return None
 	
-    def create(self, response, name, value, secure, domain):
+    def create(self, response, name, value):
 
         config = { 
             "expires": timedelta(days=365), 
             "httponly": True,
-            "secure": secure,
-            "domain": domain,
+            "secure": False,
+            "domain": "localhost",
             "path": "/"
         }
         #CookieName, TokenValue, Config

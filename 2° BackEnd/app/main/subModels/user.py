@@ -14,7 +14,7 @@ class User(models.Model):
     status = models.CharField(max_length = 50, blank=True, null=True, default="off")
     auth = models.ForeignKey(Auth, on_delete=models.CASCADE)
     nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE)
-    friend = models.ManyToManyField('self', symmetrical=False)
+    friend = models.ManyToManyField('self', symmetrical=False) #on_delete=models.SET_NULL
 
     def __str__(self):
         part_1 = f"\n| Id: {self.id}\n| Nickname: {self.nickname}\n| BornDate: {self.bornDate}\n"

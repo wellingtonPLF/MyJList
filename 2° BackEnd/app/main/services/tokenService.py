@@ -6,12 +6,14 @@ from rest_framework_simplejwt import tokens
 from main.enum.tokenEnum import TokenEnum
 from main.enum.jwtEnum import JwtEnum
 from main.utils.jwtUtil import JwtUtil
+from main.services.authService import AuthService
 from main.utils.cookieUtil import CookieUtil
 
 class TokenService():
     queryset = Token.objects.all()
     cookieUtil = CookieUtil()
     jwtUtil = JwtUtil()
+    authService = AuthService()
     serializer_class = TokenSerializer
     accessTokenName = TokenEnum.TOKEN_NAME.value
     
@@ -65,7 +67,7 @@ class TokenService():
         accessToken = self.cookieUtil.getCookieValue(request, self.accessTokenName)
         jwt = self.findByToken(accessToken)
         authID = self.jwtUtil.extractSubject(jwt.key, TokenEnum.TOKEN_NAME.value)
-        authList = self.findAuthRolesByAuthId(int(authID))
+        authList = self.authService.findAuthRolesByAuthId(int(authID))
         result = next(filter(lambda obj: obj.id == admin, authList), None)
         
         if (int(authID) == pk):

@@ -2,6 +2,7 @@ from django.db import models
 from main.subModels.user import User
 from main.subModels.game import Game
 from main.enum.commentEnum import CommentEnum
+from datetime import date
 
 VOTE_CHOICES = [
     ('0', CommentEnum.PREMIATION.value),
@@ -12,8 +13,8 @@ VOTE_CHOICES = [
 
 class Comment(models.Model):
     content = models.CharField(max_length = 300, blank=True, null=True)
-    vote = models.CharField(max_length = 50, blank=True, null=True, choices=VOTE_CHOICES)
-    publication = models.DateField()
+    vote = models.CharField(max_length = 50, null=True, choices=VOTE_CHOICES)
+    publication = models.DateField(default=date.today)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
 

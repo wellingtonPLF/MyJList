@@ -108,21 +108,23 @@ class GameSerializer(serializers.ModelSerializer):
         return ranked
 
     def get_achievements(self, game):
+        result = None
         try:
             achievements = Achievement.objects.filter(game=game.id)
             serializer = AchievementSerializer(achievements, many=True, read_only=True)
             result = serializer.data
-        except Auth.DoesNotExist:
-            result = None
+        except:
+            return result
         return result
 
     def get_imgs(self, game):
+        result = None
         try:
             imgs = Img.objects.filter(game=game.id)
             serializer = ImgSerializer(imgs, many=True, read_only=True)
             result = serializer.data
-        except Auth.DoesNotExist:
-            result = None
+        except:
+            return result
         return result
 
     def get_planning(self, game):

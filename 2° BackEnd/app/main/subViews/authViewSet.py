@@ -46,8 +46,8 @@ class AuthViewSet(viewsets.ModelViewSet):
             jwt = Token(key=jwtToken, auth=authDB)
             self.tokenService.deleteByAuthID(authDB.id)
             self.tokenService.insert(jwt)
-            self.cookieUtil.create(response, self.accessTokenName, jwtToken, False, "localhost")
-            self.cookieUtil.create(response, self.refreshTokenName, refreshToken, False, "localhost")
+            self.cookieUtil.create(response, self.accessTokenName, jwtToken)
+            self.cookieUtil.create(response, self.refreshTokenName, refreshToken)
             return response
         except Exception as error:
             # raise ParseError(error)
@@ -75,8 +75,8 @@ class AuthViewSet(viewsets.ModelViewSet):
             jwtRefresh = self.jwtUtil.generateToken(authDB, TokenEnum.REFRESH_NAME.value)
             jwt.key = jwtToken
             self.tokenService.update(jwt)
-            self.cookieUtil.create(response, self.accessTokenName, jwtToken, False, "localhost")
-            self.cookieUtil.create(response, self.refreshTokenName, jwtRefresh , False, "localhost")
+            self.cookieUtil.create(response, self.accessTokenName, jwtToken)
+            self.cookieUtil.create(response, self.refreshTokenName, jwtRefresh )
             print("REFRESH!!!!!!")
             return response
         else:

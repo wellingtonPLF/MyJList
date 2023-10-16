@@ -14,6 +14,7 @@ from main.serializers.linkSerializer import LinkSerializer
 from main.serializers.networkSerializer import NetworkSerializer
 from main.serializers.roleSerializer import RoleSerializer
 from main.serializers.favoriteSerializer import FavoriteSerializer
+from main.serializers.friendSerializer import FriendSerializer
 from django.forms.models import model_to_dict
 
 from django.db.models import Sum
@@ -23,12 +24,13 @@ class UserSerializer(serializers.ModelSerializer):
     email = serializers.SerializerMethodField()
     network = serializers.SerializerMethodField()
     link = serializers.SerializerMethodField()
-    friend = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(),
-        many=True,
-        allow_null=True,
-        required=False,
-    )
+    # friend = serializers.PrimaryKeyRelatedField(
+    #     queryset=User.objects.all(),
+    #     many=True,
+    #     allow_null=True,
+    #     required=False,
+    # )
+    friend = FriendSerializer(many=True, read_only=True, allow_null=True, required=False)
 
     playing = serializers.SerializerMethodField()
     onHold = serializers.SerializerMethodField()
@@ -181,7 +183,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = "__all__"
+        # fields = "__all__"
         fields = (
             "id",
             "nickname",

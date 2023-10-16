@@ -1,6 +1,7 @@
 from rest_framework import status
 from main.subModels.user import User
 from main.subModels.auth import Auth
+from main.subModels.nationality import Nationality
 from main.serializers.userSerializer import UserSerializer
 from rest_framework import viewsets
 from rest_framework.response import Response
@@ -50,30 +51,55 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
     def create(self, request):
-        serializer = self.get_serializer(data=request.data)
+        serializer = self.get_serializer(data=request.data) 
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
 
     def update(self, request, pk):
-        user = self.get_user(request.data["id"])
+        try:
+            user = self.get_user(request.data["id"])
+            nationality_name = request.data["nationality"]["name"]
+            nationality = Nationality.objects.get(name=nationality_name)
 
-        if user == None:
-            raise rest_exceptions.ParseError(JwtEnum.INVALID_USER.value)
-        if self.tokenService.getTokenValidation(request, user.auth.id) == False:
-            raise rest_exceptions.ParseError(JwtEnum.INVALID_USER.value)
+            if user == None:
+                raise rest_exceptions.ParseError(JwtEnum.INVALID_USER.value)
+            if self.tokenService.getTokenValidation(request, user.auth.id) == False:
+                raise rest_exceptions.ParseError(JwtEnum.INVALID_USER.value)
 
-        if (request.data["nickname"] != user.nickname and request.data["nickname"] != None):
-            user.nickname = request.data["nickname"]
-        elif (request.data["bornDate"] != user.bornDate and request.data["bornDate"] != None):
-            user.bornDate = request.data["bornDate"]
-        elif (request.data["nickname"] != user.nickname and request.data["nickname"] != None):
-            user.nickname = request.data["nickname"]
+            if (request.data["nickname"] != user.nickname and request.data["nickname"] != None):
+                user.nickname = request.data["nickname"]
+            if (request.data["bornDate"] != user.bornDate and request.data["bornDate"] != None):
+                user.bornDate = request.data["bornDate"]
+            if (request.data["sexuality"] != user.sexuality and request.data["sexuality"] != None):
+                user.sexuality = request.data["sexuality"]
+            if (request.data["note"] != user.note and request.data["note"] != None):
+                user.note = request.data["note"]
+            if (request.data["userImage"] != user.userImage and request.data["userImage"] != None):
+                user.userImage = request.data["userImage"]
+            if (nationality != user.nationality):
+                user.nationality = nationality
+            if len(request.data["friend"]) == 0 and len(request.data["friend"]) != len(user.friend.all()):
+                user.friend.clear()
+            else:
+                if len(request.data["friend"]) != 0 and len(request.data["friend"]) != len(user.friend.all()): 
+                    # Add friend
+                    if len(request.data["friend"]) > len(user.friend.all()): 
+                            friend_id = request.data["friend"][-1]['id']
+                            friend = User.objects.get(id=friend_id)
+                            user.friend.add(friend)
+                    else: # Removing a   friend
+                        id_list = list(map(lambda instance: instance.id, user.friend.all()))
+                        result = [obj for obj in request.data["friend"] if obj['id'] not in id_list]
+                        friend = User.objects.get(id=result["id"])
+                        user.friend.remove(friend)
 
-        user.save()
-        serializer = UserSerializer(instance=user)
-        return Response(serializer.data)
+            user.save()
+            serializer = UserSerializer(instance=user)
+            return Response(serializer.data)
+        except Exception as error:
+            return Response(f'${error}')
 
     def destroy (self, request, pk):
         response = Response("Successfully Deletion.")

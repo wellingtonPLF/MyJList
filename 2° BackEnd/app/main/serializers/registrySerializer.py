@@ -1,31 +1,28 @@
 from rest_framework import serializers
 from main.subModels.registry import Registry
+from main.subModels.tag import Tag
+from main.subModels.game import Game
 from main.serializers.statusSerializer import StatusSerializer
 from main.serializers.gameTypeSerializer import GameTypeSerializer
+from main.serializers.gameSerializer import GameSerializer
+from main.serializers.userSerializer import UserSerializer
 from main.serializers.tagSerializer import TagSerializer
 
 class RegistrySerializer(serializers.ModelSerializer):
-    game = serializers.SerializerMethodField()
-    note = serializers.SerializerMethodField()
+    game = GameSerializer()
     tag = TagSerializer()
+    progress = serializers.SerializerMethodField()
+    note = serializers.SerializerMethodField()
 
     def get_note(self, registry):
-        return registry.get_note_display()
+        result = "Unknow"
+        if (registry.note != None):
+            result = registry.get_note_display()
+        return result
 
-    def get_game(self, registry):
-        game = None
-        try:
-            game = {
-                "id": registry.game.id,
-                "name": registry.game.name,
-                "gameImage": registry.game.gameImage,
-                "playtime": registry.game.playtime
-            }
-        except:
-            return game
-        return game
-
+    def get_progress(self, registry):
+        return registry.get_progress_display()
+    
     class Meta:
         model = Registry
-        # fields = '__all__'
-        fields = ("id", "note", "favorite", "progress", "tag", "user", "game")
+        fields = ("id", "note", "favorite", "recommendation", "progress", "tag", "user", "game")
