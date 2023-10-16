@@ -1,4 +1,3 @@
-// import { I_User } from "../interfaces/I_User";
 import { Nationality } from "./Nationality";
 
 export class User {

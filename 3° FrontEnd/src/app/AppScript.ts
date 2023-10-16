@@ -13,11 +13,13 @@ export default {
     ...mapActions("authReducer", ["setAuth"]),
   },
   beforeMount() {
-    userService.getAuthenticatedUser().then((it: any) => {
+    userService.getAuthenticatedUser().then(
+      it => {
         this.setAuth(it);
-    })
-    .catch(() => {
-        // console.error(error);
+      }
+    )
+    .catch((error) => {
+        console.error(error);
     });
   },
 };

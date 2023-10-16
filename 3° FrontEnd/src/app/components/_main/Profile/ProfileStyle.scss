@@ -418,12 +418,15 @@ $partTwoHeight: 140px;
     margin-top: 10px;
 }
 
+#friends > div{
+    margin: 0 9px;
+}
+
 $friendSize: 80px;
 
 #friend {
     width: $friendSize;
     height: $friendSize;
-    margin-right: 17px;
     cursor: pointer;
     border-radius: 100%;
 }

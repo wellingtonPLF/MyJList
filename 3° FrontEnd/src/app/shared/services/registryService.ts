@@ -1,3 +1,4 @@
+import { Registry } from "../models/Registry";
 import api from "./_axiosConfig";
 
 class RegistryService {
@@ -47,19 +48,19 @@ class RegistryService {
     }
   }
 
-//   async insert(user: any) {
-//     try{
-//       const { data } = await api.post(`${this.path}/`, User.simpleRefract(user));
-//       return data;
-//     }
-//     catch(error: any) {
-//       return Promise.reject(error);
-//     }
-//   } 
+  async insert(registry: any) {
+    try {
+      const { data } = await api.post(`${this.path}/`, Registry.simpleRefract(registry));
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  } 
 
   async update(registry: any) {
     try{
-      const { data } = await api.put(`${this.path}/`, registry);
+      const { data } = await api.put(`${this.path}/${registry.id}/`, Registry.simpleRefract(registry));
       return data;
     }
     catch(error: any) {

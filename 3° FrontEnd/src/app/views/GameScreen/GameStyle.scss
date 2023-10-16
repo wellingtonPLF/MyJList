@@ -210,7 +210,6 @@ $searchHeight: 2.2vh * 2;
     right: 0px;
     font-size: 0.8vh * 2;
     padding: 0.2vh 0px 0.6vh 0px;
-    width: 3vh * 2;
     background-color: rgba(0, 0, 0, 0.664);
     border-top-right-radius: 0.26vh * 2;
     border-bottom-left-radius: 0.53vh * 2;
@@ -225,7 +224,8 @@ $searchHeight: 2.2vh * 2;
 
 #gameCard > div:first-child > div:first-child > div:last-child {
     text-align: center;
-    margin-top: 0.16vh * 2;
+    margin-top: 0.2vh * 2;
+    margin-left: 0.25vh * 2;
     margin-right: 0.16vh * 2;
 }
 

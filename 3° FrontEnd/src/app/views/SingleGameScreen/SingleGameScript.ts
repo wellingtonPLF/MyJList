@@ -8,6 +8,10 @@ import { mapState } from "vuex";
 import { USER_COMMENT_NULLOBJ } from "../../shared/vuex/reducer/authReducer";
 import { Comment } from "../../shared/models/Comment";
 import registryService from "../../shared/services/registryService";
+import { Registry } from "../../shared/models/Registry";
+import { Tag } from "../../shared/models/Tag";
+import { registryEnum } from "../../shared/enums/registryEnum";
+import { noteEnum } from "../../shared/enums/noteEnum";
 
 library.add(faStar);
 
@@ -24,6 +28,7 @@ const singleGameComponent: any = {
   data() {
     return {
       recomendations: [] as any[],
+      game_registry_id: undefined,
       game: GAME_INITIAL_STATE,
       userComment: [
         USER_COMMENT_NULLOBJ,
@@ -33,9 +38,9 @@ const singleGameComponent: any = {
       selectedImg: undefined,
       star: true,
       commentToSend: undefined,
-      disableSelection: false,
+      registredGame: false,
       gameStatus: { vote: undefined, registry: undefined },
-
+      tag: new Tag(1, 'Undefined'),
       noGame: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg",
       imgType: {
         male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
@@ -66,9 +71,39 @@ const singleGameComponent: any = {
     };
   },
   methods: {
-    addGameToUser() {
-      if (this.disableSelection == true) {
-        console.log(this.gameStatus.vote, this.gameStatus.registry, this.game)
+    applyBtnAction() {
+      if (this.registredGame) {
+        const vote = Object.keys(noteEnum).filter(key => noteEnum[key] === this.gameStatus.vote)[0]
+        const progress = Object.keys(registryEnum).filter(key => registryEnum[key] === this.gameStatus.registry)[0]
+        const updateRegistry = new Registry(
+          this.game_registry_id,
+          progress,
+          (this.gameStatus.vote == 'Unknow') ? "" : ((progress === "Plan")? "" : vote),
+          !this.star, 
+          false, 
+          this.tag, 
+          this.auth, 
+          this.game
+        )
+        registryService.update(updateRegistry).then(
+          it => {
+            this.game = it.game
+            this.gameStatus = { vote: it.note, registry: it.progress }
+          }
+        ).catch(e => {
+          console.log(e)
+        })
+      }
+      else {
+        const insertRegistry = new Registry(this.auth, this.game, this.tag);
+        registryService.insert(insertRegistry).then(
+          it => {
+            this.game = it.game
+            this.gameStatus = { vote: it.note, registry: it.progress }
+            this.registredGame = true
+            this.game_registry_id = it.id
+          }
+        )
       }
     },
     hoursMinutes() {
@@ -79,12 +114,7 @@ const singleGameComponent: any = {
       return `${hours}h ${minutes}m`
     },
     gameChoice(id: number) { 
-      gameService.getGame(id).then(
-        it => {
-          this.game = it
-          this.selectedImg = it.imgs[0].value
-        }
-      )
+      this.feedGameData(id)
       
       commentService.getCommentByGameID(id).then(
         it => {
@@ -124,30 +154,35 @@ const singleGameComponent: any = {
 
       this.commentToSend = ""
     },
-    setGameMethod() {
-      gameService.getGame(this.$route.params.id).then(
+    setGameMethod(id: number) {
+      gameService.getGame(id).then(
         it => {
           this.game = it
+          this.star = !it.favorite
           this.selectedImg = it.imgs[0].value
+          this.gameStatus = { vote: it.note, registry: it.progress }
+          this.registredGame = false
         }
       )
     },
-    feedGameData() {
+    feedGameData(id: number) {
       if (this.auth.id != 0) {
-        registryService.getRegistryByUserGame_ID(this.auth.id, this.$route.params.id).then(
+        registryService.getRegistryByUserGame_ID(this.auth.id, id).then(
           it => {
             this.game = it.game
+            this.star = !it.favorite
             this.selectedImg = it.game.imgs[0].value
             this.gameStatus = { vote: it.note, registry: it.progress }
-            this.disableSelection = true
+            this.registredGame = true
+            this.game_registry_id = it.id
             
           }
         ).catch(_ => {
-          this.setGameMethod()
+          this.setGameMethod(id)
         })
       }
       else {
-        this.setGameMethod()
+        this.setGameMethod(id)
       }
     }
   },
@@ -163,11 +198,11 @@ const singleGameComponent: any = {
   },
   watch: {
     auth() {
-      this.feedGameData()
+      this.feedGameData(this.$route.params.id)
     },
   },
   mounted() {
-    this.feedGameData()
+    this.feedGameData(this.$route.params.id)
 
     gameService.getMostRecommended().then(
       it => {

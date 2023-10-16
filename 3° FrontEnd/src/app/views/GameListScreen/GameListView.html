@@ -23,13 +23,13 @@
     <div>
         <div>
             <select name="status">
-                <option value="">All Games</option>
-                <option value="Playing">Playing</option>
-                <option value="Replaying">Replaying</option>
-                <option value="Plan to Play">Plan to play</option>
-                <option value="On Hold">On Hold</option>
-                <option value="Dropped">Dropped</option>
-                <option value="Completed">Completed</option>
+                <option @click="filterBy('all')" value="">All Games</option>
+                <option @click="filterBy('Playing')" value="Playing">Playing</option>
+                <option @click="filterBy('Replaying')" value="Replaying">Replaying</option>
+                <option @click="filterBy('Plan to Play')" value="Plan to Play">Plan to play</option>
+                <option @click="filterBy('On-Hold')" value="On Hold">On Hold</option>
+                <option @click="filterBy('Dropped')" value="Dropped">Dropped</option>
+                <option @click="filterBy('Completed')" value="Completed">Completed</option>
             </select>
         </div> 
     </div>
@@ -72,6 +72,7 @@
                     </div>
                     <div>
                         <select v-if="auth.id != 0 && $route.params.id == auth.id" name="score" v-model="item.note">
+                            <option disabled value="Unknow">Select</option>
                             <option value="Incredible">Awesome</option>
                             <option value="Great">Great</option>
                             <option value="Good">Good</option>
@@ -79,7 +80,7 @@
                             <option value="Meh">Meh</option>
                             <option value="Horrible">Horrible</option>
                         </select>
-                        <div v-else>{{item.note}}</div>
+                        <div v-else>{{(item.note == undefined)? "Unknow" : item.note}}</div>
                         <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>

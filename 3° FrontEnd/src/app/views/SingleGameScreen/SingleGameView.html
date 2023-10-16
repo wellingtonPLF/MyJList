@@ -49,10 +49,15 @@
                                 </div>
                                 <div id="network">
                                     <div v-if="auth.id != 0">
-                                        <button @click="addGameToUser" :style="{backgroundColor: (game.id == 0) ? 'rgb(66, 70, 97)': ''}">{{(disableSelection)? "Update Status" : "Add to List"}}</button>
+                                        <button @click="applyBtnAction" :style="{backgroundColor: (game.id == 0) ? 'rgb(66, 70, 97)': ''}">
+                                            {{ 
+                                                (registredGame)? "Update Status" : "Add to List" 
+                                            }}
+                                        </button>
                                         <div>
-                                            <select :disabled="!disableSelection" name="vote" v-model="gameStatus.vote">
-                                                <option v-if="!disableSelection" :value="undefined">unknow</option>
+                                            <select :disabled="!registredGame" name="vote" v-model="gameStatus.vote">
+                                                <option v-if="!registredGame" :value="undefined">unknow</option>
+                                                <option disabled value="Unknow">Select</option>
                                                 <option value="Incredible">Incredible</option>
                                                 <option value="Great">Great</option>
                                                 <option value="Good">Good</option>
@@ -60,13 +65,14 @@
                                                 <option value="Meh">Meh</option>
                                                 <option value="Horrible">Horrible</option>
                                             </select>
-                                            <select :disabled="!disableSelection" name="registry" v-model="gameStatus.registry">
-                                                <option v-if="!disableSelection" :value="undefined">unknow</option>
+                                            <select :disabled="!registredGame" name="registry" v-model="gameStatus.registry">
+                                                <option v-if="!registredGame" :value="undefined">unknow</option>
+                                                <option disabled value="Unknow">Select</option>
                                                 <option value="Plan to Play">Plan to Play</option>
                                                 <option value="Completed">Completed</option>
                                                 <option value="Playing">Playing</option>
                                                 <option value="Dropped">Dropped</option>
-                                                <option value="On Hold">On Hold</option>
+                                                <option value="On-Hold">On Hold</option>
                                                 <option value="Replaying">Replaying</option>
                                             </select>
                                         </div>
@@ -81,10 +87,15 @@
                         </div>
                         <div id="network">
                             <div v-if="auth.id != 0">
-                                <button @click="addGameToUser">{{(disableSelection)? "Update Status" : "Add to List"}}</button>
+                                <button @click="applyBtnAction">
+                                    {{
+                                        (registredGame)? "Update Status" : "Add to List"
+                                    }}
+                                </button>
                                 <div>
-                                    <select :disabled="!disableSelection" name="vote" v-model="gameStatus.vote">
-                                        <option v-if="!disableSelection" :value="undefined">unknow</option>
+                                    <select :disabled="!registredGame" name="vote" v-model="gameStatus.vote">
+                                        <option v-if="!registredGame" :value="undefined">unknow</option>
+                                        <option disabled value="Unknow">Select</option>
                                         <option value="Incredible">Incredible</option>
                                         <option value="Great">Great</option>
                                         <option value="Good">Good</option>
@@ -92,13 +103,14 @@
                                         <option value="Meh">Meh</option>
                                         <option value="Horrible">Horrible</option>
                                     </select>
-                                    <select :disabled="!disableSelection" name="registry" v-model="gameStatus.registry">
-                                        <option v-if="!disableSelection" :value="undefined">unknow</option>
+                                    <select :disabled="!registredGame" name="registry" v-model="gameStatus.registry">
+                                        <option v-if="!registredGame" :value="undefined">unknow</option>
+                                        <option disabled value="Unknow">Select</option>
                                         <option value="Plan to Play">Plan to Play</option>
                                         <option value="Completed">Completed</option>
                                         <option value="Playing">Playing</option>
                                         <option value="Dropped">Dropped</option>
-                                        <option value="On Hold">On Hold</option>
+                                        <option value="On-Hold">On Hold</option>
                                         <option value="Replaying">Replaying</option>
                                     </select>
                                 </div>
@@ -117,32 +129,32 @@
                                 <div>
                                     <div style="background-color: green;"></div>
                                     <div>Playing</div>
-                                    <div>{{game.playing}}%</div>
+                                    <div>{{(game.playing == 'N/A')? "0%" : game.playing + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: blue;"></div>
                                     <div>Complete</div>
-                                    <div>{{game.completed}}%</div>
+                                    <div>{{(game.completed == 'N/A')? "0%" : game.completed + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: yellow;"></div>
                                     <div>On-Hold</div>
-                                    <div>{{game.onHold}}%</div>
+                                    <div>{{(game.onHold == 'N/A')? "0%" : game.onHold + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: red;"></div>
                                     <div>Dropped</div>
-                                    <div>{{game.dropped}}%</div>
+                                    <div>{{(game.dropped == 'N/A')? "0%" : game.dropped + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: gray;"></div>
                                     <div>Plan to Play</div>
-                                    <div>{{game.planning}}%</div>
+                                    <div>{{(game.planning == 'N/A')? "0%" : game.planning + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: rgb(7, 180, 180);"></div>
                                     <div>Replayed</div>
-                                    <div>{{game.replayed}}%</div>
+                                    <div>{{(game.replayed == 'N/A')? "0%" : game.replayed + '%'}}</div>
                                 </div>
                             </div>
                             <div>
