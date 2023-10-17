@@ -102,7 +102,8 @@ class GameViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['GET'], url_path='getTopRated')
     def getTopRated(self, request):
         try:
-            queryResult = Registry.objects.values('game_id').annotate(score=Avg(Cast('note', output_field=FloatField()))).order_by('-score')[:5]
+            notNullfilter = Registry.objects.filter(note__isnull=False)
+            queryResult = notNullfilter.values('game_id').annotate(score=Avg(Cast('note', output_field=FloatField()))).order_by('-score')[:5]
             resultList = []
             for i in queryResult:
                 game = Game.objects.filter(id=i['game_id'])
@@ -113,8 +114,8 @@ class GameViewSet(viewsets.ModelViewSet):
                 }
                 resultList.append(result)
             return Response(resultList)
-        except:
-            raise ParseError("Something went Wrong in getTopRated")
+        except Exception as error:
+            raise ParseError(f"Something went Wrong in getTopRated: {error}")
 
     def get_game(self, id):
         try:

@@ -88,6 +88,16 @@ class NationalityAuthentication(BaseAuthentication):
         else:
             raise AuthenticationFailed('Access denied.')
 
+class TagAuthentication(BaseAuthentication):
+
+    def authenticate(self, request): #/tag/
+        method = request.method
+
+        if method == "GET" and "/" in request.path:
+            return None
+        else:
+            raise AuthenticationFailed('Access denied.')
+
 class GameAuthentication(BaseAuthentication):
 
     def authenticate(self, request): #/game/

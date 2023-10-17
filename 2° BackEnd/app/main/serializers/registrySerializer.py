@@ -11,8 +11,16 @@ from main.serializers.tagSerializer import TagSerializer
 class RegistrySerializer(serializers.ModelSerializer):
     game = GameSerializer()
     tag = TagSerializer()
+    user = serializers.SerializerMethodField()
     progress = serializers.SerializerMethodField()
     note = serializers.SerializerMethodField()
+
+    def get_user(self, registry):
+        result = {
+            "id": registry.user.id,
+            "nickname": registry.user.nickname
+        }
+        return result
 
     def get_note(self, registry):
         result = "Unknow"
