@@ -4,8 +4,8 @@
         <div :style="{justifyContent: `${(userLogin.id == 0) ? '': 'center'}`}">
             <!-- --------------------------------------------------------------- -->
             <router-link v-if="userLogin.id == 0" to="/signIn">SIGN IN</router-link>
-            <div @click="signOut()" v-else style="color: rgb(224, 65, 65);">
-                <font-awesome-icon :icon="['fas', 'power-off']" />
+            <div v-else id="signOut">
+                <font-awesome-icon @click="signOut()" :icon="['fas', 'power-off']" />
             </div>
             <!-- --------------------------------------------------------------- -->
             <div v-if="userLogin.id == 0">
@@ -14,7 +14,7 @@
             <router-link v-else id="userLogin" to="/profile">{{userLogin.nickname}}</router-link>
             <!-- --------------------------------------------------------------- -->
             <router-link v-if="userLogin.id == 0" to="/signUp">SIGN UP</router-link>
-            <div v-else to="/" style="color: rgb(174, 169, 218);">
+            <div v-else to="/" id="notification">
                 <font-awesome-icon :icon="['far', 'bell']" />
             </div>
 

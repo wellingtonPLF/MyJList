@@ -30,6 +30,7 @@ const singleGameComponent: any = {
       recomendations: [] as any[],
       game_registry_id: undefined,
       game: GAME_INITIAL_STATE,
+      cssBtnEffect: false,
       userComment: [
         USER_COMMENT_NULLOBJ,
         USER_COMMENT_NULLOBJ,
@@ -85,13 +86,16 @@ const singleGameComponent: any = {
           this.auth, 
           this.game
         )
+        
+        this.cssBtnEffect = true
         registryService.update(updateRegistry).then(
           it => {
             this.game = it.game
+            this.cssBtnEffect = false;
             this.gameStatus = { vote: it.note, registry: it.progress }
           }
-        ).catch(e => {
-          console.log(e)
+        ).catch(_ => {
+          this.cssBtnEffect = false;
         })
       }
       else {
@@ -144,8 +148,9 @@ const singleGameComponent: any = {
       if (this.auth.id != 0) {
         const comment = new Comment(this.commentToSend, this.auth, this.game)
         commentService.insert(comment).then(
-          _ => {
-            console.log("Comment (OK)!")
+          it => {
+            this.userComment.push(it)
+
           }
         ).catch((e: any) => {
           console.log(e)

@@ -31,7 +31,6 @@ header {
     color: white;
     border: 0px;
     font-family: 'Josefin Sans', sans-serif;
-    cursor: pointer;
 }
 
 #auth > div:first-child div {
@@ -43,6 +42,24 @@ header {
     cursor: pointer;
     color: white;
     font-size: 1vw;
+}
+
+#signOut > * {
+    color: rgb(224, 65, 65);
+    cursor: pointer;
+}
+
+#signOut > *:hover {
+    color: white;
+}
+
+#notification > * {
+    color: rgb(174, 169, 218);
+    cursor: pointer;
+}
+
+#notification > *:hover {
+    color: white;
 }
 
 // ------------------------------------------------------------------

@@ -49,9 +49,11 @@
                                 </div>
                                 <div id="network">
                                     <div v-if="auth.id != 0">
-                                        <button @click="applyBtnAction" :style="{backgroundColor: (game.id == 0) ? 'rgb(66, 70, 97)': ''}">
+                                        <button @click="applyBtnAction" 
+                                        :class="`${(cssBtnEffect)? 'cssBtnEffect':''}`" 
+                                        :style="{backgroundColor: (game.id == 0) ? 'rgb(66, 70, 97)': ''}">
                                             {{ 
-                                                (registredGame)? "Update Status" : "Add to List" 
+                                                (cssBtnEffect) ? 'loading. . .': ((registredGame)? "Update Status" : "Add to List" )
                                             }}
                                         </button>
                                         <div>

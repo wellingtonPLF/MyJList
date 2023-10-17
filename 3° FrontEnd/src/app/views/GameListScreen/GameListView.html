@@ -22,14 +22,14 @@
     </div>
     <div>
         <div>
-            <select name="status">
-                <option @click="filterBy('all')" value="">All Games</option>
-                <option @click="filterBy('Playing')" value="Playing">Playing</option>
-                <option @click="filterBy('Replaying')" value="Replaying">Replaying</option>
-                <option @click="filterBy('Plan to Play')" value="Plan to Play">Plan to play</option>
-                <option @click="filterBy('On-Hold')" value="On Hold">On Hold</option>
-                <option @click="filterBy('Dropped')" value="Dropped">Dropped</option>
-                <option @click="filterBy('Completed')" value="Completed">Completed</option>
+            <select name="status" v-model="progressReponsive">
+                <option value="all">All Games</option>
+                <option value="Playing">Playing</option>
+                <option value="Replaying">Replaying</option>
+                <option value="Plan to Play">Plan to play</option>
+                <option value="On Hold">On-Hold</option>
+                <option value="Dropped">Dropped</option>
+                <option value="Completed">Completed</option>
             </select>
         </div> 
     </div>
@@ -49,15 +49,16 @@
                 <div>{{hoursMinutes(item.game.playtime)[1]}} {{(hoursMinutes(item.game.playtime)[1] == 1) ? 'minute' : 'minutes'}}</div>
                 <div>
                     <div style="z-index: 10000;">
-                        <div :style="{width: `${progress}%`, backgroundColor: `${colorChoice(item.progress.toLowerCase())}`}"></div>
+                        <div :style="{width: `${progress}%`, backgroundColor: `${colorChoice(item.progress)}`}"></div>
                     </div>
-                    <!-- ({{progress}}%) -->
                 </div>
             </div>
+            <!-- ========================================================== GAME CARD ========================================================== -->
             <div>
                 <div>
                     <div>
-                        <select v-if="auth.id != 0 && $route.params.id == auth.id" name="status" v-model="item.progress" style="font-weight: 600; color: rgb(104, 21, 107);">
+                        <select v-if="auth.id != 0 && $route.params.id == auth.id" name="status" v-model="item.progress" style="font-weight: 600; color: rgb(104, 21, 107);" 
+                        :class="`${(cssEffect.type == 'progress' && cssEffect.obj == item)? 'cssEffect':''}`">
                             <option value="Completed">Completed</option>
                             <option value="Playing">Playing</option>
                             <option value="Plan to Play">Plan to Play</option>
@@ -66,12 +67,14 @@
                             <option value="Replaying">Replaying</option>
                         </select>
                         <div v-else>{{item.progress}}</div>
-                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()">
+                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="updateGameCard(item, 'progress')">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>
+                    <!-- --------------------------------- -->
                     <div>
-                        <select v-if="auth.id != 0 && $route.params.id == auth.id" name="score" v-model="item.note">
+                        <select v-if="auth.id != 0 && $route.params.id == auth.id" name="score" v-model="item.note" 
+                        :class="`${(cssEffect.type == 'note' && cssEffect.obj == item)? 'cssEffect':''}`">
                             <option disabled value="Unknow">Select</option>
                             <option value="Incredible">Awesome</option>
                             <option value="Great">Great</option>
@@ -81,18 +84,18 @@
                             <option value="Horrible">Horrible</option>
                         </select>
                         <div v-else>{{(item.note == undefined)? "Unknow" : item.note}}</div>
-                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()">
+                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="updateGameCard(item, 'note')">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>
+                    <!-- --------------------------------- -->
                     <div>
-                        <select v-if="auth.id != 0 && $route.params.id == auth.id" name="type" v-model="item.tag.value">
-                            <option value="Undefined">Undefined</option>
-                            <option value="Bad Script">Bad script</option>
-                            <option value="Good Script">Good script</option>
+                        <select v-if="auth.id != 0 && $route.params.id == auth.id" name="type" v-model="item.tag" 
+                        :class="`${(cssEffect.type == 'tag' && cssEffect.obj == item)? 'cssEffect':''}`">
+                            <option v-for="tag in tags" :value="tag">{{tag.value}}</option>
                         </select>
                         <div v-else>{{item.tag.value}}</div>
-                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="okL()">
+                        <button v-if="auth.id != 0 && $route.params.id == auth.id" @click="updateGameCard(item, 'tag')">
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>

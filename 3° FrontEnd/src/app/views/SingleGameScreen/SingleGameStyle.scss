@@ -146,7 +146,7 @@ $searchHeight: 41px;
 }
 
 #userInfo >  div:nth-child(2) {
-    padding: 75px 0px 0px 20px;
+    padding: 60px 0px 0px 20px;
 }
 
 #userInfo >  div:nth-child(2) h2 {
@@ -229,9 +229,8 @@ $searchHeight: 41px;
 // -----------------------------------------------------------------------------------------------
 #statistics {
     display: flex;
-    align-items: flex-end;
     justify-content: space-around;
-    padding-bottom: 30px;
+    padding-top: 65px;
     width: 750px;
 }
 
@@ -548,6 +547,10 @@ $buttonWidth: 60px;
     border-bottom-right-radius: unset;
 }
 
+#gameComments > div:first-child > div:first-child > input:focus{
+    outline: unset;
+}
+
 #gameComments > div:first-child > div:first-child > button{
     height: 100%;
     width: $buttonWidth;
@@ -559,6 +562,10 @@ $buttonWidth: 60px;
     transform: scaleY(-1);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+#gameComments > div:first-child > div:first-child > button:active{
+    background-color: green;
 }
 
 #gameComments > div:first-child > div:nth-child(2) {
@@ -649,6 +656,10 @@ $buttonWidth: 60px;
     color: #dfd219;
 }
 
+.cssBtnEffect {
+    background-color: green !important;
+}
+
 // ------------------------------------------------------------------
 
 @media screen and (max-width: 1345px) {
@@ -702,8 +713,8 @@ $buttonWidth: 60px;
 
     #statistics {
         width: auto;
-        margin-top: 30px;
-        padding-bottom: 0px;
+        padding-top: 40px;
+        padding-bottom: 20px;
     }
 }
 
