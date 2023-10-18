@@ -13,6 +13,13 @@ $colorKindaYellow: rgb(248, 206, 115);
     -ms-user-select: none;
 }
 
+#followCheck {
+    color:rgb(248, 206, 115); 
+    width: 20px;
+    height: 20px;
+    cursor: default;
+}
+
 #profile > div:first-child {
     display: flex;
     position: relative;
@@ -505,6 +512,10 @@ $favSize: 120px;
 }
 
 @media screen and (max-width: 675px) {
+
+    #followCheck {
+        color: rgb(30, 21, 151);
+    }
 
     #profile > div:first-child > div:nth-child(1) > div:first-child{
         height: 880px;
