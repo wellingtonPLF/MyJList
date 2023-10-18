@@ -16,8 +16,9 @@ class CookieUtil:
         config = { 
             "expires": timedelta(days=365), 
             "httponly": True,
-            "secure": False,
-            "domain": "localhost",
+            # "secure": True,
+            # "samesite": "None",
+            "domain": None,
             "path": "/"
         }
         #CookieName, TokenValue, Config

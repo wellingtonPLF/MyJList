@@ -48,18 +48,18 @@ class Command(BaseCommand):
         "syl","zu","cs","rw","dhd","ht","ilo","qu","rn","sv","hmn","sn","ug","hil",
         "mos","xh","be","bal","gom","tji","ln"]
         progressList = [
-            GameEnum.PLAN.value, 
-            GameEnum.PLAY.value, 
-            GameEnum.DROP.value,
-            GameEnum.HOLD.value,
-            GameEnum.REPLAY.value,
-            GameEnum.COMPLETE.value
+            GameEnum.PLAN.name, 
+            GameEnum.PLAY.name, 
+            GameEnum.DROP.name,
+            GameEnum.HOLD.name,
+            GameEnum.REPLAY.name,
+            GameEnum.COMPLETE.name
         ]
         votes = [
-            CommentEnum.FUNNY.value,
-            CommentEnum.YES.value,
-            CommentEnum.NO.value,
-            CommentEnum.PREMIATION.value
+            CommentEnum.PREMIATION.name,
+            CommentEnum.FUNNY.name,
+            CommentEnum.YES.name,
+            CommentEnum.NO.name
         ]
         numberOfEntities = 3
         numberOfComments = 100

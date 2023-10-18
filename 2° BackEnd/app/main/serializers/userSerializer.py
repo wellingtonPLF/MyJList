@@ -159,7 +159,7 @@ class UserSerializer(serializers.ModelSerializer):
     def get_lastUpdated(self, user):
         lastUpdated = None
         try:
-            result = Registry.objects.filter(user=user.id).order_by('-id')[:4]
+            result = Registry.objects.filter(user=user.id).order_by('-updateDate')[:4]
             lastUpdated = FavoriteSerializer(result, many=True, read_only=True).data
         except:
             return lastUpdated

@@ -2,11 +2,7 @@ from rest_framework import serializers
 from main.subModels.registry import Registry
 from main.subModels.tag import Tag
 from main.subModels.game import Game
-from main.serializers.statusSerializer import StatusSerializer
-from main.serializers.gameTypeSerializer import GameTypeSerializer
-from main.serializers.gameSerializer import GameSerializer
-from main.serializers.userSerializer import UserSerializer
-from main.serializers.tagSerializer import TagSerializer
+from datetime import datetime
 
 class RegistryActionSerializer(serializers.ModelSerializer):
     # Se vc colocar isso, vc vai ter que passar um user dictionary instead of an id, e o retorno vai ser no Serializer referenciado e n do id

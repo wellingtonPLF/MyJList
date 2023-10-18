@@ -54,15 +54,13 @@ CORS_ALLOW_METHODS = [
 CORS_ALLOW_HEADERS = ['x-csrf-token', 'Content-Type']
 
 CSRF_COOKIE_DOMAIN = None
-CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_SAMESITE = 'Lax'
-# CSRF_TRUSTED_ORIGINS = []
+CSRF_COOKIE_SECURE = False # Only transmitted over secure (HTTPS) = True or False
+# CSRF_COOKIE_SAMESITE = 'None' # Use only if CSRF_COOKIE_SECURE is set to True
 
 #=====================================================
 
 SIMPLE_JWT = {
-    # "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=2),
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "ALGORITHM": "HS256",
     "SIGNING_KEY": SECRET_KEY,

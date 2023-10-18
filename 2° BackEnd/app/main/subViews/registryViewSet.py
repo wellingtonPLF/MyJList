@@ -69,7 +69,7 @@ class RegistryViewSet(viewsets.ModelViewSet):
                 result = serializer.save()
                 registry = self.get_serializer(instance=result)
                 return Response(registry.data)
-            return Response(serializer.errors)
+            raise ParseError(serializer.errors)
         except Exception as e:
             raise ParseError(e)
         

@@ -22,8 +22,6 @@ from django.db.models.functions import Cast
 from django.db.models import FloatField
 import datetime
 
-from django.middleware.csrf import get_token
-
 class GameViewSet(viewsets.ModelViewSet):
     queryset = Game.objects.all()
     authentication_classes = [GameAuthentication]
@@ -76,8 +74,6 @@ class GameViewSet(viewsets.ModelViewSet):
             
             gameResult = Game.objects.filter(id__in=expected)
             response = Response(ReleaseSerializer(gameResult, many=True, read_only=True).data)
-
-            csrf_token = get_token(request)
             return response
         except:
             raise ParseError("Something went Wrong in getReleases")

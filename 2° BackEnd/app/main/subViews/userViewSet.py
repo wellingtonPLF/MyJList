@@ -15,6 +15,8 @@ from main.services.authService import AuthService
 from main.services.tokenService import TokenService
 from main.authenticate import UserAuthentication
 
+from django.middleware.csrf import get_token
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     authentication_classes = [UserAuthentication]
@@ -33,6 +35,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['GET'], url_path='getUser')
     def getAuthenticatedUser(self, request):
+        get_token(request)
         accessToken = self.cookieUtil.getCookieValue(request, self.accessTokenName)
         jwt = self.tokenService.findByToken(accessToken)
         authID = self.jwtUtil.extractSubject(jwt.key, TokenEnum.TOKEN_NAME.value)

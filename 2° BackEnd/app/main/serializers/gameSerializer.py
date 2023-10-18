@@ -89,7 +89,8 @@ class GameSerializer(serializers.ModelSerializer):
     def get_score(self, game):
         score = 'N/A'
         try:
-            result = Registry.objects.filter(game=game.id).aggregate(score=Avg(Cast('note', output_field=FloatField())))
+            notNullRegistry = Registry.objects.filter(note__isnull=False, game=game.id)
+            result = notNullRegistry.aggregate(score=Avg(Cast('note', output_field=FloatField())))
             score = round(result['score'], 1)
             if (score == None):
                 score = 'N/A'
@@ -101,7 +102,8 @@ class GameSerializer(serializers.ModelSerializer):
     def get_ranked(self, game):
         ranked = 'N/A'
         try:
-            gameList = Registry.objects.values('game_id').annotate(scoreResult=Avg(Cast('note', output_field=FloatField()))).order_by('-scoreResult')
+            notNullRegistry = Registry.objects.filter(note__isnull=False)
+            gameList = notNullRegistry.values('game_id').annotate(scoreResult=Avg(Cast('note', output_field=FloatField()))).order_by('-scoreResult')
             ranked = list(gameList.values_list('game_id', flat=True)).index(game.id) + 1
         except:
             return ranked
@@ -131,7 +133,7 @@ class GameSerializer(serializers.ModelSerializer):
         planning = 'N/A'
         try:
             result = Registry.objects.filter(game=game.id)
-            filter_result = len(result.filter(progress=GameEnum.PLAN.value))
+            filter_result = len(result.filter(progress=GameEnum.PLAN.name))
             total = len(result)
             planning = round(filter_result/total * 100, 0)
         except:
@@ -142,7 +144,7 @@ class GameSerializer(serializers.ModelSerializer):
         playing = 'N/A'
         try:
             result = Registry.objects.filter(game=game.id)
-            filter_result = len(result.filter(progress=GameEnum.PLAY.value))
+            filter_result = len(result.filter(progress=GameEnum.PLAY.name))
             total = len(result)
             playing = round(filter_result/total * 100, 0)
         except:
@@ -153,7 +155,7 @@ class GameSerializer(serializers.ModelSerializer):
         onHold = 'N/A'
         try:
             result = Registry.objects.filter(game=game.id)
-            filter_result = len(result.filter(progress=GameEnum.HOLD.value))
+            filter_result = len(result.filter(progress=GameEnum.HOLD.name))
             total = len(result)
             onHold = round(filter_result/total * 100, 0)
         except:
@@ -164,7 +166,7 @@ class GameSerializer(serializers.ModelSerializer):
         dropped = 'N/A'
         try:
             result = Registry.objects.filter(game=game.id)
-            filter_result = len(result.filter(progress=GameEnum.DROP.value))
+            filter_result = len(result.filter(progress=GameEnum.DROP.name))
             total = len(result)
             dropped = round(filter_result/total * 100, 0)
         except:
@@ -175,7 +177,7 @@ class GameSerializer(serializers.ModelSerializer):
         replayed = 'N/A'
         try:
             result = Registry.objects.filter(game=game.id)
-            filter_result = len(result.filter(progress=GameEnum.REPLAY.value))
+            filter_result = len(result.filter(progress=GameEnum.REPLAY.name))
             total = len(result)
             replayed = round(filter_result/total * 100, 0)
         except:
@@ -186,7 +188,7 @@ class GameSerializer(serializers.ModelSerializer):
         completed = 'N/A'
         try:
             result = Registry.objects.filter(game=game.id)
-            filter_result = len(result.filter(progress=GameEnum.COMPLETE.value))
+            filter_result = len(result.filter(progress=GameEnum.COMPLETE.name))
             total = len(result)
             completed = round(filter_result/total * 100, 0)
         except:
