@@ -1,9 +1,0 @@
-
-- seeds for django
-- Config (Cors + PasswordEncoder + Security)
-- Util (JWTUtil)
-- Filter
-- Services
-- Validation
-- Enum
-- Repository (Context)

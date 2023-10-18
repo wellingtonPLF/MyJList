@@ -1,2 +1,0 @@
-- know the package manager for django => [ pip3 ]
-- Usar .Env => [ Done! ]

@@ -1,0 +1,16 @@
+
+- D3
+--------------------------------------------------------------------
+- Password EYE
+- Add loading animation and pré load
+
+- Utilizar o grid onde precisa
+- Slider
+- Usar react-query do vue
+
+- Fix recalls dos jwt, pois quando dá um error ele fica incansavelmente fazendo os requests;
+- Ver se está faltando mais alguma coisa a ser feita no front
+
+- Em singleGame component utilziar Registry instead of Game
+--------------------------------------------------------------------
+

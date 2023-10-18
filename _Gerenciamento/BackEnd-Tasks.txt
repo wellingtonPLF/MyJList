@@ -1,0 +1,8 @@
+- após usar o GameAPI ver se tem necessidade de colocar o attr perspectives
+
+- organizar past commands colocar um arquivo json separado do seeds.py
+- problemas de registros duplos, tipo (id_registry 1 user_id=1 game_id = 3) (id_registry 2 user_id=1 game_id = 3)
+- Test Update User Friend atribute
+- Improve Top Rated game (Eu posso criar um jogo qualquer e ser o unico a dar uma nota 10, 
+e esse jogo vai ficar em primeiro, devido o algoritimo ruim, melhore)
+- Limitar a quantidade de cadastros dos usuarios
