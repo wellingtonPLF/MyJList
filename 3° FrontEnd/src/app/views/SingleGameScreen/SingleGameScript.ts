@@ -80,7 +80,8 @@ const singleGameComponent: any = {
           this.game_registry_id,
           progress,
           (this.gameStatus.vote == 'Unknow') ? "" : ((progress === "PLAN")? "" : vote),
-          !this.star, 
+          new Date().toISOString(),
+          !this.star,
           false, 
           this.tag, 
           this.auth, 
@@ -94,7 +95,8 @@ const singleGameComponent: any = {
             this.cssBtnEffect = false;
             this.gameStatus = { vote: it.note, registry: it.progress }
           }
-        ).catch(_ => {
+        ).catch( (e) => {
+          console.log(e)
           this.cssBtnEffect = false;
         })
       }
@@ -145,7 +147,7 @@ const singleGameComponent: any = {
       this.star = !this.star;
     },
     sendComment() {
-      if (this.auth.id != 0) {
+      if (this.auth.id != 0 && this.game_registry_id != undefined) {
         const comment = new Comment(this.commentToSend, this.auth, this.game)
         commentService.insert(comment).then(
           it => {

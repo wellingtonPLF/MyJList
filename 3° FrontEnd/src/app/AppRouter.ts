@@ -7,7 +7,7 @@ import SignInComponent from './views/SignInScreen/SignInComponent.vue';
 import SignUpComponent from './views/SignUpScreen/SignUpComponent.vue';
 import AuthUserComponent from './views/AuthUserScreen/AuthUserComponent.vue';
 import SingleGameComponent from './views/SingleGameScreen/SingleGameComponent.vue';
-import GameListComponent from './views/GameListScreen/GameListComponent.vue';
+import RegistryComponent from './views/RegistryScreen/RegistryComponent.vue';
 import TestComponent from './views/TestScreen/TestComponent.vue';
 import SingleUserComponent from './views/SingleUserScreen/SingleUserComponent.vue';
 import MaintenanceComponent from './components/_main/Maintenance/MaintenanceComponent.vue';
@@ -61,7 +61,7 @@ const routes = [
   {
     path: '/gameList/:id',
     name: 'gameList',
-    component: GameListComponent
+    component: RegistryComponent
   },
   {
     path: '/test',

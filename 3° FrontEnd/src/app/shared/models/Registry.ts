@@ -6,26 +6,28 @@ export class Registry {
     private _id?: number | undefined
     private _progress?: string
     private _note?: string
+    private _updateDate?: string
     private _favorite?: boolean
     private _recommendation?: boolean
     private _tag!: Tag
     private _user!: User
     private _game!: Game
 
-    constructor(id: number, progress: string, note: string | undefined, favorite: boolean, recommendation: boolean, tag: Tag, user: User, game: Game);
+    constructor(id: number, progress: string, note: string | undefined, updateDate: string | undefined, favorite: boolean, recommendation: boolean, tag: Tag, user: User, game: Game);
     constructor(progress: string, note: string  | undefined, favorite: string, recommendation: boolean, tag: Tag, user: User, game: Game);
     constructor(user: User, game: Game, tag: Tag);
     constructor();
     constructor(...myarray: any[]) {
-        if (myarray.length === 8) {
+        if (myarray.length === 9) {
             this._id = myarray[0]
             this._progress = myarray[1]
             this._note = myarray[2]
-            this._favorite = myarray[3]
-            this._recommendation = myarray[4]
-            this._tag = myarray[5]
-            this._user = myarray[6]
-            this._game = myarray[7]
+            this._updateDate = myarray[3]
+            this._favorite = myarray[4]
+            this._recommendation = myarray[5]
+            this._tag = myarray[6]
+            this._user = myarray[7]
+            this._game = myarray[8]
             return;
         }
         if (myarray.length === 7) {
@@ -51,6 +53,7 @@ export class Registry {
             id: registry!.id,
             progress: registry!.progress,
             note: registry!.note,
+            updateDate: registry!.updateDate,
             favorite: registry!.favorite,
             recommendation: registry!.recommendation,
             tag: registry!.tag.id,
@@ -93,6 +96,13 @@ export class Registry {
     }
     set note(value: string | undefined) {
         this._note = value
+    }
+
+    get updateDate(): string | undefined {
+        return this._updateDate
+    }
+    set updateDate(value: string | undefined) {
+        this._updateDate = value
     }
 
     get tag(): Tag {

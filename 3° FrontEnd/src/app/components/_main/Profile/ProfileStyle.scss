@@ -340,12 +340,12 @@ $infoHeigth: 40px;
     display: flex;
     width: 100%;
     height: 80%;
-    justify-content: space-around;
 }
 
 #historyList > div:nth-child(2) > * {
     height: 100%;
     width: 24%;
+    margin-right: 7px;
 }
 
 #historyList > div:nth-child(2) > * > div {
