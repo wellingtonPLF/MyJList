@@ -239,9 +239,13 @@
                         <div>
                             <div>Favorite Games</div>
                             <div id="favGame">
-                                <router-link v-for="item in obj.favoriteGames" :to="`/singleGame/${item.game.id}`"
+                                <router-link v-if="obj.favoriteGames.length !=0" v-for="item in obj.favoriteGames" :to="`/singleGame/${item.game.id}`"
                                 class="backImageConfig containerBorderAnimation" :style="{backgroundImage: `url(${item.game.gameImage})`}"></router-link>
+                                <div v-else style="text-align: center; height: auto; margin-bottom: 5vh; width: 100%;">
+                                    <div>No Favorite Found</div>
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

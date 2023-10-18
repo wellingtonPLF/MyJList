@@ -117,11 +117,12 @@ const gameListComponent: any = {
 
     registryService.getRegistryByUserID(this.$route.params.id).then(
       it => {
-        it.map( (r) => {
+        it.map((r: any) => {
           r.tag = this.tags.filter((t) => {
             return t.id == r.tag.id
           })[0]
         })
+        it.sort((a:any, b:any) => (a.game.name > b.game.name ? -1 : 1)).reverse()
         this.registry = it
         this.registryList = this.copyList(it);
         if (it.length == 0){

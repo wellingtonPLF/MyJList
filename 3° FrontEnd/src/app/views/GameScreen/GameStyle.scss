@@ -77,7 +77,7 @@ $heightChoice: 4vh;
     cursor: pointer;
     font-size: 0.74vh * 2;
     font-weight: 600;
-    width: 21.5vh;
+    width: 15vh;
     height: $heightChoice;
     margin: 0px 0.5vw;
     color: rgb(27, 42, 46);
@@ -86,21 +86,30 @@ $heightChoice: 4vh;
     border-bottom: 0.1vh solid white;
 }
 
+#gamePage > div > div:nth-child(2) > div > div:last-child {
+    width: auto;
+    border-bottom: unset;
+}
+
 #selectCustom{
     text-align: center;
     font-weight: 600;
-    width: 18vh;
     cursor: pointer;
+    padding: 0 0.8vh 0.3vh 0.8vh;
     height: $heightChoice;
+    border-width: 0.1vh;
     margin: 0px 1.3vw;
-    border-width: 0.1vh * 2;
     -webkit-appearance: none;
-        appearance: none;
+    appearance: none;
     font-size: 0.74vh * 2;
 }
 
 #gamePage > div > div:nth-child(2) > div > div:hover {
     border-bottom: 0.3vh solid rgb(27, 42, 46);
+}
+
+#gamePage > div > div:nth-child(2) > div > div:last-child:hover {
+    border-bottom: unset;
 }
 
 #searchBar{
@@ -231,8 +240,6 @@ $searchHeight: 2.2vh * 2;
 
 // -------------Card Name
 #gameCard > div:first-child > div:nth-child(2) {
-    display: flex;
-    align-items: center;
     font-size: 0.9vh * 2;
     width: 100%;
     padding-left: 0.53vh * 2;
@@ -240,6 +247,7 @@ $searchHeight: 2.2vh * 2;
     position: absolute;
     color: white;
     height: 1.58vh * 2;
+    line-height: 1.58vh * 2;
     background-color: rgba(0, 0, 0, 0.623);
 }
 
@@ -255,7 +263,7 @@ $searchHeight: 2.2vh * 2;
 
 @media screen and (max-width: 920px) {
     #gamePage > div > div:nth-child(2) > div > div {
-        width: 21.5vw;
+        width: 15vw;
     }
 }
 
@@ -271,6 +279,105 @@ $searchHeight: 2.2vh * 2;
     }
 }
 
+@media screen and (max-width: 725px) {
+
+    #selectCustom:focus {
+        outline: unset;
+    }
+
+    #loadingGame {
+        font-size: 2.5vw;
+    }
+
+    #gamePage > div > div:first-child > div:first-child > div {
+        margin-left: 5vw;
+    }
+
+    #gamePage > div > div:nth-child(2){
+        height: auto;
+    }
+
+    #gamePage > div > div:nth-child(2) > div{
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    $filtersHeight: 5vh;
+
+    #gamePage > div > div:nth-child(2) > div > div {
+        width: 100%;
+        margin: 0;
+        height: $filtersHeight;
+        border-bottom: 0.3vh solid rgb(27, 42, 46);
+    } 
+
+    #gamePage > div > div:nth-child(2) > div > div:last-child {
+        width: 100%;
+        border: unset;
+    }
+
+    #selectCustom{
+        height: $filtersHeight;
+        border: unset;
+        text-align: -webkit-center !important;
+        width: auto;
+        color: black;
+        background-color: transparent;
+    }
+
+    #gamePage > div > div:nth-child(2) > div > *:active, #selectCustom:active {
+        color: white !important;
+        background-color: rgb(27, 42, 46); 
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    #gamePage > div > div:nth-child(2) > div > *::selection, #selectCustom::selection{
+        background-color: transparent;
+    }
+}
+
+@media screen and (max-width: 715px) {
+    #allGames > div {
+        width: 95%;
+        padding: 4vw 0px 3vw 0px;
+    }
+    
+    #allGames > div > a {
+        width: 45vw;
+        height: 40vw;
+    }
+    
+    #gameCard {
+        width: 95%;
+    }
+    
+    #gameCard > div:first-child {
+        height: 95%;
+        border-radius: 3vw;
+        border-left: 0.5vw solid rgb(243, 173, 42);
+    }
+    
+    // ---------- Score
+    #gameCard > div:first-child > div:first-child {
+        font-size: 3vw;
+        padding: 0.3vw 0px 1vw 0px;
+        width: 10vw;
+        border-bottom-left-radius: 2vw;
+    }
+    
+    #gameCard > div:first-child > div:first-child > :first-child{
+        height: 2.5vw;
+        margin-left: 1vw;
+    }
+    
+    // -------------Card Name
+    #gameCard > div:first-child > div:nth-child(2) {
+        font-size: 3vw;
+        height: 7vw;
+        line-height: 7vw;
+    }
+}
 
 @media screen and (max-width: 675px) {
     $margin-Top-search: 1.79vh * 2;
@@ -318,95 +425,6 @@ $searchHeight: 2.2vh * 2;
     }
 }
 
-@media screen and (max-width: 640px) {
-    #allGames > div {
-        width: 95%;
-        padding: 4vw 0px 3vw 0px;
-    }
-    
-    #allGames > div > a {
-        width: 45vw;
-        height: 40vw;
-    }
-    
-    #gameCard {
-        width: 95%;
-    }
-    
-    #gameCard > div:first-child {
-        height: 95%;
-        border-radius: 3vw;
-        border-left: 0.5vw solid rgb(243, 173, 42);
-    }
-    
-    // ---------- Score
-    #gameCard > div:first-child > div:first-child {
-        font-size: 3vw;
-        padding: 0.3vw 0px 1vw 0px;
-        width: 10vw;
-        border-bottom-left-radius: 2vw;
-    }
-    
-    #gameCard > div:first-child > div:first-child > :first-child{
-        height: 2.5vw;
-        margin-left: 1vw;
-    }
-    
-    // -------------Card Name
-    #gameCard > div:first-child > div:nth-child(2) {
-        font-size: 3vw;
-        height: 7vw;
-    }
-}
-
-@media screen and (max-width: 610px) {
-
-    #loadingGame {
-        font-size: 2.5vw;
-    }
-
-    #gamePage > div > div:first-child > div:first-child > div {
-        margin-left: 5vw;
-    }
-
-    #gamePage > div > div:nth-child(2){
-        height: auto;
-    }
-
-    #gamePage > div > div:nth-child(2) > div{
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-    }
-
-    $filtersHeight: 5vh;
-
-    #gamePage > div > div:nth-child(2) > div > div {
-        width: 100%;
-        margin: 0;
-        height: $filtersHeight;
-        border-bottom: 0.3vh solid rgb(27, 42, 46);
-    }
-
-    #selectCustom{
-        height: $filtersHeight;
-    }
-
-    #selectCustom {
-        border: unset;
-        width: 100%;
-    }
-
-    #gamePage > div > div:nth-child(2) > div > *:active, #selectCustom:active {
-        color: white !important;
-        background-color: rgb(27, 42, 46); 
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    #gamePage > div > div:nth-child(2) > div > *::selection, #selectCustom::selection{
-        background-color: transparent;
-    }
-}
 
 @media screen and (max-width: 335px) {
 

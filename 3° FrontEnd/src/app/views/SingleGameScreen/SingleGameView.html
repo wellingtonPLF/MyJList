@@ -89,9 +89,10 @@
                         </div>
                         <div id="network">
                             <div v-if="auth.id != 0">
-                                <button @click="applyBtnAction">
+                                <button @click="applyBtnAction"
+                                :class="`${(cssBtnEffect)? 'cssBtnEffect':''}`">
                                     {{
-                                        (registredGame)? "Update Status" : "Add to List"
+                                        (cssBtnEffect) ? 'loading. . .': ((registredGame)? "Update Status" : "Add to List" )
                                     }}
                                 </button>
                                 <div>
@@ -272,14 +273,6 @@
                                 }}</div>
                             </div>
                         </div>
-                        <div id="achievements">
-                            <div>Achievements</div>
-                            <div>
-                                <div v-for="item in game.achievements">{{
-                                    (item.value != undefined)? item.value : 'unknow'
-                                }}</div>
-                            </div>
-                        </div>
                         <div id="information">
                             <div>Information</div>
                             <div>
@@ -300,6 +293,14 @@
                                         (item.value != undefined)? item.value : 'unknow'
                                     }}</div>
                                 </div>
+                            </div>
+                        </div>
+                        <div id="achievements">
+                            <div>Achievements</div>
+                            <div>
+                                <div v-for="item in game.achievements">{{
+                                    (item.value != undefined)? item.value : 'unknow'
+                                }}</div>
                             </div>
                         </div>
                         <div id="resources">

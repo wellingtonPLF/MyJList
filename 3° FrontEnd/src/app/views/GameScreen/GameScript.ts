@@ -162,6 +162,7 @@ const gameComponent: any = {
   mounted() {
     gameService.listAll().then(
       it => {
+        it.sort((a:any, b:any) => (a.name > b.name ? -1 : 1)).reverse()
         this.games = it
         this.list = it
         if (it.length == 0){

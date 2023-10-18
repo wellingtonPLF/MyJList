@@ -29,7 +29,6 @@ const signInComponent: any = {
       }
     },
     login() {
-      // if (this.username == undefined || this.password == undefined) 
       authService.authentication(this.auth).then(
         _ => {
           userService.getAuthenticatedUser().then(
@@ -37,7 +36,8 @@ const signInComponent: any = {
               this.setAuth(it)
               this.$router.push('/');
             }
-          ).catch( __ => {
+          ).catch( (e) => {
+            console.log(e)
             this.$router.push('/maintenance');
           })
         }

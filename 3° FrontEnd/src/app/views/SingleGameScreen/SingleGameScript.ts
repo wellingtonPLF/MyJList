@@ -79,7 +79,7 @@ const singleGameComponent: any = {
         const updateRegistry = new Registry(
           this.game_registry_id,
           progress,
-          (this.gameStatus.vote == 'Unknow') ? "" : ((progress === "Plan")? "" : vote),
+          (this.gameStatus.vote == 'Unknow') ? "" : ((progress === "PLAN")? "" : vote),
           !this.star, 
           false, 
           this.tag, 

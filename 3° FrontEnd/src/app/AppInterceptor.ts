@@ -34,7 +34,6 @@ export const registerResponseInterceptor = () => {
   }, 
   async (err) => {
     const error: ErrorResult<string> = err.response.data
-    console.log(error.status, error.type, err.response.data, err, " HERE")
     if(error.status == 401 && error.type === "EXPIRED_AT") {
       return authService.refreshToken().then(
         () => {

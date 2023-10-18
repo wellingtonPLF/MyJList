@@ -24,11 +24,14 @@
                 <div @click="showfilterMethod()" :style="`color: ${(optionSelected == 'filter')? '#34578b': 'unset'};`">FILTER</div>
                 <div @click="score()" :style="`color: ${(optionSelected == 'score')? '#34578b': 'unset'}`">SCORE</div>
                 <div @click="popularity()" :style="`color: ${(optionSelected == 'popularity')? '#34578b': 'unset'}`">POPULARITY</div>
-                <select name="customFilter" id="selectCustom" v-model="selectedOption" @change="handleSelectedOption">
-                    <option value="Default" disabled style="background-color: white; color: black;">CUSTOMIZATION</option>
-                    <option value="Commented" style="background-color: white; color: black;">Most Commented</option>
-                    <option value="Recommended" style="background-color: white; color: black;">Most Recommended</option>
-                </select>
+                <div>
+                    <select name="customFilter" id="selectCustom" v-model="selectedOption" @change="handleSelectedOption">
+                        <option value="Default" disabled style="background-color: white; color: black;">CUSTOMIZATION</option>
+                        <option value="Commented" style="background-color: white; color: black;">Most COMMENTED</option>
+                        <option value="Recommended" style="background-color: white; color: black;">MOST RECOMMENDED</option>
+                    </select>
+                </div>
+                
             </div>
         </div>
         <div id="allGames">
@@ -40,7 +43,10 @@
                                 <font-awesome-icon :icon="['far', 'star']" />
                                 <div>{{(typeof(gameCard.score) != typeof(""))? ((gameCard.score === 10)? 10 : gameCard.score.toFixed(1)) : gameCard.score}}</div>
                             </div>
-                            <div>{{gameCard.name}}</div>
+                            <div>
+                                {{ gameCard.name.slice(0, 23) }}
+                                <span v-if="gameCard.name.length > 23">. . .</span>
+                            </div>
                         </div>
                     </div>
                 </router-link>
