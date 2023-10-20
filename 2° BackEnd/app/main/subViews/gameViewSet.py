@@ -22,6 +22,8 @@ from django.db.models.functions import Cast
 from django.db.models import FloatField
 import datetime
 
+from django.contrib.postgres.search import TrigramSimilarity
+
 class GameViewSet(viewsets.ModelViewSet):
     queryset = Game.objects.all()
     authentication_classes = [GameAuthentication]
@@ -31,6 +33,18 @@ class GameViewSet(viewsets.ModelViewSet):
         games = self.get_queryset()
         serializer = self.get_serializer(games, many=True)
         return Response(serializer.data)
+
+    #/game/searchGame
+    @action(detail=False, methods=['POST'], url_path='searchGame')
+    def searchGame(self, request):
+        try:
+            gameName = request.data['name']
+            game = Game.objects.annotate(similarity=TrigramSimilarity('name', gameName)).filter(similarity__gt = 0).order_by('similarity')
+            # game = Game.objects.filter(name__trigram_similar=gameName).annotate(similar=TrigramSimilarity('name', gameName)).order_by('-similar')
+            result = GameSerializer(game, many=True, read_only=True).data
+            return Response(result)
+        except Exception as error:
+            raise ParseError(error)
 
     #/game/getFilterData
     @action(detail=False, methods=['GET'], url_path='getFilterData')
