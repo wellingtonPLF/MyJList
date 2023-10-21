@@ -8,6 +8,8 @@ from main.subModels.producer import Producer
 from main.subModels.plataform import Plataform
 from main.subModels.perspective import Perspective
 
+from django.contrib.postgres.indexes import GinIndex
+
 class Game(models.Model):
     release = models.DateField()
     playtime = models.FloatField(default = 0.0)
@@ -25,6 +27,11 @@ class Game(models.Model):
     gameType = models.ManyToManyField(GameType) #Fps, Moba and Etc
     plataform = models.ManyToManyField(Plataform)
     perspective = models.ManyToManyField(Perspective)
+
+    class Meta:
+        indexes = [
+            GinIndex(name='NewGinIndex', fields=['name'])
+        ]
 
     def __str__(self):
         return f"\n| Id: {self.id}\n| gameImage: {self.gameImage}\n| Name: {self.name}"

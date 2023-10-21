@@ -54,8 +54,8 @@ CORS_ALLOW_METHODS = [
 CORS_ALLOW_HEADERS = ['x-csrf-token', 'Content-Type']
 
 CSRF_COOKIE_DOMAIN = None
-CSRF_COOKIE_SECURE = False # Only transmitted over secure (HTTPS) = True or False
-# CSRF_COOKIE_SAMESITE = 'None' # Use only if CSRF_COOKIE_SECURE is set to True
+CSRF_COOKIE_SECURE = True # Only transmitted over secure (HTTPS) = True or False
+CSRF_COOKIE_SAMESITE = 'None' # Use only if CSRF_COOKIE_SECURE is set to True
 
 #=====================================================
 

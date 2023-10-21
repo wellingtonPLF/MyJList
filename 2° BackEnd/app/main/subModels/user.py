@@ -4,6 +4,8 @@ from main.subModels.auth import Auth
 from main.subModels.nationality import Nationality
 from datetime import date
 
+# from django.contrib.postgres.indexes import GinIndex
+
 class User(models.Model):
     nickname = models.CharField(max_length = 50, blank=False, null=False)
     userImage = models.CharField(max_length = 550, blank=False, null=True)
@@ -15,6 +17,11 @@ class User(models.Model):
     auth = models.ForeignKey(Auth, on_delete=models.CASCADE)
     nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE)
     friend = models.ManyToManyField('self', symmetrical=False) #on_delete=models.SET_NULL
+
+    # class Meta:
+    #     indexes = [
+    #         GinIndex(name='UserGinIndex', fields=['nickname'])
+    #     ]
 
     def __str__(self):
         part_1 = f"\n| Id: {self.id}\n| Nickname: {self.nickname}\n| BornDate: {self.bornDate}\n"

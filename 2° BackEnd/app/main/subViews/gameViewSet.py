@@ -39,8 +39,7 @@ class GameViewSet(viewsets.ModelViewSet):
     def searchGame(self, request):
         try:
             gameName = request.data['name']
-            game = Game.objects.annotate(similarity=TrigramSimilarity('name', gameName)).filter(similarity__gt = 0).order_by('similarity')
-            # game = Game.objects.filter(name__trigram_similar=gameName).annotate(similar=TrigramSimilarity('name', gameName)).order_by('-similar')
+            game = Game.objects.annotate(similarity=TrigramSimilarity('name', gameName)).filter(similarity__gt = 0.1).order_by('similarity')
             result = GameSerializer(game, many=True, read_only=True).data
             return Response(result)
         except Exception as error:

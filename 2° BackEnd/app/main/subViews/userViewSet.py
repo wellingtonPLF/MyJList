@@ -16,6 +16,7 @@ from main.services.tokenService import TokenService
 from main.authenticate import UserAuthentication
 
 from django.middleware.csrf import get_token
+from django.contrib.postgres.search import TrigramSimilarity
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -32,6 +33,17 @@ class UserViewSet(viewsets.ModelViewSet):
         users = self.get_queryset()
         serializer = self.get_serializer(users, many=True)
         return Response(serializer.data)
+
+    #/user/searchUser
+    @action(detail=False, methods=['POST'], url_path='searchUser')
+    def searchUser(self, request):
+        try:
+            userName = request.data['nickname']
+            user = User.objects.annotate(similarity=TrigramSimilarity('nickname', userName)).filter(similarity__gt = 0.1).order_by('similarity')
+            result = UserSerializer(user, many=True, read_only=True).data
+            return Response(result)
+        except Exception as error:
+            raise ParseError(error)
 
     @action(detail=False, methods=['GET'], url_path='getUser')
     def getAuthenticatedUser(self, request):
