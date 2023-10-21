@@ -77,7 +77,7 @@ class UserSerializer(serializers.ModelSerializer):
         planning = None
         try:
             planning = len(
-                Registry.objects.filter(progress=GameEnum.PLAN.value, user=user.id)
+                Registry.objects.filter(progress=GameEnum.PLAN.name, user=user.id)
             )
         except:
             return planning
@@ -87,7 +87,7 @@ class UserSerializer(serializers.ModelSerializer):
         playing = None
         try:
             playing = len(
-                Registry.objects.filter(progress=GameEnum.PLAY.value, user=user.id)
+                Registry.objects.filter(progress=GameEnum.PLAY.name, user=user.id)
             )
         except:
             return playing
@@ -97,7 +97,7 @@ class UserSerializer(serializers.ModelSerializer):
         onHold = None
         try:
             onHold = len(
-                Registry.objects.filter(progress=GameEnum.HOLD.value, user=user.id)
+                Registry.objects.filter(progress=GameEnum.HOLD.name, user=user.id)
             )
         except:
             return onHold
@@ -107,7 +107,7 @@ class UserSerializer(serializers.ModelSerializer):
         dropped = None
         try:
             dropped = len(
-                Registry.objects.filter(progress=GameEnum.DROP.value, user=user.id)
+                Registry.objects.filter(progress=GameEnum.DROP.name, user=user.id)
             )
         except:
             return dropped
@@ -117,7 +117,7 @@ class UserSerializer(serializers.ModelSerializer):
         completed = None
         try:
             completed = len(
-                Registry.objects.filter(progress=GameEnum.COMPLETE.value, user=user.id)
+                Registry.objects.filter(progress=GameEnum.COMPLETE.name, user=user.id)
             )
         except:
             return completed
@@ -127,7 +127,7 @@ class UserSerializer(serializers.ModelSerializer):
         replayed = None
         try:
             replayed = len(
-                Registry.objects.filter(progress=GameEnum.REPLAY.value, user=user.id)
+                Registry.objects.filter(progress=GameEnum.REPLAY.name, user=user.id)
             )
         except:
             return replayed
@@ -137,7 +137,7 @@ class UserSerializer(serializers.ModelSerializer):
         hours = None
         try:
             playtime = []
-            result = Registry.objects.filter(progress=GameEnum.COMPLETE.value, user=user.id)
+            result = Registry.objects.filter(progress=GameEnum.COMPLETE.name, user=user.id)
             for i in result:
                 gameID = i.game.id
                 game = Game.objects.filter(id=gameID)
