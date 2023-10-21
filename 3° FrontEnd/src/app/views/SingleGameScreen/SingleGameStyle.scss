@@ -238,12 +238,6 @@ $searchHeight: 41px;
     height: fit-content;
 }
 
-#statistics > div:nth-child(2) img{
-    width: 230px;
-    height: 230px;
-    filter: invert(100%);
-}
-
 #statistics > div:first-child {
     display: flex;
     flex-direction: column;
@@ -668,14 +662,6 @@ $buttonWidth: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 230px;
-        height: 230px;
-    }
-
-    #statistics > div:nth-child(2) img{
-        width: 160px;
-        height: 160px;
-        filter: invert(100%);
     }
 
     #gameData > div:first-child {

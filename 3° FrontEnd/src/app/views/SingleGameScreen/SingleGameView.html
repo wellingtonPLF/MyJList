@@ -150,7 +150,7 @@
                                     <div>{{(game.dropped == 'N/A')? "0%" : game.dropped + '%'}}</div>
                                 </div>
                                 <div>
-                                    <div style="background-color: gray;"></div>
+                                    <div style="background-color: magenta;"></div>
                                     <div>Plan to Play</div>
                                     <div>{{(game.planning == 'N/A')? "0%" : game.planning + '%'}}</div>
                                 </div>
@@ -186,7 +186,7 @@
                             </div>
                         </div>
                         <div>
-                            <img src="https://cdn-icons-png.flaticon.com/512/64/64720.png" alt="imagem" />
+                            <BarChartComponent :dataChart="graphicData" />
                         </div>
                     </div>
                 </div>

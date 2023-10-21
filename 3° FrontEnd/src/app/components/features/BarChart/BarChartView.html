@@ -1,0 +1,28 @@
+<div>
+
+  <div id="bar-chart-container" :style="`
+  width: ${((barWidth * gap * dataChart.length + 1) - (barWidth * (gap - (1 + padding)))) * 0.052}vw; 
+  height: ${height + 20}px;
+  max-width: ${(barWidth * gap * dataChart.length + 1) - (barWidth * (gap - (1 + padding)))}px;
+  padding-left: ${(padding != 0)? barWidth: padding}px;`">
+
+    <div :style="`
+      width: ${barWidth * 0.052}vw;
+      max-width: ${barWidth}px;
+      background-color: ${dataChart[0].color};
+      height: ${(dataChart[0].value ==0)? (height * minBarHeight) : (height * dataChart[0].value)}px`"></div>
+
+    <div id="alignBottom">
+      <div v-for="item, index in dataChart" class="endCollumn" 
+        :style="`width: ${index * barWidth * gap * 0.052}vw; max-width: ${index * barWidth * gap}px; min-width: ${index * minGap * gap}px`">
+        <div v-if="index != 0" :style="`
+          width: ${barWidth * 0.052}vw;
+          max-width: ${barWidth}px;
+          min-width: ${minGap}px;
+          background-color: ${item.color}; 
+          height: ${(item.value ==0)? (height * minBarHeight) : (height * item.value)}px`"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

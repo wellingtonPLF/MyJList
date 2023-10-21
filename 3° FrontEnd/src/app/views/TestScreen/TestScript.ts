@@ -1,26 +1,26 @@
+import BarChartComponent from '../../components/features/BarChart/BarChartComponent.vue'
+
 const testComponent: any = {
   name: "TestComponent",
-  components: {},
+  components: {
+    BarChartComponent
+  },
   data() {
     return {
-      valor: [{ v: 'Hello' }, { v: 'add' }],
-      another: undefined
+      dc: [
+        { value: 0.8, color: '#ff8243' },
+        { value: 0.6, color: '#c98bdb' },
+        { value: 0.5, color: '#6660ff' },
+        { value: 0.4, color: 'red' },
+        { value: 0.3, color: 'black' },
+        { value: 0.2, color: 'white' }
+      ]
     };
   },
   methods: {
-    yeah() {
-      console.log("Valor:", this.valor)
-      console.log("Another:", this.another)
-    },
-    copy(x) {
-      return x.map( (obj) => {
-        return {...obj}
-      })
-    }
+
   },
-  mounted() {
-    this.another = this.copy(this.valor)
-  },
+  mounted() {}
 };
 
 export default testComponent;

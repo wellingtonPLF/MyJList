@@ -3,6 +3,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import gameService from "../../shared/services/gameService";
 import commentService from "../../shared/services/commentService";
 import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
+import BarChartComponent from "../../components/features/BarChart/BarChartComponent.vue"
 import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer";
 import { mapState } from "vuex";
 import { USER_COMMENT_NULLOBJ } from "../../shared/vuex/reducer/authReducer";
@@ -18,7 +19,8 @@ library.add(faStar);
 const singleGameComponent: any = {
   name: "SingleGameComponent",
   components: {
-    GoBackComponent
+    GoBackComponent,
+    BarChartComponent
   },
   computed: {
     ...mapState('authReducer', {
@@ -31,6 +33,14 @@ const singleGameComponent: any = {
       game_registry_id: undefined,
       game: GAME_INITIAL_STATE,
       cssBtnEffect: false,
+      graphicData: [
+        {value: 0, color: '#39b339'},
+        {value: 0, color: '#1f88ff'},
+        {value: 0, color: 'yellow'},
+        {value: 0, color: '#ff2e2e'},
+        {value: 0, color: '#ff46ff'},
+        {value: 0, color: '#1ee7be'},
+      ],
       userComment: [
         USER_COMMENT_NULLOBJ,
         USER_COMMENT_NULLOBJ,
@@ -164,6 +174,11 @@ const singleGameComponent: any = {
     setGameMethod(id: number) {
       gameService.getGame(id).then(
         it => {
+          const lista = ['playing', 'completed', 'onHold', 'dropped', 'planning', 'replayed']
+          for (var i = 0; i < lista.length; i++) {
+            this.graphicData[i].value = it[lista[i]]/100
+          }
+          this.graphicData = [...this.graphicData]
           this.game = it
           this.star = !it.favorite
           this.selectedImg = it.imgs[0].value

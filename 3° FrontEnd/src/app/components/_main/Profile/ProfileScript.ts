@@ -1,4 +1,5 @@
 import GoBackComponent from "../../features/GoBack/GoBackComponent.vue"
+import BarChartComponent from "../../features/BarChart/BarChartComponent.vue"
 import { I_User } from "../../../shared/interfaces/I_User";
 import { PropType } from "vue";
 import { mapState } from "vuex";
@@ -7,7 +8,8 @@ import userService from "../../../shared/services/userService";
 const profileComponent: any = {
   name: "ProfileComponent",
   components: {
-    GoBackComponent
+    GoBackComponent,
+    BarChartComponent
   },
   data() {
     return {
@@ -15,6 +17,14 @@ const profileComponent: any = {
         male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
         female: "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg"
       },
+      graphicData: [
+        {value: 0, color: '#39b339'},
+        {value: 0, color: '#1f88ff'},
+        {value: 0, color: 'yellow'},
+        {value: 0, color: '#ff2e2e'},
+        {value: 0, color: '#ff46ff'},
+        {value: 0, color: '#1ee7be'},
+      ],
       noteCapture: undefined
     };
   },
@@ -30,6 +40,16 @@ const profileComponent: any = {
   watch: {
     auth() {
       this.noteCapture = `${this.auth.note}`
+    },
+    obj() {
+      const lista = ['playing', 'completed', 'onHold', 'dropped', 'planning', 'replayed']
+      const total = lista.reduce((result, item) => {
+        return result + this.obj[item]
+      }, 0)
+      
+      for (var i = 0; i < lista.length; i++) {
+        this.graphicData[i].value = (this.obj[lista[i]]/total).toFixed(2)
+      }
     }
   },
   methods: {
@@ -79,7 +99,7 @@ const profileComponent: any = {
       this.$router.push(`/user/${id}/`)
       
       if (this.$route.name != 'profile'){
-        this.updateUserData(id)
+        this.changeUserData(id)
       }
     }
   }

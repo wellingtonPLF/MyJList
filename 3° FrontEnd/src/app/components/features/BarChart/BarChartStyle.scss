@@ -1,0 +1,37 @@
+
+#bar-chart-container {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    min-width: 240px;
+    border-radius: 10px;
+    border-bottom: 8px solid white;
+    background-repeat: no-repeat;
+    background: center/cover url("https://i.gifer.com/J4o.gif");
+    // background: center/cover linear-gradient(rgb(51, 51, 70) 50%, rgba(0, 0, 0, 0.7));
+}
+
+$radiusValue: 10px;
+
+#bar-chart-container > div:first-child{
+    border-top-left-radius: $radiusValue;
+    border-top-right-radius: $radiusValue;
+}
+
+#alignBottom {
+    position: relative; 
+    height: 100%; 
+    display: flex; 
+    align-items: flex-end;
+}
+
+.endCollumn {
+    position: absolute; 
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.endCollumn > div {
+    border-top-left-radius: $radiusValue;
+    border-top-right-radius: $radiusValue;
+}
