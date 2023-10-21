@@ -14,7 +14,8 @@ const profileComponent: any = {
       imgType: {
         male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
         female: "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg"
-      }
+      },
+      noteCapture: undefined
     };
   },
   computed: {
@@ -26,6 +27,11 @@ const profileComponent: any = {
     obj: Object as PropType<I_User>,
     changeUserData: Function as PropType<(id: number) => void>
   },
+  watch: {
+    auth() {
+      this.noteCapture = `${this.auth.note}`
+    }
+  },
   methods: {
     goBack() {
       if (this.$router.options.history.state.back == null) {
@@ -35,8 +41,9 @@ const profileComponent: any = {
         this.$router.back()
       }
     },
-    updateUser(){
-      if (this.obj.note != this.auth.note){
+    updateUser() {
+      if (this.noteCapture != this.auth.note){
+        this.obj.note = this.noteCapture
         userService.update(this.obj).then(
           _ => {
             console.log("Update Request (OK)!")

@@ -28,6 +28,16 @@ class UserService {
     }
   }
 
+  async searchUser(nickname: string) {
+    try{
+      const { data } = await api.post(`${this.path}/searchUser/`, nickname);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  }
+
   async getAuthenticatedUser() {
     try{
       const { data } = await api.get(`${this.path}/getUser/`);

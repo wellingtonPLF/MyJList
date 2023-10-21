@@ -2,10 +2,10 @@
     <div>
         <div id="searchBar">
             <GoBackComponent class="backPage"/>
-            <span >
-                <input placeholder="search nickname" />
+            <span v-on:keyup.enter="searchUser">
+                <input placeholder="search nickname" v-model="userNick.nickname" />
                 <div>
-                    <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                    <font-awesome-icon @click="searchUser" :icon="['fas', 'magnifying-glass']" />
                 </div>
             </span>
         </div>

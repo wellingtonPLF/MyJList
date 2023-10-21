@@ -194,7 +194,7 @@
                                     <span>Notes</span>
                                     <font-awesome-icon v-if="auth.id != 0 && obj.id == auth.id" @click="updateUser" :icon="['fas', 'floppy-disk']" />
                                 </div>
-                                <textarea v-if="auth.id != 0 && obj.id == auth.id" placeholder="Type your note right here!" v-model="auth.note"></textarea>
+                                <textarea v-if="auth.id != 0 && obj.id == auth.id" placeholder="Type your note right here!" v-model="noteCapture"></textarea>
                                 <div v-else :style="{overflowY: (auth.note.length > 288)? 'scroll': ''}">
                                     <div v-if="obj.note.length != 0">{{obj.note}}</div>
                                     <div v-else>There's no note here . . .</div>

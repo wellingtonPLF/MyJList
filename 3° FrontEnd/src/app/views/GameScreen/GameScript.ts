@@ -26,6 +26,7 @@ const gameComponent: any = {
       prevRoute: undefined,
       optionSelected: undefined,
       filter: true,
+      gameName: { name: undefined },
       loading: "Loading . . .",
       selectedOption: "Default",
       options: ["CUSTOMIZATION", "Most Commented", "Most Recommended"]
@@ -37,6 +38,14 @@ const gameComponent: any = {
     })
   },
   methods: {
+    async searchGame() {
+      if (this.gameName.name != undefined && this.gameName.name != "") {
+        try {
+          this.games = await gameService.searchGame(this.gameName)
+        }
+        catch(_) {}
+      }
+    },
     popularity() {
       this.optionSelected = 'popularity'
       const popular = this.games.filter(x => x.popularity == true).sort((a: any, b: any) => b.score - a.score)
