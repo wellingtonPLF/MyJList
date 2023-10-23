@@ -15,11 +15,15 @@ const signInComponent: any = {
         username: undefined,
         password: undefined
       },
+      showpass: false,
       error: { enabled: false, msg: undefined, count: 1 }
     };
   },
   methods: {
     ...mapActions('authReducer', ['setAuth']),
+    showPassword() {
+      this.showpass = !this.showpass
+    },
     goBack() {
       if (this.$router.options.history.state.back == null) {
         this.$router.push("/")

@@ -11,6 +11,10 @@
     min-height: 100vh;
 }
 
+#login input:focus{
+    outline: unset;
+}
+
 #login > div {
     display: flex;
     flex-direction: column;
@@ -44,10 +48,21 @@ $portalIn: calc($portalSize * 90/100);
 
 #login > div > div:last-child {
     display: flex;
+    width: 100%;
+    justify-content: center;
     position: relative;
 }
 
-#login > div > div:last-child > div:first-child {
+#passwordEye {
+    top: 40%;
+    left: 85%;
+    font-size: 2.4vh;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+}
+
+#login > div > div:last-child > div:first-child > div:first-child {
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -56,7 +71,7 @@ $portalIn: calc($portalSize * 90/100);
 
 $divHeight:  12vh;
 
-#login > div > div:last-child > div:last-child{
+#login > div > div:last-child > div:first-child > div:last-child{
     display: flex;
     height: $divHeight;
     flex-direction: column;
@@ -67,18 +82,18 @@ $divHeight:  12vh;
 }
 
 $inputHeight: calc($divHeight * 27/100);
-$inputWidth: 20.7vh;
-$inputPaddingLeft: 1.34vh;
+$inputWidth: 19.36vh;
+$inputPadding: 1.34vh;
 $inputRadius: 3.34vh;
 
 $fontSize: 1.17vh;
 
-#login > div > div:last-child > div:last-child input {
+#login > div > div:last-child > div:first-child > div:last-child input {
     border-radius: $inputRadius;
     padding: 0;
     font-size: $fontSize;
     border: unset;
-    padding-left: $inputPaddingLeft;
+    padding: 0 $inputPadding;
     height: $inputHeight;
     width: $inputWidth;
 }
@@ -86,7 +101,7 @@ $fontSize: 1.17vh;
 #login button {
     border-radius: $inputRadius;
     height: $inputHeight + 0.33vh;
-    width: $inputWidth + $inputPaddingLeft;
+    width: $inputWidth + ($inputPadding * 2);
     color: white;
     font-weight: 600;
     font-size: $fontSize;
@@ -102,6 +117,7 @@ $fontSize: 1.17vh;
 #error {
     position: absolute;
     top: -0.5vh;
+    width: 21.5vh;
     font-size: 1.6vh;
     margin-top: 0.5vh;
     margin-left: 0.34vh;
@@ -115,11 +131,11 @@ $fontSize: 1.17vh;
     $inputWidth: 24.7vh;
     $fontSize: 1.4vh;
 
-    #login > div > div:last-child > div:last-child{
+    #login > div > div:last-child > div:first-child > div:last-child{
         height: $divHeight;
     }
 
-    #login > div > div:last-child > div:last-child input {
+    #login > div > div:last-child > div:first-child > div:last-child input {
         font-size: $fontSize;
         height: $inputHeight;
         width: $inputWidth;
@@ -127,7 +143,13 @@ $fontSize: 1.17vh;
 
     #login button {
         height: $inputHeight + 0.33vh;
-        width: $inputWidth + $inputPaddingLeft;
+        width: $inputWidth + ($inputPadding * 2);
         font-size: $fontSize;
+    }
+
+    #passwordEye {
+        top: 37%;
+        left: 92%;
+        font-size: 3vh;
     }
 }

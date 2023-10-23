@@ -30,6 +30,8 @@ import {
   faPowerOff,
   faFloppyDisk,
   faArrowTurnDown,
+  faEye,
+  faEyeSlash,
   faDoorOpen,
   faBan,
   faUserGroup,
@@ -54,6 +56,8 @@ const app = createApp(App);
 
 library.add(
   faGamepad,
+  faEye,
+  faEyeSlash,
   faSearch,
   faFloppyDisk,
   faUserGroup,
