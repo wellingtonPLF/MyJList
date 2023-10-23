@@ -36,12 +36,15 @@ const userComponent: any = {
           this.userListRequest()
         }
       }
-      if (this.userNick.nickname != undefined && this.userNick.nickname != "") {
-        try {
-          this.users = await userService.searchUser(this.userNick)
+      if (event.keyCode != 16 && event.keyCode != 36) {
+        if (this.userNick.nickname != undefined && this.userNick.nickname != "") {
+          try {
+            this.users = await userService.searchUser(this.userNick)
+          }
+          catch(_) {}
         }
-        catch(_) {}
       }
+      
     }
   },
   mounted() {

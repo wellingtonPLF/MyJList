@@ -29,9 +29,11 @@ const singleGameComponent: any = {
   },
   data() {
     return {
+      game: GAME_INITIAL_STATE,
+      games: [],
+      gameName: { name: undefined },
       recomendations: [] as any[],
       game_registry_id: undefined,
-      game: GAME_INITIAL_STATE,
       cssBtnEffect: false,
       graphicData: [
         {value: 0, color: '#39b339'},
@@ -47,7 +49,7 @@ const singleGameComponent: any = {
         USER_COMMENT_NULLOBJ
       ] as any[],
       selectedImg: undefined,
-      star: true,
+      star: true, 
       commentToSend: undefined,
       registredGame: false,
       gameStatus: { vote: undefined, registry: undefined },
@@ -82,6 +84,21 @@ const singleGameComponent: any = {
     };
   },
   methods: {
+    async searchGame(event) {
+      if (event.keyCode === 8) {
+        if (this.gameName.name =='') {
+          this.games = []
+        }
+      }
+      if (event.keyCode != 16 && event.keyCode != 36) {
+        if (this.gameName.name != undefined && this.gameName.name != "") {
+          try {
+            this.games = await gameService.searchGame(this.gameName)
+          }
+          catch(_) {}
+        }
+      }
+    },
     applyBtnAction() {
       if (this.registredGame) {
         const vote = Object.keys(noteEnum).filter(key => noteEnum[key] === this.gameStatus.vote)[0]
@@ -188,6 +205,9 @@ const singleGameComponent: any = {
       )
     },
     feedGameData(id: number) {
+      this.games = []
+      this.gameName.name = ""
+      this.$router.push(`/singleGame/${id}`)
       if (this.auth.id != 0) {
         registryService.getRegistryByUserGame_ID(this.auth.id, id).then(
           it => {

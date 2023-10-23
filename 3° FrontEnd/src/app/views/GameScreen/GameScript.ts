@@ -58,14 +58,16 @@ const gameComponent: any = {
           this.gameListRequest()  
         }
       }
-      if (this.gameName.name != undefined && this.gameName.name != "") {
-        try {
-          this.games = await gameService.searchGame(this.gameName)
-          if (this.games.length == 0){
-            this.loading = 'Nothing to Render'
+      if (event.keyCode != 16 && event.keyCode != 36) {
+        if (this.gameName.name != undefined && this.gameName.name != "") {
+          try {
+            this.games = await gameService.searchGame(this.gameName)
+            if (this.games.length == 0){
+              this.loading = 'Nothing to Render'
+            }
           }
+          catch(_) {}
         }
-        catch(_) {}
       }
     },
     popularity() {

@@ -1,26 +1,35 @@
 <div id="profilePage">
     <div id="profile">
         <div class="backImageConfig">
-            <div id="searchBar">
-                <GoBackComponent :gChoice="gameChoice" class="backPage"/>
-                <span>
-                    <input placeholder="search game" />
-                    <div>
-                        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
-                    </div>
-                    <div id="searchResult">
+            <div>
+                <div id="searchBar">
+                    <GoBackComponent :gChoice="gameChoice" class="backPage"/>
+                    <span>
+                        <input @keyup="searchGame" v-model="gameName.name" placeholder="search game" />
                         <div>
-                            <div v-for="item in [1,2,3,4,5,6]">
-                                <img src="https://www.siliconera.com/wp-content/uploads/2022/12/street-fighter-6-box-art.jpg" />
-                                <div>
-                                    <div>Name</div>
-                                    <div>Popularity</div>
-                                    <div>Score</div>
+                            <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                        </div>
+                        <div id="searchResult">
+                            <div>
+                                <div v-for="item in games" @click="feedGameData(item.id)">
+                                    <span id="imageFromSearch" class="backImageConfig" :style="`background-image: url(${item.gameImage})`">
+                                        <div></div>
+                                    </span>
+                                    <div>
+                                        <div id="searchTitle">{{item.name}}</div>
+                                        <div id="searchDetails">
+                                            <span>{{(item.popularity)? "Popular" : "Normal"}}</span>
+                                            <div>
+                                                <div>| Score: {{item.score}}</div>
+                                                <span>| Publication: {{item.release}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </span>
+                    </span>
+                </div>
             </div>
             <div></div>
             <div id="userProfile">
@@ -329,9 +338,9 @@
                 <div>
                     <div>You May Like</div>
                     <div>
-                        <router-link v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item.game.id)"
-                            :style="{backgroundImage: `url(${item.game.gameImage})`}" :to="`/singleGame/${item.game.id}`">
-                        </router-link>
+                        <div v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item.game.id)"
+                            :style="{backgroundImage: `url(${item.game.gameImage})`}">
+                        </div>
                     </div>
                 </div>
             </div>
