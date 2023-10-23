@@ -17,6 +17,7 @@ const profileComponent: any = {
         male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
         female: "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg"
       },
+      listaStatistics: ['Playing', 'Completed', 'OnHold', 'Dropped', 'Planning', 'Replayed'],
       graphicData: [
         {value: 0, color: '#39b339'},
         {value: 0, color: '#1f88ff'},
@@ -42,17 +43,26 @@ const profileComponent: any = {
       this.noteCapture = `${this.auth.note}`
     },
     obj() {
-      const lista = ['playing', 'completed', 'onHold', 'dropped', 'planning', 'replayed']
-      const total = lista.reduce((result, item) => {
-        return result + this.obj[item]
+      const total = this.listaStatistics.reduce((result, item) => {
+        const indexAttr = this.listaStatistics.indexOf(item)
+        const value = (this.obj[this.findAttr(indexAttr)] == undefined)? 
+        0 : this.obj[this.findAttr(indexAttr)]
+        return result + value
       }, 0)
       
-      for (var i = 0; i < lista.length; i++) {
-        this.graphicData[i].value = (this.obj[lista[i]]/total).toFixed(2)
+      for (var i = 0; i < this.listaStatistics.length; i++) {
+        const key = this.findAttr(i)
+        const attr = (this.obj[key] == undefined)? 0 : this.obj[key]
+        this.graphicData[i].value = (attr/total).toFixed(2)
       }
     }
   },
   methods: {
+    findAttr(index: number) {
+      const result = (this.listaStatistics[index] == "OnHold")? 
+      "onHold" : this.listaStatistics[index].toLowerCase()
+      return result
+    },
     goBack() {
       if (this.$router.options.history.state.back == null) {
         this.$router.push("/")

@@ -21,7 +21,21 @@ const userComponent: any = {
     };
   },
   methods: {
-    async searchUser() {
+    userListRequest() {
+      userService.listAll().then(
+        (it: any) => {
+          this.users = it
+        }
+      ).catch((error) => {
+        console.error(error);
+      });   
+    },
+    async searchUser(event) {
+      if (event.keyCode === 8) {
+        if (this.userNick.nickname == '') {
+          this.userListRequest()
+        }
+      }
       if (this.userNick.nickname != undefined && this.userNick.nickname != "") {
         try {
           this.users = await userService.searchUser(this.userNick)
@@ -31,13 +45,7 @@ const userComponent: any = {
     }
   },
   mounted() {
-    userService.listAll().then(
-      (it: any) => {
-        this.users = it
-      }
-    ).catch((error) => {
-      console.error(error);
-    });      
+    this.userListRequest()
   },
 };
 

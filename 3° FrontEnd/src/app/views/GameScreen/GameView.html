@@ -11,9 +11,9 @@
             </div>
             <div id="searchBar">
                 <GoBackComponent class="backPage"/>
-                <span v-on:keyup.enter="searchGame">
-                    <input placeholder="search your game" v-model="gameName.name" />
-                    <div @click="searchGame">
+                <span>
+                    <input placeholder="search your game"  @keyup="searchGame" v-model="gameName.name" />
+                    <div>
                         <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
                     </div>
                 </span>

@@ -101,40 +101,15 @@
                     <div id="statistics">
                         <div>
                             <div>
-                                <div>
-                                    <div style="background-color: green;"></div>
-                                    <div>Playing</div>
-                                    <div>{{obj.playing}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: blue;"></div>
-                                    <div>Complete</div>
-                                    <div>{{obj.completed}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: yellow;"></div>
-                                    <div>On-Hold</div>
-                                    <div>{{obj.onHold}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: red;"></div>
-                                    <div>Dropped</div>
-                                    <div>{{obj.dropped}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: gray;"></div>
-                                    <div>Plan to Play</div>
-                                    <div>{{obj.planning}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: rgb(7, 180, 180);"></div>
-                                    <div>Replayed</div>
-                                    <div>{{obj.replayed}}</div>
+                                <div v-for="item, index in listaStatistics">
+                                    <div :style="`background-color: ${graphicData[index].color}`"></div>
+                                    <div>{{listaStatistics[index]}}</div>
+                                    <div>{{(obj[findAttr(index)] == undefined)? 0: obj[findAttr(index)]}}</div>
                                 </div>
                             </div>
                             <div>
                                 <div>
-                                    <div>{{obj.playing + obj.completed + obj.dropped + obj.onHold}}</div>
+                                    <div>{{obj.playing + obj.completed + obj.onHold + obj.dropped }}</div>
                                     <div>Total Entries</div>
                                 </div>
                                 <div>

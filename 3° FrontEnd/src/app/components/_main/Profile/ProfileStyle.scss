@@ -184,7 +184,7 @@ $infoHeigth: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0px 115px 65px 0px;
+    margin: 0px 100px 65px 0px;
 }
 
 #statistics > div:first-child  > div:first-child{
@@ -204,6 +204,7 @@ $infoHeigth: 40px;
 #statistics > div:first-child  > div:first-child > div > div:first-child{
     width: 10px;
     height: 10px;
+    margin-right: 15px;
     border-radius: 100%;
 }
 

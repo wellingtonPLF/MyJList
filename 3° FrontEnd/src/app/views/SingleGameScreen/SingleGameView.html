@@ -3,10 +3,22 @@
         <div class="backImageConfig">
             <div id="searchBar">
                 <GoBackComponent :gChoice="gameChoice" class="backPage"/>
-                <span >
+                <span>
                     <input placeholder="search game" />
                     <div>
                         <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                    </div>
+                    <div id="searchResult">
+                        <div>
+                            <div v-for="item in [1,2,3,4,5,6]">
+                                <img src="https://www.siliconera.com/wp-content/uploads/2022/12/street-fighter-6-box-art.jpg" />
+                                <div>
+                                    <div>Name</div>
+                                    <div>Popularity</div>
+                                    <div>Score</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </span>
             </div>

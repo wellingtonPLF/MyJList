@@ -59,6 +59,7 @@ $maxPageSize: 1450px;
 
 #searchBar > span {
     display: flex;
+    position: relative;
     margin: 0 50px 0 auto;
     width: 450px;
     margin-top: 24px;
@@ -79,12 +80,11 @@ $searchHeight: 41px;
     width: 100% - $searchIconWidth;
 }
 
-#searchBar > span > :last-child {
+#searchBar > span > div:nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
     width: $searchIconWidth;
-    cursor: pointer;
     font-size: 19px;
     height: $searchHeight;
     padding-right: 3px;
@@ -93,9 +93,46 @@ $searchHeight: 41px;
     background-color: white;
 }
 
-#searchBar > span > div:hover {
-    background-color: rgb(14, 102, 73);
-    color: white;
+#searchResult {
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    z-index: 15;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+    margin-top: 50px;
+    background-color: white;
+}
+
+#searchResult > div {
+    max-height: 220px;
+    border-radius: 15px;
+    overflow: auto;
+}
+
+#searchResult > div > div:first-child {
+    margin-top: 0px;
+}
+
+#searchResult > div > div {
+    display: flex;
+    margin: 5px 5px 0px 5px;
+}
+
+#searchResult img{
+    border-radius: 10px;
+    width: 135px;
+    height: 80px;
+}
+
+#searchResult > div > div > div {
+    margin-top: 3px;
+    margin-left: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 15px;
 }
 
 // -------------------------------------------------------

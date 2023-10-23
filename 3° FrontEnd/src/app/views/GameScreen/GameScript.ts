@@ -38,10 +38,32 @@ const gameComponent: any = {
     })
   },
   methods: {
-    async searchGame() {
+    gameListRequest() {
+      gameService.listAll().then(
+        it => {
+          it.sort((a:any, b:any) => (a.name > b.name ? -1 : 1)).reverse()
+          this.games = it
+          this.list = it
+          if (it.length == 0){
+            this.loading = 'Nothing to Render'
+          }
+        }
+      ).catch((error) => {
+        console.error(error);
+      });
+    },
+    async searchGame(event) {
+      if (event.keyCode === 8) {
+        if (this.gameName.name == '') {
+          this.gameListRequest()  
+        }
+      }
       if (this.gameName.name != undefined && this.gameName.name != "") {
         try {
           this.games = await gameService.searchGame(this.gameName)
+          if (this.games.length == 0){
+            this.loading = 'Nothing to Render'
+          }
         }
         catch(_) {}
       }
@@ -169,18 +191,7 @@ const gameComponent: any = {
     }
   },
   mounted() {
-    gameService.listAll().then(
-      it => {
-        it.sort((a:any, b:any) => (a.name > b.name ? -1 : 1)).reverse()
-        this.games = it
-        this.list = it
-        if (it.length == 0){
-          this.loading = 'Nothing to Render'
-        }
-      }
-    ).catch((error) => {
-      console.error(error);
-    });      
+    this.gameListRequest()      
   },
 };
 
