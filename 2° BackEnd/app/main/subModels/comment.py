@@ -5,10 +5,10 @@ from main.enum.commentEnum import CommentEnum
 from datetime import date
 
 VOTE_CHOICES = [
-    (CommentEnum.PREMIATION.name, CommentEnum.PREMIATION.value),
-    (CommentEnum.FUNNY.name, CommentEnum.FUNNY.value),
-    (CommentEnum.YES.name, CommentEnum.YES.value),
-    (CommentEnum.NO.name, CommentEnum.NO.value)
+    (CommentEnum.PREMIATION.value, CommentEnum.PREMIATION.name),
+    (CommentEnum.FUNNY.value, CommentEnum.FUNNY.name),
+    (CommentEnum.YES.value, CommentEnum.YES.name),
+    (CommentEnum.NO.value, CommentEnum.NO.name)
 ]
 
 class Comment(models.Model):

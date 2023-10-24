@@ -30,16 +30,26 @@ class GameViewSet(viewsets.ModelViewSet):
     serializer_class = GameSerializer
 
     def list(self, request):
-        games = self.get_queryset()
+        games = self.get_queryset()[:25]
         serializer = self.get_serializer(games, many=True)
         return Response(serializer.data)
+    
+    #/game/listGames
+    @action(detail=False, methods=['GET'], url_path='listGames/(?P<qnt>\d+)')
+    def listGames(self, request, qnt):
+        try:
+            games = self.get_queryset()[:int(qnt)]
+            serializer = self.get_serializer(games, many=True)
+            return Response(serializer.data)
+        except Exception as error:
+            raise ParseError(error)
 
     #/game/searchGame
     @action(detail=False, methods=['POST'], url_path='searchGame')
     def searchGame(self, request):
         try:
             gameName = request.data['name']
-            game = Game.objects.annotate(similarity=TrigramSimilarity('name', gameName)).filter(similarity__gt = 0.1).order_by('similarity')
+            game = Game.objects.annotate(similarity=TrigramSimilarity('name', gameName)).filter(similarity__gt = 0.1).order_by('similarity')[:10]
             result = GameSerializer(game, many=True, read_only=True).data
             return Response(result)
         except Exception as error:

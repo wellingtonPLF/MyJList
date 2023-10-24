@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from main.subModels.comment import Comment
 from main.subModels.user import User
+from main.enum.commentEnum import CommentEnum
 from main.subModels.game import Game
 from main.serializers.userSerializer import UserSerializer
 from main.serializers.gameSerializer import GameSerializer
@@ -8,8 +9,15 @@ from main.serializers.gameSerializer import GameSerializer
 class CommentSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     game = GameSerializer()
-    # vote_display = serializers.CharField(source='get_vote_display')
-    # /\ If you wanna show the value
+    vote = serializers.SerializerMethodField()
+
+    def get_vote(self, comment):
+        result = None
+        if (comment.vote != None):
+            for enumField in CommentEnum:
+                if enumField.value == int(comment.vote):
+                    result = enumField.name
+        return result
 
     def create(self, data):
         user = data.pop('user')

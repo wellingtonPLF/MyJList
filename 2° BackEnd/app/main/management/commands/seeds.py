@@ -32,6 +32,10 @@ from random import randrange, uniform
 
 # python manage.py seeds
 
+numberOfEntities = 10
+numberOfRegistry = 45
+numberOfComments = 100
+
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
@@ -56,14 +60,11 @@ class Command(BaseCommand):
             GameEnum.COMPLETE.name
         ]
         votes = [
-            CommentEnum.PREMIATION.name,
-            CommentEnum.FUNNY.name,
-            CommentEnum.YES.name,
-            CommentEnum.NO.name
+            CommentEnum.PREMIATION.value,
+            CommentEnum.FUNNY.value,
+            CommentEnum.YES.value,
+            CommentEnum.NO.value
         ]
-        numberOfEntities = 3
-        numberOfComments = 100
-        numberOfRegistry = 45
         tags = ['Undefined', 'Bad Script', 'Good Script']
         stat = ["On", "Off"]
         sexuality = ["M", "F"]

@@ -5,7 +5,7 @@ from rest_framework.decorators import action
 from main.enum.jwtEnum import JwtEnum
 from main.subModels.comment import Comment
 from main.serializers.commentSerializer import CommentSerializer
-
+from django.db.models import F
 from main.authenticate import CommentAuthentication
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -14,18 +14,24 @@ class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
 
     def list(self, request):
-        comments = self.get_queryset()
+        comments = self.get_queryset()[:100]
         serializer = self.get_serializer(comments, many=True)
         return Response(serializer.data)
 
-    @action(detail=False, methods=['GET'], url_path='getCommentByGame/(?P<game_id>\d+)')
-    def getCommentByGame(self, request, game_id):
+    @action(detail=False, methods=['POST'], url_path='getCommentByGame')
+    def getCommentByGame(self, request):
         try:
-            comment = Comment.objects.filter(game=game_id)
+            gameID = request.data['id']
+            qnt = request.data['qnt']
+            comment = Comment.objects.filter(game_id=12)
+            comment = comment.extra(
+                select={'is_top': 'user_id = 11'},
+                order_by=['-is_top', 'vote']
+            )
             result = CommentSerializer(comment, many=True, read_only=True).data
             return Response(result)
-        except:
-            raise ParseError("Something went Wrong in getCommentByGame")
+        except Exception as error:
+            raise ParseError(f"Something went Wrong in getCommentByGame: {error}")
 
     def get_comment(self, id):
         try:

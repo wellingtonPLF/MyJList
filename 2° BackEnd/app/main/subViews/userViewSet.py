@@ -30,7 +30,7 @@ class UserViewSet(viewsets.ModelViewSet):
     refreshTokenName = TokenEnum.REFRESH_NAME.value
 
     def list(self, request):
-        users = self.get_queryset()
+        users = self.get_queryset()[:12]
         serializer = self.get_serializer(users, many=True)
         return Response(serializer.data)
 
@@ -39,7 +39,7 @@ class UserViewSet(viewsets.ModelViewSet):
     def searchUser(self, request):
         try:
             userName = request.data['nickname']
-            user = User.objects.annotate(similarity=TrigramSimilarity('nickname', userName)).filter(similarity__gt = 0.1).order_by('similarity')
+            user = User.objects.annotate(similarity=TrigramSimilarity('nickname', userName)).filter(similarity__gt = 0.1).order_by('similarity')[:24]
             result = UserSerializer(user, many=True, read_only=True).data
             return Response(result)
         except Exception as error:

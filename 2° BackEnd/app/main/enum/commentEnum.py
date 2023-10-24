@@ -1,7 +1,8 @@
 from enum import Enum
 
 class CommentEnum(Enum):
-    YES = "Yes"
-    NO = "No"
-    FUNNY = "Funny"
-    PREMIATION = "Premiation"
+    PREMIATION = 1
+    FUNNY = 2
+    YES = 3
+    NO = 4  
+    

@@ -16,7 +16,7 @@ class RegistryViewSet(viewsets.ModelViewSet):
     serializer_class = RegistrySerializer
 
     def list(self, request):
-        registryList = self.get_queryset()
+        registryList = self.get_queryset()[:100]
         serializer = self.get_serializer(registryList, many=True)
         return Response(serializer.data)
     
@@ -24,7 +24,7 @@ class RegistryViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['GET'], url_path='getRegistryByUserID/(?P<user_id>\d+)')
     def getRegistryByUserID(self, request, user_id):
         try:
-            query_registry = Registry.objects.filter(user=user_id)
+            query_registry = Registry.objects.filter(user=user_id)[:24]
             result = RegistrySerializer(query_registry, many=True, read_only=True).data
             return Response(result)
         except:

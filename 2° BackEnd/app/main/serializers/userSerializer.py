@@ -18,19 +18,14 @@ from main.serializers.friendSerializer import FriendSerializer
 from django.forms.models import model_to_dict
 
 from django.db.models import Sum
+from main.serializers.limitFriendSerializer import LimitFriendSerializer
 
 class UserSerializer(serializers.ModelSerializer):
     nationality = NationalitySerializer()
     email = serializers.SerializerMethodField()
     network = serializers.SerializerMethodField()
-    link = serializers.SerializerMethodField()
-    # friend = serializers.PrimaryKeyRelatedField(
-    #     queryset=User.objects.all(),
-    #     many=True,
-    #     allow_null=True,
-    #     required=False,
-    # )
-    friend = FriendSerializer(many=True, read_only=True, allow_null=True, required=False)
+    link = serializers.SerializerMethodField()    
+    friend = serializers.SerializerMethodField()
 
     playing = serializers.SerializerMethodField()
     onHold = serializers.SerializerMethodField()
@@ -44,6 +39,16 @@ class UserSerializer(serializers.ModelSerializer):
     favoriteGames = serializers.SerializerMethodField()
     lastUpdated = serializers.SerializerMethodField()
     recommendations = serializers.SerializerMethodField()
+
+    def get_friend(self, user):
+        friends = []
+        try:
+            friendsList = LimitFriendSerializer(user).data['friend']
+            for friend_id in friendsList:
+                friends.append(User.objects.get(id=friend_id))
+        except:
+            return friends
+        return FriendSerializer(friends[:6], many=True, read_only=True, allow_null=True, required=False).data
 
     def get_role(self, user):
         role = None
@@ -210,6 +215,7 @@ class UserSerializer(serializers.ModelSerializer):
             "favoriteGames",
             "lastUpdated",
             "recommendations",
+            # "friends"
         )
 
     def create(self, data):
