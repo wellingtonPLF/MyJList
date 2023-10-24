@@ -637,10 +637,6 @@ $buttonWidth: 60px;
     border-bottom-right-radius: 5px;
 }
 
-#gameComments > div:first-child > div:first-child > button:active{
-    background-color: green;
-}
-
 #gameComments > div:first-child > div:nth-child(2) {
     display: flex;
     flex-direction: column;

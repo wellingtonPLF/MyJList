@@ -1,6 +1,7 @@
 import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
+import { sexualityImg } from "../../shared/enums/sexualityImg.ts";
 import userService from "../../shared/services/userService.ts"
-import { AUTH_INITIAL_STATE } from "../../shared/vuex/reducer/authReducer.ts";
+import { USER_INITIAL_STATE } from "../../shared/solid/nullObject/_user.ts";
 
 const aboutComponent: any = {
   name: "AboutComponent",
@@ -10,15 +11,12 @@ const aboutComponent: any = {
   data() {
     return {
       users: [
-        AUTH_INITIAL_STATE,
-        AUTH_INITIAL_STATE,
-        AUTH_INITIAL_STATE
+        USER_INITIAL_STATE,
+        USER_INITIAL_STATE,
+        USER_INITIAL_STATE
       ] as any[],
-      user: AUTH_INITIAL_STATE,
-      imgType: {
-        male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
-        female: "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg"
-      },
+      user: USER_INITIAL_STATE,
+      imgType: sexualityImg,
     };
   },
   methods: {

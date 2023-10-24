@@ -1,5 +1,6 @@
+import { sexualityImg } from "../../shared/enums/sexualityImg";
 import userService from "../../shared/services/userService";
-import { AUTH_INITIAL_STATE } from "../../shared/vuex/reducer/authReducer";
+import { USER_INITIAL_STATE } from "../../shared/solid/nullObject/_user";
 import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue";
 
 const userComponent: any = {
@@ -8,14 +9,11 @@ const userComponent: any = {
   data() {
     return {
       users: [
-        AUTH_INITIAL_STATE,
-        AUTH_INITIAL_STATE,
-        AUTH_INITIAL_STATE
+        USER_INITIAL_STATE,
+        USER_INITIAL_STATE,
+        USER_INITIAL_STATE
       ] as any[],
-      imgType: {
-        male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
-        female: "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg"
-      },
+      imgType: sexualityImg,
       userNick: { nickname: undefined}
       
     };

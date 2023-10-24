@@ -1,5 +1,15 @@
 $searchBarHeight: 5.53vh * 2;
 
+:deep(#filter){
+    display: flex;
+    justify-content: center;
+}
+
+// :deep(#filter > div){
+//     position: static;
+//     margin-top: 23vh;
+// }
+
 #gamePage {
     position: relative;
     min-height: 100vh;
@@ -7,16 +17,16 @@ $searchBarHeight: 5.53vh * 2;
     url("https://wallpapercave.com/wp/wp2732962.jpg");
 }
 
-#gamePage > div {
+#gamePage > div:last-child {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     align-items: center;
 }
 
-#gamePage > div > div:first-child {
+#gamePage > div:last-child > div:first-child {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; 
     width: 100%;
     color: white;
     height: 26.32vh * 2;
@@ -24,26 +34,26 @@ $searchBarHeight: 5.53vh * 2;
     background-image: url("https://wallpaperaccess.com/full/5871207.png");
 }
 
-#gamePage > div > div:first-child > div:first-child {
+#gamePage > div:last-child > div:first-child > div:first-child {
     display: flex;
     align-items: flex-start;
     width: 100%;
     height: calc(100% - $searchBarHeight);
 } 
 
-#gamePage > div > div:first-child > div:first-child > div {
+#gamePage > div:last-child > div:first-child > div:first-child > div {
     max-width: 25.26vh * 2;
     min-width: 14vh * 2;
     margin-left: 10%;
     margin-right: 1.05vh * 2;
 }
 
-#gamePage > div > div:first-child > div:first-child > div h1 {
+#gamePage > div:last-child > div:first-child > div:first-child > div h1 {
     margin-left: 1.58vh * 2;
     font-size: 2.1vh * 2;
 }
 
-#gamePage > div > div:first-child > div:first-child > div h2 {
+#gamePage > div:last-child > div:first-child > div:first-child > div h2 {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1vh * 2;
     border-radius: 1vh * 2;
@@ -51,7 +61,7 @@ $searchBarHeight: 5.53vh * 2;
     font-size: 1.2vh * 2;
 }
 
-#gamePage > div > div:nth-child(2){
+#gamePage > div:last-child > div:nth-child(2){
     border: 0.4vh solid rgb(27, 42, 46); // rgb(83, 80, 129);
     border-inline: unset;
     display: flex;
@@ -62,7 +72,7 @@ $searchBarHeight: 5.53vh * 2;
     height: 2.37vh * 2;
 }
 
-#gamePage > div > div:nth-child(2) > div {
+#gamePage > div:last-child > div:nth-child(2) > div {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -70,7 +80,7 @@ $searchBarHeight: 5.53vh * 2;
 
 $heightChoice: 4vh;
 
-#gamePage > div > div:nth-child(2) > div > div {
+#gamePage > div:last-child > div:nth-child(2) > div > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,7 +96,7 @@ $heightChoice: 4vh;
     border-bottom: 0.1vh solid white;
 }
 
-#gamePage > div > div:nth-child(2) > div > div:last-child {
+#gamePage > div:last-child > div:nth-child(2) > div > div:last-child {
     width: auto;
     border-bottom: unset;
 }
@@ -104,11 +114,11 @@ $heightChoice: 4vh;
     font-size: 0.74vh * 2;
 }
 
-#gamePage > div > div:nth-child(2) > div > div:hover {
+#gamePage > div:last-child > div:nth-child(2) > div > div:hover {
     border-bottom: 0.3vh solid rgb(27, 42, 46);
 }
 
-#gamePage > div > div:nth-child(2) > div > div:last-child:hover {
+#gamePage > div:last-child > div:nth-child(2) > div > div:last-child:hover {
     border-bottom: unset;
 }
 
@@ -263,18 +273,18 @@ $searchHeight: 2.2vh * 2;
 // ----------------------------------------------------
 
 @media screen and (max-width: 920px) {
-    #gamePage > div > div:nth-child(2) > div > div {
+    #gamePage > div:last-child > div:nth-child(2) > div > div {
         width: 15vw;
     }
 }
 
 @media screen and (max-width: 1280px) {
-    #gamePage > div > div:first-child {
+    #gamePage > div:last-child > div:first-child {
         background-size: auto;
         height: auto;
     }
 
-    #gamePage > div > div:first-child > div:first-child{
+    #gamePage > div:last-child > div:first-child > div:first-child{
         align-items: center;
         margin: 5vh 0px;
     }
@@ -290,15 +300,15 @@ $searchHeight: 2.2vh * 2;
         font-size: 2.5vw;
     }
 
-    #gamePage > div > div:first-child > div:first-child > div {
+    #gamePage > div:last-child > div:first-child > div:first-child > div {
         margin-left: 5vw;
     }
 
-    #gamePage > div > div:nth-child(2){
+    #gamePage > div:last-child > div:nth-child(2){
         height: auto;
     }
 
-    #gamePage > div > div:nth-child(2) > div{
+    #gamePage > div:last-child > div:nth-child(2) > div{
         flex-direction: column;
         width: 100%;
         text-align: center;
@@ -306,14 +316,14 @@ $searchHeight: 2.2vh * 2;
 
     $filtersHeight: 5vh;
 
-    #gamePage > div > div:nth-child(2) > div > div {
+    #gamePage > div:last-child > div:nth-child(2) > div > div {
         width: 100%;
         margin: 0;
         height: $filtersHeight;
         border-bottom: 0.3vh solid rgb(27, 42, 46);
     } 
 
-    #gamePage > div > div:nth-child(2) > div > div:last-child {
+    #gamePage > div:last-child > div:nth-child(2) > div > div:last-child {
         width: 100%;
         border: unset;
     }
@@ -327,13 +337,13 @@ $searchHeight: 2.2vh * 2;
         background-color: transparent;
     }
 
-    #gamePage > div > div:nth-child(2) > div > *:active, #selectCustom:active {
+    #gamePage > div:last-child > div:nth-child(2) > div > *:active, #selectCustom:active {
         color: white !important;
         background-color: rgb(27, 42, 46); 
         -webkit-tap-highlight-color: transparent;
     }
 
-    #gamePage > div > div:nth-child(2) > div > *::selection, #selectCustom::selection{
+    #gamePage > div:last-child > div:nth-child(2) > div > *::selection, #selectCustom::selection{
         background-color: transparent;
     }
 }
@@ -429,17 +439,17 @@ $searchHeight: 2.2vh * 2;
 
 @media screen and (max-width: 335px) {
 
-    #gamePage > div > div:first-child > div:first-child > div{
+    #gamePage > div:last-child > div:first-child > div:first-child > div{
         max-width: unset;
         min-width: unset;
         margin-right: 6vw;
     }
     
-    #gamePage > div > div:first-child > div:first-child > div > h1{
+    #gamePage > div:last-child > div:first-child > div:first-child > div > h1{
         font-size: 9vw;
     }
 
-    #gamePage > div > div:first-child > div:first-child > div > h2{
+    #gamePage > div:last-child > div:first-child > div:first-child > div > h2{
         font-size: 5.5vw;
         padding: 3vw;
         border-radius: 3vw;

@@ -1,7 +1,7 @@
 import HeaderComponent from "./../../components/_main/Header/HeaderComponent.vue";
 import gameService from "../../shared/services/gameService";
-import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer.ts"
-import { RECOMMENDATION_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer.ts"
+import { GAME_INITIAL_STATE } from "../../shared/solid/nullObject/_game";
+import { RECOMMENDATION_INITIAL_STATE } from "../../shared/solid/nullObject/_recomendation";
 
 interface Game {
   id: number;

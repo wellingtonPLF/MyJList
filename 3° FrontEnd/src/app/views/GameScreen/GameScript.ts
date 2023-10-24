@@ -1,7 +1,7 @@
 import FilterComponent from "../../components/dialogs/FilterDialog/FilterComponent.vue";
 import { I_Game } from "../../shared/interfaces/I_Game";
 import gameService from "../../shared/services/gameService";
-import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer";
+import { GAME_INITIAL_STATE } from "../../shared/solid/nullObject/_game";
 import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue"
 
 const gameComponent: any = {

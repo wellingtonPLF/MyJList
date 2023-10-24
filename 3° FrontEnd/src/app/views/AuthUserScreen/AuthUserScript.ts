@@ -1,7 +1,7 @@
 import ProfileComponent from "../../components/_main/Profile/ProfileComponent.vue";
 import userService from "../../shared/services/userService";
 import { mapState, mapActions } from "vuex";
-import { AUTH_INITIAL_STATE } from "../../shared/vuex/reducer/authReducer";
+import { USER_INITIAL_STATE } from "../../shared/solid/nullObject/_user";
 
 const authUserComponent: any = {
   name: "AuthComponent",
@@ -15,7 +15,7 @@ const authUserComponent: any = {
   },
   data() {
     return {
-      user: AUTH_INITIAL_STATE
+      user: USER_INITIAL_STATE
     }
   },
   methods: {

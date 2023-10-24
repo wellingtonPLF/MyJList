@@ -4,15 +4,21 @@ import gameService from "../../shared/services/gameService";
 import commentService from "../../shared/services/commentService";
 import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
 import BarChartComponent from "../../components/features/BarChart/BarChartComponent.vue"
-import { GAME_INITIAL_STATE } from "../../shared/vuex/reducer/gameReducer";
 import { mapState } from "vuex";
-import { USER_COMMENT_NULLOBJ } from "../../shared/vuex/reducer/authReducer";
 import { Comment } from "../../shared/models/Comment";
 import registryService from "../../shared/services/registryService";
 import { Registry } from "../../shared/models/Registry";
-import { Tag } from "../../shared/models/Tag";
 import { registryEnum } from "../../shared/enums/registryEnum";
 import { noteEnum } from "../../shared/enums/noteEnum";
+import { COMMENT_INITIAL_STATE } from "../../shared/solid/nullObject/_comment";
+import { RECOMMENDATION_INITIAL_STATE } from "../../shared/solid/nullObject/_recomendation";
+import { CAST_INITIAL_STATE } from "../../shared/solid/nullObject/_cast";
+import { REQUIREMENT_INITIAL_STATE } from "../../shared/solid/nullObject/_requirement";
+import { STAFF_INITIAL_STATE } from "../../shared/solid/nullObject/_staff";
+import { TAG_INITIAL_STATE } from "../../shared/solid/nullObject/_tag";
+import { colorEnum } from "../../shared/enums/colorEnum";
+import { REGISTRY_INITIAL_STATE } from "../../shared/solid/nullObject/_registry";
+import { sexualityImg } from "../../shared/enums/sexualityImg";
 
 library.add(faStar);
 
@@ -29,123 +35,45 @@ const singleGameComponent: any = {
   },
   data() {
     return {
-      game: GAME_INITIAL_STATE,
-      games: [],
-      gameName: { name: undefined },
+      registry: REGISTRY_INITIAL_STATE,
+      tag: TAG_INITIAL_STATE,
+      foundGames: [],
       recomendations: [] as any[],
-      game_registry_id: undefined,
-      cssBtnEffect: false,
-      graphicData: [
-        {value: 0, color: '#39b339'},
-        {value: 0, color: '#1f88ff'},
-        {value: 0, color: 'yellow'},
-        {value: 0, color: '#ff2e2e'},
-        {value: 0, color: '#ff46ff'},
-        {value: 0, color: '#1ee7be'},
-      ],
       userComment: [
-        USER_COMMENT_NULLOBJ,
-        USER_COMMENT_NULLOBJ,
-        USER_COMMENT_NULLOBJ
-      ] as any[],
-      selectedImg: undefined,
-      star: true, 
-      commentToSend: undefined,
-      registredGame: false,
-      gameStatus: { vote: undefined, registry: undefined },
-      tag: new Tag(1, 'Undefined'),
-      noGame: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg",
-      imgType: {
-        male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
-        female:
-          "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg",
-      },
+        COMMENT_INITIAL_STATE,
+        COMMENT_INITIAL_STATE,
+        COMMENT_INITIAL_STATE ] as any[],
       staffObj: {
         enabled: false,
-        staff: { Creator: "unknow", Director: "unknow", Composition: "unknow" },
+        staff: [
+          STAFF_INITIAL_STATE, 
+          STAFF_INITIAL_STATE, 
+          STAFF_INITIAL_STATE
+        ],
       },
       castObj: {
         enabled: false,
-        cast: {
-          Character_1: "unknow",
-          Character_2: "unknow",
-          Character_3: "unknow",
-        },
+        cast: [
+          CAST_INITIAL_STATE,
+          CAST_INITIAL_STATE,
+          CAST_INITIAL_STATE,
+        ],
       },
       requirementsObj: {
         enabled: false,
-        requirement: {
-          Processador: "unknow",
-          Memoria: "unknow",
-          DirectX: "unknow",
-          SO: "unknow",
-        },
-      }
+        requirement: REQUIREMENT_INITIAL_STATE,
+      },
+      graphicData: [],
+      star: true,
+      cssUpdateBtnEffect: false,
+      cssCommentBtnEffect: false,
+      selectedImg: undefined,
+      commentToSend: undefined,
+      imgType: sexualityImg,
+      searchByGameName: { name: undefined },
     };
   },
   methods: {
-    async searchGame(event) {
-      if (event.keyCode === 8) {
-        if (this.gameName.name =='') {
-          this.games = []
-        }
-      }
-      if (event.keyCode != 16 && event.keyCode != 36) {
-        if (this.gameName.name != undefined && this.gameName.name != "") {
-          try {
-            this.games = await gameService.searchGame(this.gameName)
-          }
-          catch(_) {}
-        }
-      }
-    },
-    applyBtnAction() {
-      if (this.registredGame) {
-        const vote = Object.keys(noteEnum).filter(key => noteEnum[key] === this.gameStatus.vote)[0]
-        const progress = Object.keys(registryEnum).filter(key => registryEnum[key] === this.gameStatus.registry)[0]
-        const updateRegistry = new Registry(
-          this.game_registry_id,
-          progress,
-          (this.gameStatus.vote == 'Unknow') ? "" : ((progress === "PLAN")? "" : vote),
-          new Date().toISOString(),
-          !this.star,
-          false, 
-          this.tag, 
-          this.auth, 
-          this.game
-        )
-        
-        this.cssBtnEffect = true
-        registryService.update(updateRegistry).then(
-          it => {
-            this.game = it.game
-            this.cssBtnEffect = false;
-            this.gameStatus = { vote: it.note, registry: it.progress }
-          }
-        ).catch( (e) => {
-          console.log(e)
-          this.cssBtnEffect = false;
-        })
-      }
-      else {
-        const insertRegistry = new Registry(this.auth, this.game, this.tag);
-        registryService.insert(insertRegistry).then(
-          it => {
-            this.game = it.game
-            this.gameStatus = { vote: it.note, registry: it.progress }
-            this.registredGame = true
-            this.game_registry_id = it.id
-          }
-        )
-      }
-    },
-    hoursMinutes() {
-      const hours_minutes_total = Math.round(this.game.playtime * 60)
-      const hours = Math.floor(this.game.playtime)
-      const hours_total = hours * 60
-      const minutes = hours_minutes_total - hours_total
-      return `${hours}h ${minutes}m`
-    },
     gameChoice(id: number) { 
       this.feedGameData(id)
       
@@ -158,8 +86,20 @@ const singleGameComponent: any = {
         console.log(error)
       })
     },
-    changeImage(index: number){
-      this.selectedImg = this.game.imgs[index].value
+    async searchGame(event) {
+      if (event.keyCode === 8) {
+        if (this.searchByGameName.name =='') {
+          this.foundGames= []
+        }
+      }
+      if (event.keyCode != 16 && event.keyCode != 36) {
+        if (this.searchByGameName.name != undefined && this.searchByGameName.name != "") {
+          try {
+            this.foundGames= await gameService.searchGame(this.searchByGameName)
+          }
+          catch(_) {}
+        }
+      }
     },
     showStaff() {
       this.staffObj.enabled = !this.staffObj.enabled;
@@ -173,17 +113,70 @@ const singleGameComponent: any = {
     fav() {
       this.star = !this.star;
     },
+    changeImage(index: number){
+      this.selectedImg = this.registry.game.imgs[index].value
+    },
+    // --------------------------------------------------------------------------------------------------------------
+    applyBtnAction() {
+      if (this.registry.id != 0) {
+        const note = Object.keys(noteEnum).filter(key => noteEnum[key] === this.registry.note)[0]
+        const progress = Object.keys(registryEnum).filter(key => registryEnum[key] === this.registry.progress)[0]
+        const updateRegistry = new Registry(
+          this.registry.id,
+          progress,
+          (this.registry.note == 'Unknow') ? "" : ((progress === "PLAN")? "" : note),
+          new Date().toISOString(),
+          !this.star,
+          false, 
+          this.tag, 
+          this.auth, 
+          this.registry.game
+        )
+        
+        this.cssUpdateBtnEffect = true
+        registryService.update(updateRegistry).then(
+          it => {
+            this.registry = it
+            this.cssUpdateBtnEffect = false;
+          }
+        ).catch( (e) => {
+          console.log(e)
+          this.cssUpdateBtnEffect = false;
+        })
+      }
+      else {
+        const insertRegistry = new Registry(this.auth, this.registry.game, this.tag);
+        registryService.insert(insertRegistry).then(
+          it => {
+            this.registry = it
+          }
+        )
+      }
+    },
+    hoursMinutes() {
+      const hours_minutes_total = Math.round(this.registry.game.playtime * 60)
+      const hours = Math.floor(this.registry.game.playtime)
+      const hours_total = hours * 60
+      const minutes = hours_minutes_total - hours_total
+      return `${hours}h ${minutes}m`
+    },
     sendComment() {
-      if (this.auth.id != 0 && this.game_registry_id != undefined) {
-        const comment = new Comment(this.commentToSend, this.auth, this.game)
+      if (this.auth.id != 0 && this.registry.id != 0) {
+        const comment = new Comment(this.commentToSend, this.auth, this.registry.game)
+        this.cssCommentBtnEffect = true
         commentService.insert(comment).then(
           it => {
+            this.cssCommentBtnEffect = false
             this.userComment.push(it)
 
           }
         ).catch((e: any) => {
           console.log(e)
+          this.cssCommentBtnEffect = false
         })
+      }
+      else {
+        this.cssCommentBtnEffect = undefined
       }
 
       this.commentToSend = ""
@@ -195,29 +188,23 @@ const singleGameComponent: any = {
           for (var i = 0; i < lista.length; i++) {
             this.graphicData[i].value = it[lista[i]]/100
           }
+          this.registry.game = it
           this.graphicData = [...this.graphicData]
-          this.game = it
           this.star = !it.favorite
           this.selectedImg = it.imgs[0].value
-          this.gameStatus = { vote: it.note, registry: it.progress }
-          this.registredGame = false
         }
       )
     },
     feedGameData(id: number) {
-      this.games = []
-      this.gameName.name = ""
+      this.foundGames= []
+      this.searchByGameName.name = ""
       this.$router.push(`/singleGame/${id}`)
       if (this.auth.id != 0) {
         registryService.getRegistryByUserGame_ID(this.auth.id, id).then(
           it => {
-            this.game = it.game
+            this.registry = it
             this.star = !it.favorite
-            this.selectedImg = it.game.imgs[0].value
-            this.gameStatus = { vote: it.note, registry: it.progress }
-            this.registredGame = true
-            this.game_registry_id = it.id
-            
+            this.selectedImg = it.game.imgs[0].value            
           }
         ).catch(_ => {
           this.setGameMethod(id)
@@ -228,20 +215,23 @@ const singleGameComponent: any = {
       }
     }
   },
-  beforeMount(){
-    this.selectedImg = this.noGame
-    this.recomendations = [
-      {game: {gameImage:this.noGame}},
-      {game: {gameImage:this.noGame}},
-      {game: {gameImage:this.noGame}},
-      {game: {gameImage:this.noGame}},
-      {game: {gameImage:this.noGame}}
-    ]    
-  },
   watch: {
     auth() {
       this.feedGameData(this.$route.params.id)
     },
+  },
+  beforeMount(){
+    for (const property in colorEnum) {
+      this.graphicData.push({ value: 0, color: colorEnum[property]})
+    }
+    this.selectedImg = this.registry.game.gameImage
+    this.recomendations = [
+      {game: RECOMMENDATION_INITIAL_STATE.game},
+      {game: RECOMMENDATION_INITIAL_STATE.game},
+      {game: RECOMMENDATION_INITIAL_STATE.game},
+      {game: RECOMMENDATION_INITIAL_STATE.game},
+      {game: RECOMMENDATION_INITIAL_STATE.game}
+    ]
   },
   mounted() {
     this.feedGameData(this.$route.params.id)

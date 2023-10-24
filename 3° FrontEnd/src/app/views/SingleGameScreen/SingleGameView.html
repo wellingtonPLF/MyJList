@@ -5,13 +5,13 @@
                 <div id="searchBar">
                     <GoBackComponent :gChoice="gameChoice" class="backPage"/>
                     <span>
-                        <input @keyup="searchGame" v-model="gameName.name" placeholder="search game" />
+                        <input @keyup="searchGame" v-model="searchByGameName.name" placeholder="search game" />
                         <div>
                             <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
                         </div>
                         <div id="searchResult">
                             <div>
-                                <div v-for="item in games" @click="feedGameData(item.id)">
+                                <div v-for="item in foundGames" @click="feedGameData(item.id)">
                                     <span id="imageFromSearch" class="backImageConfig" :style="`background-image: url(${item.gameImage})`">
                                         <div></div>
                                     </span>
@@ -36,7 +36,7 @@
                 <div>
                     <div>
                         <div id="userInfo">
-                            <div class="backImageConfig" :style="{backgroundImage: `url('${game.gameImage}')`}">
+                            <div class="backImageConfig" :style="{backgroundImage: `url('${registry.game.gameImage}')`}">
                                 <div style="width: 100%; height: 100%; box-sizing: border-box; border: 5px solid rgba(255, 255, 255, 0.445);">
                                     <div v-if="auth.id != 0">
                                         <font-awesome-icon v-if="star" @click="fav()" :icon="['far', 'star']" class="favStar" style="color: white;"/>
@@ -44,16 +44,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div v-if="game.name != undefined">
-                                <h2>{{game.name.slice(0,21)}}</h2>
+                            <div v-if="registry.game.name != undefined">
+                                <h2>{{registry.game.name.slice(0,21)}}</h2>
                                 <div>
                                     <div id="popular" 
-                                    :style="`color: ${(game.popularity)? '': 'rgb(199, 199, 199)'}; 
-                                    border-color: ${(game.popularity)? '': 'gray'};`" v-if="true">{{(game.popularity)? 'POPULAR': 'NORMAL'}}</div>
-                                    <div>Score: {{(typeof(game.score) != typeof(""))? ((game.score === 10)? 10 : game.score.toFixed(1)) : game.score}}</div>
-                                    <div>Ranked: #{{game.ranked}}</div>
+                                    :style="`color: ${(registry.game.popularity)? '': 'rgb(199, 199, 199)'}; 
+                                    border-color: ${(registry.game.popularity)? '': 'gray'};`" v-if="true">{{(registry.game.popularity)? 'POPULAR': 'NORMAL'}}</div>
+                                    <div>Score: {{(typeof(registry.game.score) != typeof(""))? ((registry.game.score === 10)? 10 : registry.game.score.toFixed(1)) : registry.game.score}}</div>
+                                    <div>Ranked: #{{registry.game.ranked}}</div>
                                     <div style="display: flex; flex-wrap: wrap;">Languages: 
-                                        <div v-for="item in game.language">&nbsp;
+                                        <div v-for="item in registry.game.language">&nbsp;
                                             <img :title="item.value"
                                             :src="`https://flagcdn.com/h20/${item.countrycod.toLowerCase()}.png`"
                                             :srcset="`https://flagcdn.com/h40/${item.countrycod.toLowerCase()}.png 2x,
@@ -63,23 +63,23 @@
                                         </div>
                                     </div>
                                     <div>GameStyle:</div>
-                                    <div v-if="game.gameType != undefined">
-                                        <div style="margin-right: 5px;" v-for="item in game.gameType.slice(0, game.gameType.length - 1)">{{item.value}},</div>
-                                        <div>{{game.gameType[game.gameType.length-1].value}}</div>
+                                    <div v-if="registry.game.gameType != undefined">
+                                        <div style="margin-right: 5px;" v-for="item in registry.game.gameType.slice(0, registry.game.gameType.length - 1)">{{item.value}},</div>
+                                        <div>{{registry.game.gameType[registry.game.gameType.length-1].value}}</div>
                                     </div>
                                 </div>
                                 <div id="network">
                                     <div v-if="auth.id != 0">
                                         <button @click="applyBtnAction" 
-                                        :class="`${(cssBtnEffect)? 'cssBtnEffect':''}`" 
-                                        :style="{backgroundColor: (game.id == 0) ? 'rgb(66, 70, 97)': ''}">
+                                        :class="`${(cssUpdateBtnEffect)? 'cssBtnEffect':''}`" 
+                                        :style="{backgroundColor: (registry.game.id == 0) ? 'rgb(66, 70, 97)': ''}">
                                             {{ 
-                                                (cssBtnEffect) ? 'loading. . .': ((registredGame)? "Update Status" : "Add to List" )
+                                                (cssUpdateBtnEffect) ? 'loading. . .': ((registry.id != 0)? "Update Status" : "Add to List" )
                                             }}
                                         </button>
                                         <div>
-                                            <select :disabled="!registredGame" name="vote" v-model="gameStatus.vote">
-                                                <option v-if="!registredGame" :value="undefined">unknow</option>
+                                            <select :disabled="!registry.id != 0" name="vote" v-model="registry.note">
+                                                <option v-if="!registry.id != 0" :value="undefined">unknow</option>
                                                 <option disabled value="Unknow">Select</option>
                                                 <option value="Incredible">Incredible</option>
                                                 <option value="Great">Great</option>
@@ -88,8 +88,8 @@
                                                 <option value="Meh">Meh</option>
                                                 <option value="Horrible">Horrible</option>
                                             </select>
-                                            <select :disabled="!registredGame" name="registry" v-model="gameStatus.registry">
-                                                <option v-if="!registredGame" :value="undefined">unknow</option>
+                                            <select :disabled="!registry.id != 0" name="registry" v-model="registry.progress">
+                                                <option v-if="!registry.id != 0" :value="undefined">unknow</option>
                                                 <option disabled value="Unknow">Select</option>
                                                 <option value="Plan to Play">Plan to Play</option>
                                                 <option value="Completed">Completed</option>
@@ -111,14 +111,14 @@
                         <div id="network">
                             <div v-if="auth.id != 0">
                                 <button @click="applyBtnAction"
-                                :class="`${(cssBtnEffect)? 'cssBtnEffect':''}`">
+                                :class="`${(cssUpdateBtnEffect)? 'cssBtnEffect':''}`">
                                     {{
-                                        (cssBtnEffect) ? 'loading. . .': ((registredGame)? "Update Status" : "Add to List" )
+                                        (cssUpdateBtnEffect) ? 'loading. . .': ((registry.id != 0)? "Update Status" : "Add to List" )
                                     }}
                                 </button>
                                 <div>
-                                    <select :disabled="!registredGame" name="vote" v-model="gameStatus.vote">
-                                        <option v-if="!registredGame" :value="undefined">unknow</option>
+                                    <select :disabled="!registry.id != 0" name="vote" v-model="registry.note">
+                                        <option v-if="!registry.id != 0" :value="undefined">unknow</option>
                                         <option disabled value="Unknow">Select</option>
                                         <option value="Incredible">Incredible</option>
                                         <option value="Great">Great</option>
@@ -127,8 +127,8 @@
                                         <option value="Meh">Meh</option>
                                         <option value="Horrible">Horrible</option>
                                     </select>
-                                    <select :disabled="!registredGame" name="registry" v-model="gameStatus.registry">
-                                        <option v-if="!registredGame" :value="undefined">unknow</option>
+                                    <select :disabled="!registry.id != 0" name="registry" v-model="registry.progress">
+                                        <option v-if="!registry.id != 0" :value="undefined">unknow</option>
                                         <option disabled value="Unknow">Select</option>
                                         <option value="Plan to Play">Plan to Play</option>
                                         <option value="Completed">Completed</option>
@@ -153,32 +153,32 @@
                                 <div>
                                     <div style="background-color: green;"></div>
                                     <div>Playing</div>
-                                    <div>{{(game.playing == 'N/A')? "0%" : game.playing + '%'}}</div>
+                                    <div>{{(registry.game.playing == 'N/A')? "0%" : registry.game.playing + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: blue;"></div>
                                     <div>Complete</div>
-                                    <div>{{(game.completed == 'N/A')? "0%" : game.completed + '%'}}</div>
+                                    <div>{{(registry.game.completed == 'N/A')? "0%" : registry.game.completed + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: yellow;"></div>
                                     <div>On-Hold</div>
-                                    <div>{{(game.onHold == 'N/A')? "0%" : game.onHold + '%'}}</div>
+                                    <div>{{(registry.game.onHold == 'N/A')? "0%" : registry.game.onHold + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: red;"></div>
                                     <div>Dropped</div>
-                                    <div>{{(game.dropped == 'N/A')? "0%" : game.dropped + '%'}}</div>
+                                    <div>{{(registry.game.dropped == 'N/A')? "0%" : registry.game.dropped + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: magenta;"></div>
                                     <div>Plan to Play</div>
-                                    <div>{{(game.planning == 'N/A')? "0%" : game.planning + '%'}}</div>
+                                    <div>{{(registry.game.planning == 'N/A')? "0%" : registry.game.planning + '%'}}</div>
                                 </div>
                                 <div>
                                     <div style="background-color: rgb(7, 180, 180);"></div>
                                     <div>Replayed</div>
-                                    <div>{{(game.replayed == 'N/A')? "0%" : game.replayed + '%'}}</div>
+                                    <div>{{(registry.game.replayed == 'N/A')? "0%" : registry.game.replayed + '%'}}</div>
                                 </div>
                             </div>
                             <div>
@@ -188,17 +188,17 @@
                                 </div>
                                 <div>
                                     <div>Publication</div>
-                                    <div>{{game.release}}</div>
+                                    <div>{{registry.game.release}}</div>
                                 </div>
                                 <div>
                                     <div>
-                                        <div>Favorites: {{game.favRank}}</div>
+                                        <div>Favorites: {{registry.game.favRank}}</div>
                                         <div></div>
                                     </div>
                                     <div>
                                         <div style="margin-bottom: 3px;">Type</div>
                                         <div style="display: flex;">
-                                            <div v-for="item in game.status" style="margin: 0px 5px;">{{
+                                            <div v-for="item in registry.game.status" style="margin: 0px 5px;">{{
                                                 (item.value != undefined) ? ((item.value == 'Off')? 'Offline': 'Online') : 'unknow'
                                             }}</div>
                                         </div>
@@ -221,14 +221,14 @@
                             <div class="backImageConfig"
                                 :style="{backgroundImage: `url(${selectedImg})`}">
                             </div>
-                            <div style="margin-top: 5px;" v-if="game.imgs">
-                                <div v-for="(item, index) in game.imgs" class="backImageConfig" @click="changeImage(index)"
+                            <div style="margin-top: 5px;" v-if="registry.game.imgs">
+                                <div v-for="(item, index) in registry.game.imgs" class="backImageConfig" @click="changeImage(index)"
                                     :style="{backgroundImage: `url(${item.value})`, cursor: 'pointer', borderColor: `${(selectedImg == item.value)? 'white': 'rgba(89, 82, 86, 0.5)'}`}">
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div id="description" v-if="game.description != undefined" :style="`overflow-y: ${(game.description.length > 780)? 'auto': 'unset'}`">{{game.description}}</div>
+                            <div id="description" v-if="registry.game.description != undefined" :style="`overflow-y: ${(registry.game.description.length > 780)? 'auto': 'unset'}`">{{registry.game.description}}</div>
                             <div>
                                 <div>Network</div>
                                 <div>
@@ -250,10 +250,7 @@
                             <div>
                                 <div>Main Staff</div>
                                 <div v-if="staffObj.enabled">
-                                    <div style="display: flex;" v-for="(value, property) in staffObj.staff">
-                                        <div>{{property}}: </div>
-                                        <div style="margin-left: 5px;">{{value}}</div>
-                                    </div>
+                                    <div style="display: flex;" v-for="item in staffObj.staff">{{item.position}}: {{item.staffName}}</div>
                                 </div>
                             </div>
                         </div>
@@ -265,7 +262,7 @@
                             <div>
                                 <div>Main Cast</div>
                                 <div v-if="castObj.enabled">
-                                    <div v-for="(value, property) in castObj.cast">{{property}}: {{value}}</div>
+                                    <div v-for="item in castObj.cast">{{item.character}}: {{item.castName}}</div>
                                 </div>
                             </div>
                         </div>
@@ -292,7 +289,7 @@
                         <div id="plataforms">
                             <div>Plataforms</div>
                             <div>
-                                <div v-for="item in game.plataform">{{
+                                <div v-for="item in registry.game.plataform">{{
                                     (item.value != undefined)? item.value : 'unknow'
                                 }}</div>
                             </div>
@@ -300,20 +297,20 @@
                         <div id="information">
                             <div>Information</div>
                             <div>
-                                <div>Premiede: {{game.premiede}}</div>
+                                <div>Premiede: {{registry.game.premiede}}</div>
                                 <div style="display: flex;">Producers:
-                                    <div v-for="item in game.producer" style="margin-left: 5px;">{{
+                                    <div v-for="item in registry.game.producer" style="margin-left: 5px;">{{
                                         (item.value != undefined)? item.value : 'unknow'
                                     }}</div>
                                 </div>
                                 <div style="display: flex;">Studio: 
-                                    <div v-for="item in game.studio" style="margin-left: 5px;">{{
+                                    <div v-for="item in registry.game.studio" style="margin-left: 5px;">{{
                                         (item.value != undefined)? item.value : 'unknow'
                                     }}</div>
                                 </div>
-                                <div>Source: {{game.source}}</div>
+                                <div>Source: {{registry.game.source}}</div>
                                 <div style="display: flex;">Themes:
-                                    <div v-for="item in game.theme" style="margin-left: 5px;">{{
+                                    <div v-for="item in registry.game.theme" style="margin-left: 5px;">{{
                                         (item.value != undefined)? item.value : 'unknow'
                                     }}</div>
                                 </div>
@@ -322,7 +319,7 @@
                         <div id="achievements">
                             <div>Achievements</div>
                             <div>
-                                <div v-for="item in game.achievements">{{
+                                <div v-for="item in registry.game.achievements">{{
                                     (item.value != undefined)? item.value : 'unknow'
                                 }}</div>
                             </div>
@@ -351,7 +348,10 @@
                 <div>
                     <div>
                         <input placeholder="Make a comment" v-model="commentToSend" />
-                        <button @click="sendComment()">
+                        <button @click="sendComment()" 
+                        :style="`background-color: ${
+                            (cssCommentBtnEffect != undefined)? ((cssCommentBtnEffect)? 'green': ''):'red'
+                        }`">
                             <font-awesome-icon :icon="['fas', 'reply']" />
                         </button>
                     </div>
@@ -360,7 +360,7 @@
                             <div>Últimas Análises</div>
                             <div>
                                 <div>Number of Comments ({{userComment.length}})</div>
-                                <div>Recomendations ({{game.recommendation}})</div>
+                                <div>Recomendations ({{registry.game.recommendation}})</div>
                             </div>
                         </div>
                         <div class="userComment" v-for="(item, index) in userComment">

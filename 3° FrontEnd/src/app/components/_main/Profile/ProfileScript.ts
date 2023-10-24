@@ -4,6 +4,8 @@ import { I_User } from "../../../shared/interfaces/I_User";
 import { PropType } from "vue";
 import { mapState } from "vuex";
 import userService from "../../../shared/services/userService";
+import { colorEnum } from "../../../shared/enums/colorEnum";
+import { sexualityImg } from "../../../shared/enums/sexualityImg";
 
 const profileComponent: any = {
   name: "ProfileComponent",
@@ -13,19 +15,9 @@ const profileComponent: any = {
   },
   data() {
     return {
-      imgType: {
-        male: "https://cdn-uploads.gameblog.fr/img/news/429382_649d8426db22f.jpg",
-        female: "https://cdn-uploads.gameblog.fr/img/news/427671_6482d11be2082.jpg"
-      },
+      imgType: sexualityImg,
       listaStatistics: ['Playing', 'Completed', 'OnHold', 'Dropped', 'Planning', 'Replayed'],
-      graphicData: [
-        {value: 0, color: '#39b339'},
-        {value: 0, color: '#1f88ff'},
-        {value: 0, color: 'yellow'},
-        {value: 0, color: '#ff2e2e'},
-        {value: 0, color: '#ff46ff'},
-        {value: 0, color: '#1ee7be'},
-      ],
+      graphicData: [],
       noteCapture: undefined
     };
   },
@@ -55,6 +47,11 @@ const profileComponent: any = {
         const attr = (this.obj[key] == undefined)? 0 : this.obj[key]
         this.graphicData[i].value = (attr/total).toFixed(2)
       }
+    }
+  },
+  beforeMount(){
+    for (const property in colorEnum) {
+      this.graphicData.push({ value: 0, color: colorEnum[property]})
     }
   },
   methods: {
