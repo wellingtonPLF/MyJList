@@ -28,6 +28,8 @@ $radiusValue: 10px;
 .endCollumn {
     position: absolute; 
     display: flex; 
+    height: 100%;
+    align-items: flex-end;
     justify-content: flex-end; 
 }
 

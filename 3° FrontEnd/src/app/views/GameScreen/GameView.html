@@ -27,6 +27,7 @@
                 <div>
                     <select name="customFilter" id="selectCustom" v-model="selectedOption" @change="handleSelectedOption">
                         <option value="Default" disabled style="background-color: white; color: black;">CUSTOMIZATION</option>
+                        <option value="OrderByName" style="background-color: white; color: black;">ORDER BY NAME</option>
                         <option value="Commented" style="background-color: white; color: black;">Most COMMENTED</option>
                         <option value="Recommended" style="background-color: white; color: black;">MOST RECOMMENDED</option>
                     </select>
@@ -54,6 +55,7 @@
             <div v-else id="loadingGame">
                 <h1>{{loading}}</h1>
             </div>
+            <SeeMoreComponent :moreResults="gameListRequest" />
         </div>
     </div>
 </div>

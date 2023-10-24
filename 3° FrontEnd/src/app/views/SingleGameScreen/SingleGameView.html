@@ -384,16 +384,19 @@
                             <div>
                                 <div>{{item.content}}</div>
                                 <div>
-                                    <div style="cursor: default;">Útil?</div>
+                                    <div style="cursor: default;">
+                                        Útil?
+                                    </div>
                                     <div>
-                                        <div>Yes</div>
-                                        <div>No</div>
-                                        <div>Funny</div>
-                                        <div>Premiation</div>
+                                        <div style="cursor: not-allowed;">Yes</div>
+                                        <div style="cursor: not-allowed;">No</div>
+                                        <div style="cursor: not-allowed;">Funny</div>
+                                        <div style="cursor: not-allowed;">Premiation</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <SeeMoreComponent :moreResults="getComments"/>
                     </div>
                 </div>
             </div>

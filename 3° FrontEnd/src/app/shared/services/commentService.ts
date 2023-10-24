@@ -8,9 +8,9 @@ class CommentService {
     this.path = "comment"
   }
 
-  async getCommentByGameID(id: number) {
+  async getCommentByGameID(obj: any) {
     try{
-      const { data } = await api.get(`${this.path}/getCommentByGame/${id}/`);
+      const { data } = await api.post(`${this.path}/getCommentByGame/`, obj);
       return data;
     }
     catch(error: any) {

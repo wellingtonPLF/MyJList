@@ -199,7 +199,7 @@
                     </div>
                     <div>
                         <div>
-                            <div>Friends</div>
+                            <div>{{(obj.id == auth.id)? "Following" : "Followers"}}</div>
                             <div id="friends">
                                 <div v-if="obj.friend.length != 0" v-for="item in obj.friend" @click="showFriend(item.id)">
                                     <div id="friend" class="backImageConfig containerBorderAnimation" :style="{backgroundImage: `url(${
@@ -207,7 +207,7 @@
                                     })`}"></div>
                                 </div>
                                 <div v-else style="text-align: center; width: 100%;">
-                                    <div>No Friend Found</div>
+                                    <div>No {{(obj.id == auth.id)? "Following" : "Followers"}} Found</div>
                                 </div>
                             </div>
                         </div>

@@ -13,7 +13,7 @@ const barChartComponent: any = {
       gap: 4.5,
       padding: 1, // True = 1, False = 0,
       height: 200,
-      minBarHeight: 0.02,
+      minBarHeight: 2, // Percent
       minGap: 9
     };
   },

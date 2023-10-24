@@ -542,6 +542,10 @@ $favSize: 120px;
         align-items: center;
     }
 
+    #userProfile > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) h3{
+        margin-bottom: 2px;
+    }
+
     #userProfile > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div{
         display: none;
     }

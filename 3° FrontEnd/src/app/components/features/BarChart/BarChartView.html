@@ -9,8 +9,9 @@
     <div :style="`
       width: ${barWidth * 0.052}vw;
       max-width: ${barWidth}px;
+      min-width: ${minGap}px;
       background-color: ${dataChart[0].color};
-      height: ${(dataChart[0].value ==0)? (height * minBarHeight) : (height * dataChart[0].value)}px`"></div>
+      height: ${(dataChart[0].value ==0)? minBarHeight : (dataChart[0].value * 95)}%`"></div>
 
     <div id="alignBottom">
       <div v-for="item, index in dataChart" class="endCollumn" 
@@ -19,8 +20,8 @@
           width: ${barWidth * 0.052}vw;
           max-width: ${barWidth}px;
           min-width: ${minGap}px;
-          background-color: ${item.color}; 
-          height: ${(item.value ==0)? (height * minBarHeight) : (height * item.value)}px`"></div>
+          background-color: ${item.color};
+          height: ${(item.value == 0)? minBarHeight : (item.value * 95)}%`"></div>
       </div>
     </div>
 

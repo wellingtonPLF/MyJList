@@ -17,6 +17,16 @@ class GameService {
     }
   }
 
+  async listGames(id: number) {
+    try{
+      const { data } = await api.get(`${this.path}/listGames/${id}/`);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  }
+
   async searchGame(gameName: string) {
     try{
       const { data } = await api.post(`${this.path}/searchGame/`, gameName);

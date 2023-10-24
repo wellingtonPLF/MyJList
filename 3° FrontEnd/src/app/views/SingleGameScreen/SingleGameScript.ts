@@ -4,6 +4,7 @@ import gameService from "../../shared/services/gameService";
 import commentService from "../../shared/services/commentService";
 import GoBackComponent from "../../components/features/GoBack/GoBackComponent.vue"
 import BarChartComponent from "../../components/features/BarChart/BarChartComponent.vue"
+import SeeMoreComponent from "../../components/features/SeeMore/SeeMoreComponent.vue"
 import { mapState } from "vuex";
 import { Comment } from "../../shared/models/Comment";
 import registryService from "../../shared/services/registryService";
@@ -26,6 +27,7 @@ const singleGameComponent: any = {
   name: "SingleGameComponent",
   components: {
     GoBackComponent,
+    SeeMoreComponent,
     BarChartComponent
   },
   computed: {
@@ -65,6 +67,7 @@ const singleGameComponent: any = {
       },
       graphicData: [],
       star: true,
+      qntComment: 0,
       cssUpdateBtnEffect: false,
       cssCommentBtnEffect: false,
       selectedImg: undefined,
@@ -145,12 +148,14 @@ const singleGameComponent: any = {
         })
       }
       else {
-        const insertRegistry = new Registry(this.auth, this.registry.game, this.tag);
-        registryService.insert(insertRegistry).then(
-          it => {
-            this.registry = it
-          }
-        )
+        if (this.registry.game.id != 0){
+          const insertRegistry = new Registry(this.auth, this.registry.game, this.tag);
+          registryService.insert(insertRegistry).then(
+            it => {
+              this.registry = it
+            }
+          )
+        }
       }
     },
     hoursMinutes() {
@@ -167,7 +172,7 @@ const singleGameComponent: any = {
         commentService.insert(comment).then(
           it => {
             this.cssCommentBtnEffect = false
-            this.userComment.push(it)
+            this.userComment.unshift(it);
 
           }
         ).catch((e: any) => {
@@ -213,6 +218,19 @@ const singleGameComponent: any = {
       else {
         this.setGameMethod(id)
       }
+    },
+    getComments() {
+      this.qntComment += 5
+      const getComment = { id: this.$route.params.id, qnt: this.qntComment}
+      commentService.getCommentByGameID(getComment).then(
+        it => {
+          console.log(it)
+          this.userComment = it
+        }
+      )
+      .catch((error) => {
+        console.log(error)
+      })
     }
   },
   watch: {
@@ -235,6 +253,7 @@ const singleGameComponent: any = {
   },
   mounted() {
     this.feedGameData(this.$route.params.id)
+    this.getComments()
 
     gameService.getMostRecommended().then(
       it => {
@@ -244,15 +263,6 @@ const singleGameComponent: any = {
     .catch((error) => {
       console.log(error)
     })    
-
-    commentService.getCommentByGameID(this.$route.params.id).then(
-      it => {
-        this.userComment = it
-      }
-    )
-    .catch((error) => {
-      console.log(error)
-    })
   },
 };
 

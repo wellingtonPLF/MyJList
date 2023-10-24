@@ -1,0 +1,92 @@
+
+$moreResultsHeight: 4vh;
+$moreResultsWidth: 55%;
+
+#moreResults {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3vh auto;
+    width: $moreResultsWidth;
+    height: $moreResultsHeight;
+    font-size: 1.4vh;
+    color: white;
+}
+
+#moreResults > div {
+    text-align: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+$backAnimation_1: "https://i.pinimg.com/originals/02/67/99/02679961ab5f6b106ad515669063a301.gif";
+$backAnimation_2: "https://i.pinimg.com/originals/71/38/d2/7138d2b24c2854677eb2a380e1915f51.gif";
+
+#moreResults > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6) 100%, transparent), url($backAnimation_2);
+    width: 75%
+}
+
+#moreResults > div:first-child:hover {
+    font-weight: 600;
+    background: linear-gradient(rgba(255, 255, 255, 0.027) 100%, transparent), url($backAnimation_2);
+}
+
+#moreResults > div:last-child > div:hover  {
+    background: linear-gradient(rgba(255, 255, 255, 0.137) 100%, transparent), url($backAnimation_2);
+}
+
+#moreResults > div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    max-width: 4vh;
+}
+
+#moreResults > div:last-child > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6) 100%, transparent), url($backAnimation_2);
+    width: 100%;
+    height: 100%;
+    max-width: 4vh;
+    border-radius: 100%;
+}
+
+@media screen and (max-width: 725px) {
+
+    $moreResultsWidth: 80%;
+
+    #moreResults {
+        width: $moreResultsWidth;
+    }
+}
+
+@media screen and (max-width: 485px) {
+    $moreResultsHeight: 8vw;
+    $moreResultsWidth: 80vw;
+
+    #moreResults {
+        margin: 3vw auto;
+        width: $moreResultsWidth;
+        height: $moreResultsHeight;
+        font-size: 3vw;
+    }
+
+    #moreResults > div:first-child {
+        border-radius: 15vw;
+    }
+
+    #moreResults > div:last-child {
+        min-width: 20vw;
+    }
+
+    #moreResults > div:last-child > div{
+        max-width: 8vw;
+    }
+}

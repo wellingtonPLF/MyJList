@@ -3,12 +3,14 @@ import { I_Game } from "../../shared/interfaces/I_Game";
 import gameService from "../../shared/services/gameService";
 import { GAME_INITIAL_STATE } from "../../shared/solid/nullObject/_game";
 import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue"
+import SeeMoreComponent from "./../../components/features/SeeMore/SeeMoreComponent.vue"
 
 const gameComponent: any = {
   name: "GameComponent",
   components: {
     FilterComponent,
-    GoBackComponent
+    GoBackComponent,
+    SeeMoreComponent
   },
   data() {
     return {
@@ -26,6 +28,7 @@ const gameComponent: any = {
       prevRoute: undefined,
       optionSelected: undefined,
       filter: true,
+      qntGames: 0,
       gameName: { name: undefined },
       loading: "Loading . . .",
       selectedOption: "Default",
@@ -39,9 +42,9 @@ const gameComponent: any = {
   },
   methods: {
     gameListRequest() {
-      gameService.listAll().then(
+      this.qntGames += 25
+      gameService.listGames(this.qntGames).then(
         it => {
-          it.sort((a:any, b:any) => (a.name > b.name ? -1 : 1)).reverse()
           this.games = it
           this.list = it
           if (it.length == 0){
@@ -55,7 +58,7 @@ const gameComponent: any = {
     async searchGame(event) {
       if (event.keyCode === 8) {
         if (this.gameName.name == '') {
-          this.gameListRequest()  
+          this.games = [...this.list]
         }
       }
       if (event.keyCode != 16 && event.keyCode != 36) {
@@ -99,6 +102,9 @@ const gameComponent: any = {
       }
       else if (this.selectedOption == "Recommended") {
         this.games.sort((a: any, b: any) => b.recommendation - a.recommendation)
+      }
+      else if (this.selectedOption == "OrderByName"){
+        this.games.sort((a:any, b:any) => (a.name > b.name ? -1 : 1)).reverse()
       }
     },
     filterMethodResult(obj: any) {

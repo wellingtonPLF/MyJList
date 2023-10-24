@@ -16,7 +16,7 @@ const signInComponent: any = {
         password: undefined
       },
       showpass: false,
-      error: { enabled: false, msg: undefined, count: 1 }
+      error: { enabled: false, msg: undefined, count: 0 }
     };
   },
   methods: {

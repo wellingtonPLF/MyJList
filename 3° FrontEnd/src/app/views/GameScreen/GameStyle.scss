@@ -173,11 +173,12 @@ $searchHeight: 2.2vh * 2;
 
 #allGames{
     display: flex;
+    flex-direction: column;
     width: 100%;
     padding: 1.58vw 0px 0px 0px;
 }
 
-#allGames > div {
+#allGames > div:first-child {
     display: flex;
     flex-wrap: wrap;
     width: 88.7%;
@@ -185,7 +186,7 @@ $searchHeight: 2.2vh * 2;
     justify-content: center;
 }
 
-#allGames > div > a {
+#allGames > div:first-child > a {
     display: flex;
     width: 14.1vh * 2;
     height: 5.8vh * 2;
@@ -272,12 +273,6 @@ $searchHeight: 2.2vh * 2;
 
 // ----------------------------------------------------
 
-@media screen and (max-width: 920px) {
-    #gamePage > div:last-child > div:nth-child(2) > div > div {
-        width: 15vw;
-    }
-}
-
 @media screen and (max-width: 1280px) {
     #gamePage > div:last-child > div:first-child {
         background-size: auto;
@@ -289,6 +284,13 @@ $searchHeight: 2.2vh * 2;
         margin: 5vh 0px;
     }
 }
+
+@media screen and (max-width: 920px) {
+    #gamePage > div:last-child > div:nth-child(2) > div > div {
+        width: 15vw;
+    }
+}
+
 
 @media screen and (max-width: 725px) {
 
@@ -349,12 +351,12 @@ $searchHeight: 2.2vh * 2;
 }
 
 @media screen and (max-width: 715px) {
-    #allGames > div {
+    #allGames > div:first-child {
         width: 95%;
         padding: 4vw 0px 3vw 0px;
     }
     
-    #allGames > div > a {
+    #allGames > div:first-child > a {
         width: 45vw;
         height: 40vw;
     }
@@ -436,9 +438,7 @@ $searchHeight: 2.2vh * 2;
     }
 }
 
-
 @media screen and (max-width: 335px) {
-
     #gamePage > div:last-child > div:first-child > div:first-child > div{
         max-width: unset;
         min-width: unset;
