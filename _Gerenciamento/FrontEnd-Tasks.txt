@@ -1,16 +1,17 @@
 
-- D3
---------------------------------------------------------------------
-- Password EYE
-- Add loading animation and pré load
+## FRONT END ##
 
-- Utilizar o grid onde precisa
-- Slider
-- Usar react-query do vue
+1° Resetar o Banco
+2° Slider
+3° Utilizar o grid onde precisa
+4° Usar react-query do vue
+5° Fix recalls dos jwt, pois quando dá um error ele fica incansavelmente 
+fazendo os requests;
+6° Add loading animation and pré-load
 
-- Fix recalls dos jwt, pois quando dá um error ele fica incansavelmente fazendo os requests;
-- Ver se está faltando mais alguma coisa a ser feita no front
+-----------------------( Mexer no BackEnd )-----------------------------
 
-- Em singleGame component utilziar Registry instead of Game
---------------------------------------------------------------------
+7° Image Performance
+8° Recuperação de Conta caso esqueça a senha
 
+------------------------------------------------------------------------

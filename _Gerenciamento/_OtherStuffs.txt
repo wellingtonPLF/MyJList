@@ -1,0 +1,22 @@
+
+## OTHER STUFFS ##
+
+1° Deploy
+2° GoogleAnalitycs
+3° SEO
+4° ADS
+5° UX
+6° FeedBack
+7° chatbot (chatgpt_AI)
+8° idioms (chatGtp[codigoFonte], googleTradutor or outros)
+9° darkLight theme
+10° refatorar codigo
+11° 3DS
+
+------------------------------------------------------
+=> ElasticSearch, TypeSense, Algolia or Standard:
+
+- ElasticSearch (docker or cloud VM's)
+- TypeSense Requires (docker or cloud VM's)
+- Algolia (Online Plataform)
+- Standard (Postgres Lib in Django)

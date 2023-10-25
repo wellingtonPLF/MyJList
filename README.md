@@ -22,7 +22,7 @@
 <br>
 
 <p align="center">
-  <img alt="my-j-list-screen" src="_Apresentation/mainScreen.jpg" width="100%">
+  <img alt="my-j-list-screen" src="_Apresentation/mainScreen.png" width="100%">
 </p>
 
 ## ✨ Tecnologias
@@ -54,18 +54,20 @@ Você pode visualizar o layout do projeto através da pasta prototipagem do pró
 
 ## 🗃️ Gerenciamento
 
-Você pode visualizar o gerenciamento do projeto através do [Trello](https://trello.com/pt-BR).
+Você pode visualizar o gerenciamento/progresso do projeto através da pasta _Gerenciamento.
 
 ## 🚀 Como executar
 
 - <b>Clone o repositório</b>
-- <b>FrontEnd</b> ⇝ Instale as dependências com: `yarn install`
-- <b>FrontEnd</b> ⇝ Inicie o servidor com: `yarn run serve`
 - <b>BackEnd + Linux</b> ⇝ Entre na venv com: `source .venv/bin/activate`
-- <b>BackEnd + Linux</b> ⇝ Inicie com: `python manage.py runserver`
+- <b>BackEnd + Windows</b> ⇝ Entre na venv com: `venv\Script\activate`
+- <b>PostgreSQL</b> ⇝ Create Database: `CREATE DATABASE my-j-list;`
+- <b>Migrations</b> ⇝ Feed Database: `python manage.py seeds`
+- <b>BackEnd + (Linux or Windows)</b> ⇝ Inicie com: `python manage.py runserver 0.0.0.0:8000`
+- <b>FrontEnd</b> ⇝ Instale as dependências com: `yarn install`
+- <b>FrontEnd</b> ⇝ Inicie o servidor com: `yarn run server`
 
-
-Agora você pode acessar [`localhost:8080`](http://localhost:8080) do seu navegador.
+Agora você pode acessar [`localhost:5173`](http://localhost:5173) do seu navegador.
 
 ## 📄 Licença
 
