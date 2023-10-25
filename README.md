@@ -22,7 +22,7 @@
 <br>
 
 <p align="center">
-  <img alt="my-j-list-screen" src="_Apresentation/mainScreen.png" width="100%">
+  <img alt="my-j-list-screen" src="_Apresentation/mainPage.png" width="100%">
 </p>
 
 ## ✨ Tecnologias
