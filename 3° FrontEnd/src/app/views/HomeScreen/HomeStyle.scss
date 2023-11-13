@@ -114,6 +114,7 @@ $iconSize: 4vw;
     text-decoration: unset;
 }
 // ---------------------------------------------------------------------------------------------------
+
 #releases {
     margin: 2.5vw 2vw 2.5vw 2vw;
     width: 90%;
@@ -148,7 +149,6 @@ $iconSize: 4vw;
 #releases > div:first-child > div:first-child{
     display: flex;
     align-items: center;
-    padding-left: 1vw;
     justify-content: flex-start;
 }
 
@@ -161,6 +161,11 @@ $iconSize: 4vw;
     text-decoration: unset;
 }
 // --------------------------------------------------------------------------------------------------------
+
+.splide {
+    width: 100%;
+}
+
 #cardList{
     display: flex;
     flex-wrap: wrap;
@@ -171,7 +176,6 @@ $iconSize: 4vw;
     flex-direction: column;
     width: 12.2vw;
     margin-top: 0.3vw;
-    margin-left: 1vw;
 }
 
 .cardImage {
@@ -291,7 +295,7 @@ $bandle-Height-img: 28vw;
 
 #ranking .visualizeAll{
     justify-content: flex-end;
-    width: 94%;
+    width: 97%;
     margin-top: 0.5vw;
     margin-bottom: 0.8vw;
 }
@@ -541,7 +545,6 @@ $borderRecomendation: 0.5vw;
     
     #releases > div:first-child > div:first-child h2{
         font-size: 4lvw;
-        margin-left: 1vw;
     }
     
     #releases > div:first-child > div:first-child div{
@@ -549,12 +552,8 @@ $borderRecomendation: 0.5vw;
         font-size: 3.5lvw;
     }
     
-    #releases > div:first-child > div:first-child{
-        padding-left: 1vw;
-    }
     
     .visualizeAll{
-        margin-right: 2vw;
         font-size: 3lvw;
     }
 
@@ -562,7 +561,6 @@ $borderRecomendation: 0.5vw;
     
     .card {
         width: 42vw;
-        margin-left: 2vw;   
     }
     
     .cardImage {
@@ -669,21 +667,14 @@ $borderRecomendation: 0.5vw;
     
     #top5 > div {
         width: 100%;
-        flex-direction: unset;
-        height: 50vw;
+        flex-direction: row;
+        justify-content: space-around;
         max-height: unset;
     }    
     
     #top5 > div > figure{
-        width: 44.5vw;
-    }
-    
-    #top5 > div > figure:nth-child(1), #top5 > div > figure:nth-child(2){
-        margin-left: 0;
-    }
-    
-    #top5 > div > figure:nth-child(3), #top5 > div > figure:nth-child(4){
-        margin-left: 0;   
+        width: 42vw;
+        margin: 1.2vw 0;
     }
     
     #top5 figure > a > img {
@@ -708,7 +699,7 @@ $borderRecomendation: 0.5vw;
 
     .recomendation {
         height: 55vw;
-        width: 45.5vw;
+        width: 44.5vw;
         border-radius: $borderRecomendation;
         margin-bottom: 1vw;
     }

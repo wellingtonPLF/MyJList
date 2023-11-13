@@ -20,6 +20,7 @@
             <div>{{icon.name}}</div>
         </div>
     </div>
+
     <div id="releases">
         <div>
             <div>
@@ -29,29 +30,34 @@
             <router-link class="visualizeAll" to="/game">Visualizar tudo</router-link>
         </div>
 
-        <div id="cardList">
-            <div v-for="game in expected" :key="game.id" class="card">
-                
-                <router-link class="cardImage backImageConfig" 
-                :style="{backgroundImage: `url(${game.gameImage})`}" :to="`/singleGame/${game.id}`"></router-link>
-                <div>
-                    <div v-if="game.name.length < 26">{{ game.name}}</div>
-                    <div v-else>{{ game.name.slice(0, 26) + '. . .' }}</div>
-                </div>
-                <div>
-                    <div v-for="plataform in game.plataform">
-                        <b :style="{cursor: 'default', display: `${(plataform.value == 'PC')? '': 'none'}`}">Pc</b>
-                        <font-awesome-icon :icon="['fab', 'playstation']" v-if="plataform.value == 'Playstation'" />
-                        <font-awesome-icon :icon="['fab', 'xbox']" v-if="plataform.value == 'Xbox'"
-                            style="color: rgb(6, 94, 6)" />
-                        <div v-if="plataform.value == 'Nintendo'" class="nintendo">
-                            <div>nintendo</div>
+        <section class="splide cardList" aria-label="Slide Container Example">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide card" v-for="game in expected" :key="game.id">
+                    
+                    <router-link class="cardImage backImageConfig" 
+                    :style="{backgroundImage: `url(${game.gameImage})`}" :to="`/singleGame/${game.id}`"></router-link>
+                    <div>
+                        <div v-if="game.name.length < 26">{{ game.name}}</div>
+                        <div v-else>{{ game.name.slice(0, 26) + '. . .' }}</div>
+                    </div>
+                    <div>
+                        <div v-for="plataform in game.plataform">
+                            <b :style="{cursor: 'default', display: `${(plataform.value == 'PC')? '': 'none'}`}">Pc</b>
+                            <font-awesome-icon :icon="['fab', 'playstation']" v-if="plataform.value == 'Playstation'" />
+                            <font-awesome-icon :icon="['fab', 'xbox']" v-if="plataform.value == 'Xbox'"
+                                style="color: rgb(6, 94, 6)" />
+                            <div v-if="plataform.value == 'Nintendo'" class="nintendo">
+                                <div>nintendo</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </li>
+              </ul>
             </div>
-        </div>
+        </section>
     </div>
+
     <div id="bandle">
         <img src="https://actualidadriojabaja.com/wp-content/uploads/2022/11/StrayA_1.jpg"/>
         <span id="gameAwards" class="backImageConfig">

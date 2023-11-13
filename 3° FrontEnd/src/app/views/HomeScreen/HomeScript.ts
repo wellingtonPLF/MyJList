@@ -2,6 +2,9 @@ import HeaderComponent from "./../../components/_main/Header/HeaderComponent.vue
 import gameService from "../../shared/services/gameService";
 import { GAME_INITIAL_STATE } from "../../shared/solid/nullObject/_game";
 import { RECOMMENDATION_INITIAL_STATE } from "../../shared/solid/nullObject/_recomendation";
+import '@splidejs/splide/css';
+import Splide from '@splidejs/splide';
+import { Grid } from '@splidejs/splide-extension-grid';
 
 interface Game {
   id: number;
@@ -16,12 +19,15 @@ interface Game {
 const homeComponent: any = {
   name: "HomeComponent",
   components: {
-    HeaderComponent,
+    HeaderComponent
   },
   data() {
     return {
       games: [] as Game[],
-      expected: [
+      splide: undefined,
+      enableSplideChange: true,
+      grid: { perPage: 0, gap: 0, rows: 0, columns: 0},
+      nullGames: [
         GAME_INITIAL_STATE,
         GAME_INITIAL_STATE,
         GAME_INITIAL_STATE,
@@ -29,20 +35,9 @@ const homeComponent: any = {
         GAME_INITIAL_STATE,
         GAME_INITIAL_STATE
       ],
-      airing: [
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE
-      ],
-      releases: [
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE
-      ],
+      expected: undefined,
+      airing: undefined,
+      releases: undefined,
       topRated: [
         GAME_INITIAL_STATE,
         GAME_INITIAL_STATE,
@@ -76,9 +71,55 @@ const homeComponent: any = {
       else {
         this.expected = this.airing
       }
+    },
+    changeSplide() {
+      this.splide.destroy()
+      this.setSplide()
+    },
+    setSplide() {
+      if (window.innerWidth <= 800) {
+        this.grid = { perPage: 2, gap: '2vw', rows: 3, columns: 1}
+      }
+      else {
+        this.grid = { perPage: 7, gap: '1vw', rows: 0, columns: 0}
+      }
+
+      this.splide = new Splide('.splide', {
+        type: 'loop',
+        perPage: this.grid.perPage,
+        perMove: 1,
+        gap: this.grid.gap,
+        grid: {
+          rows: this.grid.rows,
+          cols: this.grid.columns,
+          gap : {
+            row: '1rem',
+            col: '1.5rem',
+          },
+        }
+      }).mount( { Grid } );
     }
   },
-  mounted() {
+  updated() {
+    if (this.splide == undefined) {
+      this.setSplide()
+    }
+    else {
+      this.changeSplide()
+    }
+  },
+  beforeMount() {
+    window.addEventListener('resize', () => {
+      if (window.innerWidth <= 800 && this.enableSplideChange) {
+        this.changeSplide()
+        this.enableSplideChange = false
+      }
+      else if (window.innerWidth > 800 && !this.enableSplideChange) {
+        this.changeSplide()
+        this.enableSplideChange = true
+      }
+    })
+
     gameService.getAiring().then((it) => {
       this.airing = it;
     })
@@ -88,9 +129,10 @@ const homeComponent: any = {
 
     gameService.getReleases().then((it) => {
       this.releases = it;
-      this.expected = this.releases
+      this.expected = it;      
     })
     .catch((error) => {
+      this.expected = this.nullGames
       console.error(error);
     });
 
