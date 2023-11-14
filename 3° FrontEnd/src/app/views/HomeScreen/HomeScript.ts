@@ -26,7 +26,7 @@ const homeComponent: any = {
       games: [] as Game[],
       splide: undefined,
       enableSplideChange: true,
-      grid: { perPage: 0, gap: 0, rows: 0, columns: 0},
+      grid: { perPage: 0, gap: 0, type: 'slide', rows: 0, columns: 0},
       nullGames: [
         GAME_INITIAL_STATE,
         GAME_INITIAL_STATE,
@@ -66,10 +66,13 @@ const homeComponent: any = {
   methods: {
     changeExpected(value: string){
       if (value == 'release'){
+        this.splide.destroy()
         this.expected = this.releases
       }
       else {
+        this.splide.destroy()
         this.expected = this.airing
+        
       }
     },
     changeSplide() {
@@ -78,14 +81,14 @@ const homeComponent: any = {
     },
     setSplide() {
       if (window.innerWidth <= 800) {
-        this.grid = { perPage: 2, gap: '2vw', rows: 3, columns: 1}
+        this.grid = { perPage: 2, gap: '2vw', type: 'slide', rows: 3, columns: 1}
       }
       else {
-        this.grid = { perPage: 7, gap: '1vw', rows: 0, columns: 0}
+        this.grid = { perPage: 7, gap: '1vw', type: 'loop', rows: 0, columns: 0}
       }
 
       this.splide = new Splide('.splide', {
-        type: 'loop',
+        type: this.grid.type,
         perPage: this.grid.perPage,
         perMove: 1,
         gap: this.grid.gap,
