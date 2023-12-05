@@ -1,10 +1,10 @@
-#test {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    background-color: rgb(112, 95, 63);
-}
+// #test {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 80vh;
+//     background-color: rgb(112, 95, 63);
+// }
 
 // .container {
 //   height: 100vh;
@@ -27,25 +27,26 @@
 //   object-fit: cover; /* Maintain the aspect ratio and cover the container */
 // }
 
-// #root {
-//   display: flex;
-//   justify-content: center;
-// }
+#root {
+  display: flex;
+  justify-content: center;
+}
 
-// #container {
-//   margin: 10px 0px;
-//   display: grid;
-//   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-//   width: 100%;
-//   max-width: 550px;
-//   place-items: center;
-//   grid-gap: 20px;
-// }
+#container {
+  margin: 1vh 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11vh, 1fr));
+  width: 100%;
+  max-width: 55vh;
+  place-items: center;
+  grid-gap: 2vh;
+}
 
-// #container > div {
-//   text-align: center;
-//   line-height: 80px;
-//   width: 120px;
-//   height: 80px; 
-//   background-color: red;
-// }
+#container > div {
+  text-align: center;
+  line-height: 8vh;
+  width: 12vh;  
+  height: 8vh;
+  font-size: 1.5vh; 
+  background-color: red;
+}

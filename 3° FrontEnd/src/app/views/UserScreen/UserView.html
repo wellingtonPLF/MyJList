@@ -2,7 +2,6 @@
     <div>
         <div id="searchBar">
             <GoBackComponent class="backPage"/>
-            <!-- <span v-on:keyup.enter="searchUser"> -->
             <span>
                 <input placeholder="search nickname" @keyup="searchUser" v-model="userNick.nickname" />
                 <div>
@@ -11,7 +10,7 @@
             </span>
         </div>
         <div id="allUsers">
-            <div v-for="userCard in users" id="userCard">
+            <div v-for="userCard in users" class="userCard">
                 <div>
                     <div :style="{ backgroundImage: `
                         url(${

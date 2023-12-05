@@ -79,7 +79,7 @@ const homeComponent: any = {
       this.splide.destroy()
       this.setSplide()
     },
-    setSplide() {
+    setSplide() { 
       if (window.innerWidth <= 800) {
         this.grid = { perPage: 2, gap: '2vw', type: 'slide', rows: 3, columns: 1}
       }
