@@ -21,6 +21,7 @@
     "ngrok": "^5.0.0-beta.2",
     "sass": "*",
     "vue": "^3.2.47",
+    "vue-query": "^1.26.0",
     "vue-router": "*",
     "vuex": "^4.1.0"
   },

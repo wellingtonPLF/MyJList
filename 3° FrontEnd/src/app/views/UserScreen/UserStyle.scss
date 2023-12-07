@@ -72,7 +72,7 @@ $searchHeight: 2.2vh * 2;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30vh, 1fr));
     place-items: center;
-    grid-gap: 7vh;
+    grid-gap: 3vh 7vh;
 }
 
 .userCard {

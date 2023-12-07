@@ -6,6 +6,7 @@ import store from "./app/shared/vuex/store";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { registerRequestInterceptor, registerResponseInterceptor } from './app/AppInterceptor'
+import { VueQueryPlugin } from "vue-query";
 
 import {
   faGamepad,
@@ -113,6 +114,8 @@ if (import.meta.env.VITE_PROD) {
 registerRequestInterceptor();
 registerResponseInterceptor();
 
+
+app.use(VueQueryPlugin);
 app.use(router);
 app.use(store);
 app.mount("#app");

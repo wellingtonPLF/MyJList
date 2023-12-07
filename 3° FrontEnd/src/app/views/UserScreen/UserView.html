@@ -10,7 +10,7 @@
             </span>
         </div>
         <div id="allUsers">
-            <div v-for="userCard in users" class="userCard">
+            <div v-for="userCard in ((users != undefined)? users: data)" class="userCard">
                 <div>
                     <div :style="{ backgroundImage: `
                         url(${
