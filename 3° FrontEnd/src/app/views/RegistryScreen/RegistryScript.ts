@@ -6,6 +6,8 @@ import { registryEnum } from "../../shared/enums/registryEnum";
 import { colorEnum } from "../../shared/enums/colorEnum";
 import tagService from "../../shared/services/tagService";
 
+import { useQuery } from "vue-query";
+
 const gameListComponent: any = {
   name: "GameListComponent",
   components: {
@@ -13,9 +15,8 @@ const gameListComponent: any = {
   },
   data() {
     return {
-      tags: [] as any[],
+      data: undefined,
       registry: [] as any[],
-      registryList: [] as any[],
       progressReponsive: "all",
       cssEffect: { obj: undefined, type: undefined},
       emptyList: 'Loading . . .',
@@ -27,7 +28,33 @@ const gameListComponent: any = {
       auth: (state: any) => state.auth
     })
   },
+  async setup() {
+    const tags = await tagService.listAll()
+    const data = []
+    // const { data } = useQuery('users', async () => {
+    //   return await registryService.getRegistryByUserID(this.$route.params.id).then(
+    //     it => {
+    //       it.map((registry: any) => {
+    //         registry.tag = tags.filter((tag: any) => {
+    //           return tag.id == registry.tag.id
+    //         })[0]
+    //       })
+    //       it.sort((a:any, b:any) => (a.game.name > b.game.name ? -1 : 1)).reverse()
+    //       return it
+    //     }
+    //   )
+    // })
+
+    return { data, tags }
+  },
   watch: {
+    // data(value: any) {
+    //   console.log(value)
+    //   if (value.length == 0){
+    //     this.emptyList = 'Nothing to Render'
+    //   }
+    //   this.registry = this.copyList(value)
+    // },
     progressReponsive() {
       this.filterBy(this.progressReponsive)
     }
@@ -54,10 +81,10 @@ const gameListComponent: any = {
     },
     filterBy(value: string) {
       if (value == 'all') {
-        this.registry = this.registryList
+        this.registry = this.data
       }
       else {
-        this.registry = this.registryList.filter( (item) => {return item.progress == value})
+        this.registry = this.data.filter( (item) => {return item.progress == value})
       }
       this.emptyList = 'Nothing to Render'
     },
@@ -70,7 +97,7 @@ const gameListComponent: any = {
     },
     async updateGameCard(item: any, attr: any){
       let referenceRegistry: any = undefined
-      const result = this.registryList.some((registry) => {
+      const result = this.data.some((registry) => {
         if (registry.id == item.id){
           if (attr == 'tag') {
             return registry[attr].value == item[attr].value
@@ -111,26 +138,7 @@ const gameListComponent: any = {
         }
       }
     }
-  },
-  async mounted() {
-    this.tags = await tagService.listAll()
-
-    registryService.getRegistryByUserID(this.$route.params.id).then(
-      it => {
-        it.map((r: any) => {
-          r.tag = this.tags.filter((t) => {
-            return t.id == r.tag.id
-          })[0]
-        })
-        it.sort((a:any, b:any) => (a.game.name > b.game.name ? -1 : 1)).reverse()
-        this.registry = it
-        this.registryList = this.copyList(it);
-        if (it.length == 0){
-          this.emptyList = 'Nothing to Render'
-        }
-      }
-    )
-  },
+  }
 };
 
 export default gameListComponent;

@@ -81,6 +81,7 @@
     flex-wrap: wrap;
     align-items: center;
     width: 70vw;
+    margin-top: 1vh;
     justify-content: space-between;
 }
 
@@ -116,12 +117,14 @@ $iconSize: 4vw;
 // ---------------------------------------------------------------------------------------------------
 
 #releases {
-    margin: 2.5vw 2vw 2.5vw 2vw;
+    margin: 2vw 2vw 2.5vw 2vw;
     width: 90%;
+    min-height: 18.5vw; 
 }
 
 #releases > div:first-child {
     display: flex;
+    margin-bottom: 0.2vw;
     justify-content: space-between;
 }
 
@@ -162,20 +165,80 @@ $iconSize: 4vw;
 }
 // --------------------------------------------------------------------------------------------------------
 
-.splide {
+#loader {
+    display: flex; 
+    width: 90%; 
+    min-height: 15vw; 
+    position: absolute;
+    justify-content: space-between; 
+}
+
+$sizeLoading: 2.5vw;
+
+.loading :deep(#load) {
+    height: $sizeLoading;
+    width: $sizeLoading;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 11.9vw;
+    height: 11.9vw;
+    border: 0.1vw dashed gray;
+    border-radius: 0.8vw;
+}
+
+@mixin centerBlock ()
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.loadingRecomendation {
+    @include centerBlock();
+    height: 53%;
     width: 100%;
 }
 
-#cardList{
-    display: flex;
-    flex-wrap: wrap;
+#top5Load {
+    @include centerBlock();
+    height: 95%;
+    width: 100%;
+}
+
+.top5Load {
+    @include centerBlock();
+    height: 85%;
+    width: 100%;
+}
+
+$sizeLoad: 2.5vw;
+
+.top5Load :deep(#load), #top5Load :deep(#load), .loadingRecomendation :deep(#load){
+    height: $sizeLoad;
+    width: $sizeLoad;
+    border-color: white;
+    border-top-color: rgb(196, 21, 167);
+}
+
+.loadingRecomendation :deep(#load){
+    height: calc($sizeLoad - 0.5vw);
+    width: calc($sizeLoad - 0.5vw);
+}
+
+// --------------------------------------------------------------------------------------------------------
+.splide {
+    width: 100%;
 }
 
 .card {
     display: flex;
     flex-direction: column;
     width: 12.2vw;
-    margin-top: 0.3vw;
 }
 
 .cardImage {
@@ -431,7 +494,7 @@ $borderRecomendation: 0.5vw;
     border-top-right-radius: $borderRecomendation;
 }
 
-.recomendation > div:nth-child(3)  {
+.recomendation > div:nth-child(4)  {
     display: flex;
     justify-content: center;
 }
@@ -483,6 +546,42 @@ $borderRecomendation: 0.5vw;
 // ------------------------------------------------------------------
 
 @media screen and (max-width: 800px) {
+    #loader {
+        display: flex; 
+        width: 100%; 
+        flex-wrap: wrap;
+        min-height: 15vw; 
+        position: relative;
+        justify-content: space-between; 
+    }
+    
+    $sizeLoading: 5vw;
+    
+    .loading :deep(#load) {
+        height: $sizeLoading;
+        width: $sizeLoading;
+        border-width: 1vw;
+    }
+    
+    .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42.5vw;
+        height: 40vw;
+        border-style: dashed;
+        border-radius: 3vw;
+    }
+    // ------------------------------------------------------------------------------
+
+    $sizeLoad: 5vw;
+
+    .top5Load :deep(#load), #top5Load :deep(#load), .loadingRecomendation :deep(#load){
+        height: $sizeLoad;
+        width: $sizeLoad;
+        border-width: 1vw;
+    }
+
     #banner {
         justify-content: center;
         align-items: center;

@@ -1,9 +1,12 @@
 import FilterComponent from "../../components/dialogs/FilterDialog/FilterComponent.vue";
 import { I_Game } from "../../shared/interfaces/I_Game";
 import gameService from "../../shared/services/gameService";
-import { GAME_INITIAL_STATE } from "../../shared/solid/nullObject/_game";
 import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue"
 import SeeMoreComponent from "./../../components/features/SeeMore/SeeMoreComponent.vue"
+
+import { toRaw } from "vue";
+
+import { useQuery } from "vue-query";
 
 const gameComponent: any = {
   name: "GameComponent",
@@ -14,17 +17,8 @@ const gameComponent: any = {
   },
   data() {
     return {
-      list: [] as I_Game[],
-      games: [
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE,
-        GAME_INITIAL_STATE
-      ] as I_Game[],
+      data: undefined,
+      games: [] as I_Game[],
       prevRoute: undefined,
       optionSelected: undefined,
       filter: true,
@@ -46,7 +40,6 @@ const gameComponent: any = {
       gameService.listGames(this.qntGames).then(
         it => {
           this.games = it
-          this.list = it
           if (it.length == 0){
             this.loading = 'Nothing to Render'
           }
@@ -58,7 +51,8 @@ const gameComponent: any = {
     async searchGame(event) {
       if (event.keyCode === 8) {
         if (this.gameName.name == '') {
-          this.games = [...this.list]
+          const gamelist = toRaw(this.data)
+          this.games = [...gamelist]
         }
       }
       if (event.keyCode != 16 && event.keyCode != 36) {
@@ -108,7 +102,8 @@ const gameComponent: any = {
       }
     },
     filterMethodResult(obj: any) {
-      const result = this.list.filter((game: any) => {
+      const gamelist = toRaw(this.data)
+      const result = gamelist.filter((game: any) => {
         const lista: Array<boolean> = []
         lista.push((obj.status.length == 0) ? true : obj.status.some((status: any) => {
           const findResult = game.status.filter((item) => {
@@ -199,7 +194,12 @@ const gameComponent: any = {
     }
   },
   mounted() {
-    this.gameListRequest()      
+    const { data } = useQuery('gameList', async () => {
+      return await gameService.listGames(25)
+    }) 
+
+    this.data = data;
+    this.gameListRequest()  
   },
 };
 

@@ -17,7 +17,7 @@
             <router-link :to="(icon.done) ? `${icon.path}`: ''" class="icon" :style="{backgroundColor: `${(icon.done) ? '': 'gray'}`}" :title="(icon.done)? '': 'this is not ready' ">
                 <font-awesome-icon :icon="['fas', `${icon.icon}`]" />
             </router-link>
-            <div>{{icon.name}}</div>
+            <div @click="setSplide">{{icon.name}}</div>
         </div>
     </div>
 
@@ -29,15 +29,23 @@
             </div>
             <router-link class="visualizeAll" to="/game">Visualizar tudo</router-link>
         </div>
+        <div v-if="splide == undefined" id="loader">
+            <div v-for="item in [1,2,3,4,5,6,7]">
+                <div class="loading">
+                    <LoaderComponent />
+                </div>
+                <div style="color: gray; padding-top: 1vh; padding-left: 0.2vw;">&bull; &bull; &bull;</div>
+            </div>
+        </div>
 
         <section class="splide cardList" aria-label="Slide Container Example">
             <div class="splide__track">
               <ul class="splide__list">
-                <li class="splide__slide card" v-for="game in expected" :key="game.id">
+                <li class="splide__slide card" v-for="game in ((expected != undefined)? expected: data)" :key="game.id">
                     
                     <router-link class="cardImage backImageConfig" 
                     :style="{backgroundImage: `url(${game.gameImage})`}" :to="`/singleGame/${game.id}`"></router-link>
-                    <div>
+                    <div v-if="game.name != undefined">
                         <div v-if="game.name.length < 26">{{ game.name}}</div>
                         <div v-else>{{ game.name.slice(0, 26) + '. . .' }}</div>
                     </div>
@@ -87,6 +95,9 @@
         <div id="top5" v-if="topRated.length != 0">
             <figure>
                 <router-link :to="`/singleGame/${topRated[0].id}`">
+                    <div id="top5Load">
+                        <LoaderComponent v-if="topRated[0].id == 0" />
+                    </div>
                     <img :src="topRated[0].gameImage" alt="top1">
                     <figcaption>
                         <div>Top 1° - Most rated game 2023</div>
@@ -96,6 +107,9 @@
             <div>
                 <figure v-for="item in topRated.slice(1, topRated.length)">
                     <router-link :to="`/singleGame/${item.id}`">
+                        <div class="top5Load">
+                            <LoaderComponent v-if="item.id == 0"/>
+                        </div>
                         <img :src="`${item.gameImage}`" alt="top1">
                         <figcaption>
                             <div>Top {{topRated.indexOf(item) + 1}}° - Most rated game 2023</div>
@@ -111,6 +125,9 @@
         <div>
             <router-link v-for="recomendation in recomendations.slice(0,5)" :key="recomendation.id" :to="`/singleGame/${recomendation.game.id}`">
                 <div class="recomendation">
+                    <div class="loadingRecomendation"> 
+                        <LoaderComponent v-if="recomendation.user.nickname == 'unknow'" />
+                    </div>
                     <img :src="recomendation.game.gameImage" alt="RecommendationImage" />
                     <div class="expert">
                         <div>

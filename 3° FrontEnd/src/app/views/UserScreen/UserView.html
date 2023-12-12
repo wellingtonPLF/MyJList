@@ -9,6 +9,9 @@
                 </div>
             </span>
         </div>
+        <div id="loader" v-if="users == undefined && data == undefined">
+            <LoaderComponent />
+        </div>
         <div id="allUsers">
             <div v-for="userCard in ((users != undefined)? users: data)" class="userCard">
                 <div>

@@ -1,10 +1,13 @@
 import HeaderComponent from "./../../components/_main/Header/HeaderComponent.vue";
+import LoaderComponent from "./../../components/features/Loader/LoaderComponent.vue";
 import gameService from "../../shared/services/gameService";
 import { GAME_INITIAL_STATE } from "../../shared/solid/nullObject/_game";
 import { RECOMMENDATION_INITIAL_STATE } from "../../shared/solid/nullObject/_recomendation";
 import '@splidejs/splide/css';
 import Splide from '@splidejs/splide';
 import { Grid } from '@splidejs/splide-extension-grid';
+
+import { useQuery } from "vue-query";
 
 interface Game {
   id: number;
@@ -19,12 +22,12 @@ interface Game {
 const homeComponent: any = {
   name: "HomeComponent",
   components: {
-    HeaderComponent
+    HeaderComponent,
+    LoaderComponent
   },
   data() {
     return {
       games: [] as Game[],
-      splide: undefined,
       enableSplideChange: true,
       grid: { perPage: 0, gap: 0, type: 'slide', rows: 0, columns: 0},
       nullGames: [
@@ -35,9 +38,14 @@ const homeComponent: any = {
         GAME_INITIAL_STATE,
         GAME_INITIAL_STATE
       ],
+      count: 0,
+      
+      data: undefined,
       expected: undefined,
       airing: undefined,
       releases: undefined,
+      splide: undefined,
+
       topRated: [
         GAME_INITIAL_STATE,
         GAME_INITIAL_STATE,
@@ -65,14 +73,15 @@ const homeComponent: any = {
   },
   methods: {
     changeExpected(value: string){
-      if (value == 'release'){
+      if (value == 'release') {
         this.splide.destroy()
-        this.expected = this.releases
+        this.splide = undefined
+        this.expected = undefined
       }
       else {
         this.splide.destroy()
+        this.splide = undefined
         this.expected = this.airing
-        
       }
     },
     changeSplide() {
@@ -104,14 +113,27 @@ const homeComponent: any = {
     }
   },
   updated() {
-    if (this.splide == undefined) {
-      this.setSplide()
+    if (this.data != undefined) {
+      if (this.splide == undefined) {
+        this.setSplide()
+      }
     }
-    else {
-      this.changeSplide()
+  },
+  watch: {
+    splide() {
+      if (this.count == 0){
+        this.count++;
+        this.changeSplide()
+      }
     }
   },
   beforeMount() {
+    const { data } = useQuery('releases', async () => {
+      return await gameService.getReleases()
+    }) 
+
+    this.data = data;
+
     window.addEventListener('resize', () => {
       if (window.innerWidth <= 800 && this.enableSplideChange) {
         this.changeSplide()

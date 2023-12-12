@@ -3,6 +3,9 @@ import userService from "../../shared/services/userService";
 import { mapState, mapActions } from "vuex";
 import { USER_INITIAL_STATE } from "../../shared/solid/nullObject/_user";
 
+import { toRaw } from "vue";
+import { useQuery } from "vue-query";
+
 const authUserComponent: any = {
   name: "AuthComponent",
   components: {
@@ -13,6 +16,13 @@ const authUserComponent: any = {
       auth: (state: any) => state.auth
     })
   },
+  setup() {
+    const { data } = useQuery('users', async () => {
+      return await userService.getAuthenticatedUser()
+    }) 
+
+    return { data }
+  },
   data() {
     return {
       user: USER_INITIAL_STATE
@@ -21,14 +31,11 @@ const authUserComponent: any = {
   methods: {
     ...mapActions('authReducer', ['setAuth']),
   },
-  mounted() {
-    userService.getAuthenticatedUser().then(
-      it => {
-        this.user = it;
-        this.setAuth(it)
-      }
-    )
-  },
+  watch: {
+    data(value) {
+      this.setAuth(toRaw(value))
+    }
+  }
 };
 
 export default authUserComponent;

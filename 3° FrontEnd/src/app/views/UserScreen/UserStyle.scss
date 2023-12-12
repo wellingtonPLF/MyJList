@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
 }
+
 // --------------------------------------------------
 
 #searchBar{
@@ -66,6 +67,19 @@ $searchHeight: 2.2vh * 2;
 }
 
 // -----------------------------------------------------------------------
+
+#loader {
+    display: flex;
+    align-items: center;
+    height: 80vh;
+}
+
+:deep(#load) {
+    border: 0.8vh dashed white;
+    animation-duration: 1.4s;
+    border-bottom-color: rgb(255, 217, 0);
+}
+
 #allUsers{
     margin: 1.58vh * 2 0px;
     width: 80%;

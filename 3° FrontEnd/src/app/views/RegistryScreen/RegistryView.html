@@ -33,8 +33,8 @@
             </select>
         </div> 
     </div>
-    <div v-if="registry.length != 0">
-        <div id="gameCardList" v-for="item in registry">
+    <!-- <div v-if="data.length != 0">
+        <div id="gameCardList" v-for="item in data">
             <div>
                 <router-link class="backImageConfig" id="cardImage" 
                 :style="{backgroundImage: `url(${item.game.gameImage})`}" :to="`/singleGame/${item.game.id}`">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <!-- ========================================================== Status CARD ========================================================== -->
+            
             <div>
                 <div>
                     <div>
@@ -71,7 +71,7 @@
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>
-                    <!-- --------------------------------- -->
+                    
                     <div>
                         <select v-if="auth.id != 0 && $route.params.id == auth.id" name="score" v-model="item.note" 
                         :class="`${(cssEffect.type == 'note' && cssEffect.obj == item)? 'cssEffect':''}`">
@@ -88,7 +88,7 @@
                             <font-awesome-icon :icon="['fas', 'arrows-rotate']"/>
                         </button>
                     </div>
-                    <!-- --------------------------------- -->
+                    
                     <div>
                         <select v-if="auth.id != 0 && $route.params.id == auth.id" name="type" v-model="item.tag" 
                         :class="`${(cssEffect.type == 'tag' && cssEffect.obj == item)? 'cssEffect':''}`">
@@ -110,5 +110,5 @@
     </div>
     <div v-else id="emptyList">
         {{emptyList}}
-    </div>
+    </div> -->
 </div>

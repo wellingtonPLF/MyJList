@@ -36,13 +36,21 @@
             </div>
         </div>
         <div id="allGames">
-            <div v-if="games.length != 0">
-                <router-link v-for="gameCard in games" :to="`/singleGame/${gameCard.id}`">
+            <div v-if="data != undefined"> 
+                <router-link v-for="gameCard in ((games.length ==0)? data: games)" :to="`/singleGame/${gameCard.id}`">
                     <div id="gameCard">
                         <div class="backImageConfig" :style="{backgroundImage: `url(${gameCard.gameImage})`}">
                             <div>
                                 <font-awesome-icon :icon="['far', 'star']" />
-                                <div>{{(typeof(gameCard.score) != typeof(""))? ((gameCard.score === 10)? 10 : gameCard.score.toFixed(1)) : gameCard.score}}</div>
+                                <div v-if="gameCard.score != undefined"> 
+                                    {{
+                                        (typeof(gameCard.score) != typeof(""))
+                                            ? 
+                                        ((gameCard.score === 10)? 10 : gameCard.score.toFixed(1)) 
+                                            : 
+                                        gameCard.score
+                                    }}
+                                </div>
                             </div>
                             <div>
                                 {{ gameCard.name.slice(0, 23) }}
@@ -55,7 +63,7 @@
             <div v-else id="loadingGame">
                 <h1>{{loading}}</h1>
             </div>
-            <SeeMoreComponent :moreResults="gameListRequest" />
+            <SeeMoreComponent v-if="data != undefined" :moreResults="gameListRequest" />
         </div>
     </div>
 </div>

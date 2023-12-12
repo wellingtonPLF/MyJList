@@ -1,12 +1,13 @@
 import { sexualityImg } from "../../shared/enums/sexualityImg";
 import userService from "../../shared/services/userService";
 import GoBackComponent from "./../../components/features/GoBack/GoBackComponent.vue";
+import LoaderComponent from "./../../components/features/Loader/LoaderComponent.vue";
 
 import { useQuery } from "vue-query";
 
 const userComponent: any = {
   name: "UserComponent",
-  components: { GoBackComponent },
+  components: { GoBackComponent, LoaderComponent },
   data() {
     return {
       users: undefined,

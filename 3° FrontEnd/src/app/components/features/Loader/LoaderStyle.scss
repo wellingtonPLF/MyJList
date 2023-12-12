@@ -1,0 +1,14 @@
+#load{
+    width: 5vh;
+    height: 5vh;
+    border-radius: 10vh;
+    border: 0.4vw double rgb(8, 83, 77);
+    border-top-color: rgb(173, 172, 172);
+    animation: load 1.5s linear infinite;
+}
+
+@keyframes load {
+    to {
+        transform: rotate(360deg);
+    }
+}
