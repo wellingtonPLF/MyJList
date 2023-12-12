@@ -6,6 +6,7 @@ import { registryEnum } from "../../shared/enums/registryEnum";
 import { colorEnum } from "../../shared/enums/colorEnum";
 import tagService from "../../shared/services/tagService";
 
+import { useRoute } from 'vue-router';
 import { useQuery } from "vue-query";
 
 const gameListComponent: any = {
@@ -15,8 +16,7 @@ const gameListComponent: any = {
   },
   data() {
     return {
-      data: undefined,
-      registry: [] as any[],
+      registry: [],
       progressReponsive: "all",
       cssEffect: { obj: undefined, type: undefined},
       emptyList: 'Loading . . .',
@@ -28,33 +28,33 @@ const gameListComponent: any = {
       auth: (state: any) => state.auth
     })
   },
-  async setup() {
-    const tags = await tagService.listAll()
-    const data = []
-    // const { data } = useQuery('users', async () => {
-    //   return await registryService.getRegistryByUserID(this.$route.params.id).then(
-    //     it => {
-    //       it.map((registry: any) => {
-    //         registry.tag = tags.filter((tag: any) => {
-    //           return tag.id == registry.tag.id
-    //         })[0]
-    //       })
-    //       it.sort((a:any, b:any) => (a.game.name > b.game.name ? -1 : 1)).reverse()
-    //       return it
-    //     }
-    //   )
-    // })
+  setup() {
+    const route = useRoute();
 
-    return { data, tags }
+    const { data } = useQuery('registry', async () => {
+      const tags = await tagService.listAll()
+      return await registryService.getRegistryByUserID(parseInt(`${route.params.id}`)).then(
+        it => {
+          it.map((registry: any) => {
+            registry.tag = tags.filter((tag: any) => {
+              return tag.id == registry.tag.id
+            })[0]
+          })
+          it.sort((a:any, b:any) => (a.game.name > b.game.name ? -1 : 1)).reverse()
+          return it
+        }
+      )
+    })
+
+    return { data }
   },
   watch: {
-    // data(value: any) {
-    //   console.log(value)
-    //   if (value.length == 0){
-    //     this.emptyList = 'Nothing to Render'
-    //   }
-    //   this.registry = this.copyList(value)
-    // },
+    data(value: any) {
+      if (value.length == 0){
+        this.emptyList = 'Nothing to Render'
+      }
+      this.registry = this.copyList(value)
+    },
     progressReponsive() {
       this.filterBy(this.progressReponsive)
     }
@@ -84,7 +84,13 @@ const gameListComponent: any = {
         this.registry = this.data
       }
       else {
-        this.registry = this.data.filter( (item) => {return item.progress == value})
+        const result = this.data.filter( (item) => {return item.progress == value})
+        if (result.length == 0){
+          this.registry = undefined
+        }
+        else{
+          this.registry = result
+        }
       }
       this.emptyList = 'Nothing to Render'
     },

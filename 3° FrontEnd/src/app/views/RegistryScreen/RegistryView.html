@@ -33,8 +33,8 @@
             </select>
         </div> 
     </div>
-    <!-- <div v-if="data.length != 0">
-        <div id="gameCardList" v-for="item in data">
+    <div v-if="data != undefined && registry != undefined">
+        <div id="gameCardList" v-for="item in ((registry.length != 0)? registry : data)">
             <div>
                 <router-link class="backImageConfig" id="cardImage" 
                 :style="{backgroundImage: `url(${item.game.gameImage})`}" :to="`/singleGame/${item.game.id}`">
@@ -110,5 +110,5 @@
     </div>
     <div v-else id="emptyList">
         {{emptyList}}
-    </div> -->
+    </div>
 </div>
