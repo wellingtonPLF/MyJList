@@ -33,7 +33,7 @@
             </select>
         </div> 
     </div>
-    <div v-if="data != undefined && registry != undefined">
+    <div v-if="((data != undefined)? (data.length != 0): false) && registry != undefined">
         <div id="gameCardList" v-for="item in ((registry.length != 0)? registry : data)">
             <div>
                 <router-link class="backImageConfig" id="cardImage" 

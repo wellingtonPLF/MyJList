@@ -77,18 +77,6 @@ const singleGameComponent: any = {
     };
   },
   methods: {
-    gameChoice(id: number) { 
-      this.feedGameData(id)
-      
-      commentService.getCommentByGameID(id).then(
-        it => {
-          this.userComment = it
-        }
-      )
-      .catch((error) => {
-        console.log(error)
-      })
-    },
     async searchGame(event) {
       if (event.keyCode === 8) {
         if (this.searchByGameName.name =='') {
@@ -158,6 +146,49 @@ const singleGameComponent: any = {
         }
       }
     },
+    gameChoice(id: number) { 
+      this.feedGameData(id)
+      this.getComments()
+    },
+    setGameMethod(id: number) {
+      this.registry.id = 0
+      gameService.getGame(id).then(
+        it => {
+          this.graphicUse(it)
+          this.registry.game = it
+          this.star = !it.favorite
+          this.selectedImg = it.imgs[0].value
+        }
+      )
+    },
+    feedGameData(id: number) {
+      this.foundGames= []
+      this.searchByGameName.name = ""
+      this.$router.push(`/singleGame/${id}`)
+      if (this.auth.id != 0) {
+        registryService.getRegistryByUserGame_ID(this.auth.id, id).then(
+          it => {
+            this.graphicUse(it.game)
+            this.registry = it
+            this.star = !it.favorite
+            this.selectedImg = it.game.imgs[0].value            
+          }
+        ).catch(_ => {
+          this.setGameMethod(id)
+        })
+      }
+      else {
+        this.setGameMethod(id)
+      }
+    },
+    // --------------------------------------------------------------------------------------------------------------
+    graphicUse(data: any){
+      const lista = ['playing', 'completed', 'onHold', 'dropped', 'planning', 'replayed']
+      for (var i = 0; i < lista.length; i++) {
+        this.graphicData[i].value = data[lista[i]]/100
+        this.graphicData = [...this.graphicData]
+      }
+    },
     hoursMinutes() {
       const hours_minutes_total = Math.round(this.registry.game.playtime * 60)
       const hours = Math.floor(this.registry.game.playtime)
@@ -186,45 +217,11 @@ const singleGameComponent: any = {
 
       this.commentToSend = ""
     },
-    setGameMethod(id: number) {
-      gameService.getGame(id).then(
-        it => {
-          const lista = ['playing', 'completed', 'onHold', 'dropped', 'planning', 'replayed']
-          for (var i = 0; i < lista.length; i++) {
-            this.graphicData[i].value = it[lista[i]]/100
-          }
-          this.registry.game = it
-          this.graphicData = [...this.graphicData]
-          this.star = !it.favorite
-          this.selectedImg = it.imgs[0].value
-        }
-      )
-    },
-    feedGameData(id: number) {
-      this.foundGames= []
-      this.searchByGameName.name = ""
-      this.$router.push(`/singleGame/${id}`)
-      if (this.auth.id != 0) {
-        registryService.getRegistryByUserGame_ID(this.auth.id, id).then(
-          it => {
-            this.registry = it
-            this.star = !it.favorite
-            this.selectedImg = it.game.imgs[0].value            
-          }
-        ).catch(_ => {
-          this.setGameMethod(id)
-        })
-      }
-      else {
-        this.setGameMethod(id)
-      }
-    },
     getComments() {
       this.qntComment += 5
       const getComment = { id: this.$route.params.id, qnt: this.qntComment}
       commentService.getCommentByGameID(getComment).then(
         it => {
-          console.log(it)
           this.userComment = it
         }
       )
