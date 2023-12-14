@@ -36,7 +36,7 @@
             </div>
         </div>
         <div id="allGames">
-            <div v-if="data != undefined"> 
+            <div v-if="((data != undefined)? (data.length != 0): false) && games != undefined"> 
                 <router-link v-for="gameCard in ((games.length ==0)? data: games)" :to="`/singleGame/${gameCard.id}`">
                     <div id="gameCard">
                         <div class="backImageConfig" :style="{backgroundImage: `url(${gameCard.gameImage})`}">
@@ -63,7 +63,7 @@
             <div v-else id="loadingGame">
                 <h1>{{loading}}</h1>
             </div>
-            <SeeMoreComponent v-if="data != undefined" :moreResults="gameListRequest" />
+            <SeeMoreComponent v-if="data != undefined && games != undefined" :moreResults="gameListRequest" />
         </div>
     </div>
 </div>

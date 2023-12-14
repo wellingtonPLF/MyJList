@@ -5,6 +5,7 @@ import { PropType } from "vue";
 import { mapState } from "vuex";
 import userService from "../../../shared/services/userService";
 import { colorEnum } from "../../../shared/enums/colorEnum";
+import { registryEnum } from "../../../shared/enums/registryEnum";
 import { sexualityImg } from "../../../shared/enums/sexualityImg";
 
 const profileComponent: any = {
@@ -16,7 +17,6 @@ const profileComponent: any = {
   data() {
     return {
       imgType: sexualityImg,
-      listaStatistics: ['Playing', 'Completed', 'OnHold', 'Dropped', 'Planning', 'Replayed'],
       graphicData: [],
       noteCapture: undefined
     };
@@ -34,31 +34,35 @@ const profileComponent: any = {
     auth() {
       this.noteCapture = `${this.auth.note}`
     },
-    obj() {
-      const total = this.listaStatistics.reduce((result, item) => {
-        const indexAttr = this.listaStatistics.indexOf(item)
-        const value = (this.obj[this.findAttr(indexAttr)] == undefined)? 
-        0 : this.obj[this.findAttr(indexAttr)]
-        return result + value
-      }, 0)
-      
-      for (var i = 0; i < this.listaStatistics.length; i++) {
-        const key = this.findAttr(i)
-        const attr = (this.obj[key] == undefined)? 0 : this.obj[key]
-        this.graphicData[i].value = (attr/total).toFixed(2)
-      }
+    obj(value) {
+      this.graphicUse(value)
     }
   },
   beforeMount(){
     for (const property in colorEnum) {
-      this.graphicData.push({ value: 0, color: colorEnum[property]})
+      this.graphicData.push({ value: 0, color: colorEnum[property], type: property})
+    }
+    if (this.auth.id != 0) {
+      this.graphicUse(this.auth)
     }
   },
   methods: {
-    findAttr(index: number) {
-      const result = (this.listaStatistics[index] == "OnHold")? 
-      "onHold" : this.listaStatistics[index].toLowerCase()
-      return result
+    graphicUse(data: any){
+      const lista = { PLAY: 'playing', COMPLETE: 'completed', HOLD: 'onHold', DROP: 'dropped', PLAN: 'planning', REPLAY: 'replayed' }
+      const values: number[] = []
+      let i = 0
+      for (const property in registryEnum) {
+        values.push(data[lista[property]])
+      }
+      const total = values.reduce((a,b) => a + b)
+      for (const value of values) {
+        this.graphicData[i].value = value/total
+        this.graphicData = [...this.graphicData]
+        i++
+      }
+    },
+    typeChoice(value: any){
+      return registryEnum[value]
     },
     goBack() {
       if (this.$router.options.history.state.back == null) {

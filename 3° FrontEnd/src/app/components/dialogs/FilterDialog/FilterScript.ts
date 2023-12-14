@@ -1,6 +1,8 @@
 import { PropType, toRaw } from "vue";
 import gameService from "../../../shared/services/gameService";
 
+import { useQuery } from "vue-query";
+
 const filterComponent: any = {
   name: 'FilterComponent',
   props: {
@@ -11,9 +13,7 @@ const filterComponent: any = {
   data() {
     return {
       showFilter: true,
-      typeOfGames: [],
-      studios: [],
-      plataforms: [],
+      data: undefined,
       choose: {
         type: [],
         status: [],
@@ -54,13 +54,11 @@ const filterComponent: any = {
     }
   },
   beforeMount() {
-    gameService.getFilterData().then(
-      it => {
-        this.studios = it.studios
-        this.typeOfGames = it.gameTypes
-        this.plataforms = it.plataform
-      }
-    )
+    const { data } = useQuery('releases', async () => {
+      return await gameService.getFilterData()
+    }) 
+
+    this.data = data;
   },
 };
 

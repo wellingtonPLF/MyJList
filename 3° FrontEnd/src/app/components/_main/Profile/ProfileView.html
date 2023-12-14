@@ -101,10 +101,10 @@
                     <div id="statistics">
                         <div>
                             <div>
-                                <div v-for="item, index in listaStatistics">
-                                    <div :style="`background-color: ${graphicData[index].color}`"></div>
-                                    <div>{{listaStatistics[index]}}</div>
-                                    <div>{{(obj[findAttr(index)] == undefined)? 0: obj[findAttr(index)]}}</div>
+                                <div v-for="item, index in graphicData">
+                                    <div :style="`background-color: ${item.color}`"></div>
+                                    <div>{{typeChoice(item.type)}}</div>
+                                    <div>{{item.value}}</div>
                                 </div>
                             </div>
                             <div>

@@ -13,12 +13,12 @@
     </div>
     <div class="unselect">
         <div @click="filterBy('all')">All Games</div>
-        <div @click="filterBy('Playing')">Playing</div>
-        <div @click="filterBy('Replaying')">Replaying</div>
-        <div @click="filterBy('Plan to Play')">Plan to play</div>
-        <div @click="filterBy('On-Hold')">On-Hold</div>
-        <div @click="filterBy('Dropped')">Dropped</div>
-        <div @click="filterBy('Completed')">Completed</div>
+        <div @click="filterBy('Playing')" :style="`color: ${(filterChoice == 'Playing')? '#00b7e7': ''}`">Playing</div>
+        <div @click="filterBy('Replaying')" :style="`color: ${(filterChoice == 'Replaying')? '#00b7e7': ''}`">Replaying</div>
+        <div @click="filterBy('Plan to Play')" :style="`color: ${(filterChoice == 'Plan to Play')? '#00b7e7': ''}`">Plan to play</div>
+        <div @click="filterBy('On-Hold')" :style="`color: ${(filterChoice == 'On-Hold')? '#00b7e7': ''}`">On-Hold</div>
+        <div @click="filterBy('Dropped')" :style="`color: ${(filterChoice == 'Dropped')? '#00b7e7': ''}`">Dropped</div>
+        <div @click="filterBy('Completed')" :style="`color: ${(filterChoice == 'Completed')? '#00b7e7': ''}`">Completed</div>
     </div>
     <div>
         <div>

@@ -107,6 +107,9 @@ const singleGameComponent: any = {
     changeImage(index: number){
       this.selectedImg = this.registry.game.imgs[index].value
     },
+    typeChoice(value: any){
+      return registryEnum[value]
+    },
     // --------------------------------------------------------------------------------------------------------------
     applyBtnAction() {
       if (this.registry.id != 0) {
@@ -183,10 +186,12 @@ const singleGameComponent: any = {
     },
     // --------------------------------------------------------------------------------------------------------------
     graphicUse(data: any){
-      const lista = ['playing', 'completed', 'onHold', 'dropped', 'planning', 'replayed']
-      for (var i = 0; i < lista.length; i++) {
-        this.graphicData[i].value = data[lista[i]]/100
+      const lista = { PLAY: 'playing', COMPLETE: 'completed', HOLD: 'onHold', DROP: 'dropped', PLAN: 'planning', REPLAY: 'replayed' }
+      let i = 0
+      for (const property in registryEnum) {
+        this.graphicData[i].value = data[lista[property]]/100
         this.graphicData = [...this.graphicData]
+        i++
       }
     },
     hoursMinutes() {
@@ -237,7 +242,7 @@ const singleGameComponent: any = {
   },
   beforeMount(){
     for (const property in colorEnum) {
-      this.graphicData.push({ value: 0, color: colorEnum[property]})
+      this.graphicData.push({ value: 0, color: colorEnum[property], type: property})
     }
     this.selectedImg = this.registry.game.gameImage
     this.recomendations = [

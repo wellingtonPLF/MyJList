@@ -4,12 +4,12 @@
             <font-awesome-icon @click="show()" :icon="['fas', 'xmark']" />
         </div>
         <div>
-            <div>
+            <div v-if="data != undefined">
                 
                 <fieldset>
                     <legend>Type of Game: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.type)"/></legend>
 
-                    <div v-for="item in typeOfGames" class="changeInputSize">
+                    <div v-for="item in data.gameTypes" class="changeInputSize">
                         <input type="checkbox" :value="item.value" :name="item.value" v-model="choose.type"/>
                         <label :for="item.value">{{item.value}}</label>
                     </div>
@@ -18,7 +18,7 @@
                     <legend>Type of Plataform: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.plataforms)"/></legend>
 
                     <div style="display: flex; flex-direction: column;">
-                        <div v-for="item in plataforms" class="changeInputSize">
+                        <div v-for="item in data.plataform" class="changeInputSize">
                             <input type="checkbox" :value="item.value" :name="item.value" v-model="choose.plataforms"/>
                             <label :for="item.value">{{item.value}}</label>
                         </div>
@@ -89,7 +89,7 @@
                 <fieldset>
                     <legend>Studio: <font-awesome-icon :icon="['fas', 'broom']" @click="clearIt(choose.studios)"/></legend>
 
-                    <div v-for="item in studios" class="changeInputSize">
+                    <div v-for="item in data.studios" class="changeInputSize">
                         <input type="checkbox" :value="item.value" :name="item.value" v-model="choose.studios"/>
                         <label :for="item.value">{{item.value}}</label>
                     </div>

@@ -20,6 +20,7 @@ const gameListComponent: any = {
       progressReponsive: "all",
       cssEffect: { obj: undefined, type: undefined},
       emptyList: 'Loading . . .',
+      filterChoice: undefined,
       progress: 100
     };
   },
@@ -80,8 +81,10 @@ const gameListComponent: any = {
       }
     },
     filterBy(value: string) {
+      this.filterChoice = value
       if (value == 'all') {
         this.registry = this.data
+        this.filterChoice = undefined
       }
       else {
         const result = this.data.filter( (item) => {return item.progress == value})

@@ -189,7 +189,12 @@ const gameComponent: any = {
         // )
         return (lista.includes(false)) ? false : true
       })
-      this.games = result
+      if (result.length == 0) {
+        this.games = undefined
+      }
+      else {
+        this.games = result
+      }
       this.loading = 'Nothing to Render'
     }
   },

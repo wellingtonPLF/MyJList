@@ -150,35 +150,10 @@
                     <div id="statistics">
                         <div>
                             <div>
-                                <div>
-                                    <div style="background-color: green;"></div>
-                                    <div>Playing</div>
-                                    <div>{{(registry.game.playing == 'N/A')? "0%" : registry.game.playing + '%'}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: blue;"></div>
-                                    <div>Complete</div>
-                                    <div>{{(registry.game.completed == 'N/A')? "0%" : registry.game.completed + '%'}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: yellow;"></div>
-                                    <div>On-Hold</div>
-                                    <div>{{(registry.game.onHold == 'N/A')? "0%" : registry.game.onHold + '%'}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: red;"></div>
-                                    <div>Dropped</div>
-                                    <div>{{(registry.game.dropped == 'N/A')? "0%" : registry.game.dropped + '%'}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: magenta;"></div>
-                                    <div>Plan to Play</div>
-                                    <div>{{(registry.game.planning == 'N/A')? "0%" : registry.game.planning + '%'}}</div>
-                                </div>
-                                <div>
-                                    <div style="background-color: rgb(7, 180, 180);"></div>
-                                    <div>Replayed</div>
-                                    <div>{{(registry.game.replayed == 'N/A')? "0%" : registry.game.replayed + '%'}}</div>
+                                <div v-for="item, index in graphicData">
+                                    <div :style="`background-color: ${item.color}`"></div>
+                                    <div>{{typeChoice(item.type)}}</div>
+                                    <div>{{item.value * 100}}%</div>
                                 </div>
                             </div>
                             <div>
