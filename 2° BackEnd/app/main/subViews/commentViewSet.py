@@ -7,11 +7,19 @@ from main.subModels.comment import Comment
 from main.serializers.commentSerializer import CommentSerializer
 from django.db.models import F
 from main.authenticate import CommentAuthentication
+from main.enum.tokenEnum import TokenEnum
+from main.utils.jwtUtil import JwtUtil
+from main.utils.cookieUtil import CookieUtil
+from main.services.tokenService import TokenService
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     authentication_classes = [CommentAuthentication]
     serializer_class = CommentSerializer
+    accessTokenName = TokenEnum.TOKEN_NAME.value
+    cookieUtil = CookieUtil()
+    jwtUtil = JwtUtil()
+    tokenService = TokenService()
 
     def list(self, request):
         comments = self.get_queryset()[:100]
@@ -23,12 +31,18 @@ class CommentViewSet(viewsets.ModelViewSet):
         try:
             gameID = request.data['id']
             qnt = request.data['qnt']
-            comment = Comment.objects.filter(game_id=12)
+            try:
+                accessToken = self.cookieUtil.getCookieValue(request, self.accessTokenName)
+                jwt = self.tokenService.findByToken(accessToken)            
+                auth_id = self.jwtUtil.extractSubject(jwt.key, self.accessTokenName)
+            except:
+                auth_id = 0
+            comment = Comment.objects.filter(game_id = gameID)
             comment = comment.extra(
-                select={'is_top': 'user_id = 11'},
+                select={'is_top': f'user_id = {auth_id}'},
                 order_by=['-is_top', 'vote']
             )
-            result = CommentSerializer(comment, many=True, read_only=True).data
+            result = CommentSerializer(comment[:qnt], many=True, read_only=True).data
             return Response(result)
         except Exception as error:
             raise ParseError(f"Something went Wrong in getCommentByGame: {error}")

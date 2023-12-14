@@ -11,8 +11,8 @@ from main.enum.tokenEnum import TokenEnum
 from main.enum.jwtEnum import JwtEnum
 from main.utils.jwtUtil import JwtUtil
 from main.utils.cookieUtil import CookieUtil
-from main.services.authService import AuthService
 from main.services.tokenService import TokenService
+from main.services.authService import AuthService
 from main.authenticate import UserAuthentication
 
 from django.middleware.csrf import get_token

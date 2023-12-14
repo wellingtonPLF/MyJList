@@ -36,10 +36,10 @@ class RegistryViewSet(viewsets.ModelViewSet):
         try:
             user_id = request.data["user_id"]
             game_id = request.data["game_id"]
-            result = Registry.objects.get(game=game_id, user=user_id)
-            registry = RegistrySerializer(result).data
+            result = Registry.objects.filter(game=game_id, user=user_id)
+            registry = RegistrySerializer(result[0]).data
             return Response(registry)
-        except Registry.DoesNotExist:
+        except:
             raise ParseError("Something went Wrong in getRegistryByUserGame_ID")
 
     def get_registry(self, id):
