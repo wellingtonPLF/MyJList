@@ -9,6 +9,7 @@ import AuthUserComponent from './views/AuthUserScreen/AuthUserComponent.vue';
 import SingleGameComponent from './views/SingleGameScreen/SingleGameComponent.vue';
 import RegistryComponent from './views/RegistryScreen/RegistryComponent.vue';
 import TestComponent from './views/TestScreen/TestComponent.vue';
+import LimitComponent from './views/LimitScreen/LimitComponent.vue';
 import SingleUserComponent from './views/SingleUserScreen/SingleUserComponent.vue';
 import MaintenanceComponent from './components/_main/Maintenance/MaintenanceComponent.vue';
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/game',
     name: 'game',
     component: GameComponent
+  },
+  {
+    path: '/limit',
+    name: 'limit',
+    component: LimitComponent
   },
   {
     path: '/about',

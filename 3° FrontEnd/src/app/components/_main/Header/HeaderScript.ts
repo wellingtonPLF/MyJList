@@ -4,6 +4,11 @@ import { USER_INITIAL_STATE } from "../../../shared/solid/nullObject/_user";
 
 export default {
     name: 'HeaderComponent',
+    data() {
+        return {
+            limit: false
+        }
+    },
     computed: {
         ...mapState('authReducer', {
             userLogin: (state: any) => state.auth
@@ -17,5 +22,12 @@ export default {
                 _ => {}
             )
         }
+    },
+    mounted() {
+        authService.limitSize().then(
+            it => {
+                this.limit = it
+            }
+        )
     }
 }

@@ -1,0 +1,19 @@
+<div id="limit" class="backImageConfig">
+    <span class="backPage">
+        <GoBackComponent />
+    </span>
+    <div>
+        <div v-if="request">
+            <h1>MyJList is at capacity right now</h1>
+            <p>Add your email and join to the waitlist.</p>
+            <form>
+                <input placeholder="Email" type="email" required/>
+                <button type="submit" @click="sendRequest()">Send</button>
+            </form>
+        </div>
+        <div v-else id="wellDone">
+            <img src="https://uploads-ssl.webflow.com/622f59f2a1b5545ea35fc746/62eaee08bb40631ac3cb4ba4_Copy%20of%20Metacommerce%20Icon%20(1).png"/>
+            <h2>Thanks for your atention, see you later . . .</h2>
+        </div>
+    </div>
+</div>

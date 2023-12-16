@@ -26,17 +26,17 @@ $backAnimation_2: "https://i.pinimg.com/originals/71/38/d2/7138d2b24c2854677eb2a
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.6) 100%, transparent), url($backAnimation_2);
-    width: 75%
+    width: 75%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6) 100%, transparent)
 }
 
 #moreResults > div:first-child:hover {
     font-weight: 600;
-    background: linear-gradient(rgba(255, 255, 255, 0.027) 100%, transparent), url($backAnimation_2);
+    background: linear-gradient(rgba(255, 255, 255, 0.027) 100%, transparent)
 }
 
 #moreResults > div:last-child > div:hover  {
-    background: linear-gradient(rgba(255, 255, 255, 0.137) 100%, transparent), url($backAnimation_2);
+    background: linear-gradient(rgba(255, 255, 255, 0.137) 100%, transparent)
 }
 
 #moreResults > div:last-child {
@@ -51,11 +51,11 @@ $backAnimation_2: "https://i.pinimg.com/originals/71/38/d2/7138d2b24c2854677eb2a
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.6) 100%, transparent), url($backAnimation_2);
     width: 100%;
     height: 100%;
     max-width: 4vh;
     border-radius: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6) 100%, transparent)
 }
 
 @media screen and (max-width: 725px) {

@@ -13,7 +13,7 @@
             </div>
             <router-link v-else id="userLogin" to="/profile">{{userLogin.nickname}}</router-link>
             <!-- --------------------------------------------------------------- -->
-            <router-link v-if="userLogin.id == 0" to="/signUp">SIGN UP</router-link>
+            <router-link v-if="userLogin.id == 0" :to="`${(limit)? '/limit': '/signUp'}`">SIGN UP</router-link>
             <div v-else to="/" id="notification">
                 <font-awesome-icon :icon="['far', 'bell']" />
             </div>

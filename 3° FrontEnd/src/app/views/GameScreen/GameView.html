@@ -63,7 +63,7 @@
             <div v-else id="loadingGame">
                 <h1>{{loading}}</h1>
             </div>
-            <SeeMoreComponent v-if="data != undefined && games != undefined" :moreResults="gameListRequest" />
+            <SeeMoreComponent v-if="((data != undefined)?  data.length != gameSize : false) && games != undefined" :moreResults="gameListRequest" />
         </div>
     </div>
 </div>

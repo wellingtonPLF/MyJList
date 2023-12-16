@@ -334,7 +334,7 @@
                         <div>
                             <div>Últimas Análises</div>
                             <div>
-                                <div>Number of Comments ({{userComment.length}})</div>
+                                <div>Number of Comments ({{commentSize}})</div>
                                 <div>Recomendations ({{registry.game.recommendation}})</div>
                             </div>
                         </div>
@@ -371,7 +371,7 @@
                                 </div>
                             </div>
                         </div>
-                        <SeeMoreComponent :moreResults="getComments"/>
+                        <SeeMoreComponent v-if="userComment.length != commentSize" :moreResults="getComments"/>
                     </div>
                 </div>
             </div>

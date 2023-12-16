@@ -58,6 +58,16 @@ class AuthService {
     }
   }
 
+  async limitSize() {
+    try{
+      const { data } = await api.get(`${this.path}/limitSize/`);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  }
+
   async refreshToken() {
     try{
       const { data } = await api.get(`${this.path}/refresh/`);

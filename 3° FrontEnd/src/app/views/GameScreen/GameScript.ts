@@ -18,6 +18,7 @@ const gameComponent: any = {
   data() {
     return {
       data: undefined,
+      gameSize: undefined,
       games: [] as I_Game[],
       prevRoute: undefined,
       optionSelected: undefined,
@@ -202,6 +203,12 @@ const gameComponent: any = {
     const { data } = useQuery('gameList', async () => {
       return await gameService.listGames(25)
     }) 
+
+    gameService.getGameSize().then(
+      it => {
+        this.gameSize = it;
+      }
+    )
 
     this.data = data;
     this.gameListRequest()  

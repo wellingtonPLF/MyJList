@@ -47,6 +47,16 @@ class GameService {
     }
   }
 
+  async getGameSize() {
+    try{
+      const { data } = await api.get(`${this.path}/getGameSize/`);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  }
+
   async getMostRecommended() {
     try{
       const { data } = await api.get(`${this.path}/getMostRecommended/`);

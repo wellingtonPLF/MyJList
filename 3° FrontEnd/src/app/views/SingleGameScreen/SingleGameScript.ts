@@ -41,6 +41,7 @@ const singleGameComponent: any = {
       tag: TAG_INITIAL_STATE,
       foundGames: [],
       recomendations: [] as any[],
+      commentSize: undefined,
       userComment: [
         COMMENT_INITIAL_STATE,
         COMMENT_INITIAL_STATE,
@@ -264,7 +265,13 @@ const singleGameComponent: any = {
     )
     .catch((error) => {
       console.log(error)
-    })    
+    }) 
+    
+    commentService.getCommentSize(this.$route.params.id).then(
+      it => {
+        this.commentSize = it;
+      }
+    )
   },
 };
 

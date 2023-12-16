@@ -18,6 +18,16 @@ class CommentService {
     }
   } 
 
+  async getCommentSize(id: any) {
+    try{
+      const { data } = await api.get(`${this.path}/getCommentSize/${id}/`);
+      return data;
+    }
+    catch(error: any) {
+      return Promise.reject(error);
+    }
+  }
+
   async insert(comment: Comment) {
     try{
       const { data } = await api.post(`${this.path}/`, Comment.simpleRefract(comment));

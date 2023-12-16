@@ -1,0 +1,72 @@
+
+#limit {
+    display: flex;
+    height: 100%;
+    min-height: 100vh;
+    position: relative; 
+}
+
+#limit > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+#limit > div > div {
+    display: flex;
+    padding: 30px 0 0px 30px;
+    border-radius: 15px;
+    flex-direction: column;
+    width: 490px;
+    height: 190px;
+    margin-bottom: 100px;
+    color: white;
+}
+
+#wellDone {
+    position: relative;
+    bottom: 15%
+}
+
+$imgSize: 380px;
+
+#wellDone > img {
+    height: $imgSize;
+    width: $imgSize;
+}
+
+#wellDone > h2 {
+    position: absolute;
+    bottom: -82%;
+}
+
+
+#limit form input {
+    height: 30px;
+    width: 70%;
+    padding-left: 15px;
+    border-radius: 25px;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    border: 2px solid rgb(231, 231, 231);
+    border-right-width: 0;
+}
+
+#limit form input:focus {
+    outline: none;
+}
+
+#limit form > :last-child {
+    height: 36px;
+    width: 18%;
+    font-weight: 600;
+    color: white;
+    background-color: rgb(19, 165, 97);
+    border: unset;
+    border-radius: 25px;
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
+}
