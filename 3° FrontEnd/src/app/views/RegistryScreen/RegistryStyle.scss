@@ -101,6 +101,10 @@ $progressFilterHeight: 2.6vw;
     font-size: 0.8vw;
 }
 
+#gameCardList > div:first-child {
+    position: relative;
+}
+
 #cardImage {
     display: flex;
     align-items: flex-end;
@@ -114,6 +118,28 @@ $progressFilterHeight: 2.6vw;
     height: 2.11vw;
     line-height: 2.11vw;
     text-align: center;
+}
+
+#gameCardList > div:first-child > span {
+    z-index: 1000;
+    position: absolute;
+    color: white;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    width: 3vh;
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 0.5vh;
+    background-color: rgba(0, 0, 0, 0.781);
+}
+
+#gameCardList > div:first-child > span:hover {
+    width: 3.2vh;
+    height: 3.2vh;
+    font-size: 2vh;
 }
 
 $tagsBackColor: rgb(38, 40, 38);

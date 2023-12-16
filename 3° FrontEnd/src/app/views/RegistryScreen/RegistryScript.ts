@@ -6,7 +6,6 @@ import { registryEnum } from "../../shared/enums/registryEnum";
 import { colorEnum } from "../../shared/enums/colorEnum";
 import tagService from "../../shared/services/tagService";
 
-import { useRoute } from 'vue-router';
 import { useQuery } from "vue-query";
 
 const gameListComponent: any = {
@@ -17,6 +16,8 @@ const gameListComponent: any = {
   data() {
     return {
       registry: [],
+      data: undefined,
+      tags: undefined,
       progressReponsive: "all",
       cssEffect: { obj: undefined, type: undefined},
       emptyList: 'Loading . . .',
@@ -29,26 +30,6 @@ const gameListComponent: any = {
       auth: (state: any) => state.auth
     })
   },
-  setup() {
-    const route = useRoute();
-
-    const { data } = useQuery('registry', async () => {
-      const tags = await tagService.listAll()
-      return await registryService.getRegistryByUserID(parseInt(`${route.params.id}`)).then(
-        it => {
-          it.map((registry: any) => {
-            registry.tag = tags.filter((tag: any) => {
-              return tag.id == registry.tag.id
-            })[0]
-          })
-          it.sort((a:any, b:any) => (a.game.name > b.game.name ? -1 : 1)).reverse()
-          return it
-        }
-      )
-    })
-
-    return { data }
-  },
   watch: {
     data(value: any) {
       if (value.length == 0){
@@ -60,7 +41,40 @@ const gameListComponent: any = {
       this.filterBy(this.progressReponsive)
     }
   },
+  mounted() {
+    tagService.listAll().then(
+      it => {
+        this.tags = it
+      }
+    )
+    const { data } = useQuery('registry', async () => {
+      return registryService.getRegistryByUserID(this.$route.params.id).then(
+        it => {
+          it.map((registry: any) => {
+            registry.tag = this.tags.filter((tag: any) => {
+              return tag.id == registry.tag.id
+            })[0]
+          })
+          it.sort((a:any, b:any) => (a.game.name > b.game.name ? -1 : 1)).reverse()
+          return it
+        }
+      )
+    })
+
+    this.data = data
+  },
   methods: {
+    deleteRegistry(id: any, position: any){
+      registryService.delete(id).then(
+        _ => {
+          this.registry.splice(position, 1)
+          if (this.registry.length == 0) {
+            this.registry = undefined
+            this.emptyList = 'Nothing to Render'
+          }
+        }
+      )
+    },
     hoursMinutes(playtime: any){
       const hours_minutes_total = Math.round(playtime * 60)
       const hours = Math.floor(playtime)

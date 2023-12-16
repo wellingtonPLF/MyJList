@@ -34,7 +34,7 @@
         </div> 
     </div>
     <div v-if="((data != undefined)? (data.length != 0): false) && registry != undefined">
-        <div id="gameCardList" v-for="item in ((registry.length != 0)? registry : data)">
+        <div id="gameCardList" v-for="item, index in ((registry.length != 0)? registry : data)">
             <div>
                 <router-link class="backImageConfig" id="cardImage" 
                 :style="{backgroundImage: `url(${item.game.gameImage})`}" :to="`/singleGame/${item.game.id}`">
@@ -43,6 +43,9 @@
                         <span v-if="item.game.name.length > 40">. . .</span>
                     </div>
                 </router-link>
+                <span @click="deleteRegistry(item.id, index)">
+                    <font-awesome-icon :icon="['fas', 'xmark']" />
+                </span>
             </div>
             <div>
                 <div>{{hoursMinutes(item.game.playtime)[0]}} hours</div>
