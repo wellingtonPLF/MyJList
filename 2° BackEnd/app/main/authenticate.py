@@ -13,6 +13,8 @@ class AuthAuthentication(BaseAuthentication):
             return None
         elif method == "GET" and "/isLoggedIn" in request.path: 
             return None
+        elif method == "GET" and "/limitSize" in request.path: 
+            return None
         elif method == "POST" and "/" in request.path:
             return None
         elif method == "GET" and "/refresh" in request.path:

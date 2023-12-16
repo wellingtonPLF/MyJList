@@ -105,6 +105,12 @@ class AuthViewSet(viewsets.ModelViewSet):
         self.jwtUtil.extractSubject(jwtDB.key, TokenEnum.TOKEN_NAME.value)
         return Response(True)
 
+    @action(detail=False, methods=['GET'], url_path='limitSize')
+    def limitSize(self, request):
+        qnt = self.get_queryset()
+        limit = len(qnt) >= 10
+        return Response(limit)
+
     @action(detail=False, methods=['POST'], url_path='acceptAuth')
     def acceptAuth(self, request):
         auth = request.data

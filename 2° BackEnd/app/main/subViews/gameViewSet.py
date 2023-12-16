@@ -33,6 +33,12 @@ class GameViewSet(viewsets.ModelViewSet):
         games = self.get_queryset()[:25]
         serializer = self.get_serializer(games, many=True)
         return Response(serializer.data)
+
+    #/game/getGameSize
+    @action(detail=False, methods=['GET'], url_path='getGameSize')
+    def getGameSize(self, request):
+        games = self.get_queryset()
+        return Response(len(games))
     
     #/game/listGames
     @action(detail=False, methods=['GET'], url_path='listGames/(?P<qnt>\d+)')

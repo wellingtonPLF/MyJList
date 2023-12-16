@@ -26,6 +26,12 @@ class CommentViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(comments, many=True)
         return Response(serializer.data)
 
+    #/game/getCommentSize
+    @action(detail=False, methods=['GET'], url_path='getCommentSize/(?P<id>\d+)')
+    def getCommentSize(self, request, id):
+        comments = Comment.objects.filter(game_id = id)
+        return Response(len(comments))
+
     @action(detail=False, methods=['POST'], url_path='getCommentByGame')
     def getCommentByGame(self, request):
         try:
