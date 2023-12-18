@@ -97,7 +97,7 @@ const gameListComponent: any = {
     filterBy(value: string) {
       this.filterChoice = value
       if (value == 'all') {
-        this.registry = this.data
+        this.registry = this.copyList(this.data)
         this.filterChoice = undefined
       }
       else {
@@ -106,7 +106,7 @@ const gameListComponent: any = {
           this.registry = undefined
         }
         else{
-          this.registry = result
+          this.registry = this.copyList(result)
         }
       }
       this.emptyList = 'Nothing to Render'
@@ -120,7 +120,7 @@ const gameListComponent: any = {
     },
     async updateGameCard(item: any, attr: any){
       let referenceRegistry: any = undefined
-      const result = this.data.some((registry) => {
+      const result = this.registry.some((registry) => {
         if (registry.id == item.id){
           if (attr == 'tag') {
             return registry[attr].value == item[attr].value
