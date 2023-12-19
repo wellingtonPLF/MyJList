@@ -78,7 +78,7 @@
                     <div>
                         <select v-if="auth.id != 0 && $route.params.id == auth.id" name="score" v-model="item.note" 
                         :class="`${(cssEffect.type == 'note' && cssEffect.obj == item)? 'cssEffect':''}`">
-                            <option disabled value="Unknow">Select</option>
+                            <option value="Unknow">Select</option>
                             <option value="Incredible">Awesome</option>
                             <option value="Great">Great</option>
                             <option value="Good">Good</option>

@@ -72,6 +72,16 @@ const homeComponent: any = {
     };
   },
   methods: {
+    handleResize() {
+      if (window.innerWidth <= 800 && this.enableSplideChange) {
+        this.changeSplide()
+        this.enableSplideChange = false
+      }
+      else if (window.innerWidth > 800 && !this.enableSplideChange) {
+        this.changeSplide()
+        this.enableSplideChange = true
+      }
+    },
     changeExpected(value: string){
       if (value == 'release') {
         this.splide.destroy()
@@ -134,16 +144,7 @@ const homeComponent: any = {
 
     this.data = data;
 
-    window.addEventListener('resize', () => {
-      if (window.innerWidth <= 800 && this.enableSplideChange) {
-        this.changeSplide()
-        this.enableSplideChange = false
-      }
-      else if (window.innerWidth > 800 && !this.enableSplideChange) {
-        this.changeSplide()
-        this.enableSplideChange = true
-      }
-    })
+    window.addEventListener('resize', this.handleResize)
 
     gameService.getAiring().then((it) => {
       this.airing = it;
@@ -174,6 +175,12 @@ const homeComponent: any = {
     .catch((error) => {
       console.error(error);
     });
+  },
+  beforeUnmount() {
+    if (this.splide) {
+      this.splide.destroy();
+    }
+    window.removeEventListener('resize', this.handleResize);
   },
 };
 

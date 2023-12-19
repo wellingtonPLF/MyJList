@@ -16,6 +16,7 @@ const gameListComponent: any = {
   data() {
     return {
       registry: [],
+      refetch: undefined,
       data: undefined,
       tags: undefined,
       progressReponsive: "all",
@@ -47,7 +48,7 @@ const gameListComponent: any = {
         this.tags = it
       }
     )
-    const { data } = useQuery('registry', async () => {
+    const { data, refetch } = useQuery('registry', async () => {
       return registryService.getRegistryByUserID(this.$route.params.id).then(
         it => {
           it.map((registry: any) => {
@@ -62,11 +63,13 @@ const gameListComponent: any = {
     })
 
     this.data = data
+    this.refetch = refetch 
   },
   methods: {
-    deleteRegistry(id: any, position: any){
+    deleteRegistry(id: any, position: any) {
       registryService.delete(id).then(
         _ => {
+          this.refetch();
           this.registry.splice(position, 1)
           if (this.registry.length == 0) {
             this.registry = undefined
@@ -106,7 +109,7 @@ const gameListComponent: any = {
           this.registry = undefined
         }
         else{
-          this.registry = this.copyList(result)
+          this.registry = result
         }
       }
       this.emptyList = 'Nothing to Render'
@@ -120,13 +123,13 @@ const gameListComponent: any = {
     },
     async updateGameCard(item: any, attr: any){
       let referenceRegistry: any = undefined
-      const result = this.registry.some((registry) => {
+      const result = this.data.some((registry) => {
         if (registry.id == item.id){
           if (attr == 'tag') {
             return registry[attr].value == item[attr].value
           }
           if (registry[attr] != item[attr]){
-            referenceRegistry = registry
+            referenceRegistry = item
           }
           return registry[attr] == item[attr]
         }
@@ -141,7 +144,7 @@ const gameListComponent: any = {
         
         try{
           const it = await registryService.update(registry)
-
+          this.refetch()
           if (attr == 'note' || progress == "Plan"){
             referenceRegistry.note = it.note
             item.note = it.note

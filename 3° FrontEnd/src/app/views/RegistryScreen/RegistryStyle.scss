@@ -127,8 +127,8 @@ $progressFilterHeight: 2.6vw;
     cursor: pointer;
     top: 0;
     right: 0;
-    width: 3vh;
-    height: 3vh;
+    width: 2vw;
+    height: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,9 +137,9 @@ $progressFilterHeight: 2.6vw;
 }
 
 #gameCardList > div:first-child > span:hover {
-    width: 3.2vh;
-    height: 3.2vh;
-    font-size: 2vh;
+    width: 2.2vw;
+    height: 2.2vw;
+    font-size: 1.2vw;
 }
 
 $tagsBackColor: rgb(38, 40, 38);
@@ -269,6 +269,17 @@ $heightValue: 2vw;
 // ----------------------------------------------------------------------
 
 @media screen and (max-width: 800px) {
+    #gameCardList > div:first-child > span {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    #gameCardList > div:first-child > span:hover {
+        width: 8vw;
+        height: 8vw;
+        font-size: 5vw;
+    }
+
     #gameListBanner {
         height: 80vw;
     }
