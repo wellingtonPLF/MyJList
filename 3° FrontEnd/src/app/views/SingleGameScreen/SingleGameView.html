@@ -37,6 +37,9 @@
                     <div>
                         <div id="userInfo">
                             <div class="backImageConfig" :style="{backgroundImage: `url('${registry.game.gameImage}')`}">
+                                <div class="loading" v-if="registry.game.id == 0">
+                                    <LoaderComponent />
+                                </div>
                                 <div style="width: 100%; height: 100%; box-sizing: border-box; border: 5px solid rgba(255, 255, 255, 0.445);">
                                     <div v-if="auth.id != 0">
                                         <font-awesome-icon v-if="star" @click="fav()" :icon="['far', 'star']" class="favStar" style="color: white;"/>
@@ -192,13 +195,19 @@
             <div>
                 <div>
                     <div>
-                        <div>
+                        <div id="gameDataImage">
                             <div class="backImageConfig"
                                 :style="{backgroundImage: `url(${selectedImg})`}">
+                                <div class="loading" v-if="registry.game.id == 0">
+                                    <LoaderComponent />
+                                </div>
                             </div>
                             <div style="margin-top: 5px;" v-if="registry.game.imgs">
                                 <div v-for="(item, index) in registry.game.imgs" class="backImageConfig" @click="changeImage(index)"
                                     :style="{backgroundImage: `url(${item.value})`, cursor: 'pointer', borderColor: `${(selectedImg == item.value)? 'white': 'rgba(89, 82, 86, 0.5)'}`}">
+                                    <div class="loading" v-if="registry.game.id == 0">
+                                        <LoaderComponent />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -315,6 +324,9 @@
                     <div>
                         <div v-for="item in recomendations" class="backImageConfig" @click="gameChoice(item.game.id)"
                             :style="{backgroundImage: `url(${item.game.gameImage})`}">
+                            <div class="loading" v-if="item.id == undefined">
+                                <LoaderComponent />
+                            </div>
                         </div>
                     </div>
                 </div>

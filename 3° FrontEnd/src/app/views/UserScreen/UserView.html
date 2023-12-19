@@ -9,11 +9,11 @@
                 </div>
             </span>
         </div>
-        <div id="loader" v-if="users == undefined && data == undefined">
+        <div id="loader" v-if="status == 'loading'">
             <LoaderComponent />
         </div>
         <div id="allUsers">
-            <div v-for="userCard in ((users != undefined)? users: data)" class="userCard">
+            <div v-for="userCard in ((status == 'loading')? users: data)" class="userCard">
                 <div>
                     <div :style="{ backgroundImage: `
                         url(${

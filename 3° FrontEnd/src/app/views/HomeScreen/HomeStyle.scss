@@ -19,10 +19,11 @@
     width: 100%;
     height: 25vw;
     color: white;
-    background-image: url("https://gameranx.com/wp-content/uploads/2023/01/Elden-Ring.jpg");
+    // background-image: url("https://gameranx.com/wp-content/uploads/2023/01/Elden-Ring.jpg");
+    background-image: url("src/assets/images/homeBack.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
 }
 
 #banner > div{

@@ -20,6 +20,7 @@ import { TAG_INITIAL_STATE } from "../../shared/solid/nullObject/_tag";
 import { colorEnum } from "../../shared/enums/colorEnum";
 import { REGISTRY_INITIAL_STATE } from "../../shared/solid/nullObject/_registry";
 import { sexualityImg } from "../../shared/enums/sexualityImg";
+import LoaderComponent from "./../../components/features/Loader/LoaderComponent.vue";
 
 library.add(faStar);
 
@@ -28,7 +29,8 @@ const singleGameComponent: any = {
   components: {
     GoBackComponent,
     SeeMoreComponent,
-    BarChartComponent
+    BarChartComponent,
+    LoaderComponent
   },
   computed: {
     ...mapState('authReducer', {

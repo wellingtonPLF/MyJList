@@ -137,9 +137,7 @@ $progressFilterHeight: 2.6vw;
 }
 
 #gameCardList > div:first-child > span:hover {
-    width: 2.2vw;
-    height: 2.2vw;
-    font-size: 1.2vw;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 $tagsBackColor: rgb(38, 40, 38);
@@ -272,12 +270,6 @@ $heightValue: 2vw;
     #gameCardList > div:first-child > span {
         width: 7vw;
         height: 7vw;
-    }
-
-    #gameCardList > div:first-child > span:hover {
-        width: 8vw;
-        height: 8vw;
-        font-size: 5vw;
     }
 
     #gameListBanner {

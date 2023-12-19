@@ -17,11 +17,11 @@ const authUserComponent: any = {
     })
   },
   setup() {
-    const { data } = useQuery('users', async () => {
+    const { data, status } = useQuery('user', async () => {
       return await userService.getAuthenticatedUser()
     }) 
-
-    return { data }
+    
+    return { data, status }
   },
   data() {
     return {

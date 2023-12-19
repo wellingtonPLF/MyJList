@@ -38,9 +38,9 @@
                                         <!-- <font-awesome-icon v-if="obj.id == auth.id" :icon="['fas', 'user-group']" /> -->
                                         <font-awesome-icon v-if="obj.id == auth.id" style="color: rgb(184, 7, 7); cursor: default;" :icon="['fas', 'ban']" />
                                         <div v-else>
-                                            <font-awesome-icon v-if="(auth.id != 0 && !auth.friend.some((x: any) => x.id == obj.id))" :icon="['fas', 'user-plus']" @click="friendRequest"/>
-                                            <font-awesome-icon v-else-if="auth.id != 0" :icon="['fas', 'square-check']" id="followCheck"/>
-                                            <font-awesome-icon v-else style="color: rgb(184, 7, 7); cursor: default;" :icon="['fas', 'ban']" />
+                                            <font-awesome-icon v-if="obj.id == 0" style="color: rgb(184, 7, 7); cursor: default;" :icon="['fas', 'ban']" />
+                                            <font-awesome-icon v-else-if="(auth.id != 0 && !auth.friend.some((x: any) => x.id == obj.id))" :icon="['fas', 'user-plus']" @click="friendRequest"/>
+                                            <font-awesome-icon v-else :icon="['fas', 'square-check']" id="followCheck"/>
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                                 <div v-for="item, index in graphicData">
                                     <div :style="`background-color: ${item.color}`"></div>
                                     <div>{{typeChoice(item.type)}}</div>
-                                    <div>{{item.value}}</div>
+                                    <div>{{Math.round(item.value * total, 0)}}</div>
                                 </div>
                             </div>
                             <div>
@@ -179,9 +179,15 @@
                         <div id="historyList">
                             <div>Last Games Updates</div>
                             <div>
-                                <router-link v-for="item in obj.lastUpdated" :to="`/singleGame/${item.game.id}`">
-                                    <div class="backImageConfig containerBorderAnimation" :style="{backgroundImage: `url(${item.game.gameImage})`}"></div>
+                                <router-link v-if="obj.lastUpdated.length != 0" v-for="item in obj.lastUpdated" :to="`/singleGame/${item.game.id}`">
+                                    <div class="backImageConfig containerBorderAnimation" :style="{backgroundImage: `url(${item.game.gameImage})`}">
+                                        <div class="bordImageBox" v-if="obj.id == 0"></div>
+                                        <div class="loading" v-if="obj.id == 0">
+                                            <LoaderComponent />
+                                        </div>
+                                    </div>
                                 </router-link>
+                                <div v-else style="width: 100%; text-align: center; margin-top: 20px;">Nothing to Render</div>
                             </div>
                         </div>
                         <div>
@@ -215,7 +221,12 @@
                             <div>Favorite Games</div>
                             <div id="favGame">
                                 <router-link v-if="obj.favoriteGames.length !=0" v-for="item in obj.favoriteGames" :to="`/singleGame/${item.game.id}`"
-                                class="backImageConfig containerBorderAnimation" :style="{backgroundImage: `url(${item.game.gameImage})`}"></router-link>
+                                class="backImageConfig containerBorderAnimation" :style="{backgroundImage: `url(${item.game.gameImage})`}">
+                                    <div class="bordImageBox" v-if="obj.id == 0"></div>
+                                    <div class="loading" v-if="obj.id == 0">
+                                        <LoaderComponent />
+                                    </div>
+                                </router-link>
                                 <div v-else style="text-align: center; height: auto; margin-bottom: 5vh; width: 100%;">
                                     <div>No Favorite Found</div>
                                 </div>

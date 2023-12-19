@@ -1,5 +1,6 @@
 import GoBackComponent from "../../features/GoBack/GoBackComponent.vue"
 import BarChartComponent from "../../features/BarChart/BarChartComponent.vue"
+import LoaderComponent from "../../features/Loader/LoaderComponent.vue"
 import { I_User } from "../../../shared/interfaces/I_User";
 import { PropType } from "vue";
 import { mapState } from "vuex";
@@ -12,12 +13,14 @@ const profileComponent: any = {
   name: "ProfileComponent",
   components: {
     GoBackComponent,
-    BarChartComponent
+    BarChartComponent,
+    LoaderComponent
   },
   data() {
     return {
       imgType: sexualityImg,
       graphicData: [],
+      total: 0,
       noteCapture: undefined
     };
   },
@@ -54,9 +57,9 @@ const profileComponent: any = {
       for (const property in registryEnum) {
         values.push(data[lista[property]])
       }
-      const total = values.reduce((a,b) => a + b)
+      this.total = values.reduce((a,b) => a + b)
       for (const value of values) {
-        this.graphicData[i].value = value/total
+        this.graphicData[i].value = value/this.total
         this.graphicData = [...this.graphicData]
         i++
       }

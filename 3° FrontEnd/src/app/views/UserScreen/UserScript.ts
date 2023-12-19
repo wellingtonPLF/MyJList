@@ -16,11 +16,11 @@ const userComponent: any = {
     };
   },
   setup() {
-    const { data } = useQuery('users', async () => {
+    const { data, status } = useQuery('users', async () => {
       return await userService.listAll()
     }) 
 
-    return { data }
+    return { data, status }
   },
   methods: {
     searchUser(event) {
