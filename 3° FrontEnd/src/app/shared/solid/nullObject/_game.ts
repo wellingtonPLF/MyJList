@@ -1,3 +1,6 @@
+
+const assetImage = 'http://localhost:5173/console.png'
+
 export const GAME_INITIAL_STATE: any = {
     id: 0,
     score: 0,
@@ -20,12 +23,12 @@ export const GAME_INITIAL_STATE: any = {
     theme: [{value: undefined}],
     producer: [{value: undefined}],
     achievements: [{value: undefined}],
-    gameImage: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg",
+    gameImage: assetImage,
     imgs: [
-      {value: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg"},
-      {value: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg"},
-      {value: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg"},
-      {value: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg"},
-      {value: "https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg"}
+      {value: assetImage},
+      {value: assetImage},
+      {value: assetImage},
+      {value: assetImage},
+      {value: assetImage}
     ]
 }

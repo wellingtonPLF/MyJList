@@ -5,11 +5,6 @@ $searchBarHeight: 5.53vh * 2;
     justify-content: center;
 }
 
-// :deep(#filter > div){
-//     position: static;
-//     margin-top: 23vh;
-// }
-
 #gamePage {
     position: relative;
     min-height: 100vh;
@@ -31,7 +26,7 @@ $searchBarHeight: 5.53vh * 2;
     color: white;
     height: 26.32vh * 2;
     justify-content: flex-end;
-    background-image: url("https://wallpaperaccess.com/full/5871207.png");
+    background-image: url("../../../assets/images/games.png");
 }
 
 #gamePage > div:last-child > div:first-child > div:first-child {

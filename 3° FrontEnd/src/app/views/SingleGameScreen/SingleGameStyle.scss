@@ -21,7 +21,7 @@ $sizeLoad: 45px;
     height: $sizeLoad;
     width: $sizeLoad;
     border-color: white;
-    border-top-color: rgb(196, 21, 167);
+    border-top-color: rgb(235, 29, 56);
 }
 
 #profile {
@@ -32,7 +32,7 @@ $sizeLoad: 45px;
 }
 
 #profile > div:first-child {
-    background-image: url("https://images2.alphacoders.com/713/713713.jpg");
+    background-image: url("../../../assets/images/fundo.png");
     height: auto; 
     width: 100%;
     position: relative; 

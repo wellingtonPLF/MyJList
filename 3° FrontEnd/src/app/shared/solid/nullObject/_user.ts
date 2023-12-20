@@ -1,4 +1,7 @@
 
+const assetImage = 'http://localhost:5173/lastUpdate.png'
+const assetUser = 'http://localhost:5173/userImage.png'
+
 export const USER_INITIAL_STATE: any = {
     id: 0,
     note: '',
@@ -17,44 +20,44 @@ export const USER_INITIAL_STATE: any = {
     email: 'unknow',
     replayed: 0,
     hours: 0,
-    userImage: 'https://as2.ftcdn.net/v2/jpg/05/51/70/53/500_F_551705397_bLnUIG0FP08qgPYSfAkRjVQcylIvwYDg.jpg',
+    userImage: assetUser,
     role: [{
        id: 0, roleName: ''
     }],
     favoriteGames: [
       { 
         id: 0, 
-        game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+        game: { id: 0, gameImage: assetImage}
       },
       { 
         id: 0, 
-        game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+        game: { id: 0, gameImage: assetImage}
       },
       { 
         id: 0, 
-        game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+        game: { id: 0, gameImage: assetImage}
       },
       { 
         id: 0, 
-        game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+        game: { id: 0, gameImage: assetImage}
       }
     ],
     lastUpdated: [
       { 
         id: 0, 
-        game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+        game: { id: 0, gameImage: assetImage}
       },
       { 
         id: 0, 
-        game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+        game: { id: 0, gameImage: assetImage}
       },
       { 
         id: 0, 
-        game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+        game: { id: 0, gameImage: assetImage}
       },
       { 
         id: 0, 
-        game: { id: 0, gameImage: 'https://img.freepik.com/fotos-premium/ilustracao-do-joystick-do-gamepad-do-controlador-de-jogos-cyberpunk_691560-5812.jpg'}
+        game: { id: 0, gameImage: assetImage}
       }
     ],
     link: [],

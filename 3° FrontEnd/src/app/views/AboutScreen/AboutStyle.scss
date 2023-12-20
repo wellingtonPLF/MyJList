@@ -3,9 +3,12 @@
     display: flex;
     height: 100%;
     min-height: 100vh;
+    // background-image:
+    // linear-gradient(to left top, rgb(0, 0, 0) 5%, rgba(255, 255, 255, 0)),
+    // url("https://images8.alphacoders.com/131/1311910.jpg"); 
     background-image:
     linear-gradient(to left top, rgb(0, 0, 0) 5%, rgba(255, 255, 255, 0)),
-    url("https://images8.alphacoders.com/131/1311910.jpg"); 
+    url("../../../assets/images/mystic.png"); 
     position: relative; 
 }
 
@@ -32,7 +35,8 @@ $paddingPort: 2vw;
     height: 28.53vw - $paddingPort;
     padding: $paddingPort;
     margin-bottom: 1vw;
-    background-image: url("https://wallpapersmug.com/download/1920x1080/da7528/hyper-light-drifter-minimal-game.jpg");
+    // background-image: url("https://wallpapersmug.com/download/1920x1080/da7528/hyper-light-drifter-minimal-game.jpg");
+    background-image: url("../../../assets/images/aliens.png");
 }
 
 #portifolio a {

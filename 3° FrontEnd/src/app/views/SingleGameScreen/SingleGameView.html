@@ -36,7 +36,7 @@
                 <div>
                     <div>
                         <div id="userInfo">
-                            <div class="backImageConfig" :style="{backgroundImage: `url('${registry.game.gameImage}')`}">
+                            <div class="backImageConfig" :style="{backgroundImage: `url(${registry.game.gameImage})`}">
                                 <div class="loading" v-if="registry.game.id == 0">
                                     <LoaderComponent />
                                 </div>
