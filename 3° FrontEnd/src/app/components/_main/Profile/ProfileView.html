@@ -11,7 +11,7 @@
             <div>
                 <div>
                     <div id="userProfile">
-                        <div class="backImageConfig" :style="{backgroundImage: `url(${obj.userImage})`}">
+                        <div class="backImageConfig" :style="{backgroundImage: `url(${(obj.userImage)? obj.userImage : noUserImage})`}">
                             <div style="font-family: 'Secular One', sans-serif;">i</div>
                         </div>
                         <div>

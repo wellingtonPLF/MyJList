@@ -8,6 +8,7 @@ import userService from "../../../shared/services/userService";
 import { colorEnum } from "../../../shared/enums/colorEnum";
 import { registryEnum } from "../../../shared/enums/registryEnum";
 import { sexualityImg } from "../../../shared/enums/sexualityImg";
+import { assetUser } from "../../../shared/solid/nullObject/_user";
 
 const profileComponent: any = {
   name: "ProfileComponent",
@@ -20,6 +21,7 @@ const profileComponent: any = {
     return {
       imgType: sexualityImg,
       graphicData: [],
+      noUserImage: assetUser,
       total: 0,
       noteCapture: undefined
     };

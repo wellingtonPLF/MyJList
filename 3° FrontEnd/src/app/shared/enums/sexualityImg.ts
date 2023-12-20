@@ -1,4 +1,4 @@
 export const sexualityImg = {
-    "male": "src/assets/images/pink.png",
-    "female": "src/assets/images/monster.png"
+    "male": "http://localhost:5173/pink.png",
+    "female": "http://localhost:5173/monster.png"
 }

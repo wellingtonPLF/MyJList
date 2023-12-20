@@ -1,6 +1,6 @@
 
 const assetImage = 'http://localhost:5173/lastUpdate.png'
-const assetUser = 'http://localhost:5173/userImage.png'
+export const assetUser = 'http://localhost:5173/userImage.png'
 
 export const USER_INITIAL_STATE: any = {
     id: 0,
