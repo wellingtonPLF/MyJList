@@ -71,15 +71,15 @@ class Command(BaseCommand):
         notes = [3, 5, 7, 8, 9, 10]
 
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        json_game_path = os.path.join(base_dir, 'games.json')
-        json_theme_path = os.path.join(base_dir, 'themes.json')
-        json_studio_path = os.path.join(base_dir, 'studios.json')
-        json_producer_path = os.path.join(base_dir, 'producers.json')
-        json_type_path = os.path.join(base_dir, 'gametype.json')  
-        json_lang_path = os.path.join(base_dir, 'languages.json')
-        json_nation_path = os.path.join(base_dir, 'nationality.json')
-        json_plataform_path = os.path.join(base_dir, 'plataform.json')
-        json_perspective_path = os.path.join(base_dir, 'perspective.json')
+        json_game_path = os.path.join(base_dir, 'feed/games.json')
+        json_theme_path = os.path.join(base_dir, 'feed/themes.json')
+        json_studio_path = os.path.join(base_dir, 'feed/studios.json')
+        json_producer_path = os.path.join(base_dir, 'feed/producers.json')
+        json_type_path = os.path.join(base_dir, 'feed/gametype.json')  
+        json_lang_path = os.path.join(base_dir, 'feed/languages.json')
+        json_nation_path = os.path.join(base_dir, 'feed/nationality.json')
+        json_plataform_path = os.path.join(base_dir, 'feed/plataform.json')
+        json_perspective_path = os.path.join(base_dir, 'feed/perspective.json')
 
         with open(json_game_path) as json_file:
             games = json.load(json_file)
