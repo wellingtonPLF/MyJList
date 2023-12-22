@@ -43,7 +43,7 @@
                         <span v-if="item.game.name.length > 40">. . .</span>
                     </div>
                 </router-link>
-                <span @click="deleteRegistry(item.id, index)">
+                <span v-if="auth.id == $route.params.id" @click="deleteRegistry(item.id, index)">
                     <font-awesome-icon :icon="['fas', 'xmark']" />
                 </span>
             </div>
