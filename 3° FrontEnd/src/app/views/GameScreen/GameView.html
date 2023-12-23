@@ -1,7 +1,7 @@
 <div id="gamePage" class="backImageConfig">
     <FilterComponent v-if="filter == false" :openClose="filter" :openClosefilter="showfilterMethod" :filter="filterMethodResult"/>
     <div>
-        <div class="backImageConfig">
+        <div class="backImageConfig" :style="`background-image: url(${img_GameView});`">
             <div>
                 <div>
                     <h1>All Games Registered</h1>

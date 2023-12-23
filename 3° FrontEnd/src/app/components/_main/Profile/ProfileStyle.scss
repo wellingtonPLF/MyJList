@@ -70,8 +70,6 @@ $sizeLoad: 25px;
     left: 0px;
     height: 582px;
     z-index: 8;
-    // background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_5.jpg");
-    background-image: url("../../../../assets/images/userBackground.png");
     background-position: center;
 }
 
@@ -110,18 +108,14 @@ $limitWidth: 1500px;
     align-items: center;
     width: 635px;
     flex-direction: column;
-    // background-color: rgba(0, 0, 0, 0.452);
 }
 
 #userProfile > div:first-child {
     border-radius: 100%;
     width: 38%;
     position: relative;
-    // width: 100%;
-    // background-position: unset;
     margin-bottom: 5px;
     height: 240px;
-    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayn_0.jpg");
 }
 
 $infoHeigth: 40px;
@@ -157,8 +151,6 @@ $infoHeigth: 40px;
 }
 
 #network > * {
-    // cursor: pointer;
-    // color: gray;
     color: rgb(184, 7, 7);
 }
 

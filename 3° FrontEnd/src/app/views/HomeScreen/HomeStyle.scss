@@ -19,7 +19,7 @@
     width: 100%;
     height: 25vw;
     color: white;
-    background-image: url("http://localhost:5173/homeBack.png");
+    background-color: rgb(26, 15, 33);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
@@ -296,6 +296,7 @@ $bandle-Height-img: 28vw;
     width: $bandle-Width-img;
     height: $bandle-Height-img;
     vertical-align: top;
+    background-color: rgb(26, 15, 33)
 }
 
 #gameAwards {

@@ -1,6 +1,6 @@
 <div id="profilePage">
     <div id="profile">
-        <div class="backImageConfig">
+        <div class="backImageConfig" :style="`background-image: url(${img_Game});`">
             <div>
                 <div id="searchBar">
                     <GoBackComponent :gChoice="gameChoice" class="backPage"/>
@@ -363,7 +363,7 @@
                                         <div>{{(item.user.status == 'off') ? 'Offline': 'Online'}}</div>
                                         <div>
                                             <div>Publicado:</div>
-                                            <div>{{item.publication}}</div>
+                                            <div>{{item.publication.slice(0, 10)}}</div>
                                         </div>
                                     </div>
                                 </div>

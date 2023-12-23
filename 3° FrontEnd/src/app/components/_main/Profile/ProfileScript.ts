@@ -19,6 +19,7 @@ const profileComponent: any = {
   },
   data() {
     return {
+      img_Profile: `${import.meta.env.VITE_HTTP}/assets/images/userBackground.png`,
       imgType: sexualityImg,
       graphicData: [],
       noUserImage: assetUser,

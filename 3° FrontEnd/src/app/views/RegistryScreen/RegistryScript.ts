@@ -15,6 +15,7 @@ const gameListComponent: any = {
   },
   data() {
     return {
+      img_Registry: `${import.meta.env.VITE_HTTP}/assets/images/planet.png`,
       registry: [],
       refetch: undefined,
       data: undefined,

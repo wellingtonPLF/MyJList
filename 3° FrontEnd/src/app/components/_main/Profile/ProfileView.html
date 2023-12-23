@@ -5,7 +5,7 @@
     <div id="profile">
         <div>
             <div>
-                <div class="backImageConfig"></div>
+                <div class="backImageConfig" :style="`background-image: url(${img_Profile});`"></div>
                 <div></div>
             </div>
             <div>
@@ -38,7 +38,7 @@
                                         <!-- <font-awesome-icon v-if="obj.id == auth.id" :icon="['fas', 'user-group']" /> -->
                                         <font-awesome-icon v-if="obj.id == auth.id" style="color: rgb(184, 7, 7); cursor: default;" :icon="['fas', 'ban']" />
                                         <div v-else>
-                                            <font-awesome-icon v-if="obj.id == 0" style="color: rgb(184, 7, 7); cursor: default;" :icon="['fas', 'ban']" />
+                                            <font-awesome-icon v-if="auth.id == 0" style="color: rgb(184, 7, 7); cursor: default;" :icon="['fas', 'ban']" />
                                             <font-awesome-icon v-else-if="(auth.id != 0 && !auth.friend.some((x: any) => x.id == obj.id))" :icon="['fas', 'user-plus']" @click="friendRequest"/>
                                             <font-awesome-icon v-else :icon="['fas', 'square-check']" id="followCheck"/>
                                         </div>

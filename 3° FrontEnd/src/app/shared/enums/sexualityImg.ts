@@ -1,4 +1,4 @@
 export const sexualityImg = {
-    "male": "http://localhost:5173/pink.png",
-    "female": "http://localhost:5173/monster.png"
+    "male": `${import.meta.env.VITE_HTTP}/assets/images/monster.png`,
+    "female": `${import.meta.env.VITE_HTTP}/assets/images/pink.png`,
 }

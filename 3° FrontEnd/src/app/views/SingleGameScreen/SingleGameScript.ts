@@ -39,6 +39,7 @@ const singleGameComponent: any = {
   },
   data() {
     return {
+      img_Game: `${import.meta.env.VITE_HTTP}/assets/images/fundo.png`,
       registry: REGISTRY_INITIAL_STATE,
       tag: TAG_INITIAL_STATE,
       foundGames: [],

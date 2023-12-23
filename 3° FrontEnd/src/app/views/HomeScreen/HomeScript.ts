@@ -27,6 +27,7 @@ const homeComponent: any = {
   },
   data() {
     return {
+      img_banner: `./assets/images/homeBack.png`,
       games: [] as Game[],
       enableSplideChange: true,
       grid: { perPage: 0, gap: 0, type: 'slide', rows: 0, columns: 0},

@@ -8,6 +8,7 @@ $searchBarHeight: 5.53vh * 2;
 #gamePage {
     position: relative;
     min-height: 100vh;
+    background-color: black;
     background-image: linear-gradient(to bottom, rgb(0, 0, 0) 35%, rgba(12, 44, 59, 0.349)),
     url("https://wallpapercave.com/wp/wp2732962.jpg");
 }
@@ -26,7 +27,6 @@ $searchBarHeight: 5.53vh * 2;
     color: white;
     height: 26.32vh * 2;
     justify-content: flex-end;
-    background-image: url("../../../assets/images/games.png");
 }
 
 #gamePage > div:last-child > div:first-child > div:first-child {

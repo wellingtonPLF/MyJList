@@ -10,6 +10,8 @@ const aboutComponent: any = {
   },
   data() {
     return {
+      img_AboutView: `${import.meta.env.VITE_HTTP}/assets/images/mystic.png`,
+      img_Portfolio: `${import.meta.env.VITE_HTTP}/assets/images/aliens.png`,
       users: [
         USER_INITIAL_STATE,
         USER_INITIAL_STATE,

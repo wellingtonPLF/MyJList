@@ -1,5 +1,5 @@
 
-const assetImage = 'http://localhost:5173/console.png'
+const assetImage = `${import.meta.env.VITE_HTTP}/assets/images/console.png`
 
 export const GAME_INITIAL_STATE: any = {
     id: 0,
