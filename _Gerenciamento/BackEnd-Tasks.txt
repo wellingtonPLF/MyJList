@@ -1,19 +1,24 @@
 
 ## BACKEND ##
 
-1° Organizar pasta commands colocar um arquivo json separado do seeds.py;
+RAWG = Changed!
 
-2° Improve Top Rated game (Eu posso criar um jogo qualquer e ser o unico a dar uma nota 10, 
+2° Usar GameAPI (
+IGDB
+
+client_id= Changed!
+client_secret = Changed!
+
+token_acess =  Changed!
+)
+
+3° Improve Top Rated game (Eu posso criar um jogo qualquer e ser o unico a dar uma nota 10, 
 e esse jogo vai ficar em primeiro, devido o algoritimo ruim, melhore);
-
-3° Limitar a quantidade de cadastros dos usuarios;
 
 4° após usar o GameAPI ver se tem necessidade de colocar o attr perspectives;
 
-5° problemas de registros duplos, example:
-   - (id_registry 1 user_id=1 game_id = 3) 
-   - (id_registry 2 user_id=1 game_id = 3);
+5° Test Update User Friend atribute;
 
-6° Test Update User Friend atribute;
+6° Image Performance
 
-
+7° Recuperação de Conta caso esqueça a senha
