@@ -11,4 +11,4 @@ urlpatterns = [
     re_path(r'^', include(router.urls)),
 ]
 
-start_scheduler()
+#start_scheduler()
