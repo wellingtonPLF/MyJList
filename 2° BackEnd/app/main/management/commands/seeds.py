@@ -32,7 +32,7 @@ from random import randrange, uniform
 
 # python manage.py seeds
 
-numberOfEntities = 10
+numberOfEntities = 3
 numberOfRegistry = 45
 numberOfComments = 100
 
