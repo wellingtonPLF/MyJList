@@ -47,7 +47,7 @@ const gameComponent: any = {
           }
         }
       ).catch((error) => {
-        console.error(error);
+        //console.error(error);
       });
     },
     async searchGame(event) {

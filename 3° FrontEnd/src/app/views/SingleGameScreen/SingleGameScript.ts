@@ -138,7 +138,6 @@ const singleGameComponent: any = {
             this.cssUpdateBtnEffect = false;
           }
         ).catch( (e) => {
-          console.log(e)
           this.cssUpdateBtnEffect = false;
         })
       }
@@ -234,9 +233,7 @@ const singleGameComponent: any = {
           this.userComment = it
         }
       )
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((_) => {})
     }
   },
   watch: {
@@ -266,9 +263,7 @@ const singleGameComponent: any = {
         this.recomendations = it
       }
     )
-    .catch((error) => {
-      console.log(error)
-    }) 
+    .catch((_) => {}) 
     
     commentService.getCommentSize(this.$route.params.id).then(
       it => {

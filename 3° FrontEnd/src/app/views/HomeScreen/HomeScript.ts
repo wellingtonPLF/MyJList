@@ -151,7 +151,7 @@ const homeComponent: any = {
       this.airing = it;
     })
     .catch((error) => {
-      console.error(error);
+      //console.error(error);
     });
 
     gameService.getReleases().then((it) => {
@@ -160,21 +160,21 @@ const homeComponent: any = {
     })
     .catch((error) => {
       this.expected = this.nullGames
-      console.error(error);
+      //console.error(error);
     });
 
     gameService.getTopRated().then((it) => {
       this.topRated = it;
     })
     .catch((error) => {
-      console.error(error);
+      //console.error(error);
     });
 
     gameService.getMostRecommended().then((it) => {
       this.recomendations = it;
     })
     .catch((error) => {
-      console.error(error);
+      //console.error(error);
     });
   },
   beforeUnmount() {
