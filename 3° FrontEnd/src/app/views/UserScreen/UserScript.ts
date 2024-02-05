@@ -10,7 +10,7 @@ const userComponent: any = {
   components: { GoBackComponent, LoaderComponent },
   data() {
     return {
-      img_background: `${import.meta.env.VITE_HTTP}/assets/images/background.png`,
+      img_background: `./assets/images/background.png`,
       users: undefined,
       imgType: sexualityImg,
       userNick: { nickname: undefined}

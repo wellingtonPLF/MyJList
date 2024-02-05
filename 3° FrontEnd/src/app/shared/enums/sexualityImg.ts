@@ -1,4 +1,4 @@
 export const sexualityImg = {
-    "male": `${import.meta.env.VITE_HTTP}/assets/images/monster.png`,
-    "female": `${import.meta.env.VITE_HTTP}/assets/images/pink.png`,
+    "male": `${./assets/images/monster.png`,
+    "female": `${./assets/images/pink.png`,
 }

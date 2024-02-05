@@ -17,7 +17,7 @@ const gameComponent: any = {
   },
   data() {
     return {
-      img_GameView: `${import.meta.env.VITE_HTTP}/assets/images/games.png`,
+      img_GameView: `./assets/images/games.png`,
       data: undefined,
       gameSize: undefined,
       games: [] as I_Game[],

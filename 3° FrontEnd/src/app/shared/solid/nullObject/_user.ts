@@ -1,6 +1,6 @@
 
-const assetImage = `${import.meta.env.VITE_HTTP}/assets/images/lastUpdate.png`
-export const assetUser = `${import.meta.env.VITE_HTTP}/assets/images/userImage.png`
+const assetImage = `./assets/images/lastUpdate.png`
+export const assetUser = `./assets/images/userImage.png`
 
 export const USER_INITIAL_STATE: any = {
     id: 0,
