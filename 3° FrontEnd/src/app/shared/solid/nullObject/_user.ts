@@ -1,6 +1,7 @@
+import { fullUrl } from "@utils/general.util"
 
-const assetImage = `${import.meta.env.VITE_HTTP}./assets/images/lastUpdate.png`
-export const assetUser = `${import.meta.env.VITE_HTTP}./assets/images/userImage.png`
+const assetImage = `${fullUrl}/assets/images/lastUpdate.png`
+export const assetUser = `${fullUrl}/assets/images/userImage.png`
 
 export const USER_INITIAL_STATE: any = {
     id: 0,

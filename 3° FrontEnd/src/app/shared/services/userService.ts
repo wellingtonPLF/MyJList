@@ -10,8 +10,8 @@ class UserService {
 
   async listAll() {
     try{
-      const { data } = await api.get(`${this.path}/`);
-      return data;
+      const result = await api.get(`${this.path}/`);
+      return result?.data; 
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -20,8 +20,8 @@ class UserService {
 
   async getUser(id: number) {
     try{
-      const { data } = await api.get(`${this.path}/${id}/`);
-      return data;
+      const result = await api.get(`${this.path}/${id}/`);
+      return result?.data; 
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -30,8 +30,8 @@ class UserService {
 
   async searchUser(nickname: string) {
     try{
-      const { data } = await api.post(`${this.path}/searchUser/`, nickname);
-      return data;
+      const result = await api.post(`${this.path}/searchUser/`, nickname);
+      return result?.data; 
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -50,8 +50,8 @@ class UserService {
 
   async insert(user: User) {
     try{
-      const { data } = await api.post(`${this.path}/`, User.simpleRefract(user));
-      return data;
+      const result = await api.post(`${this.path}/`, User.simpleRefract(user));
+      return result?.data; 
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -60,8 +60,8 @@ class UserService {
 
   async update(user: User) {
     try{
-      const { data } = await api.put(`${this.path}/${user.id}/`, User.simpleRefract(user));
-      return data;
+      const result = await api.put(`${this.path}/${user.id}/`, User.simpleRefract(user));
+      return result?.data; 
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -70,8 +70,8 @@ class UserService {
 
   async delete(id: number) {
     try{
-      const { data } = await api.delete(`${this.path}/${id}/`);
-      return data;
+      const result = await api.delete(`${this.path}/${id}/`);
+      return result?.data; 
     }
     catch(error: any) {
       return Promise.reject(error);

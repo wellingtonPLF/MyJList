@@ -139,18 +139,21 @@ const homeComponent: any = {
     }
   },
   beforeMount() {
-    const { data } = useQuery('releases', async () => {
+    const result = useQuery('releases', async () => {
       return await gameService.getReleases()
     }) 
 
-    this.data = data;
+    if (result) {
+      const { data } = result
+      this.data = data; 
+    }
 
     window.addEventListener('resize', this.handleResize)
 
     gameService.getAiring().then((it) => {
       this.airing = it;
     })
-    .catch((error) => {
+    .catch((_) => {
       //console.error(error);
     });
 
@@ -158,7 +161,7 @@ const homeComponent: any = {
       this.releases = it;
       this.expected = it;      
     })
-    .catch((error) => {
+    .catch((_) => {
       this.expected = this.nullGames
       //console.error(error);
     });
@@ -166,14 +169,14 @@ const homeComponent: any = {
     gameService.getTopRated().then((it) => {
       this.topRated = it;
     })
-    .catch((error) => {
+    .catch((_) => {
       //console.error(error);
     });
 
     gameService.getMostRecommended().then((it) => {
       this.recomendations = it;
     })
-    .catch((error) => {
+    .catch((_) => {
       //console.error(error);
     });
   },

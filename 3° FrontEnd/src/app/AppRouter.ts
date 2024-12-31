@@ -12,6 +12,7 @@ import TestComponent from './views/TestScreen/TestComponent.vue';
 import LimitComponent from './views/LimitScreen/LimitComponent.vue';
 import SingleUserComponent from './views/SingleUserScreen/SingleUserComponent.vue';
 import MaintenanceComponent from './components/_main/Maintenance/MaintenanceComponent.vue';
+import AccessComponent from './views/AccessHostname/AccessComponent.vue';
 
 const routes = [
   {
@@ -78,7 +79,12 @@ const routes = [
     path: '/maintenance',
     name: 'maintenance',
     component: MaintenanceComponent
-  }
+  },
+  {
+    path: '/access',
+    name: 'access',
+    component: AccessComponent
+  },  
 ]
 
 

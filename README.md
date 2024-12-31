@@ -59,11 +59,15 @@ Você pode visualizar o gerenciamento/progresso do projeto através da pasta _Ge
 ## 🚀 Como executar
 
 - <b>Clone o repositório</b>
-- <b>BackEnd + Linux</b> ⇝ Entre na venv com: `source .venv/bin/activate`
-- <b>BackEnd + Windows</b> ⇝ Entre na venv com: `venv\Script\activate`
 - <b>PostgreSQL</b> ⇝ Create Database: `CREATE DATABASE my-j-list;`
+- <b>Em Backend Crie a pasta venv: </b> ⇝ Create venv com: `python -m virtualenv venv`
+- <b>BackEnd + Linux</b> ⇝ Entre na venv com: `source .venv/bin/activate`
+- <b>Adicione as dependencias:</b> 
+⇝ sudo apt-get update
+⇝ sudo apt-get install build-essential libpq-dev python3-dev
+⇝ python -m pip install -r requirements.txt
 - <b>Migrations</b> ⇝ Feed Database: `python manage.py seeds`
-- <b>BackEnd + (Linux or Windows)</b> ⇝ Inicie com: `python manage.py runserver 0.0.0.0:8000`
+- <b>Start BackEnd</b> ⇝ Inicie com: `python manage.py runserver 0.0.0.0:8000`
 - <b>FrontEnd</b> ⇝ Instale as dependências com: `yarn install`
 - <b>FrontEnd</b> ⇝ Inicie o servidor com: `yarn run server`
 

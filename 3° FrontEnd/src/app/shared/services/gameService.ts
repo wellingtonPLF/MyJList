@@ -9,8 +9,8 @@ class GameService {
 
   async listAll() {
     try{
-      const { data } = await api.get(`${this.path}/`);
-      return data;
+      const result = await api.get(`${this.path}/`);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -19,8 +19,8 @@ class GameService {
 
   async listGames(id: number) {
     try{
-      const { data } = await api.get(`${this.path}/listGames/${id}/`);
-      return data;
+      const result = await api.get(`${this.path}/listGames/${id}/`);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -29,8 +29,8 @@ class GameService {
 
   async searchGame(gameName: string) {
     try{
-      const { data } = await api.post(`${this.path}/searchGame/`, gameName);
-      return data;
+      const result = await api.post(`${this.path}/searchGame/`, gameName);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -39,8 +39,8 @@ class GameService {
 
   async getFilterData() {
     try{
-      const { data } = await api.get(`${this.path}/getFilterData/`);
-      return data;
+      const result = await api.get(`${this.path}/getFilterData/`);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -49,8 +49,8 @@ class GameService {
 
   async getGameSize() {
     try{
-      const { data } = await api.get(`${this.path}/getGameSize/`);
-      return data;
+      const result = await api.get(`${this.path}/getGameSize/`);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -59,7 +59,7 @@ class GameService {
 
   async getMostRecommended() {
     try{
-      const { data } = await api.get(`${this.path}/getMostRecommended/`);
+      const { data }  = await api.get(`${this.path}/getMostRecommended/`);
       return data;
     }
     catch(error: any) {
@@ -69,8 +69,8 @@ class GameService {
 
   async getAiring() {
     try{
-      const { data } = await api.get(`${this.path}/getAiring/`);
-      return data;
+      const result = await api.get(`${this.path}/getAiring/`);
+      return result?.data; 
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -89,8 +89,8 @@ class GameService {
 
   async getReleases() {
     try{
-      const { data } = await api.get(`${this.path}/getReleases/`);
-      return data;
+      const result = await api.get(`${this.path}/getReleases/`);
+      return result?.data;    
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -99,8 +99,8 @@ class GameService {
 
   async getGame(id: number) {
     try{
-      const { data } = await api.get(`${this.path}/${id}/`);
-      return data;
+      const result = await api.get(`${this.path}/${id}/`);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);

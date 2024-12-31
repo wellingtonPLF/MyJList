@@ -37,11 +37,13 @@ const aboutComponent: any = {
   mounted() {
     userService.listAll().then(
       it => {
-        this.users = it.filter((u) => {
-          return u.role.some((i) => i.roleName === "ROLE_ADMIN")
-        })
-        if (this.users.length != 0) {
-          this.user = this.users[0]
+        if (it) {
+          this.users = it.filter((u) => {
+            return u.role.some((i) => i.roleName === "ROLE_ADMIN")
+          })
+          if (this.users.length != 0) {
+            this.user = this.users[0]
+          }       
         }
       }
     )

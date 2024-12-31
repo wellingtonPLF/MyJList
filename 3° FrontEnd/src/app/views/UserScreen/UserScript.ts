@@ -35,7 +35,9 @@ const userComponent: any = {
           try {
             userService.searchUser(this.userNick).then(
               it => {
-                this.users = it
+                if (it) {
+                  this.users = it   
+                }
               }
             )
           }

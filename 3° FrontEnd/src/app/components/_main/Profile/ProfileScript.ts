@@ -9,6 +9,7 @@ import { colorEnum } from "../../../shared/enums/colorEnum";
 import { registryEnum } from "../../../shared/enums/registryEnum";
 import { sexualityImg } from "../../../shared/enums/sexualityImg";
 import { assetUser } from "../../../shared/solid/nullObject/_user";
+import { fullUrl } from "@utils/general.util";
 
 const profileComponent: any = {
   name: "ProfileComponent",
@@ -19,7 +20,7 @@ const profileComponent: any = {
   },
   data() {
     return {
-      img_Profile: `./assets/images/userBackground.png`,
+      img_Profile: `${fullUrl}/assets/images/userBackground.png`,
       imgType: sexualityImg,
       graphicData: [],
       noUserImage: assetUser,

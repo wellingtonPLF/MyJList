@@ -60,8 +60,8 @@ class AuthService {
 
   async limitSize() {
     try{
-      const { data } = await api.get(`${this.path}/limitSize/`);
-      return data;
+      const result = await api.get(`${this.path}/limitSize/`);
+      return result?.data;   
     }
     catch(error: any) {
       return Promise.reject(error);

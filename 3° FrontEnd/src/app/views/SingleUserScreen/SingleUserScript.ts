@@ -16,7 +16,9 @@ const singleUserComponent: any = {
     setUser(id: number) {
       userService.getUser(id).then(
         it => {
-          this.user = it;
+          if (it) {
+            this.user = it;
+          }
         }
       ).catch((error) => {
         console.log(error)

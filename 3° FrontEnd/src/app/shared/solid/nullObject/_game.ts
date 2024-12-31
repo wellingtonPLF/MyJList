@@ -1,5 +1,6 @@
+import { fullUrl } from "@utils/general.util"
 
-const assetImage = `${import.meta.env.VITE_HTTP}./assets/images/console.png`
+const assetImage = `${fullUrl}/assets/images/console.png`
 
 export const GAME_INITIAL_STATE: any = {
     id: 0,

@@ -26,7 +26,9 @@ export default {
     mounted() {
         authService.limitSize().then(
             it => {
-                this.limit = it
+                if (it) {
+                    this.limit = it
+                }
             }
         )
     }

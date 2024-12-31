@@ -7,6 +7,7 @@ import { colorEnum } from "../../shared/enums/colorEnum";
 import tagService from "../../shared/services/tagService";
 
 import { useQuery } from "vue-query";
+import { fullUrl } from "@utils/general.util";
 
 const gameListComponent: any = {
   name: "GameListComponent",
@@ -15,7 +16,7 @@ const gameListComponent: any = {
   },
   data() {
     return {
-      img_Registry: `./assets/images/planet.png`,
+      img_Registry: `${fullUrl}/assets/images/planet.png`,
       registry: [],
       refetch: undefined,
       data: undefined,
@@ -46,19 +47,23 @@ const gameListComponent: any = {
   mounted() {
     tagService.listAll().then(
       it => {
-        this.tags = it
+        if (it) {
+          this.tags = it    
+        }
       }
     )
     const { data, refetch } = useQuery('registry', async () => {
       return registryService.getRegistryByUserID(this.$route.params.id).then(
         it => {
-          it.map((registry: any) => {
-            registry.tag = this.tags.filter((tag: any) => {
-              return tag.id == registry.tag.id
-            })[0]
-          })
-          it.sort((a:any, b:any) => (a.game.name > b.game.name ? -1 : 1)).reverse()
-          return it
+          if (it) {
+            it.map((registry: any) => {
+              registry.tag = this.tags.filter((tag: any) => {
+                return tag.id == registry.tag.id
+              })[0]
+            })
+            it.sort((a:any, b:any) => (a.game.name > b.game.name ? -1 : 1)).reverse()
+            return it   
+          }          
         }
       )
     })

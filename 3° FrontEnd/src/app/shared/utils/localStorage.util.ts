@@ -1,5 +1,5 @@
 
-class LocalStorageUtil {
+export class LocalStorageUtil {
 
     getToken(tokenName: string) {
         return localStorage.getItem(tokenName)

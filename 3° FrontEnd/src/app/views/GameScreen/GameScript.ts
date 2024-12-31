@@ -41,9 +41,11 @@ const gameComponent: any = {
       this.qntGames += 25
       gameService.listGames(this.qntGames).then(
         it => {
-          this.games = it
-          if (it.length == 0){
-            this.loading = 'Nothing to Render'
+          if (it) {
+            this.games = it
+            if (it.length == 0){
+              this.loading = 'Nothing to Render'
+            }     
           }
         }
       ).catch((error) => {
@@ -207,7 +209,9 @@ const gameComponent: any = {
 
     gameService.getGameSize().then(
       it => {
-        this.gameSize = it;
+        if (it) {
+          this.gameSize = it;     
+        }
       }
     )
 

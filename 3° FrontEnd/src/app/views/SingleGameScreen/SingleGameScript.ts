@@ -21,6 +21,7 @@ import { colorEnum } from "../../shared/enums/colorEnum";
 import { REGISTRY_INITIAL_STATE } from "../../shared/solid/nullObject/_registry";
 import { sexualityImg } from "../../shared/enums/sexualityImg";
 import LoaderComponent from "./../../components/features/Loader/LoaderComponent.vue";
+import { fullUrl } from "@utils/general.util";
 
 library.add(faStar);
 
@@ -39,7 +40,7 @@ const singleGameComponent: any = {
   },
   data() {
     return {
-      img_Game: `${import.meta.env.VITE_HTTP}/assets/images/fundo.png`,
+      img_Game: `${fullUrl}/assets/images/fundo.png`,
       registry: REGISTRY_INITIAL_STATE,
       tag: TAG_INITIAL_STATE,
       foundGames: [],
@@ -134,8 +135,11 @@ const singleGameComponent: any = {
         this.cssUpdateBtnEffect = true
         registryService.update(updateRegistry).then(
           it => {
-            this.registry = it
-            this.cssUpdateBtnEffect = false;
+            if (it) {
+              this.registry = it
+              this.cssUpdateBtnEffect = false;   
+            }
+            
           }
         ).catch( (e) => {
           this.cssUpdateBtnEffect = false;
@@ -146,7 +150,10 @@ const singleGameComponent: any = {
           const insertRegistry = new Registry(this.auth, this.registry.game, this.tag);
           registryService.insert(insertRegistry).then(
             it => {
-              this.registry = it
+              if (it) {
+                this.registry = it 
+              }
+              
             }
           )
         }
@@ -160,10 +167,12 @@ const singleGameComponent: any = {
       this.registry.id = 0
       gameService.getGame(id).then(
         it => {
-          this.graphicUse(it)
-          this.registry.game = it
-          this.star = !it.favorite
-          this.selectedImg = it.imgs[0].value
+          if (it) {
+            this.graphicUse(it)
+            this.registry.game = it
+            this.star = it.favorite
+            this.selectedImg = it.imgs[0].value 
+          }
         }
       )
     },
@@ -174,10 +183,12 @@ const singleGameComponent: any = {
       if (this.auth.id != 0) {
         registryService.getRegistryByUserGame_ID(this.auth.id, id).then(
           it => {
-            this.graphicUse(it.game)
-            this.registry = it
-            this.star = !it.favorite
-            this.selectedImg = it.game.imgs[0].value            
+            if (it) {
+              this.graphicUse(it.game)
+              this.registry = it
+              this.star = it.favorite
+              this.selectedImg = it.game.imgs[0].value            
+            }
           }
         ).catch(_ => {
           this.setGameMethod(id)
@@ -189,13 +200,15 @@ const singleGameComponent: any = {
     },
     // --------------------------------------------------------------------------------------------------------------
     graphicUse(data: any){
-      const lista = { PLAY: 'playing', COMPLETE: 'completed', HOLD: 'onHold', DROP: 'dropped', PLAN: 'planning', REPLAY: 'replayed' }
-      let i = 0
-      for (const property in registryEnum) {
-        this.graphicData[i].value = data[lista[property]]/100
-        this.graphicData = [...this.graphicData]
-        i++
-      }
+      try {
+        const lista = { PLAY: 'playing', COMPLETE: 'completed', HOLD: 'onHold', DROP: 'dropped', PLAN: 'planning', REPLAY: 'replayed' }
+        let i = 0
+        for (const property in registryEnum) {
+          this.graphicData[i].value = data[lista[property]]/100
+          this.graphicData = [...this.graphicData]
+          i++
+        } 
+      } catch (error) {}
     },
     hoursMinutes() {
       const hours_minutes_total = Math.round(this.registry.game.playtime * 60)
@@ -210,9 +223,10 @@ const singleGameComponent: any = {
         this.cssCommentBtnEffect = true
         commentService.insert(comment).then(
           it => {
-            this.cssCommentBtnEffect = false
-            this.userComment.unshift(it);
-
+            if (it) {
+              this.cssCommentBtnEffect = false
+              this.userComment.unshift(it);   
+            }
           }
         ).catch((e: any) => {
           console.log(e)
@@ -230,7 +244,10 @@ const singleGameComponent: any = {
       const getComment = { id: this.$route.params.id, qnt: this.qntComment}
       commentService.getCommentByGameID(getComment).then(
         it => {
-          this.userComment = it
+          if (it) {
+            this.userComment = it     
+          }
+          
         }
       )
       .catch((_) => {})
@@ -260,14 +277,19 @@ const singleGameComponent: any = {
 
     gameService.getMostRecommended().then(
       it => {
-        this.recomendations = it
+        if (it) {
+          this.recomendations = it            
+        }
+        
       }
     )
     .catch((_) => {}) 
     
     commentService.getCommentSize(this.$route.params.id).then(
       it => {
-        this.commentSize = it;
+        if (it) {
+          this.commentSize = it;
+        }
       }
     )
   },

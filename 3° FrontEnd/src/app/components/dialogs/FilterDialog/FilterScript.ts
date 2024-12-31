@@ -54,11 +54,14 @@ const filterComponent: any = {
     }
   },
   beforeMount() {
-    const { data } = useQuery('releases', async () => {
+    const result = useQuery('releases', async () => {
       return await gameService.getFilterData()
     }) 
 
-    this.data = data;
+    if (result) {
+      const { data } = result
+      this.data = data; 
+    }
   },
 };
 

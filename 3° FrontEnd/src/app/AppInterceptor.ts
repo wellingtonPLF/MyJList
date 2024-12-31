@@ -33,27 +33,29 @@ export const registerResponseInterceptor = () => {
     return response;
   }, 
   async (err) => {
-    const error: ErrorResult<string> = err.response.data
-    if(error.status == 401 && error.type === "EXPIRED_AT") {
-      return authService.refreshToken().then(
-        () => {
-          return api.request(err.config);
-        }
-      ).catch((msg: any) => {
-        if (msg.type != undefined){
-          return authService.logOut().then(
-            () => {
-              return api.request(err.config);
-            }
-          ).catch((e) => {
-            return Promise.reject(e.response.data);
-          });
-        }
+    try {
+      const error: ErrorResult<string> = err.response.data
+      if(error.status == 401 && error.type === "EXPIRED_AT") {
+        return authService.refreshToken().then(
+          () => {
+            return api.request(err.config);
+          }
+        ).catch((msg: any) => {
+          if (msg.type != undefined){
+            return authService.logOut().then(
+              () => {
+                return api.request(err.config);
+              }
+            ).catch((e) => {
+              return Promise.reject(e.response.data);
+            });
+          }
+          return Promise.reject(error);
+        });
+      }
+      else {
         return Promise.reject(error);
-      });
-    }
-    else {
-      return Promise.reject(error);
-    }
+      }
+    }catch(_) {}
   });
 }

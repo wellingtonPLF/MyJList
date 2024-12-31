@@ -13,6 +13,16 @@
 
     //If you having this with error that is not a error actually
     "noImplicitThis": false,
+    
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["src/app/shared/utils/*"],
+      "@enums/*": ["src/app/shared/enums/*"],
+      "@models/*": ["src/app/shared/models/*"],
+      "@services/*": ["src/app/shared/services/*"],
+      "@views/*": ["src/app/views/*"],
+      "@src/*": ["src/*"]
+    },
 
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,

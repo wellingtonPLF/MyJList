@@ -9,8 +9,8 @@ class NationalityService {
 
   async listAll() {
     try{
-      const { data } = await api.get(`${this.path}/`);
-      return data;
+      const result = await api.get(`${this.path}/`);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -19,8 +19,8 @@ class NationalityService {
 
   async getNatiolality(id: number) {
     try{
-      const { data } = await api.get(`${this.path}/${id}/`);
-      return data;
+      const result = await api.get(`${this.path}/${id}/`);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);

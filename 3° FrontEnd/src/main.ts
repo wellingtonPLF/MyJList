@@ -119,4 +119,3 @@ app.use(VueQueryPlugin);
 app.use(router);
 app.use(store);
 app.mount("#app");
-

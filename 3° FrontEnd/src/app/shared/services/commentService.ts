@@ -20,8 +20,8 @@ class CommentService {
 
   async getCommentSize(id: any) {
     try{
-      const { data } = await api.get(`${this.path}/getCommentSize/${id}/`);
-      return data;
+      const result = await api.get(`${this.path}/getCommentSize/${id}/`);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -30,8 +30,8 @@ class CommentService {
 
   async insert(comment: Comment) {
     try{
-      const { data } = await api.post(`${this.path}/`, Comment.simpleRefract(comment));
-      return data;
+      const result = await api.post(`${this.path}/`, Comment.simpleRefract(comment));
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -40,8 +40,8 @@ class CommentService {
 
   async update(comment: Comment) {
     try{
-      const { data } = await api.put(`${this.path}/`, comment);
-      return data;
+      const result = await api.put(`${this.path}/`, comment);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
@@ -50,8 +50,8 @@ class CommentService {
 
   async delete(id: number) {
     try{
-      const { data } = await api.delete(`${this.path}/${id}/`);
-      return data;
+      const result = await api.delete(`${this.path}/${id}/`);
+      return result?.data;
     }
     catch(error: any) {
       return Promise.reject(error);
