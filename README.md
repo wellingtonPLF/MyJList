@@ -69,7 +69,7 @@ Você pode visualizar o gerenciamento/progresso do projeto através da pasta _Ge
 - <b>Migrations</b> ⇝ Feed Database: `python manage.py seeds`
 - <b>Start BackEnd</b> ⇝ Inicie com: `python manage.py runserver 0.0.0.0:8000`
 - <b>FrontEnd</b> ⇝ Instale as dependências com: `yarn install`
-- <b>FrontEnd</b> ⇝ Inicie o servidor com: `yarn run server`
+- <b>FrontEnd</b> ⇝ Inicie o servidor com: `yarn run dev`
 
 Agora você pode acessar [`localhost:5173`](http://localhost:5173) do seu navegador.
 

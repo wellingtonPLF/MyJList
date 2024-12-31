@@ -4,6 +4,21 @@
     min-width: 320px;
     position: relative;
     background-color: #1a1a1a;
+
+    :deep(#moreResults){
+        height: 40px;
+        font-size: 13px;
+        margin: 30px auto;
+
+        > div:last-child {
+            width: 40px;
+            max-width: 40px;
+
+            > div {
+                max-width: 40px;
+            }
+        }
+    }
 }
 
 .loading {
