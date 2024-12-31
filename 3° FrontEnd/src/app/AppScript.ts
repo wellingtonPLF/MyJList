@@ -15,12 +15,12 @@ export default {
   beforeMount() {
     userService.getAuthenticatedUser().then(
       it => {
-        if (it) {
+        if (it != undefined) {
           this.setAuth(it);
         }
       }
     )
-    .catch((error) => {
+    .catch((_) => {
         // console.error(error);
     });
   },

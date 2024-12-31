@@ -1,4 +1,6 @@
+import { fullUrl } from "@utils/general.util";
+
 export const sexualityImg = {
-    "male": `./assets/images/monster.png`,
-    "female": `./assets/images/pink.png`,
+    "male": `${fullUrl}/assets/images/monster.png`,
+    "female": `${fullUrl}/assets/images/pink.png`,
 }

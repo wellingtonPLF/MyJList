@@ -40,8 +40,8 @@ class UserService {
 
   async getAuthenticatedUser() {
     try{
-      const { data } = await api.get(`${this.path}/getUser/`);
-      return data;
+      const result = await api.get(`${this.path}/getUser/`);
+      return result?.data; 
     }
     catch(error: any) {
       return Promise.reject(error);

@@ -16,7 +16,7 @@ const singleUserComponent: any = {
     setUser(id: number) {
       userService.getUser(id).then(
         it => {
-          if (it) {
+          if (it != undefined) {
             this.user = it;
           }
         }

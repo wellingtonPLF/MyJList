@@ -37,7 +37,7 @@ const aboutComponent: any = {
   mounted() {
     userService.listAll().then(
       it => {
-        if (it) {
+        if (it != undefined) {
           this.users = it.filter((u) => {
             return u.role.some((i) => i.roleName === "ROLE_ADMIN")
           })

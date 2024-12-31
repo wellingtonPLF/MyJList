@@ -135,7 +135,7 @@ const singleGameComponent: any = {
         this.cssUpdateBtnEffect = true
         registryService.update(updateRegistry).then(
           it => {
-            if (it) {
+            if (it != undefined) {
               this.registry = it
               this.cssUpdateBtnEffect = false;   
             }
@@ -150,7 +150,7 @@ const singleGameComponent: any = {
           const insertRegistry = new Registry(this.auth, this.registry.game, this.tag);
           registryService.insert(insertRegistry).then(
             it => {
-              if (it) {
+              if (it != undefined) {
                 this.registry = it 
               }
               
@@ -167,7 +167,7 @@ const singleGameComponent: any = {
       this.registry.id = 0
       gameService.getGame(id).then(
         it => {
-          if (it) {
+          if (it != undefined) {
             this.graphicUse(it)
             this.registry.game = it
             this.star = it.favorite
@@ -183,7 +183,7 @@ const singleGameComponent: any = {
       if (this.auth.id != 0) {
         registryService.getRegistryByUserGame_ID(this.auth.id, id).then(
           it => {
-            if (it) {
+            if (it != undefined) {
               this.graphicUse(it.game)
               this.registry = it
               this.star = it.favorite
@@ -223,7 +223,7 @@ const singleGameComponent: any = {
         this.cssCommentBtnEffect = true
         commentService.insert(comment).then(
           it => {
-            if (it) {
+            if (it != undefined) {
               this.cssCommentBtnEffect = false
               this.userComment.unshift(it);   
             }
@@ -244,7 +244,7 @@ const singleGameComponent: any = {
       const getComment = { id: this.$route.params.id, qnt: this.qntComment}
       commentService.getCommentByGameID(getComment).then(
         it => {
-          if (it) {
+          if (it != undefined) {
             this.userComment = it     
           }
           
@@ -277,7 +277,7 @@ const singleGameComponent: any = {
 
     gameService.getMostRecommended().then(
       it => {
-        if (it) {
+        if (it != undefined) {
           this.recomendations = it            
         }
         
@@ -287,7 +287,7 @@ const singleGameComponent: any = {
     
     commentService.getCommentSize(this.$route.params.id).then(
       it => {
-        if (it) {
+        if (it != undefined) {
           this.commentSize = it;
         }
       }

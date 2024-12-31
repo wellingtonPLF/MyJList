@@ -51,7 +51,7 @@ CORS_ALLOW_METHODS = [
     'DELETE',
 ]
 
-CORS_ALLOW_HEADERS = ['x-csrf-token', 'Content-Type']
+CORS_ALLOW_HEADERS = ['x-csrf-token', 'Content-Type', 'ngrok-skip-browser-warning']
 
 CSRF_COOKIE_DOMAIN = None
 CSRF_COOKIE_SECURE = False # Only transmitted over secure (HTTPS) = True or False

@@ -47,17 +47,20 @@ class UserViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['GET'], url_path='getUser')
     def getAuthenticatedUser(self, request):
-        get_token(request)
-        accessToken = self.cookieUtil.getCookieValue(request, self.accessTokenName)
-        jwt = self.tokenService.findByToken(accessToken)
-        authID = self.jwtUtil.extractSubject(jwt.key, TokenEnum.TOKEN_NAME.value)
-        authDB = self.authService.findById(int(authID))
-        try:
-            userDB = User.objects.get(auth_id=authDB["id"])
-        except User.DoesNotExist:
-            return Response("User sign in Token doesn't exist", status=status.HTTP_404_NOT_FOUND)
-        serializer = self.get_serializer(userDB)
-        return Response(serializer.data)
+        try:        
+            get_token(request)
+            accessToken = self.cookieUtil.getCookieValue(request, self.accessTokenName)
+            jwt = self.tokenService.findByToken(accessToken)
+            authID = self.jwtUtil.extractSubject(jwt.key, TokenEnum.TOKEN_NAME.value)
+            authDB = self.authService.findById(int(authID))
+            try:
+                userDB = User.objects.get(auth_id=authDB["id"])
+            except User.DoesNotExist:
+                return Response("User sign in Token doesn't exist", status=status.HTTP_404_NOT_FOUND)
+            serializer = self.get_serializer(userDB)
+            return Response(serializer.data)
+        except:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
     def get_user(self, id):
         try:

@@ -47,7 +47,7 @@ const gameListComponent: any = {
   mounted() {
     tagService.listAll().then(
       it => {
-        if (it) {
+        if (it != undefined) {
           this.tags = it    
         }
       }
@@ -55,7 +55,7 @@ const gameListComponent: any = {
     const { data, refetch } = useQuery('registry', async () => {
       return registryService.getRegistryByUserID(this.$route.params.id).then(
         it => {
-          if (it) {
+          if (it != undefined) {
             it.map((registry: any) => {
               registry.tag = this.tags.filter((tag: any) => {
                 return tag.id == registry.tag.id

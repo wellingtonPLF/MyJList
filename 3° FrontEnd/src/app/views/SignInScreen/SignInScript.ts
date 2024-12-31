@@ -37,8 +37,10 @@ const signInComponent: any = {
         _ => {
           userService.getAuthenticatedUser().then(
             (it: any) => {
-              this.setAuth(it)
-              this.$router.push('/');
+              if (it != undefined) {
+                this.setAuth(it)
+                this.$router.push('/');
+              }
             }
           ).catch( (e) => {
             console.log(e)

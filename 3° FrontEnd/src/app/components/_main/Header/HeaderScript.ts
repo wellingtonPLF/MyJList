@@ -6,7 +6,8 @@ export default {
     name: 'HeaderComponent',
     data() {
         return {
-            limit: false
+            limit: false,
+            status: true
         }
     },
     computed: {
@@ -26,8 +27,9 @@ export default {
     mounted() {
         authService.limitSize().then(
             it => {
-                if (it) {
-                    this.limit = it
+                if (it != undefined) {
+                    this.status = false;
+                    this.limit = it;
                 }
             }
         )

@@ -60,13 +60,22 @@ Você pode visualizar o gerenciamento/progresso do projeto através da pasta _Ge
 
 - <b>Clone o repositório</b>
 - <b>PostgreSQL</b> ⇝ Create Database: `CREATE DATABASE my-j-list;`
+- <b>Configuracao .Env:</b>
+  - Crie um arquivo .env ao lado de manage.py;
+  - Insira dentro do arquivo:
+    - SECRET_KEY=my-super-secret-key
+    - USERNAME=
+    - PASSWORD=
 - <b>Em Backend Crie a pasta venv: </b> ⇝ Create venv com: `python -m virtualenv venv`
 - <b>BackEnd + Linux</b> ⇝ Entre na venv com: `source .venv/bin/activate`
 - <b>Adicione as dependencias:</b> 
-⇝ sudo apt-get update
-⇝ sudo apt-get install build-essential libpq-dev python3-dev
-⇝ python -m pip install -r requirements.txt
-- <b>Migrations</b> ⇝ Feed Database: `python manage.py seeds`
+  - ⇝ sudo apt-get update
+  - ⇝ sudo apt-get install build-essential libpq-dev python3-dev
+  - ⇝ python -m pip install -r requirements.txt
+- <b>Migrations</b> 
+  - ⇝ Create Architecture: `python manage.py makemigrations`
+  - ⇝ Applying to Database: `python manage.py migrate`
+  - ⇝ Feed Database: `python manage.py seeds`
 - <b>Start BackEnd</b> ⇝ Inicie com: `python manage.py runserver 0.0.0.0:8000`
 - <b>FrontEnd</b> ⇝ Instale as dependências com: `yarn install`
 - <b>FrontEnd</b> ⇝ Inicie o servidor com: `yarn run dev`

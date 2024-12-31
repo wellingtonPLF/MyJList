@@ -2,7 +2,7 @@ import { LocalStorageUtil } from '@utils/localStorage.util';
 import axios from 'axios';
 
 export let protocol = 'https://'
-let baseURL = "http://192.168.0.8:8000"
+let baseURL = "http://localhost:8000"
 const hostname = new LocalStorageUtil().getToken('backendHostname');
 
 const api = axios.create({

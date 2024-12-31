@@ -9,11 +9,12 @@
             </div>
             <!-- --------------------------------------------------------------- -->
             <div v-if="userLogin.id == 0">
-                <router-link to="/access" style="color: white;">
+                <router-link :to="`${status == true ? '/access': '/'}`" style="color: white;">
                     <font-awesome-icon :icon="['fas', 'users']" />
                 </router-link>
             </div>
             <router-link v-else id="userLogin" to="/profile">{{userLogin.nickname}}</router-link>
+
             <!-- --------------------------------------------------------------- -->
             <router-link v-if="userLogin.id == 0" :to="`${(limit)? '/limit': '/signUp'}`">SIGN UP</router-link>
             <div v-else to="/" id="notification">
