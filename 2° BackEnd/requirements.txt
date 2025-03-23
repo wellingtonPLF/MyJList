@@ -8,3 +8,7 @@ psycopg2
 python-decouple
 django-extensions
 schedule
+
+celery
+redis
+requests

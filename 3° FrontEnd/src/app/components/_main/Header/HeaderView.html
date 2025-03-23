@@ -18,7 +18,7 @@
             <!-- --------------------------------------------------------------- -->
             <router-link v-if="userLogin.id == 0" :to="`${(limit)? '/limit': '/signUp'}`">SIGN UP</router-link>
             <div v-else to="/" id="notification">
-                <font-awesome-icon :icon="['far', 'bell']" />
+                <font-awesome-icon @click="activateNotification()" :icon="['far', 'bell']" />
             </div>
 
         </div>

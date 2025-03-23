@@ -14,13 +14,6 @@ const supportComponent: any = {
       ]
     }
   },
-  methods: {
-    myFunction(value: number) {
-      
-    }
-  },
-  beforeMount() {
-  }
 };
 
 export default supportComponent;

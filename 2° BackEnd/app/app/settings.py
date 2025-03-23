@@ -149,6 +149,17 @@ DATABASES = {
     }
 }
 
+# Example ENV
+# ZAP_NUMBER=+55 83900001111
+# REDIS_URL=localhost
+# REDIS_PORT=6379
+# ZAP_INSTANCE=nome_da_instancia
+# ZAP_TEST=test
+# ZAP_URL=localhost:8080
+# ZAP_SECURE=http
+# ZAP_API_KEY=chave_da_api
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

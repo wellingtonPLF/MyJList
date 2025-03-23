@@ -22,6 +22,9 @@ export default {
             authService.logOut().then(
                 _ => {}
             )
+        },
+        activateNotification() {
+            // console.log("Activate Notification")
         }
     },
     mounted() {

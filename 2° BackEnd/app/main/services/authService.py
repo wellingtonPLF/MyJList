@@ -21,8 +21,8 @@ class AuthService():
     def get_auth(self, id):
         try:
             return Auth.objects.get(id = id)
-        except Auth.DoesNotExist:
-            return Response(JwtEnum.INVALID_USER.value, status=status.HTTP_404_NOT_FOUND)
+        except Auth.DoesNotExist as error:
+            raise error
 
     def findAll(self):
         users = self.get_queryset()
