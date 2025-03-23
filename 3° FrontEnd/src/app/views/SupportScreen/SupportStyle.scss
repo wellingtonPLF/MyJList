@@ -1,0 +1,191 @@
+$color: #99008A;
+
+#supportView {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    background-image: linear-gradient(0deg, rgba(20, 20, 27, 0.856) 70%, transparent),
+    url('https://cdn2.unrealengine.com/ka-feral01-final4k-3840x2160-16081cebc9a4.png');    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    align-items: center;
+
+    .backPage {
+        top: 0;
+        left: 0;
+    }
+
+    > :nth-child(2) {
+        width: 50vw;
+        display: flex;
+        justify-content: flex-end;
+
+        #contact {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            
+
+            > div {
+                margin: 15px;
+            }
+    
+            > :first-child {
+                text-align: center;
+                padding-bottom: 50px;
+            }
+    
+            > :nth-child(2) {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                cursor: default;
+    
+                > *:not(:first-child) {
+                    color: rgb(141, 127, 143);
+                    cursor: not-allowed;
+                }
+    
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    min-height: 100px;
+                    padding: 0px 0px 10px 0px;
+                    border-bottom: 1px solid white;
+                    box-sizing: border-box;
+                    width: 150px;
+                    margin-bottom: 20px;
+    
+                    svg {
+                        font-size: 35px;
+                    }
+                    
+                    > div {
+                        text-align: center;
+                    }
+                }
+            }
+    
+            > :last-child {
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+    
+                > * {
+                    margin: 10px 0px;
+                    font-weight: 600;
+                }
+    
+                > :nth-child(2) {
+                    background-color: $color;
+                    border-radius: 0.25rem;
+                    padding: 12px 50px;
+                    border: 2px solid transparent;
+                    cursor: pointer;
+                }
+
+                > :nth-child(2):hover {
+                    background-color: unset;
+                    border: 2px solid white;
+                    box-sizing: border-box;
+                }
+    
+                > :last-child a{
+                    color: $color;
+                    cursor: pointer;
+                }
+
+                > :last-child a:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    > :nth-child(3) {
+        display: flex;
+        justify-content: center;
+        margin: 20px 100px;
+        width: 50vw;
+        height: 500px;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            height: 100%;        
+            width: 600px;
+            
+            label {
+                font-size: 18px;
+            }
+
+            .field {
+                color: white;
+                border-radius: 0.25rem;
+                background-color: transparent;
+                border: 2px solid white;
+                margin: 10px 0px 20px 0px;
+                padding: 10px 10px;
+                font-size: 17px;
+                background-color: rgba(45, 37, 48, 0.829);   
+            }
+
+            .field:focus {
+                outline: unset;
+            }
+
+            input {
+                height: 70px;
+            }
+
+            textarea {
+                resize: none;
+                height: 100%
+            }
+
+            .submit {
+                background-color: $color;
+                border-radius: 0.25rem;
+                padding: 12px 40px;
+                width: fit-content;
+                color: white;
+                margin-left: auto;
+                border: 2px solid transparent;
+                font-weight: 600;
+                cursor: not-allowed;
+            }
+
+            .submit:hover {
+                background-color: unset;
+                border: 2px solid white;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1295px) {
+    #supportView {
+        flex-direction: column;
+
+        > :nth-child(2) {
+            margin-top: 10vh;
+            width: 80%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        > :nth-child(3) {
+            width: 100%;
+
+            form {
+                width: 90%;
+            }
+        }
+    }
+}

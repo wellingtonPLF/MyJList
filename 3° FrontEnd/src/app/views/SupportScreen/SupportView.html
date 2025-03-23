@@ -1,0 +1,32 @@
+<div id="supportView">
+    <div class="backPage">
+        <GoBackComponent />
+    </div>
+    <div>
+        <div id="contact">
+            <h2>How would you like to get in touch?</h2>
+            <div>
+                <div v-for="option in options" :style="option.border && 'border-bottom: 3px solid #99008A'">
+                    <font-awesome-icon :icon="[`${option.icon.type}`, `${option.icon.value}`]" />
+                    <div>{{option.description}}</div>
+                </div>
+            </div>
+            <div>
+                <div>Log in to contact us with this method.</div>
+                <router-link style="color: white;" to="/signIn">Log In</router-link>
+                <div>
+                    <router-link to="/signUp">Can't log in?</router-link>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <form>
+            <label>Subject</label>
+            <input class="field" />
+            <label>Description</label>
+            <textarea class="field"></textarea>
+            <div class="submit">submit</div>
+        </form>
+    </div>
+</div>

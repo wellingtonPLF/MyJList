@@ -37,8 +37,11 @@ import {
   faDoorOpen,
   faBan,
   faUserGroup,
+  faQuestion,
   faSquareCheck,
-  faSearch
+  faSearch,
+  faTextSlash,
+  faCommentSlash
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faYoutube,
@@ -51,14 +54,18 @@ import {
   faTwitch,
   faYoutubeSquare
 } from "@fortawesome/free-brands-svg-icons";
-import { faStar, faBell } from "@fortawesome/free-regular-svg-icons";
+import { faStar, faBell, faComments, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 
 const app = createApp(App);
 
 library.add(
+  faEnvelope,
+  faQuestion,
   faGamepad,
   faEye,
+  faTextSlash,
+  faCommentSlash,
   faEyeSlash,
   faChevronUp,
   faSearch,
@@ -85,11 +92,13 @@ library.add(
   faXmark,
   faBroom,
   faBell,
+  faComments,
   faArrowsRotate,
   faPowerOff,
   faDoorOpen,
   faBan
 );
+
 library.add(
   faYoutube,
   faTwitter,
